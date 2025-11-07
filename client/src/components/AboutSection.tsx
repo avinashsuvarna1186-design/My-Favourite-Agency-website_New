@@ -3,6 +3,7 @@ import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { Target, Compass } from "lucide-react";
 import avinashPhoto from "@assets/Gemini_Generated_Image_hmkgtuhmkgtuhmkg_1762517890408.png";
 import prattyushPhoto from "@assets/Gemini_Generated_Image_txklxktxklxktxkl_1762517928496.png";
+import sajjadPhoto from "@assets/Gemini_Generated_Image_veag3aveag3aveag_1762518004845.png";
 
 export default function AboutSection() {
   const team = [
@@ -22,7 +23,7 @@ export default function AboutSection() {
       name: "Sajjad Jafri",
       role: "Website Designer Visualizer",
       tagline: "Builds sexy websites fast.",
-      image: undefined,
+      image: sajjadPhoto,
     },
     {
       name: "Juie Merchant",
