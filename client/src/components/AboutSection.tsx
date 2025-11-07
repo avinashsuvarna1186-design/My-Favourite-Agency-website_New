@@ -2,6 +2,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { Target, Compass } from "lucide-react";
 import avinashPhoto from "@assets/Gemini_Generated_Image_hmkgtuhmkgtuhmkg_1762517890408.png";
+import prattyushPhoto from "@assets/Gemini_Generated_Image_txklxktxklxktxkl_1762517928496.png";
 
 export default function AboutSection() {
   const team = [
@@ -9,7 +10,7 @@ export default function AboutSection() {
       name: "Prattyush Nag",
       role: "Founder & Brand Architect",
       tagline: "Gives your brand a soul (and swagger).",
-      image: undefined,
+      image: prattyushPhoto,
     },
     {
       name: "Avinash Suvarna",
