@@ -1,5 +1,7 @@
 import { Card, CardContent } from "@/components/ui/card";
+import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { Target, Compass } from "lucide-react";
+import avinashPhoto from "@assets/Gemini_Generated_Image_hmkgtuhmkgtuhmkg_1762517890408.png";
 
 export default function AboutSection() {
   const team = [
@@ -7,21 +9,25 @@ export default function AboutSection() {
       name: "Prattyush Nag",
       role: "Founder & Brand Architect",
       tagline: "Gives your brand a soul (and swagger).",
+      image: undefined,
     },
     {
       name: "Avinash Suvarna",
       role: "Founder & Design Architect",
       tagline: "Makes the magic happen.",
+      image: avinashPhoto,
     },
     {
       name: "Sajjad Jafri",
       role: "Website Designer Visualizer",
       tagline: "Builds sexy websites fast.",
+      image: undefined,
     },
     {
       name: "Juie Merchant",
       role: "Content & Copy Lead",
       tagline: "Voice behind the brand.",
+      image: undefined,
     },
   ];
 
@@ -86,9 +92,12 @@ export default function AboutSection() {
             {team.map((member, index) => (
               <Card key={index} className="hover-elevate active-elevate-2" data-testid={`card-team-${index}`}>
                 <CardContent className="p-6 text-center">
-                  <div className="w-20 h-20 rounded-full bg-primary/10 mx-auto mb-4 flex items-center justify-center">
-                    <span className="text-2xl font-bold text-primary">{member.name.charAt(0)}</span>
-                  </div>
+                  <Avatar className="w-20 h-20 mx-auto mb-4">
+                    {member.image && <AvatarImage src={member.image} alt={member.name} />}
+                    <AvatarFallback className="bg-primary/10 text-2xl font-bold text-primary">
+                      {member.name.charAt(0)}
+                    </AvatarFallback>
+                  </Avatar>
                   <h4 className="text-lg font-bold mb-1 text-foreground">{member.name}</h4>
                   <p className="text-sm text-muted-foreground mb-2">{member.role}</p>
                   <p className="text-xs text-muted-foreground italic">"{member.tagline}"</p>
