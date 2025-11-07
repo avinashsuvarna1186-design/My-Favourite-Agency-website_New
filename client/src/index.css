@@ -506,6 +506,7 @@
     stroke-dasharray: 2000;
     stroke-dashoffset: 2000;
     animation: neon-draw 4s ease-in-out forwards, neon-pulse 3s ease-in-out 4s infinite;
+    filter: blur(2px);
   }
 
   .neon-line-2 {
@@ -515,6 +516,7 @@
   .neon-circle-1, .neon-circle-2, .neon-circle-3 {
     animation: neon-pulse 2s ease-in-out infinite, flicker-neon 8s infinite;
     transform-origin: center;
+    filter: blur(3px);
   }
 
   .neon-circle-2 {
@@ -528,6 +530,7 @@
   .neon-diamond-1, .neon-diamond-2 {
     animation: neon-rotate 20s linear infinite, neon-pulse 3s ease-in-out infinite;
     transform-origin: center;
+    filter: blur(2px);
   }
 
   .neon-diamond-2 {
@@ -536,6 +539,7 @@
 
   .neon-particle {
     animation: particle-float 6s ease-in-out infinite;
+    filter: blur(1.5px);
   }
 
   .neon-particle-0 { animation-delay: 0s; }
