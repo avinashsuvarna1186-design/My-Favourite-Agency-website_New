@@ -557,4 +557,20 @@
   .neon-particle-12 { animation-delay: 4.8s; }
   .neon-particle-13 { animation-delay: 5.2s; }
   .neon-particle-14 { animation-delay: 5.6s; }
+
+  /* Star twinkling animation */
+  @keyframes twinkle {
+    0%, 100% { 
+      opacity: 0.2;
+      transform: scale(1);
+    }
+    50% { 
+      opacity: 1;
+      transform: scale(1.5);
+    }
+  }
+
+  .animate-twinkle {
+    animation: twinkle 3s ease-in-out infinite;
+  }
 }
