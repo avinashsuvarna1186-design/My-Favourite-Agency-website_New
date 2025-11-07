@@ -4,6 +4,9 @@ import { useEffect, useState } from "react";
 export default function HeroSection() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isLoaded, setIsLoaded] = useState(false);
+  const [typedText, setTypedText] = useState("");
+  
+  const fullText = "We are MFA — strategy-first, design-obsessed and anti-mediocrity.";
 
   useEffect(() => {
     setIsLoaded(true);
@@ -18,6 +21,24 @@ export default function HeroSection() {
     window.addEventListener("mousemove", handleMouseMove);
     return () => window.removeEventListener("mousemove", handleMouseMove);
   }, []);
+
+  useEffect(() => {
+    if (!isLoaded) return;
+    
+    let currentIndex = 0;
+    const typingSpeed = 50;
+
+    const typeWriter = setInterval(() => {
+      if (currentIndex <= fullText.length) {
+        setTypedText(fullText.slice(0, currentIndex));
+        currentIndex++;
+      } else {
+        clearInterval(typeWriter);
+      }
+    }, typingSpeed);
+
+    return () => clearInterval(typeWriter);
+  }, [isLoaded]);
 
   const scrollToAbout = () => {
     const element = document.getElementById("about");
@@ -107,10 +128,20 @@ export default function HeroSection() {
         </h1>
         
         <p 
-          className="text-xl md:text-3xl text-foreground/90 font-medium drop-shadow-lg mb-12 max-w-4xl mx-auto whitespace-nowrap"
+          className="text-xl md:text-3xl text-foreground/90 font-medium drop-shadow-lg mb-12 max-w-4xl mx-auto whitespace-nowrap min-h-[3rem]"
           data-testid="text-hero-subtext"
         >
-          We are MFA — strategy-first, design-obsessed and <span className="text-primary font-bold">anti-mediocrity</span>.
+          {typedText.split("anti-mediocrity").map((part, i) => (
+            i === 0 ? part : (
+              <>
+                <span className="text-primary font-bold">anti-mediocrity</span>
+                {part}
+              </>
+            )
+          ))}
+          {typedText.length < fullText.length && (
+            <span className="animate-cursor-blink">|</span>
+          )}
         </p>
 
         <div className="flex flex-wrap gap-4 justify-center">
