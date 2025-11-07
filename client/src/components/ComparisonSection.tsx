@@ -10,8 +10,9 @@ export default function ComparisonSection() {
   ];
 
   return (
-    <section className="py-24 px-4 bg-card" data-testid="section-comparison">
-      <div className="max-w-5xl mx-auto">
+    <section className="py-24 px-4 relative" data-testid="section-comparison">
+      <div className="absolute inset-0 bg-card/30 backdrop-blur-sm" />
+      <div className="max-w-5xl mx-auto relative z-10">
         <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center text-foreground">
           Why we're different
         </h2>

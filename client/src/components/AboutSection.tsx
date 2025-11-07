@@ -26,8 +26,8 @@ export default function AboutSection() {
   ];
 
   return (
-    <section id="about" className="py-24 px-4" data-testid="section-about">
-      <div className="max-w-6xl mx-auto">
+    <section id="about" className="py-24 px-4 relative" data-testid="section-about">
+      <div className="max-w-6xl mx-auto relative z-10">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground" data-testid="text-about-heading">
             Who TF are we?

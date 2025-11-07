@@ -13,8 +13,9 @@ export default function WorkSection() {
   ];
 
   return (
-    <section id="work" className="py-24 px-4 bg-card" data-testid="section-work">
-      <div className="max-w-6xl mx-auto">
+    <section id="work" className="py-24 px-4 relative" data-testid="section-work">
+      <div className="absolute inset-0 bg-card/30 backdrop-blur-sm" />
+      <div className="max-w-6xl mx-auto relative z-10">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">
             Real brands. Real problems. Real results.
