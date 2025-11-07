@@ -89,7 +89,7 @@ export default function HeroSection() {
       >
         <div className="mb-8 inline-block glass px-6 py-3 rounded-full">
           <span className="text-primary text-sm font-semibold tracking-widest uppercase animate-pulse-slow">
-            Welcome to MFA
+            Welcome to My Favourite Agency
           </span>
         </div>
         
