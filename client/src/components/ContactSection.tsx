@@ -1,0 +1,154 @@
+import { useState } from "react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Mail, Phone, MessageCircle, Instagram, Linkedin } from "lucide-react";
+import { SiDribbble } from "react-icons/si";
+
+export default function ContactSection() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const subject = `Message from ${formData.name}`;
+    const body = `Name: ${formData.name}%0D%0AEmail: ${formData.email}%0D%0A%0D%0AMessage:%0D%0A${formData.message}`;
+    window.location.href = `mailto:hello@myfavourite.agency?subject=${subject}&body=${body}`;
+  };
+
+  const handleWhatsApp = () => {
+    window.open(
+      "https://wa.me/911234567890?text=Hi%20MFA%20—%20I'd%20like%20to%20talk%20about%20a%20project",
+      "_blank"
+    );
+  };
+
+  return (
+    <section id="contact" className="py-24 px-4" data-testid="section-contact">
+      <div className="max-w-6xl mx-auto">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">Let's talk fonts, feelings and ideas.</h2>
+          <p className="text-lg text-muted-foreground">Let's make your brand sabse favourite.</p>
+        </div>
+
+        <div className="grid md:grid-cols-2 gap-8">
+          <Card>
+            <CardContent className="p-8">
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div>
+                  <Input
+                    placeholder="Your Name"
+                    value={formData.name}
+                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                    required
+                    data-testid="input-name"
+                  />
+                </div>
+                <div>
+                  <Input
+                    type="email"
+                    placeholder="Your Email"
+                    value={formData.email}
+                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                    required
+                    data-testid="input-email"
+                  />
+                </div>
+                <div>
+                  <Textarea
+                    placeholder="Your Message"
+                    rows={5}
+                    value={formData.message}
+                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                    required
+                    data-testid="input-message"
+                  />
+                </div>
+                <div className="flex gap-3">
+                  <Button type="submit" className="flex-1" data-testid="button-send-email">
+                    <Mail className="w-4 h-4 mr-2" />
+                    Send Email
+                  </Button>
+                  <Button
+                    type="button"
+                    variant="outline"
+                    className="flex-1"
+                    onClick={handleWhatsApp}
+                    data-testid="button-whatsapp-contact"
+                  >
+                    <MessageCircle className="w-4 h-4 mr-2" />
+                    WhatsApp
+                  </Button>
+                </div>
+              </form>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardContent className="p-8">
+              <h3 className="text-2xl font-bold mb-6 text-foreground">Contact Info</h3>
+              <div className="space-y-6">
+                <div className="flex items-start gap-3">
+                  <Mail className="w-5 h-5 text-primary mt-1" />
+                  <div>
+                    <p className="font-medium text-foreground">Email</p>
+                    <a
+                      href="mailto:hello@myfavourite.agency"
+                      className="text-muted-foreground hover:text-primary transition-colors"
+                      data-testid="link-email"
+                    >
+                      hello@myfavourite.agency
+                    </a>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <Phone className="w-5 h-5 text-primary mt-1" />
+                  <div>
+                    <p className="font-medium text-foreground">Phone</p>
+                    <a
+                      href="tel:+911234567890"
+                      className="text-muted-foreground hover:text-primary transition-colors"
+                      data-testid="link-phone"
+                    >
+                      +91 12345 67890
+                    </a>
+                  </div>
+                </div>
+                <div>
+                  <p className="font-medium text-foreground mb-3">Social</p>
+                  <div className="flex gap-4">
+                    <a
+                      href="#"
+                      className="w-10 h-10 rounded-md bg-primary/10 flex items-center justify-center hover-elevate active-elevate-2 transition-colors"
+                      data-testid="link-instagram"
+                    >
+                      <Instagram className="w-5 h-5 text-primary" />
+                    </a>
+                    <a
+                      href="#"
+                      className="w-10 h-10 rounded-md bg-primary/10 flex items-center justify-center hover-elevate active-elevate-2 transition-colors"
+                      data-testid="link-dribbble"
+                    >
+                      <SiDribbble className="w-5 h-5 text-primary" />
+                    </a>
+                    <a
+                      href="#"
+                      className="w-10 h-10 rounded-md bg-primary/10 flex items-center justify-center hover-elevate active-elevate-2 transition-colors"
+                      data-testid="link-linkedin"
+                    >
+                      <Linkedin className="w-5 h-5 text-primary" />
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      </div>
+    </section>
+  );
+}

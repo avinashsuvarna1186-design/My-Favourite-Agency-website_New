@@ -1,0 +1,63 @@
+import logoImage from "@assets/generated_images/MFA_agency_logo_design_d957b3b0.png";
+
+export default function Footer() {
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  return (
+    <footer className="py-12 px-4 border-t border-border" data-testid="footer-main">
+      <div className="max-w-6xl mx-auto">
+        <div className="flex flex-col md:flex-row justify-between items-center gap-8">
+          <div className="text-center md:text-left">
+            <div className="flex items-center gap-3 justify-center md:justify-start mb-3">
+              <img src={logoImage} alt="MFA Logo" className="h-10 w-10 object-contain" />
+              <span className="text-xl font-bold text-foreground">MFA</span>
+            </div>
+            <p className="text-sm text-muted-foreground max-w-md">
+              The people you call when the deadline's weird and the brief's weirder.
+            </p>
+          </div>
+
+          <div className="flex flex-wrap gap-6 justify-center">
+            <button
+              onClick={() => scrollToSection("work")}
+              className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+              data-testid="link-footer-work"
+            >
+              Work
+            </button>
+            <button
+              onClick={() => scrollToSection("services")}
+              className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+              data-testid="link-footer-services"
+            >
+              Services
+            </button>
+            <a
+              href="#"
+              className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+              data-testid="link-footer-privacy"
+            >
+              Privacy
+            </a>
+            <a
+              href="#"
+              className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+              data-testid="link-footer-terms"
+            >
+              Terms
+            </a>
+          </div>
+        </div>
+
+        <div className="mt-8 pt-8 border-t border-border text-center">
+          <p className="text-sm text-muted-foreground">© 2024 My Favourite Agency. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+  );
+}
