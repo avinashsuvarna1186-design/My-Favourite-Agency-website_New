@@ -1,0 +1,136 @@
+Build a complete, responsive, single-page website project for **My Favourite Agency (MFA)** — a creative branding and design agency — using **HTML, CSS, and JavaScript**.  
+The goal is to launch this instantly on Replit (static site).  
+
+### 🔧 Setup Requirements:
+- Create three files: `index.html`, `styles.css`, and `script.js`.
+- Use **clean, modern, dark UI** with warm **gold/orange accents (#ffb84d)** and **Inter font**.
+- Code must be **neat, commented, responsive, and Replit-ready**.
+- Folder: `/assets` for images, logo, and video.
+- Include smooth scroll, modal interactions, and consistent section padding.
+- Add SEO meta tags (title, description).
+
+---
+
+### 🧩 WEBSITE STRUCTURE & CONTENT:
+
+#### 🏠 HEADER
+- Sticky header with MFA logo (from `assets/logo.svg`) and nav links: Home, Work, Services, About, Contact, WhatsApp CTA.
+- WhatsApp CTA → `https://wa.me/911234567890`.
+
+#### 🎬 HERO SECTION
+- Background: full-width looping muted video (`assets/banner.mp4`).
+- Headline: **“Scroll down. Things are about to get good.”**
+- Subtext: **“We are MFA — strategy-first, design-obsessed and anti-mediocrity.”**
+- Scroll-down indicator linking to “About”.
+
+#### 👥 ABOUT SECTION
+- Heading: **“Who TF are we?”**
+- Subtext: “Most agencies wait for the brief. We BUILD the brief with you. Because a successful strategy is only half the magic — the other half is killer design that actually speaks.”
+- Two info cards: **Vision** + **Mission**  
+  - Vision: “To be the agency that feels less like a vendor and more like your in-house superpower.”  
+  - Mission: “To solve problems creatively and consistently — design + strategy that actually moves the needle.”
+- Brand Story paragraph:  
+  “We flipped the script. Somewhere between a career crisis and a caffeine high, My Favourite Agency was born — with rebellion in our blood and design at our core.”
+- Team Grid:
+  1. **Prattyush Nag** — Founder & Brand Architect — “Gives your brand a soul (and swagger).”
+  2. **Avinash Suvarna** — Founder & Design Architect — “Makes the magic happen.”
+  3. **Sajjad Jafri** — Website Designer Visualizer — “Builds sexy websites fast.”
+  4. **Juie Merchant** — Content & Copy Lead — “Voice behind the brand.”
+
+#### ⚔️ WHY WE’RE DIFFERENT
+Two columns comparing “The Old Way” vs “The MFA Way”:
+
+| The Old Way | The MFA Way |
+|--------------|-------------|
+| Designers only execute | Designers pitch, own & lead |
+| Briefs are vague | We co-build the brief |
+| Feedback is chaos | Feedback is sacred |
+| Copy & design separate | Copy + design, always paired |
+| No accountability | We own the outcome |
+
+#### 🧰 SERVICES SECTION — “Your Brand’s Glow-up Kit”
+- Subtitle: “Pick what you need or go full glow-up.”
+- 5 clickable service cards that open modals with details:
+  1. Brand & Visual Identity – “Look & vibe that makes competitors question their choices.”
+  2. Marketing & Communication – “Socials, pitch decks and presentations that pop.”
+  3. Packaging & Print – “Packaging so good people keep the box in their vault.”
+  4. Audio & Visual Production – “From reels to radio — we make brands look and sound great.”
+  5. Content & Copywriting – “Scroll-stopping, clever copy that actually says something.”
+- Each modal includes deliverables: *“Strategy brief, visuals, rollout templates, hand-off package.”*
+
+#### 💼 WORK SHOWCASE
+- Title: “Real brands. Real problems. Real results.”
+- Grid of 4 thumbnails (`assets/work1.jpg` … `work4.jpg`) each with title + type:
+  - Brand A – Packaging & Identity
+  - Brand B – Website & Launch
+  - Brand C – Campaign & Motion
+  - Brand D – Identity & Copy
+
+#### ⚙️ HOW WE WORK
+- Title: “How we work our magic.”
+- Three points:
+  1. Direct designer → client — “No middlemen. No lost messages. Real-time sketches, real talk.”
+  2. Feedback is sacred — “We marinate in feedback and use it to make work better (not slower).”
+  3. Transparent updates — “You’ll always know what’s cooking — sneak peeks, honest opinions and more chai.”
+
+#### 💬 TESTIMONIALS
+- Two quotes:
+  1. “MFA transformed our brand — strategic, creative and fast. They felt like our in-house team.” — *Client X*
+  2. “The design and copy were spot on. The team actually owned the outcome.” — *Client Y*
+
+#### 📞 CONTACT SECTION
+- Heading: “Let’s talk fonts, feelings and ideas.”
+- Subtext: “Let’s make your brand sabse favourite.”
+- Left: contact form (name, email, message) → `mailto:hello@myfavourite.agency`
+- Buttons:
+  - Primary: “Send Email”
+  - Secondary: WhatsApp → `https://wa.me/911234567890?text=Hi%20MFA%20—%20I’d%20like%20to%20talk%20about%20a%20project`
+- Right: Contact Info  
+  - Email: hello@myfavourite.agency  
+  - Phone: +91 12345 67890  
+  - Social: Instagram · Dribbble · LinkedIn
+
+#### 🦶 FOOTER
+- Left: MFA logo + tagline — “The people you call when the deadline’s weird and the brief’s weirder.”
+- Right: Footer links — Work · Services · Privacy · Terms
+
+---
+
+### ✨ STYLE GUIDE
+- Colors:
+  - Background: `#0f0f10`
+  - Text: `#e6eef7`
+  - Accent: `#ffb84d`
+  - Muted text: `#9aa0a6`
+- Typography: “Inter”, sans-serif (weights 400–800)
+- Layout: max-width 1100px container, generous whitespace
+- Rounded corners, glassy surfaces, smooth scroll
+- Buttons: rounded, accent-filled or outlined
+- Hover states: subtle scale or brightness increase
+- All sections separated with enough breathing space
+
+---
+
+### ⚡ FUNCTIONALITY
+- Smooth scrolling to sections
+- Modal popups for services
+- Close modals with click-outside or ESC key
+- Sticky header with background change on scroll (optional)
+- Responsive layout for mobile/tablet
+
+---
+
+### 📦 ASSETS (to be uploaded later)
+- `/assets/logo.svg` — agency logo  
+- `/assets/banner.mp4` — hero video (or `banner.jpg` fallback)  
+- `/assets/work1.jpg` … `/assets/work4.jpg` — showcase thumbnails
+
+---
+
+Finally, provide:
+1. **`index.html`** with semantic sections and minimal inline comments  
+2. **`styles.css`** with dark UI, accent colors, grid layouts, and responsive design  
+3. **`script.js`** handling smooth scroll and service modals  
+
+The entire project must be ready to **Run on Replit** instantly — no external build tools or dependencies.
+
