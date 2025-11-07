@@ -107,11 +107,10 @@ export default function HeroSection() {
         </h1>
         
         <p 
-          className="text-xl md:text-3xl text-foreground/90 font-medium drop-shadow-lg mb-12 max-w-3xl mx-auto"
+          className="text-xl md:text-3xl text-foreground/90 font-medium drop-shadow-lg mb-12 max-w-4xl mx-auto whitespace-nowrap"
           data-testid="text-hero-subtext"
         >
-          We are MFA — strategy-first, design-obsessed and{" "}
-          <span className="text-primary font-bold">anti-mediocrity</span>.
+          We are MFA — strategy-first, design-obsessed and <span className="text-primary font-bold">anti-mediocrity</span>.
         </p>
 
         <div className="flex flex-wrap gap-4 justify-center">
@@ -129,18 +128,6 @@ export default function HeroSection() {
           </a>
         </div>
       </div>
-
-      {/* Enhanced Scroll Indicator */}
-      <button
-        onClick={scrollToAbout}
-        className="absolute bottom-12 left-1/2 -translate-x-1/2 z-20 group"
-        data-testid="button-scroll-down"
-      >
-        <div className="glass rounded-full p-4 animate-bounce-slow hover-elevate active-elevate-2 transition-all group-hover:scale-110">
-          <ChevronDown className="w-8 h-8 text-primary animate-pulse-slow" />
-        </div>
-        <p className="text-sm text-foreground/70 mt-3 font-medium tracking-wide">Scroll to explore</p>
-      </button>
     </section>
   );
 }
