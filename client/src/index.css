@@ -18,13 +18,13 @@
 
   --foreground: 210 10% 92%;
 
-  --border: 240 4% 14%;
+  --border: 0 0% 100%;
 
-  --card: 240 4% 8%;
+  --card: 0 0% 100%;
 
   --card-foreground: 210 10% 92%;
 
-  --card-border: 240 4% 12%;
+  --card-border: 0 0% 100%;
 
   --sidebar: 240 4% 10%;
 
@@ -355,5 +355,13 @@
   .border.active-elevate-2:not(.no-active-interaction-elevate)::after,
   .border.hover-elevate:not(.no-hover-interaction-elevate)::after {
     inset: -1px;
+  }
+
+  /* Glassmorphism effect */
+  .glass {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
   }
 }
