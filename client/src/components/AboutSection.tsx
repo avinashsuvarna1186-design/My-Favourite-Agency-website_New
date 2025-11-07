@@ -4,6 +4,7 @@ import { Target, Compass } from "lucide-react";
 import avinashPhoto from "@assets/Gemini_Generated_Image_hmkgtuhmkgtuhmkg_1762517890408.png";
 import prattyushPhoto from "@assets/Gemini_Generated_Image_txklxktxklxktxkl_1762517928496.png";
 import sajjadPhoto from "@assets/Gemini_Generated_Image_veag3aveag3aveag_1762518004845.png";
+import juiePhoto from "@assets/Gemini_Generated_Image_Juiee_1762518049953.png";
 
 export default function AboutSection() {
   const team = [
@@ -29,7 +30,7 @@ export default function AboutSection() {
       name: "Juie Merchant",
       role: "Content & Copy Lead",
       tagline: "Voice behind the brand.",
-      image: undefined,
+      image: juiePhoto,
     },
   ];
 
