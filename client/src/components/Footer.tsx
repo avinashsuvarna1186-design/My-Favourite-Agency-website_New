@@ -1,4 +1,4 @@
-import logoImage from "@assets/generated_images/MFA_agency_logo_design_d957b3b0.png";
+import logoImage from "@assets/My Favourite Agency Final logo-01_1762515488908.png";
 
 export default function Footer() {
   const scrollToSection = (sectionId: string) => {
@@ -13,9 +13,8 @@ export default function Footer() {
       <div className="max-w-6xl mx-auto">
         <div className="flex flex-col md:flex-row justify-between items-center gap-8">
           <div className="text-center md:text-left">
-            <div className="flex items-center gap-3 justify-center md:justify-start mb-3">
-              <img src={logoImage} alt="MFA Logo" className="h-10 w-10 object-contain" />
-              <span className="text-xl font-bold text-foreground">MFA</span>
+            <div className="flex items-center justify-center md:justify-start mb-3">
+              <img src={logoImage} alt="My Favourite Agency Logo" className="h-12 object-contain" />
             </div>
             <p className="text-sm text-muted-foreground max-w-md">
               The people you call when the deadline's weird and the brief's weirder.

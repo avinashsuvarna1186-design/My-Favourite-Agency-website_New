@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { MessageCircle, Menu, X } from "lucide-react";
-import logoImage from "@assets/generated_images/MFA_agency_logo_design_d957b3b0.png";
+import logoImage from "@assets/My Favourite Agency Final logo-01_1762515488908.png";
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -42,11 +42,10 @@ export default function Header() {
         <div className="flex items-center justify-between h-20">
           <button
             onClick={() => scrollToSection("hero")}
-            className="flex items-center gap-3 hover-elevate active-elevate-2 rounded-md px-2 py-1 -ml-2"
+            className="flex items-center hover-elevate active-elevate-2 rounded-md px-2 py-1 -ml-2"
             data-testid="link-logo"
           >
-            <img src={logoImage} alt="MFA Logo" className="h-10 w-10 object-contain" />
-            <span className="text-xl font-bold text-foreground">MFA</span>
+            <img src={logoImage} alt="My Favourite Agency Logo" className="h-12 object-contain" />
           </button>
 
           <nav className="hidden md:flex items-center gap-1">
