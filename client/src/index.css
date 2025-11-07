@@ -441,4 +441,116 @@
   .animate-text-shimmer {
     animation: text-shimmer 3s linear infinite;
   }
+
+  /* Neon Graphics Animations */
+  @keyframes neon-draw {
+    0% { 
+      stroke-dasharray: 1000;
+      stroke-dashoffset: 1000;
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% { 
+      stroke-dashoffset: 0;
+      opacity: 1;
+    }
+  }
+
+  @keyframes neon-pulse {
+    0%, 100% { 
+      opacity: 0.6;
+      filter: drop-shadow(0 0 10px currentColor);
+    }
+    50% { 
+      opacity: 1;
+      filter: drop-shadow(0 0 20px currentColor);
+    }
+  }
+
+  @keyframes neon-rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  @keyframes particle-float {
+    0%, 100% { 
+      transform: translate(0, 0);
+      opacity: 0.3;
+    }
+    25% { 
+      transform: translate(20px, -30px);
+      opacity: 0.8;
+    }
+    50% { 
+      transform: translate(-10px, -60px);
+      opacity: 1;
+    }
+    75% { 
+      transform: translate(-30px, -40px);
+      opacity: 0.6;
+    }
+  }
+
+  @keyframes flicker-neon {
+    0%, 19.999%, 22%, 62.999%, 64%, 100% {
+      opacity: 1;
+    }
+    20%, 21.999%, 63%, 63.999% {
+      opacity: 0.4;
+    }
+  }
+
+  .neon-line-1, .neon-line-2 {
+    stroke-dasharray: 2000;
+    stroke-dashoffset: 2000;
+    animation: neon-draw 4s ease-in-out forwards, neon-pulse 3s ease-in-out 4s infinite;
+  }
+
+  .neon-line-2 {
+    animation-delay: 0.5s;
+  }
+
+  .neon-circle-1, .neon-circle-2, .neon-circle-3 {
+    animation: neon-pulse 2s ease-in-out infinite, flicker-neon 8s infinite;
+    transform-origin: center;
+  }
+
+  .neon-circle-2 {
+    animation-delay: 0.7s;
+  }
+
+  .neon-circle-3 {
+    animation-delay: 1.4s;
+  }
+
+  .neon-diamond-1, .neon-diamond-2 {
+    animation: neon-rotate 20s linear infinite, neon-pulse 3s ease-in-out infinite;
+    transform-origin: center;
+  }
+
+  .neon-diamond-2 {
+    animation-direction: reverse;
+  }
+
+  .neon-particle {
+    animation: particle-float 6s ease-in-out infinite;
+  }
+
+  .neon-particle-0 { animation-delay: 0s; }
+  .neon-particle-1 { animation-delay: 0.4s; }
+  .neon-particle-2 { animation-delay: 0.8s; }
+  .neon-particle-3 { animation-delay: 1.2s; }
+  .neon-particle-4 { animation-delay: 1.6s; }
+  .neon-particle-5 { animation-delay: 2s; }
+  .neon-particle-6 { animation-delay: 2.4s; }
+  .neon-particle-7 { animation-delay: 2.8s; }
+  .neon-particle-8 { animation-delay: 3.2s; }
+  .neon-particle-9 { animation-delay: 3.6s; }
+  .neon-particle-10 { animation-delay: 4s; }
+  .neon-particle-11 { animation-delay: 4.4s; }
+  .neon-particle-12 { animation-delay: 4.8s; }
+  .neon-particle-13 { animation-delay: 5.2s; }
+  .neon-particle-14 { animation-delay: 5.6s; }
 }

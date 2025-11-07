@@ -53,6 +53,107 @@ export default function HeroSection() {
       className="relative h-screen flex items-center justify-center overflow-hidden"
       data-testid="section-hero"
     >
+      {/* Animated Neon Graphics */}
+      <svg className="absolute inset-0 w-full h-full z-10 pointer-events-none" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice">
+        <defs>
+          {/* Neon Glow Filters */}
+          <filter id="neon-glow-cyan" height="300%" width="300%" x="-75%" y="-75%">
+            <feMorphology operator="dilate" radius="2" in="SourceAlpha" result="thicken" />
+            <feGaussianBlur in="thicken" stdDeviation="10" result="blurred" />
+            <feFlood floodColor="#00ffff" floodOpacity="1" result="glowColor" />
+            <feComposite in="glowColor" in2="blurred" operator="in" result="softGlow" />
+            <feMerge>
+              <feMergeNode in="softGlow"/>
+              <feMergeNode in="softGlow"/>
+              <feMergeNode in="softGlow"/>
+              <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+          </filter>
+          
+          <filter id="neon-glow-magenta" height="300%" width="300%" x="-75%" y="-75%">
+            <feMorphology operator="dilate" radius="2" in="SourceAlpha" result="thicken" />
+            <feGaussianBlur in="thicken" stdDeviation="10" result="blurred" />
+            <feFlood floodColor="#ff00ff" floodOpacity="1" result="glowColor" />
+            <feComposite in="glowColor" in2="blurred" operator="in" result="softGlow" />
+            <feMerge>
+              <feMergeNode in="softGlow"/>
+              <feMergeNode in="softGlow"/>
+              <feMergeNode in="softGlow"/>
+              <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+          </filter>
+
+          <filter id="neon-glow-yellow" height="300%" width="300%" x="-75%" y="-75%">
+            <feMorphology operator="dilate" radius="2" in="SourceAlpha" result="thicken" />
+            <feGaussianBlur in="thicken" stdDeviation="10" result="blurred" />
+            <feFlood floodColor="#ffb84d" floodOpacity="1" result="glowColor" />
+            <feComposite in="glowColor" in2="blurred" operator="in" result="softGlow" />
+            <feMerge>
+              <feMergeNode in="softGlow"/>
+              <feMergeNode in="softGlow"/>
+              <feMergeNode in="softGlow"/>
+              <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+          </filter>
+        </defs>
+
+        {/* Animated Neon Lines */}
+        <path 
+          d="M 100,200 Q 400,100 700,300 T 1300,200" 
+          stroke="#00ffff" 
+          strokeWidth="3" 
+          fill="none" 
+          filter="url(#neon-glow-cyan)"
+          className="neon-line-1"
+        />
+        
+        <path 
+          d="M 1800,400 Q 1500,300 1200,500 T 600,400" 
+          stroke="#ff00ff" 
+          strokeWidth="3" 
+          fill="none" 
+          filter="url(#neon-glow-magenta)"
+          className="neon-line-2"
+        />
+
+        {/* Animated Neon Circles */}
+        <circle cx="200" cy="800" r="80" stroke="#ffb84d" strokeWidth="3" fill="none" filter="url(#neon-glow-yellow)" className="neon-circle-1" />
+        <circle cx="1700" cy="200" r="60" stroke="#00ffff" strokeWidth="3" fill="none" filter="url(#neon-glow-cyan)" className="neon-circle-2" />
+        <circle cx="1600" cy="900" r="100" stroke="#ff00ff" strokeWidth="3" fill="none" filter="url(#neon-glow-magenta)" className="neon-circle-3" />
+
+        {/* Neon Geometric Shapes */}
+        <polygon 
+          points="300,100 350,50 400,100 350,150" 
+          stroke="#00ffff" 
+          strokeWidth="2" 
+          fill="none" 
+          filter="url(#neon-glow-cyan)"
+          className="neon-diamond-1"
+        />
+        
+        <polygon 
+          points="1500,700 1550,650 1600,700 1550,750" 
+          stroke="#ffb84d" 
+          strokeWidth="2" 
+          fill="none" 
+          filter="url(#neon-glow-yellow)"
+          className="neon-diamond-2"
+        />
+
+        {/* Neon Particles */}
+        {[...Array(15)].map((_, i) => (
+          <circle 
+            key={i}
+            cx={Math.random() * 1920}
+            cy={Math.random() * 1080}
+            r="2"
+            fill="#fff"
+            filter={`url(#neon-glow-${['cyan', 'magenta', 'yellow'][i % 3]})`}
+            className={`neon-particle neon-particle-${i}`}
+          />
+        ))}
+      </svg>
+
       {/* Floating Gradient Orbs */}
       <div className="absolute inset-0 z-10 pointer-events-none">
         <div 
