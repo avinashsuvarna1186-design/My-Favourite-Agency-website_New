@@ -9,9 +9,8 @@ import juiePhoto from "@assets/Gemini_Generated_Image_Juiee_1762518049953.png";
 
 export default function AboutSection() {
   const headerAnimation = useScrollAnimation("fade-in");
-  const highlightAnimation = useScrollAnimation("scale-in", { delay: 100 });
-  const visionAnimation = useScrollAnimation("slide-left", { delay: 200 });
-  const missionAnimation = useScrollAnimation("slide-right", { delay: 300 });
+  const visionAnimation = useScrollAnimation("slide-left", { delay: 100 });
+  const missionAnimation = useScrollAnimation("slide-right", { delay: 200 });
   const storyAnimation = useScrollAnimation("fade-in", { delay: 100 });
   const teamAnimation = useScrollAnimation("scale-in", { delay: 200 });
   const team = [
@@ -44,21 +43,10 @@ export default function AboutSection() {
   return (
     <section id="about" className="py-24 px-4 relative" data-testid="section-about">
       <div className="max-w-6xl mx-auto relative z-10">
-        <div ref={headerAnimation.ref} className={`text-center mb-12 ${headerAnimation.className}`}>
+        <div ref={headerAnimation.ref} className={`text-center mb-16 ${headerAnimation.className}`}>
           <h2 className="text-4xl md:text-5xl font-bold text-foreground spaced-text uppercase" data-testid="text-about-heading">
             Who We Are
           </h2>
-        </div>
-
-        <div ref={highlightAnimation.ref} className={`mb-16 ${highlightAnimation.className}`}>
-          <Card className="bg-primary/5 border-primary/20 hover-elevate overflow-visible" data-testid="card-highlight">
-            <CardContent className="p-8 md:p-12">
-              <p className="text-xl md:text-2xl text-foreground text-center font-medium leading-relaxed" data-testid="text-about-subtext">
-                Most agencies wait for the brief. We <span className="text-primary font-bold">BUILD the brief</span> with you. 
-                Because a successful strategy is only half the magic — the other half is <span className="text-primary font-bold">killer design</span> that actually speaks.
-              </p>
-            </CardContent>
-          </Card>
         </div>
 
         <div className="grid md:grid-cols-2 gap-6 mb-16">
