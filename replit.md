@@ -127,18 +127,30 @@ Preferred communication style: Simple, everyday language.
 
 **Key Features**
 - **Hero Section**: 3-layer parallax system with video background, twinkling stars, and cosmic orbs that respond to mouse movement
+- **Scroll-Based Parallax**: Full-page parallax scrolling with sections moving at different speeds (0.2x-0.5x) to create depth
 - **Our Approach Section**: Standalone highlighted section showcasing agency's unique "BUILD the brief" philosophy
 - **About Page**: Dedicated page with agency tagline displayed as clean text ("strategy-first, design-obsessed, anti-mediocrity"), Vision/Mission cards, brand story, and team profiles
 - **Spaced Typography**: Custom CSS classes for letter-spaced headings (.spaced-text, .spaced-text-lg) used throughout
 - **Massive Animated Text**: Large decorative section titles (MassiveText component) that animate into view using Intersection Observer
 - **Scroll Animations**: useScrollAnimation hook with proper cleanup, reduced-motion support, and various animation types
+- **Interactive Service Carousel**: Embla-powered carousel showing 1-3 service cards with navigation arrows and swipe support
+- **3D Card Animations**: "How We Work" cards feature 3D flip effect (10° Y-axis, 5° X-axis rotation) on hover
+- **Typing Animation**: Agency tagline on About page features character-by-character reveal with blinking cursor
 - **Glassmorphism UI**: Frosted glass effect on hero badges and buttons using backdrop-filter
 - **Smart Navigation**: Header adapts to multi-page structure with Link components for page navigation and smooth scroll for within-page sections
 - **Accessibility**: aria-hidden for decorative elements, reduced-motion support, proper semantic HTML
 
 **Technical Implementation**
+- **ParallaxProvider Context**: Centralized scroll tracking with single RAF loop and event listener per page for optimal performance
+- **ParallaxSection Component**: Reusable wrapper applying GPU-accelerated transforms (translate3d) with configurable speed factors
+- **Parallax Architecture**: Shared context prevents duplicate scroll listeners, single requestAnimationFrame per page regardless of section count
 - **ScrollAnimatedWrapper**: Component wrapper to apply scroll animations without React hook violations
 - **useScrollAnimation**: Custom hook using IntersectionObserver with proper cleanup and reduced-motion detection
 - **MassiveText**: Decorative text component with one-time animation trigger and proper cleanup
 - **Stable Star Positions**: Pre-calculated STAR_POSITIONS array prevents render-time randomness
-- **Performance**: All IntersectionObservers properly disconnect, timers are cleared, animations respect user preferences
+- **Performance Optimizations**: 
+  - Single scroll listener with passive: true per page
+  - GPU-accelerated transforms with will-change property
+  - Proper cleanup of all observers, timers, and RAF loops
+  - Reduced-motion accessibility respected throughout
+  - Context-based state sharing prevents duplicate renders
