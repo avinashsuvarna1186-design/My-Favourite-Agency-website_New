@@ -55,7 +55,11 @@ export default function ServicesSection() {
         <div className="max-w-6xl mx-auto">
           <div ref={headerAnimation.ref} className={`text-center mb-16 ${headerAnimation.className}`}>
             <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground uppercase">Glow-up Kit</h2>
-            <p className="text-lg text-muted-foreground">Pick what you need or go full glow-up.</p>
+            <p className="text-lg text-muted-foreground max-w-4xl mx-auto">
+              Your Brand's Glow-up Kit
+              <br /><br />
+              Whether it's a 360 degree makeover or the hunt for a killer outfit, we've got the tools, the taste and the team. From brand identity to copy, pixels to packaging, we are your brand's personal
+            </p>
           </div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
