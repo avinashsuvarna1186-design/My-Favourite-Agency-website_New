@@ -173,14 +173,17 @@ export default function HeroSection() {
           className="text-xl md:text-3xl text-foreground/90 font-medium drop-shadow-lg mb-12 max-w-4xl mx-auto whitespace-nowrap min-h-[3rem]"
           data-testid="text-hero-subtext"
         >
-          {typedText.split("anti-mediocrity").map((part, i) => (
-            i === 0 ? part : (
-              <>
+          {typedText.split("anti-mediocrity").map((part, i) => {
+            if (i === 0) {
+              return <span key={i}>{part}</span>;
+            }
+            return (
+              <span key={i}>
                 <span className="text-primary font-bold">anti-mediocrity</span>
                 {part}
-              </>
-            )
-          ))}
+              </span>
+            );
+          })}
           {typedText.length < fullText.length && (
             <span className="animate-cursor-blink">|</span>
           )}

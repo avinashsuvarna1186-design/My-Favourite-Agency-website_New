@@ -2,7 +2,14 @@
 
 ## Overview
 
-This is a single-page marketing website for My Favourite Agency (MFA), a creative branding and design agency. The application is built as a modern React-based web application with a Node.js/Express backend, featuring a dark UI aesthetic with warm accent colors, smooth scrolling interactions, and responsive design optimized for agency portfolio presentation.
+This is a single-page marketing website for My Favourite Agency (MFA), a creative branding and design agency. The application is built as a modern React-based web application with a Node.js/Express backend, featuring:
+- Galactic video background with 3-layer parallax depth effects (video 0.1x, stars 0.3x, cosmic orbs 0.5x mouse movement)
+- Dark UI aesthetic with glassmorphism elements and warm accent colors
+- Spaced-out creative typography inspired by modern agency design
+- Massive animated section titles that trigger on scroll
+- Comprehensive scroll-triggered animations throughout all sections
+- Smooth scrolling interactions with reduced-motion accessibility support
+- Responsive design optimized for agency portfolio presentation
 
 ## User Preferences
 
@@ -33,9 +40,11 @@ Preferred communication style: Simple, everyday language.
 
 **Page Structure**
 - Single-page application with smooth scroll navigation
-- Sections: Hero (with video background concept), About, Work, Services, Comparison, How We Work, Testimonials, Contact, Footer
+- Sections: Hero (with galactic video background and parallax), About, Work, Services, Comparison, How We Work, Testimonials, Contact, Footer
+- Massive animated text sections between major content areas (ABOUT, SERVICES, WORK, TESTIMONIALS, CONTACT)
 - Sticky header with navigation and WhatsApp CTA
 - Modal interactions for service details using Radix Dialog
+- All sections feature scroll-triggered animations (fade-in, slide-left, slide-right, scale-in)
 
 ### Backend Architecture
 
@@ -111,4 +120,21 @@ Preferred communication style: Simple, everyday language.
 **Assets**
 - Generated brand images stored in `attached_assets/generated_images/`
 - Logo, work portfolio images, and branding assets
-- Video background support planned for hero section (`assets/banner.mp4`)
+- Galactic video background from Pixabay (https://cdn.pixabay.com/video/2022/11/07/137651-769748627_large.mp4)
+- Custom animation CSS for parallax, typing effects, and scroll-triggered animations
+
+**Key Features**
+- **Hero Section**: 3-layer parallax system with video background, twinkling stars, and cosmic orbs that respond to mouse movement
+- **Spaced Typography**: Custom CSS classes for letter-spaced headings (.spaced-text, .spaced-text-lg) used throughout
+- **Massive Animated Text**: Large decorative section titles (MassiveText component) that animate into view using Intersection Observer
+- **Scroll Animations**: useScrollAnimation hook with proper cleanup, reduced-motion support, and various animation types
+- **Glassmorphism UI**: Frosted glass effect on hero badges and buttons using backdrop-filter
+- **Typed Text Animation**: Typewriter effect on hero subtext with highlighted "anti-mediocrity" keyword
+- **Accessibility**: aria-hidden for decorative elements, reduced-motion support, proper semantic HTML
+
+**Technical Implementation**
+- **ScrollAnimatedWrapper**: Component wrapper to apply scroll animations without React hook violations
+- **useScrollAnimation**: Custom hook using IntersectionObserver with proper cleanup and reduced-motion detection
+- **MassiveText**: Decorative text component with one-time animation trigger and proper cleanup
+- **Stable Star Positions**: Pre-calculated STAR_POSITIONS array prevents render-time randomness
+- **Performance**: All IntersectionObservers properly disconnect, timers are cleared, animations respect user preferences
