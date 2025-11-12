@@ -1,6 +1,14 @@
 import { ChevronDown } from "lucide-react";
 import { useEffect, useState } from "react";
 
+const STAR_POSITIONS = Array.from({ length: 50 }, (_, i) => ({
+  id: i,
+  left: (i * 37) % 100,
+  top: (i * 53) % 100,
+  delay: (i * 0.06) % 3,
+  opacity: 0.3 + ((i * 17) % 70) / 100,
+}));
+
 export default function HeroSection() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isLoaded, setIsLoaded] = useState(false);
@@ -87,15 +95,15 @@ export default function HeroSection() {
           }}
         >
           <div className="absolute inset-0 opacity-40">
-            {[...Array(50)].map((_, i) => (
+            {STAR_POSITIONS.map((star) => (
               <div
-                key={i}
+                key={star.id}
                 className="absolute w-1 h-1 bg-white rounded-full animate-twinkle"
                 style={{
-                  left: `${Math.random() * 100}%`,
-                  top: `${Math.random() * 100}%`,
-                  animationDelay: `${Math.random() * 3}s`,
-                  opacity: Math.random(),
+                  left: `${star.left}%`,
+                  top: `${star.top}%`,
+                  animationDelay: `${star.delay}s`,
+                  opacity: star.opacity,
                 }}
               />
             ))}

@@ -37,6 +37,7 @@ export default function MassiveText({ children, className = "" }: MassiveTextPro
       ref={ref}
       className={`relative py-20 overflow-hidden ${className}`}
       data-testid="massive-text-section"
+      aria-hidden="true"
     >
       <div className={`massive-text text-center ${isVisible ? 'massive-text-animate' : ''}`}>
         {children}

@@ -1,13 +1,10 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Quote } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import ScrollAnimatedWrapper from "./ScrollAnimatedWrapper";
 
 export default function TestimonialsSection() {
   const headerAnimation = useScrollAnimation("fade-in");
-  const testimonialAnimations = [
-    useScrollAnimation("slide-left", { delay: 100 }),
-    useScrollAnimation("slide-right", { delay: 200 }),
-  ];
 
   const testimonials = [
     {
@@ -30,9 +27,9 @@ export default function TestimonialsSection() {
 
         <div className="grid md:grid-cols-2 gap-8">
           {testimonials.map((testimonial, index) => {
-            const animation = testimonialAnimations[index];
+            const animationType = index % 2 === 0 ? "slide-left" : "slide-right";
             return (
-              <div key={index} ref={animation.ref} className={animation.className}>
+              <ScrollAnimatedWrapper key={index} animationType={animationType} delay={(index + 1) * 100}>
                 <Card className="hover-elevate active-elevate-2 h-full" data-testid={`card-testimonial-${index}`}>
                   <CardContent className="p-8">
                     <Quote className="w-10 h-10 text-primary mb-4" />
@@ -40,7 +37,7 @@ export default function TestimonialsSection() {
                     <p className="text-sm text-muted-foreground font-medium">— {testimonial.client}</p>
                   </CardContent>
                 </Card>
-              </div>
+              </ScrollAnimatedWrapper>
             );
           })}
         </div>

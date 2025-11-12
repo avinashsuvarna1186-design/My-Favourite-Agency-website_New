@@ -6,11 +6,10 @@ import { Textarea } from "@/components/ui/textarea";
 import { Mail, Phone, MessageCircle, Instagram, Linkedin } from "lucide-react";
 import { SiDribbble } from "react-icons/si";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import ScrollAnimatedWrapper from "./ScrollAnimatedWrapper";
 
 export default function ContactSection() {
   const headerAnimation = useScrollAnimation("fade-in");
-  const formAnimation = useScrollAnimation("slide-left", { delay: 100 });
-  const infoAnimation = useScrollAnimation("slide-right", { delay: 200 });
 
   const [formData, setFormData] = useState({
     name: "",
@@ -41,7 +40,7 @@ export default function ContactSection() {
         </div>
 
         <div className="grid md:grid-cols-2 gap-8">
-          <div ref={formAnimation.ref} className={formAnimation.className}>
+          <ScrollAnimatedWrapper animationType="slide-left" delay={100}>
             <Card className="h-full">
               <CardContent className="p-8">
               <form onSubmit={handleSubmit} className="space-y-6">
@@ -93,9 +92,9 @@ export default function ContactSection() {
               </form>
             </CardContent>
           </Card>
-          </div>
+          </ScrollAnimatedWrapper>
 
-          <div ref={infoAnimation.ref} className={infoAnimation.className}>
+          <ScrollAnimatedWrapper animationType="slide-right" delay={200}>
             <Card className="h-full">
               <CardContent className="p-8">
               <h3 className="text-2xl font-bold mb-6 text-foreground">Contact Info</h3>
@@ -155,7 +154,7 @@ export default function ContactSection() {
               </div>
             </CardContent>
           </Card>
-          </div>
+          </ScrollAnimatedWrapper>
         </div>
       </div>
     </section>

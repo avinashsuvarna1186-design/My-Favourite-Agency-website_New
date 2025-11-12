@@ -1,5 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import ScrollAnimatedWrapper from "./ScrollAnimatedWrapper";
 import work1 from "@assets/generated_images/Packaging_and_Identity_work_c57574ad.png";
 import work2 from "@assets/generated_images/Website_and_Launch_work_5d61a7ac.png";
 import work3 from "@assets/generated_images/Campaign_and_Motion_work_06e62a4b.png";
@@ -7,12 +8,6 @@ import work4 from "@assets/generated_images/Identity_and_Copy_work_1002e25b.png"
 
 export default function WorkSection() {
   const headerAnimation = useScrollAnimation("fade-in");
-  const projectAnimations = [
-    useScrollAnimation("slide-left", { delay: 0 }),
-    useScrollAnimation("slide-right", { delay: 100 }),
-    useScrollAnimation("slide-left", { delay: 200 }),
-    useScrollAnimation("slide-right", { delay: 300 }),
-  ];
 
   const projects = [
     { title: "Brand A", type: "Packaging & Identity", image: work1 },
@@ -33,9 +28,9 @@ export default function WorkSection() {
 
         <div className="grid sm:grid-cols-2 gap-6">
           {projects.map((project, index) => {
-            const animation = projectAnimations[index];
+            const animationType = index % 2 === 0 ? "slide-left" : "slide-right";
             return (
-              <div key={index} ref={animation.ref} className={animation.className}>
+              <ScrollAnimatedWrapper key={index} animationType={animationType} delay={index * 100}>
                 <Card
                   className="overflow-hidden hover-elevate active-elevate-2 transition-all"
                   data-testid={`card-work-${index}`}
@@ -52,7 +47,7 @@ export default function WorkSection() {
                     <p className="text-sm text-muted-foreground">{project.type}</p>
                   </CardContent>
                 </Card>
-              </div>
+              </ScrollAnimatedWrapper>
             );
           })}
         </div>

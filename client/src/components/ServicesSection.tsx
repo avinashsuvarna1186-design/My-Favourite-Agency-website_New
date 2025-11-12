@@ -3,6 +3,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Palette, Megaphone, Package, Video, PenTool } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import ScrollAnimatedWrapper from "./ScrollAnimatedWrapper";
 
 interface Service {
   title: string;
@@ -14,13 +15,6 @@ interface Service {
 export default function ServicesSection() {
   const [selectedService, setSelectedService] = useState<Service | null>(null);
   const headerAnimation = useScrollAnimation("fade-in");
-  const serviceAnimations = [
-    useScrollAnimation("scale-in", { delay: 0 }),
-    useScrollAnimation("scale-in", { delay: 100 }),
-    useScrollAnimation("scale-in", { delay: 200 }),
-    useScrollAnimation("scale-in", { delay: 300 }),
-    useScrollAnimation("scale-in", { delay: 400 }),
-  ];
 
   const services: Service[] = [
     {
@@ -67,9 +61,8 @@ export default function ServicesSection() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {services.map((service, index) => {
               const Icon = service.icon;
-              const animation = serviceAnimations[index];
               return (
-                <div key={index} ref={animation.ref} className={animation.className}>
+                <ScrollAnimatedWrapper key={index} animationType="scale-in" delay={index * 100}>
                   <Card
                     className="cursor-pointer hover-elevate active-elevate-2 transition-all h-full"
                     onClick={() => setSelectedService(service)}
@@ -83,7 +76,7 @@ export default function ServicesSection() {
                       <p className="text-sm text-muted-foreground">{service.description}</p>
                     </CardContent>
                   </Card>
-                </div>
+                </ScrollAnimatedWrapper>
               );
             })}
           </div>
