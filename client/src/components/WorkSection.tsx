@@ -21,7 +21,7 @@ export default function WorkSection() {
       <div className="absolute inset-0 bg-card/30 backdrop-blur-sm" />
       <div className="max-w-6xl mx-auto relative z-10">
         <div ref={headerAnimation.ref} className={`text-center mb-16 ${headerAnimation.className}`}>
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground spaced-text uppercase">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground uppercase">
             Real Brands. Real Results.
           </h2>
         </div>

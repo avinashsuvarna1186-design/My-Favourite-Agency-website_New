@@ -8,7 +8,7 @@ export default function AboutSection() {
     <section id="about" className="py-24 px-4 relative" data-testid="section-about">
       <div className="max-w-6xl mx-auto relative z-10">
         <div ref={headerAnimation.ref} className={`text-center mb-12 ${headerAnimation.className}`}>
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground spaced-text uppercase" data-testid="text-about-heading">
+          <h2 className="text-4xl md:text-5xl font-bold text-foreground uppercase" data-testid="text-about-heading">
             Who We Are
           </h2>
         </div>

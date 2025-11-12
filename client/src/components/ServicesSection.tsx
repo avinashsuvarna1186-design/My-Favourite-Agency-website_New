@@ -54,7 +54,7 @@ export default function ServicesSection() {
       <section id="services" className="py-24 px-4" data-testid="section-services">
         <div className="max-w-6xl mx-auto">
           <div ref={headerAnimation.ref} className={`text-center mb-16 ${headerAnimation.className}`}>
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground spaced-text uppercase">Glow-up Kit</h2>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground uppercase">Glow-up Kit</h2>
             <p className="text-lg text-muted-foreground">Pick what you need or go full glow-up.</p>
           </div>
 

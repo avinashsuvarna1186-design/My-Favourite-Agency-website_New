@@ -159,7 +159,7 @@ export default function HeroSection() {
         </div>
         
         <h1 
-          className="text-5xl md:text-8xl font-bold mb-12 text-foreground drop-shadow-2xl leading-tight spaced-text-lg uppercase"
+          className="text-5xl md:text-8xl font-bold mb-12 text-foreground drop-shadow-2xl leading-tight uppercase"
           data-testid="text-hero-headline"
         >
           Creative

@@ -82,7 +82,7 @@ export default function VisionMissionTeamSection() {
         </div>
 
         <div ref={storyAnimation.ref} className={`mb-16 ${storyAnimation.className}`}>
-          <h3 className="text-3xl font-bold mb-4 text-foreground text-center spaced-text">Brand Story</h3>
+          <h3 className="text-3xl font-bold mb-4 text-foreground text-center">Brand Story</h3>
           <p className="text-lg text-muted-foreground text-center max-w-3xl mx-auto" data-testid="text-brand-story">
             We flipped the script. Somewhere between a career crisis and a caffeine high, My Favourite Agency was born
             — with rebellion in our blood and design at our core.
