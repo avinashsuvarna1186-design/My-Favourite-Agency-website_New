@@ -64,7 +64,7 @@ export default function ComparisonSection() {
               {comparisons.map((item, index) => (
                 <div
                   key={index}
-                  className="p-6 bg-card rounded-lg shadow-xl hover-elevate transition-all relative"
+                  className="p-6 bg-black rounded-lg shadow-xl hover-elevate transition-all relative"
                   style={{
                     boxShadow: '0 0 30px rgba(255, 107, 53, 0.25), 0 10px 25px -5px rgba(0, 0, 0, 0.3)'
                   }}
