@@ -56,7 +56,7 @@ export default function ComparisonSection() {
           </div>
 
           <div>
-            <h3 className="text-2xl font-bold mb-6 text-foreground text-center flex items-center justify-center gap-2">
+            <h3 className="text-2xl font-bold mb-6 text-primary text-center flex items-center justify-center gap-2">
               <Check className="w-6 h-6 text-primary" />
               The MFA Way
             </h3>
@@ -64,10 +64,13 @@ export default function ComparisonSection() {
               {comparisons.map((item, index) => (
                 <div
                   key={index}
-                  className="p-6 bg-card rounded-lg border border-primary/40 shadow-lg hover-elevate transition-all"
+                  className="p-6 bg-card rounded-lg border-2 border-primary shadow-xl hover-elevate transition-all relative"
+                  style={{
+                    boxShadow: '0 0 30px rgba(255, 184, 77, 0.15), 0 10px 25px -5px rgba(0, 0, 0, 0.3)'
+                  }}
                   data-testid={`comparison-mfa-${index}`}
                 >
-                  <p className="text-foreground font-medium">{item.mfa}</p>
+                  <p className="text-foreground font-semibold">{item.mfa}</p>
                 </div>
               ))}
             </div>
