@@ -75,7 +75,7 @@ export default function ServicesSection() {
                   <CarouselItem key={index} className="pl-4 md:basis-1/2 lg:basis-1/3">
                     <ScrollAnimatedWrapper animationType="scale-in" delay={index * 100}>
                       <Card
-                        className="service-card cursor-pointer hover-elevate active-elevate-2 hover:scale-105 transition-all h-full"
+                        className="service-card cursor-pointer hover-elevate active-elevate-2 transition-all h-full"
                         onClick={() => setSelectedService(service)}
                         data-testid={`card-service-${index}`}
                       >
