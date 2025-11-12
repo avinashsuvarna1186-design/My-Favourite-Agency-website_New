@@ -51,13 +51,9 @@ export default function AboutSection() {
         </div>
 
         <div ref={taglineAnimation.ref} className={`mb-16 ${taglineAnimation.className}`}>
-          <Card className="bg-primary/5 border-primary/20 hover-elevate overflow-visible" data-testid="card-tagline">
-            <CardContent className="p-8 md:p-12">
-              <p className="text-2xl md:text-3xl text-foreground text-center font-semibold leading-relaxed">
-                We are MFA — <span className="text-primary font-bold">strategy-first</span>, <span className="text-primary font-bold">design-obsessed</span> and <span className="text-primary font-bold">anti-mediocrity</span>.
-              </p>
-            </CardContent>
-          </Card>
+          <p className="text-2xl md:text-3xl text-foreground text-center font-semibold leading-relaxed" data-testid="text-tagline">
+            We are MFA — <span className="text-primary font-bold">strategy-first</span>, <span className="text-primary font-bold">design-obsessed</span> and <span className="text-primary font-bold">anti-mediocrity</span>.
+          </p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-6 mb-16">

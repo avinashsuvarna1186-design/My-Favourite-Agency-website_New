@@ -128,7 +128,7 @@ Preferred communication style: Simple, everyday language.
 **Key Features**
 - **Hero Section**: 3-layer parallax system with video background, twinkling stars, and cosmic orbs that respond to mouse movement
 - **Our Approach Section**: Standalone highlighted section showcasing agency's unique "BUILD the brief" philosophy
-- **About Page**: Dedicated page with agency tagline ("strategy-first, design-obsessed, anti-mediocrity"), vision/mission, brand story, and team profiles
+- **About Page**: Dedicated page with agency tagline displayed as clean text ("strategy-first, design-obsessed, anti-mediocrity"), Vision/Mission cards, brand story, and team profiles
 - **Spaced Typography**: Custom CSS classes for letter-spaced headings (.spaced-text, .spaced-text-lg) used throughout
 - **Massive Animated Text**: Large decorative section titles (MassiveText component) that animate into view using Intersection Observer
 - **Scroll Animations**: useScrollAnimation hook with proper cleanup, reduced-motion support, and various animation types
