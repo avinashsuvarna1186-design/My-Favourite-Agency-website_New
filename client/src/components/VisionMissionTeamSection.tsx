@@ -19,7 +19,7 @@ export default function VisionMissionTeamSection() {
       role: "Founder & Brand Architect",
       tagline: "Gives your brand a soul (and swagger).",
       image: prattyushPhoto,
-      imagePosition: "center 10%",
+      imagePosition: "center -10%",
     },
     {
       name: "Avinash Suvarna",
