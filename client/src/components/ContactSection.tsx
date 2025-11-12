@@ -5,8 +5,13 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Mail, Phone, MessageCircle, Instagram, Linkedin } from "lucide-react";
 import { SiDribbble } from "react-icons/si";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 export default function ContactSection() {
+  const headerAnimation = useScrollAnimation("fade-in");
+  const formAnimation = useScrollAnimation("slide-left", { delay: 100 });
+  const infoAnimation = useScrollAnimation("slide-right", { delay: 200 });
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -30,14 +35,15 @@ export default function ContactSection() {
   return (
     <section id="contact" className="py-24 px-4" data-testid="section-contact">
       <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">Let's talk fonts, feelings and ideas.</h2>
+        <div ref={headerAnimation.ref} className={`text-center mb-16 ${headerAnimation.className}`}>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground spaced-text uppercase">Let's Talk</h2>
           <p className="text-lg text-muted-foreground">Let's make your brand sabse favourite.</p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-8">
-          <Card>
-            <CardContent className="p-8">
+          <div ref={formAnimation.ref} className={formAnimation.className}>
+            <Card className="h-full">
+              <CardContent className="p-8">
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
                   <Input
@@ -87,9 +93,11 @@ export default function ContactSection() {
               </form>
             </CardContent>
           </Card>
+          </div>
 
-          <Card>
-            <CardContent className="p-8">
+          <div ref={infoAnimation.ref} className={infoAnimation.className}>
+            <Card className="h-full">
+              <CardContent className="p-8">
               <h3 className="text-2xl font-bold mb-6 text-foreground">Contact Info</h3>
               <div className="space-y-6">
                 <div className="flex items-start gap-3">
@@ -147,6 +155,7 @@ export default function ContactSection() {
               </div>
             </CardContent>
           </Card>
+          </div>
         </div>
       </div>
     </section>

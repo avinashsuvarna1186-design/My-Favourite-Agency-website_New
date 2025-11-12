@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Palette, Megaphone, Package, Video, PenTool } from "lucide-react";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 interface Service {
   title: string;
@@ -12,6 +13,14 @@ interface Service {
 
 export default function ServicesSection() {
   const [selectedService, setSelectedService] = useState<Service | null>(null);
+  const headerAnimation = useScrollAnimation("fade-in");
+  const serviceAnimations = [
+    useScrollAnimation("scale-in", { delay: 0 }),
+    useScrollAnimation("scale-in", { delay: 100 }),
+    useScrollAnimation("scale-in", { delay: 200 }),
+    useScrollAnimation("scale-in", { delay: 300 }),
+    useScrollAnimation("scale-in", { delay: 400 }),
+  ];
 
   const services: Service[] = [
     {
@@ -50,29 +59,31 @@ export default function ServicesSection() {
     <>
       <section id="services" className="py-24 px-4" data-testid="section-services">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">Your Brand's Glow-up Kit</h2>
+          <div ref={headerAnimation.ref} className={`text-center mb-16 ${headerAnimation.className}`}>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground spaced-text uppercase">Glow-up Kit</h2>
             <p className="text-lg text-muted-foreground">Pick what you need or go full glow-up.</p>
           </div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {services.map((service, index) => {
               const Icon = service.icon;
+              const animation = serviceAnimations[index];
               return (
-                <Card
-                  key={index}
-                  className="cursor-pointer hover-elevate active-elevate-2 transition-all"
-                  onClick={() => setSelectedService(service)}
-                  data-testid={`card-service-${index}`}
-                >
-                  <CardContent className="p-6">
-                    <div className="bg-primary/10 w-12 h-12 rounded-md flex items-center justify-center mb-4">
-                      <Icon className="w-6 h-6 text-primary" />
-                    </div>
-                    <h3 className="text-xl font-bold mb-2 text-foreground">{service.title}</h3>
-                    <p className="text-sm text-muted-foreground">{service.description}</p>
-                  </CardContent>
-                </Card>
+                <div key={index} ref={animation.ref} className={animation.className}>
+                  <Card
+                    className="cursor-pointer hover-elevate active-elevate-2 transition-all h-full"
+                    onClick={() => setSelectedService(service)}
+                    data-testid={`card-service-${index}`}
+                  >
+                    <CardContent className="p-6">
+                      <div className="bg-primary/10 w-12 h-12 rounded-md flex items-center justify-center mb-4">
+                        <Icon className="w-6 h-6 text-primary" />
+                      </div>
+                      <h3 className="text-xl font-bold mb-2 text-foreground">{service.title}</h3>
+                      <p className="text-sm text-muted-foreground">{service.description}</p>
+                    </CardContent>
+                  </Card>
+                </div>
               );
             })}
           </div>
