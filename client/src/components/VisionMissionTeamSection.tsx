@@ -19,28 +19,28 @@ export default function VisionMissionTeamSection() {
       role: "Founder & Brand Architect",
       tagline: "Gives your brand a soul (and swagger).",
       image: prattyushPhoto,
-      imagePosition: "center 80%",
+      imagePosition: "center 10%",
     },
     {
       name: "Avinash Suvarna",
       role: "Founder & Design Architect",
       tagline: "Makes the magic happen.",
       image: avinashPhoto,
-      imagePosition: "center 70%",
+      imagePosition: "center 0%",
     },
     {
       name: "Sajjad Jafri",
       role: "Website Designer Visualizer",
       tagline: "Builds sexy websites fast.",
       image: sajjadPhoto,
-      imagePosition: "center 70%",
+      imagePosition: "center 0%",
     },
     {
       name: "Juie Merchant",
       role: "Content & Copy Lead",
       tagline: "Voice behind the brand.",
       image: juiePhoto,
-      imagePosition: "center 80%",
+      imagePosition: "center 10%",
     },
   ];
 
