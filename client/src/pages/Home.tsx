@@ -10,10 +10,12 @@ import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 import MassiveText from "@/components/MassiveText";
 import { ParallaxSection } from "@/components/ParallaxSection";
+import { ParallaxProvider } from "@/contexts/ParallaxContext";
 
 export default function Home() {
   return (
-    <div className="min-h-screen relative">
+    <ParallaxProvider>
+      <div className="min-h-screen relative">
       <div className="fixed inset-0 z-0 bg-black overflow-hidden">
         <ParallaxSection speed={0.2}>
           <div className="absolute inset-0 opacity-70" style={{
@@ -110,6 +112,7 @@ export default function Home() {
           animation: gradientFlowAlt 25s ease-in-out infinite;
         }
       `}</style>
-    </div>
+      </div>
+    </ParallaxProvider>
   );
 }

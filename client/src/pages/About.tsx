@@ -4,10 +4,12 @@ import VisionMissionTeamSection from "@/components/VisionMissionTeamSection";
 import Footer from "@/components/Footer";
 import MassiveText from "@/components/MassiveText";
 import { ParallaxSection } from "@/components/ParallaxSection";
+import { ParallaxProvider } from "@/contexts/ParallaxContext";
 
 export default function About() {
   return (
-    <div className="min-h-screen relative">
+    <ParallaxProvider>
+      <div className="min-h-screen relative">
       <div className="fixed inset-0 z-0 bg-black overflow-hidden">
         <ParallaxSection speed={0.2}>
           <div className="absolute inset-0 opacity-70" style={{
@@ -86,5 +88,6 @@ export default function About() {
         }
       `}</style>
     </div>
+    </ParallaxProvider>
   );
 }

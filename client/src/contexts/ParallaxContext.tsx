@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from 'react';
+import { createContext, useContext, useEffect, useState, useRef, ReactNode } from 'react';
 
 interface ParallaxState {
   scrollY: number;
@@ -6,7 +6,17 @@ interface ParallaxState {
   reducedMotion: boolean;
 }
 
-export function useParallax() {
+const ParallaxContext = createContext<ParallaxState | undefined>(undefined);
+
+export function useParallaxContext() {
+  const context = useContext(ParallaxContext);
+  if (context === undefined) {
+    throw new Error('useParallaxContext must be used within a ParallaxProvider');
+  }
+  return context;
+}
+
+export function ParallaxProvider({ children }: { children: ReactNode }) {
   const [state, setState] = useState<ParallaxState>({
     scrollY: 0,
     progress: 0,
@@ -54,5 +64,9 @@ export function useParallax() {
     };
   }, []);
 
-  return state;
+  return (
+    <ParallaxContext.Provider value={state}>
+      {children}
+    </ParallaxContext.Provider>
+  );
 }

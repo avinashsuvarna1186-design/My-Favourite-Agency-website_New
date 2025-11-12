@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { useParallax } from '@/hooks/useParallax';
+import { useParallaxContext } from '@/contexts/ParallaxContext';
 
 interface ParallaxSectionProps {
   children: React.ReactNode;
@@ -8,7 +8,7 @@ interface ParallaxSectionProps {
 }
 
 export function ParallaxSection({ children, speed = 0.5, className = '' }: ParallaxSectionProps) {
-  const { scrollY, reducedMotion } = useParallax();
+  const { scrollY, reducedMotion } = useParallaxContext();
   const sectionRef = useRef<HTMLDivElement>(null);
   const [offset, setOffset] = useState(0);
 
