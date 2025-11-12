@@ -27,7 +27,7 @@ export default function ComparisonSection() {
               {comparisons.map((item, index) => (
                 <div
                   key={index}
-                  className="p-4 bg-background rounded-md border border-destructive/20"
+                  className="p-6 bg-card rounded-lg border border-destructive/30 shadow-lg hover-elevate transition-all"
                   data-testid={`comparison-old-${index}`}
                 >
                   <p className="text-muted-foreground">{item.old}</p>
@@ -45,7 +45,7 @@ export default function ComparisonSection() {
               {comparisons.map((item, index) => (
                 <div
                   key={index}
-                  className="p-4 bg-background rounded-md border border-primary/30"
+                  className="p-6 bg-card rounded-lg border border-primary/40 shadow-lg hover-elevate transition-all"
                   data-testid={`comparison-mfa-${index}`}
                 >
                   <p className="text-foreground font-medium">{item.mfa}</p>
