@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { MessageCircle, Menu, X } from "lucide-react";
 import logoImage from "@assets/My Favourite Agency Final logo-01_1762515488908.png";
@@ -6,6 +7,7 @@ import logoImage from "@assets/My Favourite Agency Final logo-01_1762515488908.p
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [location] = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -24,11 +26,11 @@ export default function Header() {
   };
 
   const navItems = [
-    { label: "Home", id: "hero" },
-    { label: "Work", id: "work" },
-    { label: "Services", id: "services" },
-    { label: "About", id: "about" },
-    { label: "Contact", id: "contact" },
+    { label: "Home", path: "/", isLink: true },
+    { label: "About", path: "/about", isLink: true },
+    { label: "Work", id: "work", isLink: false },
+    { label: "Services", id: "services", isLink: false },
+    { label: "Contact", id: "contact", isLink: false },
   ];
 
   return (
@@ -40,24 +42,31 @@ export default function Header() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
-          <button
-            onClick={() => scrollToSection("hero")}
-            className="flex items-center hover-elevate active-elevate-2 rounded-md px-2 py-1 -ml-2"
-            data-testid="link-logo"
-          >
+          <Link href="/" className="flex items-center hover-elevate active-elevate-2 rounded-md px-2 py-1 -ml-2" data-testid="link-logo">
             <img src={logoImage} alt="My Favourite Agency Logo" className="h-12 object-contain" />
-          </button>
+          </Link>
 
           <nav className="hidden md:flex items-center gap-1">
             {navItems.map((item) => (
-              <button
-                key={item.id}
-                onClick={() => scrollToSection(item.id)}
-                className="px-4 py-2 text-sm font-medium text-muted-foreground hover:text-foreground hover-elevate active-elevate-2 rounded-md transition-colors"
-                data-testid={`link-${item.label.toLowerCase()}`}
-              >
-                {item.label}
-              </button>
+              item.isLink ? (
+                <Link
+                  key={item.label}
+                  href={item.path!}
+                  className="px-4 py-2 text-sm font-medium text-muted-foreground hover:text-foreground hover-elevate active-elevate-2 rounded-md transition-colors"
+                  data-testid={`link-${item.label.toLowerCase()}`}
+                >
+                  {item.label}
+                </Link>
+              ) : (
+                <button
+                  key={item.label}
+                  onClick={() => scrollToSection(item.id!)}
+                  className="px-4 py-2 text-sm font-medium text-muted-foreground hover:text-foreground hover-elevate active-elevate-2 rounded-md transition-colors"
+                  data-testid={`link-${item.label.toLowerCase()}`}
+                >
+                  {item.label}
+                </button>
+              )
             ))}
             <a
               href="https://wa.me/911234567890"
@@ -85,14 +94,26 @@ export default function Header() {
           <div className="md:hidden pb-4 border-t border-border mt-2 pt-4">
             <nav className="flex flex-col gap-2">
               {navItems.map((item) => (
-                <button
-                  key={item.id}
-                  onClick={() => scrollToSection(item.id)}
-                  className="px-4 py-3 text-left text-sm font-medium text-muted-foreground hover:text-foreground hover-elevate active-elevate-2 rounded-md"
-                  data-testid={`link-mobile-${item.label.toLowerCase()}`}
-                >
-                  {item.label}
-                </button>
+                item.isLink ? (
+                  <Link
+                    key={item.label}
+                    href={item.path!}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="block px-4 py-3 text-left text-sm font-medium text-muted-foreground hover:text-foreground hover-elevate active-elevate-2 rounded-md"
+                    data-testid={`link-mobile-${item.label.toLowerCase()}`}
+                  >
+                    {item.label}
+                  </Link>
+                ) : (
+                  <button
+                    key={item.label}
+                    onClick={() => scrollToSection(item.id!)}
+                    className="px-4 py-3 text-left text-sm font-medium text-muted-foreground hover:text-foreground hover-elevate active-elevate-2 rounded-md"
+                    data-testid={`link-mobile-${item.label.toLowerCase()}`}
+                  >
+                    {item.label}
+                  </button>
+                )
               ))}
               <a
                 href="https://wa.me/911234567890"

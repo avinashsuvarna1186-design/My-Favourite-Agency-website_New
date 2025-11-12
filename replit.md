@@ -2,13 +2,14 @@
 
 ## Overview
 
-This is a single-page marketing website for My Favourite Agency (MFA), a creative branding and design agency. The application is built as a modern React-based web application with a Node.js/Express backend, featuring:
+This is a multi-page marketing website for My Favourite Agency (MFA), a creative branding and design agency. The application is built as a modern React-based web application with a Node.js/Express backend, featuring:
 - Galactic video background with 3-layer parallax depth effects (video 0.1x, stars 0.3x, cosmic orbs 0.5x mouse movement)
 - Dark UI aesthetic with glassmorphism elements and warm accent colors
 - Spaced-out creative typography inspired by modern agency design
 - Massive animated section titles that trigger on scroll
 - Comprehensive scroll-triggered animations throughout all sections
 - Smooth scrolling interactions with reduced-motion accessibility support
+- Multi-page routing with Wouter for navigation between Home and About pages
 - Responsive design optimized for agency portfolio presentation
 
 ## User Preferences
@@ -39,10 +40,11 @@ Preferred communication style: Simple, everyday language.
 - Responsive grid layouts with CSS Grid for team cards and work showcase
 
 **Page Structure**
-- Single-page application with smooth scroll navigation
-- Sections: Hero (with galactic video background and parallax), About, Work, Services, Comparison, How We Work, Testimonials, Contact, Footer
-- Massive animated text sections between major content areas (ABOUT, SERVICES, WORK, TESTIMONIALS, CONTACT)
-- Sticky header with navigation and WhatsApp CTA
+- Multi-page application with client-side routing via Wouter
+- **Home Page** (`/`): Hero section with parallax effects, Our Approach statement, Comparison section, Services, Work showcase, How We Work process, Testimonials, Contact form
+- **About Page** (`/about`): Dedicated page featuring Who We Are, agency tagline, Vision/Mission cards, Brand Story, and team member profiles
+- Massive animated text sections between major content areas (SERVICES, WORK, TESTIMONIALS, CONTACT on Home; ABOUT on About page)
+- Sticky header with smart navigation (page links for Home/About, smooth scroll for sections within same page)
 - Modal interactions for service details using Radix Dialog
 - All sections feature scroll-triggered animations (fade-in, slide-left, slide-right, scale-in)
 
@@ -125,11 +127,13 @@ Preferred communication style: Simple, everyday language.
 
 **Key Features**
 - **Hero Section**: 3-layer parallax system with video background, twinkling stars, and cosmic orbs that respond to mouse movement
+- **Our Approach Section**: Standalone highlighted section showcasing agency's unique "BUILD the brief" philosophy
+- **About Page**: Dedicated page with agency tagline ("strategy-first, design-obsessed, anti-mediocrity"), vision/mission, brand story, and team profiles
 - **Spaced Typography**: Custom CSS classes for letter-spaced headings (.spaced-text, .spaced-text-lg) used throughout
 - **Massive Animated Text**: Large decorative section titles (MassiveText component) that animate into view using Intersection Observer
 - **Scroll Animations**: useScrollAnimation hook with proper cleanup, reduced-motion support, and various animation types
 - **Glassmorphism UI**: Frosted glass effect on hero badges and buttons using backdrop-filter
-- **Typed Text Animation**: Typewriter effect on hero subtext with highlighted "anti-mediocrity" keyword
+- **Smart Navigation**: Header adapts to multi-page structure with Link components for page navigation and smooth scroll for within-page sections
 - **Accessibility**: aria-hidden for decorative elements, reduced-motion support, proper semantic HTML
 
 **Technical Implementation**

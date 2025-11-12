@@ -1,16 +1,9 @@
 import Header from "@/components/Header";
-import HeroSection from "@/components/HeroSection";
-import OurApproachSection from "@/components/OurApproachSection";
-import ComparisonSection from "@/components/ComparisonSection";
-import ServicesSection from "@/components/ServicesSection";
-import WorkSection from "@/components/WorkSection";
-import HowWeWorkSection from "@/components/HowWeWorkSection";
-import TestimonialsSection from "@/components/TestimonialsSection";
-import ContactSection from "@/components/ContactSection";
+import AboutSection from "@/components/AboutSection";
 import Footer from "@/components/Footer";
 import MassiveText from "@/components/MassiveText";
 
-export default function Home() {
+export default function About() {
   return (
     <div className="min-h-screen relative">
       <div className="fixed inset-0 z-0 bg-black overflow-hidden">
@@ -39,19 +32,9 @@ export default function Home() {
       
       <div className="relative z-10">
         <Header />
-        <main>
-          <HeroSection />
-          <OurApproachSection />
-          <ComparisonSection />
-          <MassiveText>SERVICES</MassiveText>
-          <ServicesSection />
-          <MassiveText>WORK</MassiveText>
-          <WorkSection />
-          <HowWeWorkSection />
-          <MassiveText>TESTIMONIALS</MassiveText>
-          <TestimonialsSection />
-          <MassiveText>CONTACT</MassiveText>
-          <ContactSection />
+        <main className="pt-20">
+          <MassiveText>ABOUT</MassiveText>
+          <AboutSection />
         </main>
         <Footer />
       </div>
