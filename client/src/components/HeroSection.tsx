@@ -159,7 +159,7 @@ export default function HeroSection() {
         </div>
         
         <h1 
-          className="text-5xl md:text-8xl font-bold mb-6 text-foreground drop-shadow-2xl leading-tight spaced-text-lg uppercase"
+          className="text-5xl md:text-8xl font-bold mb-12 text-foreground drop-shadow-2xl leading-tight spaced-text-lg uppercase"
           data-testid="text-hero-headline"
         >
           Creative
@@ -168,26 +168,6 @@ export default function HeroSection() {
             Agency
           </span>
         </h1>
-        
-        <p 
-          className="text-xl md:text-3xl text-foreground/90 font-medium drop-shadow-lg mb-12 max-w-4xl mx-auto whitespace-nowrap min-h-[3rem]"
-          data-testid="text-hero-subtext"
-        >
-          {typedText.split("anti-mediocrity").map((part, i) => {
-            if (i === 0) {
-              return <span key={i}>{part}</span>;
-            }
-            return (
-              <span key={i}>
-                <span className="text-primary font-bold">anti-mediocrity</span>
-                {part}
-              </span>
-            );
-          })}
-          {typedText.length < fullText.length && (
-            <span className="animate-cursor-blink">|</span>
-          )}
-        </p>
 
         <div className="flex flex-wrap gap-4 justify-center">
           <button
