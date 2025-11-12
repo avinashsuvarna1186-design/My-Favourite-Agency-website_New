@@ -90,7 +90,7 @@ export default function VisionMissionTeamSection() {
         </div>
 
         <div ref={teamAnimation.ref} className={teamAnimation.className}>
-          <h3 className="text-3xl font-bold mb-8 text-foreground text-center spaced-text">Meet the Team</h3>
+          <h3 className="text-3xl font-bold mb-8 text-foreground text-center">Meet the Team</h3>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {team.map((member, index) => (
               <Card key={index} className="hover-elevate active-elevate-2" data-testid={`card-team-${index}`}>
