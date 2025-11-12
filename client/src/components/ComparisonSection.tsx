@@ -64,13 +64,13 @@ export default function ComparisonSection() {
               {comparisons.map((item, index) => (
                 <div
                   key={index}
-                  className="p-6 bg-card rounded-lg border-2 border-primary shadow-xl hover-elevate transition-all relative"
+                  className="p-6 bg-card rounded-lg shadow-xl hover-elevate transition-all relative"
                   style={{
-                    boxShadow: '0 0 30px rgba(255, 184, 77, 0.15), 0 10px 25px -5px rgba(0, 0, 0, 0.3)'
+                    boxShadow: '0 0 30px rgba(255, 184, 77, 0.2), 0 10px 25px -5px rgba(0, 0, 0, 0.3)'
                   }}
                   data-testid={`comparison-mfa-${index}`}
                 >
-                  <p className="text-foreground font-semibold">{item.mfa}</p>
+                  <p className="text-foreground font-bold text-lg">{item.mfa}</p>
                 </div>
               ))}
             </div>
