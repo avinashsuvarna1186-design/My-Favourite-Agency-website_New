@@ -46,7 +46,7 @@ export default function ComparisonSection() {
               {comparisons.map((item, index) => (
                 <div
                   key={index}
-                  className="p-6 bg-card rounded-lg border border-destructive/30 shadow-lg hover-elevate transition-all"
+                  className="p-6 bg-black rounded-lg border border-destructive/30 shadow-lg hover-elevate transition-all"
                   data-testid={`comparison-old-${index}`}
                 >
                   <p className="text-muted-foreground">{item.old}</p>
