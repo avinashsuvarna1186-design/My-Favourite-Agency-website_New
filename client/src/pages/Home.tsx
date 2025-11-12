@@ -2,6 +2,7 @@ import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
 import OurApproachSection from "@/components/OurApproachSection";
 import ComparisonSection from "@/components/ComparisonSection";
+import AboutSection from "@/components/AboutSection";
 import ServicesSection from "@/components/ServicesSection";
 import WorkSection from "@/components/WorkSection";
 import HowWeWorkSection from "@/components/HowWeWorkSection";
@@ -43,6 +44,8 @@ export default function Home() {
           <HeroSection />
           <OurApproachSection />
           <ComparisonSection />
+          <MassiveText>ABOUT</MassiveText>
+          <AboutSection />
           <MassiveText>SERVICES</MassiveText>
           <ServicesSection />
           <MassiveText>WORK</MassiveText>

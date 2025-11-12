@@ -41,9 +41,9 @@ Preferred communication style: Simple, everyday language.
 
 **Page Structure**
 - Multi-page application with client-side routing via Wouter
-- **Home Page** (`/`): Hero section with parallax effects, Our Approach statement, Comparison section, Services, Work showcase, How We Work process, Testimonials, Contact form
-- **About Page** (`/about`): Dedicated page featuring Who We Are, agency tagline, Vision/Mission cards, Brand Story, and team member profiles
-- Massive animated text sections between major content areas (SERVICES, WORK, TESTIMONIALS, CONTACT on Home; ABOUT on About page)
+- **Home Page** (`/`): Hero section with parallax effects, Our Approach statement, Comparison section, About section (Who We Are, tagline, Vision/Mission, Brand Story, Team), Services, Work showcase, How We Work process, Testimonials, Contact form
+- **About Page** (`/about`): Dedicated page featuring the same About content (Who We Are, agency tagline, Vision/Mission cards, Brand Story, and team member profiles)
+- Massive animated text sections between major content areas (ABOUT, SERVICES, WORK, TESTIMONIALS, CONTACT on Home; ABOUT on About page)
 - Sticky header with smart navigation (page links for Home/About, smooth scroll for sections within same page)
 - Modal interactions for service details using Radix Dialog
 - All sections feature scroll-triggered animations (fade-in, slide-left, slide-right, scale-in)
