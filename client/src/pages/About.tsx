@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import AboutSection from "@/components/AboutSection";
+import VisionMissionTeamSection from "@/components/VisionMissionTeamSection";
 import Footer from "@/components/Footer";
 import MassiveText from "@/components/MassiveText";
 
@@ -35,6 +36,7 @@ export default function About() {
         <main className="pt-20">
           <MassiveText>ABOUT</MassiveText>
           <AboutSection />
+          <VisionMissionTeamSection />
         </main>
         <Footer />
       </div>

@@ -3,6 +3,7 @@ import HeroSection from "@/components/HeroSection";
 import OurApproachSection from "@/components/OurApproachSection";
 import ComparisonSection from "@/components/ComparisonSection";
 import AboutSection from "@/components/AboutSection";
+import VisionMissionTeamSection from "@/components/VisionMissionTeamSection";
 import ServicesSection from "@/components/ServicesSection";
 import WorkSection from "@/components/WorkSection";
 import HowWeWorkSection from "@/components/HowWeWorkSection";
@@ -51,6 +52,8 @@ export default function Home() {
           <MassiveText>WORK</MassiveText>
           <WorkSection />
           <HowWeWorkSection />
+          <MassiveText>OUR STORY</MassiveText>
+          <VisionMissionTeamSection />
           <MassiveText>TESTIMONIALS</MassiveText>
           <TestimonialsSection />
           <MassiveText>CONTACT</MassiveText>
