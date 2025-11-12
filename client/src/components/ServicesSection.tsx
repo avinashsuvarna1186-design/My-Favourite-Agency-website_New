@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { Palette, Megaphone, Package, Video, PenTool } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import ScrollAnimatedWrapper from "./ScrollAnimatedWrapper";
@@ -60,28 +61,40 @@ export default function ServicesSection() {
             </p>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {services.map((service, index) => {
-              const Icon = service.icon;
-              return (
-                <ScrollAnimatedWrapper key={index} animationType="scale-in" delay={index * 100}>
-                  <Card
-                    className="service-card cursor-pointer hover-elevate active-elevate-2 transition-all h-full"
-                    onClick={() => setSelectedService(service)}
-                    data-testid={`card-service-${index}`}
-                  >
-                    <CardContent className="p-6">
-                      <div className="service-icon-wrapper bg-primary/10 w-12 h-12 rounded-md flex items-center justify-center mb-4">
-                        <Icon className="w-6 h-6 text-primary" />
-                      </div>
-                      <h3 className="text-xl font-bold mb-2 text-foreground">{service.title}</h3>
-                      <p className="text-sm text-muted-foreground">{service.description}</p>
-                    </CardContent>
-                  </Card>
-                </ScrollAnimatedWrapper>
-              );
-            })}
-          </div>
+          <Carousel
+            opts={{
+              align: "start",
+              loop: true,
+            }}
+            className="w-full max-w-5xl mx-auto"
+          >
+            <CarouselContent className="-ml-4">
+              {services.map((service, index) => {
+                const Icon = service.icon;
+                return (
+                  <CarouselItem key={index} className="pl-4 md:basis-1/2 lg:basis-1/3">
+                    <ScrollAnimatedWrapper animationType="scale-in" delay={index * 100}>
+                      <Card
+                        className="service-card cursor-pointer hover-elevate active-elevate-2 transition-all h-full"
+                        onClick={() => setSelectedService(service)}
+                        data-testid={`card-service-${index}`}
+                      >
+                        <CardContent className="p-6">
+                          <div className="service-icon-wrapper bg-primary/10 w-12 h-12 rounded-md flex items-center justify-center mb-4">
+                            <Icon className="w-6 h-6 text-primary" />
+                          </div>
+                          <h3 className="text-xl font-bold mb-2 text-foreground">{service.title}</h3>
+                          <p className="text-sm text-muted-foreground">{service.description}</p>
+                        </CardContent>
+                      </Card>
+                    </ScrollAnimatedWrapper>
+                  </CarouselItem>
+                );
+              })}
+            </CarouselContent>
+            <CarouselPrevious className="hidden md:flex" data-testid="button-carousel-prev" />
+            <CarouselNext className="hidden md:flex" data-testid="button-carousel-next" />
+          </Carousel>
         </div>
       </section>
 
