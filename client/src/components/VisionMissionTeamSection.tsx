@@ -26,14 +26,14 @@ export default function VisionMissionTeamSection() {
       role: "Founder & Design Architect",
       tagline: "Makes the magic happen.",
       image: avinashPhoto,
-      imagePosition: "center 0%",
+      imagePosition: "center 10%",
     },
     {
       name: "Sajjad Jafri",
       role: "Website Designer Visualizer",
       tagline: "Builds sexy websites fast.",
       image: sajjadPhoto,
-      imagePosition: "center 0%",
+      imagePosition: "center 10%",
     },
     {
       name: "Juie Merchant",
