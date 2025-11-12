@@ -162,7 +162,9 @@ export default function HeroSection() {
           className="text-5xl md:text-8xl font-bold mb-12 text-foreground drop-shadow-2xl leading-tight"
           data-testid="text-hero-headline"
         >
-          Scroll Down. Things are About to{" "}
+          Scroll Down.
+          <br />
+          Things are About to{" "}
           <span className="text-primary inline-block animate-text-shimmer bg-gradient-to-r from-primary via-white to-primary bg-clip-text text-transparent bg-[length:200%_auto]">
             Get Good.
           </span>
