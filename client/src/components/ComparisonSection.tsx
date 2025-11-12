@@ -70,7 +70,7 @@ export default function ComparisonSection() {
                   }}
                   data-testid={`comparison-mfa-${index}`}
                 >
-                  <p className="text-foreground font-bold text-lg">{item.mfa}</p>
+                  <p className="font-bold text-lg" style={{ color: '#ff6b35' }}>{item.mfa}</p>
                 </div>
               ))}
             </div>
