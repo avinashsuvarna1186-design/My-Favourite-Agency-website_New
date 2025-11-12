@@ -96,7 +96,7 @@ export default function VisionMissionTeamSection() {
               <Card key={index} className="hover-elevate active-elevate-2" data-testid={`card-team-${index}`}>
                 <CardContent className="p-6 text-center">
                   <Avatar className="w-20 h-20 mx-auto mb-4">
-                    {member.image && <AvatarImage src={member.image} alt={member.name} className="scale-125 object-cover" />}
+                    {member.image && <AvatarImage src={member.image} alt={member.name} className="scale-110 object-cover object-top" />}
                     <AvatarFallback className="bg-primary/10 text-2xl font-bold text-primary">
                       {member.name.charAt(0)}
                     </AvatarFallback>
