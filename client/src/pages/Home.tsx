@@ -9,47 +9,68 @@ import TestimonialsSection from "@/components/TestimonialsSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 import MassiveText from "@/components/MassiveText";
+import { ParallaxSection } from "@/components/ParallaxSection";
 
 export default function Home() {
   return (
     <div className="min-h-screen relative">
       <div className="fixed inset-0 z-0 bg-black overflow-hidden">
-        <div className="absolute inset-0 opacity-70" style={{
-          background: `
-            radial-gradient(circle at 20% 50%, rgba(0, 255, 255, 0.4) 0%, transparent 50%),
-            radial-gradient(circle at 80% 20%, rgba(138, 43, 226, 0.4) 0%, transparent 50%),
-            radial-gradient(circle at 70% 70%, rgba(255, 0, 255, 0.3) 0%, transparent 50%),
-            radial-gradient(circle at 30% 80%, rgba(0, 255, 157, 0.4) 0%, transparent 50%),
-            radial-gradient(circle at 90% 50%, rgba(255, 255, 0, 0.3) 0%, transparent 50%),
-            linear-gradient(135deg, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.7) 100%)
-          `
-        }} />
-        <div className="absolute inset-0 gradient-flow" style={{
-          background: `
-            linear-gradient(to bottom right, transparent 0%, rgba(0, 255, 255, 0.1) 25%, transparent 50%, rgba(255, 0, 255, 0.1) 75%, transparent 100%)
-          `,
-        }} />
-        <div className="absolute inset-0 gradient-flow-alt" style={{
-          background: `
-            radial-gradient(circle at 40% 40%, rgba(138, 43, 226, 0.3) 0%, transparent 60%),
-            radial-gradient(circle at 60% 60%, rgba(0, 255, 157, 0.3) 0%, transparent 60%)
-          `,
-        }} />
+        <ParallaxSection speed={0.2}>
+          <div className="absolute inset-0 opacity-70" style={{
+            background: `
+              radial-gradient(circle at 20% 50%, rgba(0, 255, 255, 0.4) 0%, transparent 50%),
+              radial-gradient(circle at 80% 20%, rgba(138, 43, 226, 0.4) 0%, transparent 50%),
+              radial-gradient(circle at 70% 70%, rgba(255, 0, 255, 0.3) 0%, transparent 50%),
+              radial-gradient(circle at 30% 80%, rgba(0, 255, 157, 0.4) 0%, transparent 50%),
+              radial-gradient(circle at 90% 50%, rgba(255, 255, 0, 0.3) 0%, transparent 50%),
+              linear-gradient(135deg, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.7) 100%)
+            `
+          }} />
+          <div className="absolute inset-0 gradient-flow" style={{
+            background: `
+              linear-gradient(to bottom right, transparent 0%, rgba(0, 255, 255, 0.1) 25%, transparent 50%, rgba(255, 0, 255, 0.1) 75%, transparent 100%)
+            `,
+          }} />
+          <div className="absolute inset-0 gradient-flow-alt" style={{
+            background: `
+              radial-gradient(circle at 40% 40%, rgba(138, 43, 226, 0.3) 0%, transparent 60%),
+              radial-gradient(circle at 60% 60%, rgba(0, 255, 157, 0.3) 0%, transparent 60%)
+            `,
+          }} />
+        </ParallaxSection>
       </div>
       
       <div className="relative z-10">
         <Header />
         <main>
           <HeroSection />
-          <AboutSection />
-          <ComparisonSection />
-          <ServicesSection />
-          <WorkSection />
-          <HowWeWorkSection />
-          <MassiveText>TESTIMONIALS</MassiveText>
-          <TestimonialsSection />
-          <MassiveText>CONTACT</MassiveText>
-          <ContactSection />
+          <ParallaxSection speed={0.3}>
+            <AboutSection />
+          </ParallaxSection>
+          <ParallaxSection speed={0.4}>
+            <ComparisonSection />
+          </ParallaxSection>
+          <ParallaxSection speed={0.5}>
+            <ServicesSection />
+          </ParallaxSection>
+          <ParallaxSection speed={0.5}>
+            <WorkSection />
+          </ParallaxSection>
+          <ParallaxSection speed={0.4}>
+            <HowWeWorkSection />
+          </ParallaxSection>
+          <ParallaxSection speed={0.2}>
+            <MassiveText>TESTIMONIALS</MassiveText>
+          </ParallaxSection>
+          <ParallaxSection speed={0.5}>
+            <TestimonialsSection />
+          </ParallaxSection>
+          <ParallaxSection speed={0.2}>
+            <MassiveText>CONTACT</MassiveText>
+          </ParallaxSection>
+          <ParallaxSection speed={0.4}>
+            <ContactSection />
+          </ParallaxSection>
         </main>
         <Footer />
       </div>
