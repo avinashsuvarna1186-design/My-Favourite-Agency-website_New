@@ -151,16 +151,14 @@ export default function HeroSection() {
         </div>
         
         <h1 
-          className="text-5xl md:text-8xl font-bold mb-6 text-foreground tracking-tight drop-shadow-2xl leading-tight"
+          className="text-5xl md:text-8xl font-bold mb-6 text-foreground drop-shadow-2xl leading-tight spaced-text-lg uppercase"
           data-testid="text-hero-headline"
         >
-          Scroll down.
+          Creative
           <br />
           <span className="text-primary inline-block animate-text-shimmer bg-gradient-to-r from-primary via-white to-primary bg-clip-text text-transparent bg-[length:200%_auto]">
-            Things are about
+            Agency
           </span>
-          <br />
-          to get good.
         </h1>
         
         <p 

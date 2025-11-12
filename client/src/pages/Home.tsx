@@ -8,6 +8,7 @@ import HowWeWorkSection from "@/components/HowWeWorkSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
+import MassiveText from "@/components/MassiveText";
 
 export default function Home() {
   return (
@@ -40,12 +41,17 @@ export default function Home() {
         <Header />
         <main>
           <HeroSection />
+          <MassiveText>ABOUT</MassiveText>
           <AboutSection />
           <ComparisonSection />
+          <MassiveText>SERVICES</MassiveText>
           <ServicesSection />
+          <MassiveText>WORK</MassiveText>
           <WorkSection />
           <HowWeWorkSection />
+          <MassiveText>TESTIMONIALS</MassiveText>
           <TestimonialsSection />
+          <MassiveText>CONTACT</MassiveText>
           <ContactSection />
         </main>
         <Footer />
