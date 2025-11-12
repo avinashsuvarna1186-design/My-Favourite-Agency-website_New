@@ -42,10 +42,10 @@ export default function Home() {
         <Header />
         <main>
           <HeroSection />
-          <OurApproachSection />
-          <ComparisonSection />
           <MassiveText>ABOUT</MassiveText>
           <AboutSection />
+          <OurApproachSection />
+          <ComparisonSection />
           <MassiveText>SERVICES</MassiveText>
           <ServicesSection />
           <MassiveText>WORK</MassiveText>
