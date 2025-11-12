@@ -695,4 +695,14 @@
       opacity: 0;
     }
   }
+
+  /* Card Flip Animation */
+  .card-flip {
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+  }
+
+  .card-flip:hover {
+    transform: rotateY(10deg) rotateX(5deg);
+  }
 }
