@@ -66,19 +66,13 @@ export default function ServicesSection() {
               return (
                 <ScrollAnimatedWrapper key={index} animationType="scale-in" delay={index * 100}>
                   <Card
-                    className="group cursor-pointer hover-elevate active-elevate-2 transition-all h-full"
+                    className="service-card cursor-pointer hover-elevate active-elevate-2 transition-all h-full"
                     onClick={() => setSelectedService(service)}
                     data-testid={`card-service-${index}`}
                   >
                     <CardContent className="p-6">
-                      <div 
-                        className="bg-primary/10 w-12 h-12 rounded-md flex items-center justify-center mb-4 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6"
-                        style={{
-                          animation: `float ${3 + index * 0.3}s ease-in-out infinite`,
-                          animationDelay: `${index * 0.2}s`
-                        }}
-                      >
-                        <Icon className="w-6 h-6 text-primary transition-all duration-300 group-hover:scale-110" />
+                      <div className="service-icon-wrapper bg-primary/10 w-12 h-12 rounded-md flex items-center justify-center mb-4">
+                        <Icon className="w-6 h-6 text-primary" />
                       </div>
                       <h3 className="text-xl font-bold mb-2 text-foreground">{service.title}</h3>
                       <p className="text-sm text-muted-foreground">{service.description}</p>
