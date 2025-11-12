@@ -19,24 +19,28 @@ export default function VisionMissionTeamSection() {
       role: "Founder & Brand Architect",
       tagline: "Gives your brand a soul (and swagger).",
       image: prattyushPhoto,
+      imagePosition: "center 20%",
     },
     {
       name: "Avinash Suvarna",
       role: "Founder & Design Architect",
       tagline: "Makes the magic happen.",
       image: avinashPhoto,
+      imagePosition: "center 20%",
     },
     {
       name: "Sajjad Jafri",
       role: "Website Designer Visualizer",
       tagline: "Builds sexy websites fast.",
       image: sajjadPhoto,
+      imagePosition: "center 20%",
     },
     {
       name: "Juie Merchant",
       role: "Content & Copy Lead",
       tagline: "Voice behind the brand.",
       image: juiePhoto,
+      imagePosition: "center 20%",
     },
   ];
 
@@ -96,7 +100,14 @@ export default function VisionMissionTeamSection() {
               <Card key={index} className="hover-elevate active-elevate-2" data-testid={`card-team-${index}`}>
                 <CardContent className="p-6 text-center">
                   <Avatar className="w-20 h-20 mx-auto mb-4">
-                    {member.image && <AvatarImage src={member.image} alt={member.name} className="scale-110 object-cover object-top" />}
+                    {member.image && (
+                      <AvatarImage 
+                        src={member.image} 
+                        alt={member.name} 
+                        className="scale-110 object-cover"
+                        style={{ objectPosition: member.imagePosition }}
+                      />
+                    )}
                     <AvatarFallback className="bg-primary/10 text-2xl font-bold text-primary">
                       {member.name.charAt(0)}
                     </AvatarFallback>
