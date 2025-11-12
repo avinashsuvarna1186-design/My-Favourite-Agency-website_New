@@ -43,7 +43,6 @@ export default function Home() {
           <HeroSection />
           <AboutSection />
           <ComparisonSection />
-          <MassiveText>SERVICES</MassiveText>
           <ServicesSection />
           <WorkSection />
           <HowWeWorkSection />
