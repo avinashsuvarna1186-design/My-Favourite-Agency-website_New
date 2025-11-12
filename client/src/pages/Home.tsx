@@ -41,7 +41,6 @@ export default function Home() {
         <Header />
         <main>
           <HeroSection />
-          <MassiveText>ABOUT</MassiveText>
           <AboutSection />
           <ComparisonSection />
           <MassiveText>SERVICES</MassiveText>
