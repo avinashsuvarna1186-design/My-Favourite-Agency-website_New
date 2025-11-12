@@ -26,7 +26,7 @@ export default function VisionMissionTeamSection() {
       role: "Founder & Design Architect",
       tagline: "Makes the magic happen.",
       image: avinashPhoto,
-      imagePosition: "center 10%",
+      imagePosition: "center 20%",
     },
     {
       name: "Sajjad Jafri",
