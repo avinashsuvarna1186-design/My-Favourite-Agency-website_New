@@ -71,7 +71,13 @@ export default function ServicesSection() {
                     data-testid={`card-service-${index}`}
                   >
                     <CardContent className="p-6">
-                      <div className="bg-primary/10 w-12 h-12 rounded-md flex items-center justify-center mb-4 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
+                      <div 
+                        className="bg-primary/10 w-12 h-12 rounded-md flex items-center justify-center mb-4 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6"
+                        style={{
+                          animation: `float ${3 + index * 0.3}s ease-in-out infinite`,
+                          animationDelay: `${index * 0.2}s`
+                        }}
+                      >
                         <Icon className="w-6 h-6 text-primary transition-all duration-300 group-hover:scale-110" />
                       </div>
                       <h3 className="text-xl font-bold mb-2 text-foreground">{service.title}</h3>
