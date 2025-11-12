@@ -45,7 +45,6 @@ export default function Home() {
           <ComparisonSection />
           <MassiveText>SERVICES</MassiveText>
           <ServicesSection />
-          <MassiveText>WORK</MassiveText>
           <WorkSection />
           <HowWeWorkSection />
           <MassiveText>TESTIMONIALS</MassiveText>
