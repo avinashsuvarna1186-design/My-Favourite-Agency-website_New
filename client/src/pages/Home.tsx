@@ -19,12 +19,24 @@ import DepartmentShowcase from "@/components/DepartmentShowcase";
 import EnhancedWorkSection from "@/components/EnhancedWorkSection";
 import VideoShowreel from "@/components/VideoShowreel";
 import FloatingCTA from "@/components/FloatingCTA";
+import neonAbstractBg from "@assets/60c94c0f49222bf21cb50e38b10bd013 (1)_1763043607768.jpg";
 
 export default function Home() {
   return (
     <ParallaxProvider>
       <div className="min-h-screen relative">
       <div className="fixed inset-0 z-0 bg-black overflow-hidden">
+        <ParallaxSection speed={0.4}>
+          <div 
+            className="absolute inset-0 opacity-30"
+            style={{
+              backgroundImage: `url(${neonAbstractBg})`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              backgroundRepeat: 'no-repeat',
+            }}
+          />
+        </ParallaxSection>
         <ParallaxSection speed={0.28}>
           <div className="absolute inset-0 opacity-70" style={{
             background: `
