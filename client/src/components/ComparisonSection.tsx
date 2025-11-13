@@ -11,26 +11,6 @@ export default function ComparisonSection() {
 
   return (
     <section className="py-24 px-4 relative overflow-hidden" data-testid="section-comparison">
-      {/* Option 1: Diagonal Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-accent/5 to-primary/10" />
-      
-      {/* Option 2: Dot Grid Pattern */}
-      <div 
-        className="absolute inset-0 opacity-20"
-        style={{
-          backgroundImage: 'radial-gradient(circle, hsl(var(--primary)) 1px, transparent 1px)',
-          backgroundSize: '30px 30px'
-        }}
-      />
-      
-      {/* Option 3: Split Color Blocks */}
-      <div className="absolute inset-0 flex">
-        <div className="flex-1 bg-destructive/5" />
-        <div className="flex-1 bg-primary/5" />
-      </div>
-      
-      {/* Subtle overlay to blend everything */}
-      <div className="absolute inset-0 bg-background/40 backdrop-blur-sm" />
       <div className="max-w-5xl mx-auto relative z-10">
         <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center text-foreground">
           Why we're different
