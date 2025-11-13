@@ -69,6 +69,10 @@ export default function Home() {
             <ComparisonSection />
           </ParallaxSection>
 
+          <ParallaxSection speed={0.56}>
+            <HowWeWorkSection />
+          </ParallaxSection>
+
           <ParallaxSection speed={0.42}>
             <FoundersSection />
           </ParallaxSection>
@@ -92,10 +96,6 @@ export default function Home() {
             names={["discover", "define", "design", "deliver", "delight"]} 
             direction="left"
           />
-          
-          <ParallaxSection speed={0.56}>
-            <HowWeWorkSection />
-          </ParallaxSection>
 
           <ParallaxSection speed={0.42}>
             <ClientLogosSection />
