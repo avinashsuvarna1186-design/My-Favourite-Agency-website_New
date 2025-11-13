@@ -8,7 +8,7 @@ export default function NameMarquee({ names, direction = "left", speed = 14.04 }
   const duplicatedNames = [...names, ...names, ...names];
   
   return (
-    <div className="overflow-hidden py-6 flex items-center justify-center" style={{ backgroundColor: '#ff6d00' }}>
+    <div className="overflow-hidden py-4 flex items-center justify-center" style={{ backgroundColor: '#ff6d00' }}>
       <div
         className="flex whitespace-nowrap"
         style={{
