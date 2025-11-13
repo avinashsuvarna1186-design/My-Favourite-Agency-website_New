@@ -4,7 +4,7 @@ interface NameMarqueeProps {
   speed?: number;
 }
 
-export default function NameMarquee({ names, direction = "left", speed = 9 }: NameMarqueeProps) {
+export default function NameMarquee({ names, direction = "left", speed = 11.7 }: NameMarqueeProps) {
   const duplicatedNames = [...names, ...names, ...names];
   
   return (
