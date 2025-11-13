@@ -18,7 +18,8 @@ export default function NameMarquee({ names, direction = "left", speed = 18 }: N
         {duplicatedNames.map((name, index) => (
           <span
             key={index}
-            className="inline-block px-6 text-sm md:text-base font-medium text-muted-foreground lowercase"
+            className="inline-block px-6 text-sm md:text-base font-medium lowercase"
+            style={{ color: '#ff6d00' }}
           >
             {name}
           </span>
