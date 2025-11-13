@@ -98,7 +98,7 @@ export default function Home() {
           </ParallaxSection>
 
           <NameMarquee 
-            names={["branding", "packaging", "web design", "social media", "The people you call when the deadline's weird and the brief's weirder"]} 
+            names={["The people you call when the deadline's weird and the brief's weirder", "The people you call when the deadline's weird and the brief's weirder", "The people you call when the deadline's weird and the brief's weirder"]} 
             direction="right"
           />
           
