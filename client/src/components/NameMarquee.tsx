@@ -8,7 +8,7 @@ export default function NameMarquee({ names, direction = "left", speed = 9 }: Na
   const duplicatedNames = [...names, ...names, ...names];
   
   return (
-    <div className="overflow-hidden py-4" style={{ backgroundColor: '#ff6d00' }}>
+    <div className="overflow-hidden py-6 flex items-center justify-center" style={{ backgroundColor: '#ff6d00' }}>
       <div
         className="flex whitespace-nowrap"
         style={{
@@ -18,7 +18,7 @@ export default function NameMarquee({ names, direction = "left", speed = 9 }: Na
         {duplicatedNames.map((name, index) => (
           <span
             key={index}
-            className="inline-block px-6 text-sm md:text-base font-medium lowercase"
+            className="inline-block px-6 text-xl md:text-2xl font-bold lowercase"
             style={{ color: '#4a03fb' }}
           >
             {name}
