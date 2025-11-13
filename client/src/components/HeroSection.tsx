@@ -15,7 +15,7 @@ export default function HeroSection() {
   const [isLoaded, setIsLoaded] = useState(false);
   const [typedText, setTypedText] = useState("");
   
-  const fullText = "We are MFA — strategy-first, design-obsessed and anti-mediocrity.";
+  const fullText = "Welcome to My Favourite Agency";
 
   useEffect(() => {
     setIsLoaded(true);
@@ -152,9 +152,10 @@ export default function HeroSection() {
           transition: "transform 0.2s ease-out",
         }}
       >
-        <div className="mb-8 inline-block glass px-6 py-3 rounded-full">
-          <span className="text-primary text-sm font-semibold tracking-widest uppercase animate-pulse-slow">
-            Welcome to My Favourite Agency
+        <div className="mb-8">
+          <span className="text-primary text-2xl md:text-4xl font-bold tracking-widest uppercase">
+            {typedText}
+            <span className="typing-cursor">|</span>
           </span>
         </div>
         
