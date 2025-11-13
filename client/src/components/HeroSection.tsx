@@ -1,6 +1,6 @@
 import { ChevronDown } from "lucide-react";
 import { useEffect, useState } from "react";
-import heroVideo from "@assets/openart-video_96172ee9_1763049075228_1763049189965.mp4";
+import heroVideo from "@assets/openart-video_e0f71e17_1763050993279_1763056173455.mp4";
 
 const STAR_POSITIONS = Array.from({ length: 50 }, (_, i) => ({
   id: i,
