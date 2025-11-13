@@ -28,7 +28,7 @@ export default function Home() {
       <div className="fixed inset-0 z-0 bg-black overflow-hidden">
         <ParallaxSection speed={0.4}>
           <div 
-            className="absolute inset-0 opacity-30"
+            className="absolute inset-0 opacity-60"
             style={{
               backgroundImage: `url(${neonAbstractBg})`,
               backgroundSize: 'cover',
