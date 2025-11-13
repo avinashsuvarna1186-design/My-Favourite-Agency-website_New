@@ -38,26 +38,8 @@ export default function About() {
           />
         </ParallaxSection>
         <ParallaxSection speed={0.28}>
-          <div className="absolute inset-0 opacity-70" style={{
-            background: `
-              radial-gradient(circle at 20% 50%, rgba(0, 255, 255, 0.4) 0%, transparent 50%),
-              radial-gradient(circle at 80% 20%, rgba(138, 43, 226, 0.4) 0%, transparent 50%),
-              radial-gradient(circle at 70% 70%, rgba(255, 0, 255, 0.3) 0%, transparent 50%),
-              radial-gradient(circle at 30% 80%, rgba(0, 255, 157, 0.4) 0%, transparent 50%),
-              radial-gradient(circle at 90% 50%, rgba(255, 255, 0, 0.3) 0%, transparent 50%),
-              linear-gradient(135deg, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.7) 100%)
-            `
-          }} />
-          <div className="absolute inset-0 gradient-flow" style={{
-            background: `
-              linear-gradient(to bottom right, transparent 0%, rgba(0, 255, 255, 0.1) 25%, transparent 50%, rgba(255, 0, 255, 0.1) 75%, transparent 100%)
-            `,
-          }} />
-          <div className="absolute inset-0 gradient-flow-alt" style={{
-            background: `
-              radial-gradient(circle at 40% 40%, rgba(138, 43, 226, 0.3) 0%, transparent 60%),
-              radial-gradient(circle at 60% 60%, rgba(0, 255, 157, 0.3) 0%, transparent 60%)
-            `,
+          <div className="absolute inset-0 opacity-30" style={{
+            background: `linear-gradient(135deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.5) 100%)`
           }} />
         </ParallaxSection>
       </div>
