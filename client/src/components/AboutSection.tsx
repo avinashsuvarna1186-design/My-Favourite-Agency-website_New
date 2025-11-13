@@ -85,9 +85,15 @@ export default function AboutSection() {
     <section id="about" className="py-24 px-4 relative" data-testid="section-about">
       <div className="max-w-6xl mx-auto relative z-10">
         <div ref={headerAnimation.ref} className={`text-center mb-12 ${headerAnimation.className}`}>
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground uppercase" data-testid="text-about-heading">
-            Who We Are
+          <h2 className="text-4xl md:text-5xl font-bold text-foreground uppercase mb-8" data-testid="text-about-heading">
+            About Us
           </h2>
+          <p className="text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed mb-4">
+            Most agencies wait for the brief. We BUILD the brief with you.
+          </p>
+          <p className="text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
+            Because we know — a successful strategy is only half the magic. The other half? Killer design that actually speaks.
+          </p>
         </div>
 
         <div ref={typingRef}>
