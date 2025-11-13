@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { Palette, Megaphone, Package, Video, PenTool } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
@@ -52,11 +52,13 @@ export default function ServicesSection() {
 
   return (
     <>
-      <section id="services" className="py-24 px-4" data-testid="section-services">
+      <section id="services" className="py-32 px-4" data-testid="section-services">
         <div className="max-w-6xl mx-auto">
-          <div ref={headerAnimation.ref} className={`text-center mb-16 ${headerAnimation.className}`}>
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground uppercase">Your Brand's Glow-up Kit</h2>
-            <p className="text-xl md:text-2xl text-foreground max-w-4xl mx-auto leading-relaxed">
+          <div ref={headerAnimation.ref} className={`mb-20 ${headerAnimation.className}`}>
+            <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-8 text-foreground uppercase spaced-text-lg">
+              Your Brand's Glow-up Kit
+            </h2>
+            <p className="text-xl md:text-2xl lg:text-3xl text-muted-foreground max-w-5xl leading-relaxed">
               Whether it's a 360 degree makeover or the hunt for a killer outfit, we've got the tools, the taste and the team. From brand identity to copy, pixels to packaging, we are your brand's personal glow-up squad. You get to pick what you need or choose to go full glow-up — you walk out looking and sounding (brand tone) your best self.
             </p>
           </div>
@@ -109,9 +111,11 @@ export default function ServicesSection() {
                   </div>
                   {selectedService.title}
                 </DialogTitle>
+                <DialogDescription>
+                  {selectedService.description}
+                </DialogDescription>
               </DialogHeader>
               <div className="space-y-4 mt-4">
-                <p className="text-lg text-muted-foreground">{selectedService.description}</p>
                 <div>
                   <h4 className="text-lg font-semibold mb-3 text-foreground">Deliverables:</h4>
                   <ul className="space-y-2">

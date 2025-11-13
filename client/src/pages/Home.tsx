@@ -11,6 +11,11 @@ import Footer from "@/components/Footer";
 import MassiveText from "@/components/MassiveText";
 import { ParallaxSection } from "@/components/ParallaxSection";
 import { ParallaxProvider } from "@/contexts/ParallaxContext";
+import StatsSection from "@/components/StatsSection";
+import ClientLogosSection from "@/components/ClientLogosSection";
+import NameMarquee from "@/components/NameMarquee";
+import EnhancedContactForm from "@/components/EnhancedContactForm";
+import FoundersSection from "@/components/FoundersSection";
 
 export default function Home() {
   return (
@@ -46,32 +51,114 @@ export default function Home() {
         <Header />
         <main>
           <HeroSection />
+          
           <ParallaxSection speed={0.3}>
-            <AboutSection />
+            <div className="bg-background/95">
+              <StatsSection />
+            </div>
           </ParallaxSection>
+
+          <NameMarquee 
+            names={["prattyush", "avinash", "sajjad", "juie", "strategy", "design", "content", "branding"]} 
+            direction="left"
+          />
+          
+          <ParallaxSection speed={0.3}>
+            <div className="bg-background/90">
+              <AboutSection />
+            </div>
+          </ParallaxSection>
+
+          <NameMarquee 
+            names={["brand identity", "visual design", "creative strategy", "digital experiences"]} 
+            direction="right"
+          />
+          
           <ParallaxSection speed={0.4}>
-            <ComparisonSection />
+            <div className="bg-background/95">
+              <ComparisonSection />
+            </div>
           </ParallaxSection>
+
+          <ParallaxSection speed={0.3}>
+            <div className="bg-background/90">
+              <FoundersSection />
+            </div>
+          </ParallaxSection>
+
+          <NameMarquee 
+            names={["we build", "we design", "we strategize", "we create", "we innovate"]} 
+            direction="left"
+          />
+          
           <ParallaxSection speed={0.5}>
-            <ServicesSection />
+            <div className="bg-background/95">
+              <ServicesSection />
+            </div>
           </ParallaxSection>
+
+          <NameMarquee 
+            names={["branding", "packaging", "web design", "social media", "content creation"]} 
+            direction="right"
+          />
+          
           <ParallaxSection speed={0.5}>
-            <WorkSection />
+            <div className="bg-background/90">
+              <WorkSection />
+            </div>
           </ParallaxSection>
+
+          <NameMarquee 
+            names={["discover", "define", "design", "deliver", "delight"]} 
+            direction="left"
+          />
+          
           <ParallaxSection speed={0.4}>
-            <HowWeWorkSection />
+            <div className="bg-background/95">
+              <HowWeWorkSection />
+            </div>
           </ParallaxSection>
+
+          <ParallaxSection speed={0.3}>
+            <div className="bg-background/90">
+              <ClientLogosSection />
+            </div>
+          </ParallaxSection>
+
+          <NameMarquee 
+            names={["our clients", "our partners", "our collaborators", "our friends"]} 
+            direction="right"
+          />
+          
           <ParallaxSection speed={0.2}>
             <MassiveText>TESTIMONIALS</MassiveText>
           </ParallaxSection>
+          
           <ParallaxSection speed={0.5}>
-            <TestimonialsSection />
+            <div className="bg-background/95">
+              <TestimonialsSection />
+            </div>
           </ParallaxSection>
+
+          <NameMarquee 
+            names={["let's talk", "let's collaborate", "let's create", "let's build"]} 
+            direction="left"
+          />
+          
           <ParallaxSection speed={0.2}>
             <MassiveText>CONTACT</MassiveText>
           </ParallaxSection>
+          
           <ParallaxSection speed={0.4}>
-            <ContactSection />
+            <div className="bg-background/90">
+              <EnhancedContactForm />
+            </div>
+          </ParallaxSection>
+
+          <ParallaxSection speed={0.3}>
+            <div className="bg-background/95">
+              <ContactSection />
+            </div>
           </ParallaxSection>
         </main>
         <Footer />
