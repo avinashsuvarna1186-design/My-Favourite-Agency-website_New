@@ -48,9 +48,7 @@ export default function Home() {
           <HeroSection />
           
           <ParallaxSection speed={0.42}>
-            <div className="bg-background/95">
-              <StatsSection />
-            </div>
+            <StatsSection />
           </ParallaxSection>
 
           <NameMarquee 
@@ -59,9 +57,7 @@ export default function Home() {
           />
           
           <ParallaxSection speed={0.42}>
-            <div className="bg-background/90">
-              <AboutSection />
-            </div>
+            <AboutSection />
           </ParallaxSection>
 
           <NameMarquee 
@@ -70,25 +66,17 @@ export default function Home() {
           />
           
           <ParallaxSection speed={0.56}>
-            <div className="bg-background/95">
-              <ComparisonSection />
-            </div>
+            <ComparisonSection />
           </ParallaxSection>
 
           <ParallaxSection speed={0.42}>
-            <div className="bg-background/90">
-              <FoundersSection />
-            </div>
+            <FoundersSection />
           </ParallaxSection>
 
-          <div className="bg-background/95">
-            <DepartmentShowcase />
-          </div>
+          <DepartmentShowcase />
           
           <ParallaxSection speed={0.7}>
-            <div className="bg-background/95">
-              <ServicesSection />
-            </div>
+            <ServicesSection />
           </ParallaxSection>
 
           <NameMarquee 
@@ -96,13 +84,9 @@ export default function Home() {
             direction="right"
           />
           
-          <div className="bg-background/85">
-            <EnhancedWorkSection />
-          </div>
+          <EnhancedWorkSection />
 
-          <div className="bg-background/90 backdrop-blur-sm">
-            <VideoShowreel />
-          </div>
+          <VideoShowreel />
 
           <NameMarquee 
             names={["discover", "define", "design", "deliver", "delight"]} 
@@ -110,15 +94,11 @@ export default function Home() {
           />
           
           <ParallaxSection speed={0.56}>
-            <div className="bg-background/95">
-              <HowWeWorkSection />
-            </div>
+            <HowWeWorkSection />
           </ParallaxSection>
 
           <ParallaxSection speed={0.42}>
-            <div className="bg-background/90">
-              <ClientLogosSection />
-            </div>
+            <ClientLogosSection />
           </ParallaxSection>
 
           <NameMarquee 
@@ -131,9 +111,7 @@ export default function Home() {
           </ParallaxSection>
           
           <ParallaxSection speed={0.7}>
-            <div className="bg-background/95">
-              <TestimonialsSection />
-            </div>
+            <TestimonialsSection />
           </ParallaxSection>
 
           <NameMarquee 
@@ -146,15 +124,11 @@ export default function Home() {
           </ParallaxSection>
           
           <ParallaxSection speed={0.56}>
-            <div className="bg-background/90">
-              <EnhancedContactForm />
-            </div>
+            <EnhancedContactForm />
           </ParallaxSection>
 
           <ParallaxSection speed={0.42}>
-            <div className="bg-background/95">
-              <ContactSection />
-            </div>
+            <ContactSection />
           </ParallaxSection>
         </main>
         <Footer />
