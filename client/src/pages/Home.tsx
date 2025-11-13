@@ -3,7 +3,6 @@ import HeroSection from "@/components/HeroSection";
 import ComparisonSection from "@/components/ComparisonSection";
 import AboutSection from "@/components/AboutSection";
 import ServicesSection from "@/components/ServicesSection";
-import WorkSection from "@/components/WorkSection";
 import HowWeWorkSection from "@/components/HowWeWorkSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import ContactSection from "@/components/ContactSection";
@@ -16,6 +15,10 @@ import ClientLogosSection from "@/components/ClientLogosSection";
 import NameMarquee from "@/components/NameMarquee";
 import EnhancedContactForm from "@/components/EnhancedContactForm";
 import FoundersSection from "@/components/FoundersSection";
+import DepartmentShowcase from "@/components/DepartmentShowcase";
+import EnhancedWorkSection from "@/components/EnhancedWorkSection";
+import VideoShowreel from "@/components/VideoShowreel";
+import FloatingCTA from "@/components/FloatingCTA";
 
 export default function Home() {
   return (
@@ -86,10 +89,9 @@ export default function Home() {
             </div>
           </ParallaxSection>
 
-          <NameMarquee 
-            names={["we build", "we design", "we strategize", "we create", "we innovate"]} 
-            direction="left"
-          />
+          <div className="bg-background/95">
+            <DepartmentShowcase />
+          </div>
           
           <ParallaxSection speed={0.5}>
             <div className="bg-background/95">
@@ -102,11 +104,13 @@ export default function Home() {
             direction="right"
           />
           
-          <ParallaxSection speed={0.5}>
-            <div className="bg-background/90">
-              <WorkSection />
-            </div>
-          </ParallaxSection>
+          <div className="bg-background/85">
+            <EnhancedWorkSection />
+          </div>
+
+          <div className="bg-background/90 backdrop-blur-sm">
+            <VideoShowreel />
+          </div>
 
           <NameMarquee 
             names={["discover", "define", "design", "deliver", "delight"]} 
@@ -162,6 +166,7 @@ export default function Home() {
           </ParallaxSection>
         </main>
         <Footer />
+        <FloatingCTA />
       </div>
       
       <style>{`
