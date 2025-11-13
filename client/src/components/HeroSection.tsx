@@ -1,5 +1,6 @@
 import { ChevronDown } from "lucide-react";
 import { useEffect, useState } from "react";
+import heroVideo from "@assets/openart-video_96172ee9_1763049075228_1763049189965.mp4";
 
 const STAR_POSITIONS = Array.from({ length: 50 }, (_, i) => ({
   id: i,
@@ -78,9 +79,8 @@ export default function HeroSection() {
             playsInline
             className="w-full h-full object-cover opacity-70"
           >
-            {/* Replace this URL with your chosen galaxy video from Pixabay/Pexels/Mixkit */}
             <source 
-              src="https://cdn.pixabay.com/video/2022/11/07/137651-769748627_large.mp4" 
+              src={heroVideo} 
               type="video/mp4" 
             />
           </video>
