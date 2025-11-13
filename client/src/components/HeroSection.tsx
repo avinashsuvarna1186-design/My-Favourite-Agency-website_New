@@ -159,14 +159,13 @@ export default function HeroSection() {
         </div>
         
         <h1 
-          className="text-5xl md:text-8xl font-bold mb-12 text-foreground leading-tight glitch-text"
+          className="text-5xl md:text-8xl font-bold mb-12 text-foreground drop-shadow-2xl leading-tight"
           data-testid="text-hero-headline"
-          data-text="Scroll Down. Things are About to Get Good."
         >
           Scroll Down.
           <br />
           Things are About to{" "}
-          <span className="text-primary inline-block">
+          <span className="text-primary inline-block animate-text-shimmer bg-gradient-to-r from-primary via-white to-primary bg-clip-text text-transparent bg-[length:200%_auto]">
             Get Good.
           </span>
         </h1>
