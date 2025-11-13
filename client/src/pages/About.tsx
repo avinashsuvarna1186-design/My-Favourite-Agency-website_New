@@ -11,7 +11,7 @@ export default function About() {
     <ParallaxProvider>
       <div className="min-h-screen relative">
       <div className="fixed inset-0 z-0 bg-black overflow-hidden">
-        <ParallaxSection speed={0.2}>
+        <ParallaxSection speed={0.28}>
           <div className="absolute inset-0 opacity-70" style={{
             background: `
               radial-gradient(circle at 20% 50%, rgba(0, 255, 255, 0.4) 0%, transparent 50%),
@@ -39,13 +39,13 @@ export default function About() {
       <div className="relative z-10">
         <Header />
         <main className="pt-20">
-          <ParallaxSection speed={0.2}>
+          <ParallaxSection speed={0.28}>
             <MassiveText>ABOUT</MassiveText>
           </ParallaxSection>
-          <ParallaxSection speed={0.3}>
+          <ParallaxSection speed={0.42}>
             <AboutSection />
           </ParallaxSection>
-          <ParallaxSection speed={0.4}>
+          <ParallaxSection speed={0.56}>
             <VisionMissionTeamSection />
           </ParallaxSection>
         </main>

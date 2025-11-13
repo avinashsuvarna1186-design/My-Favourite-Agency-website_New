@@ -25,7 +25,7 @@ export default function Home() {
     <ParallaxProvider>
       <div className="min-h-screen relative">
       <div className="fixed inset-0 z-0 bg-black overflow-hidden">
-        <ParallaxSection speed={0.2}>
+        <ParallaxSection speed={0.28}>
           <div className="absolute inset-0 opacity-70" style={{
             background: `
               radial-gradient(circle at 20% 50%, rgba(0, 255, 255, 0.4) 0%, transparent 50%),
@@ -55,7 +55,7 @@ export default function Home() {
         <main>
           <HeroSection />
           
-          <ParallaxSection speed={0.3}>
+          <ParallaxSection speed={0.42}>
             <div className="bg-background/95">
               <StatsSection />
             </div>
@@ -66,7 +66,7 @@ export default function Home() {
             direction="left"
           />
           
-          <ParallaxSection speed={0.3}>
+          <ParallaxSection speed={0.42}>
             <div className="bg-background/90">
               <AboutSection />
             </div>
@@ -77,13 +77,13 @@ export default function Home() {
             direction="right"
           />
           
-          <ParallaxSection speed={0.4}>
+          <ParallaxSection speed={0.56}>
             <div className="bg-background/95">
               <ComparisonSection />
             </div>
           </ParallaxSection>
 
-          <ParallaxSection speed={0.3}>
+          <ParallaxSection speed={0.42}>
             <div className="bg-background/90">
               <FoundersSection />
             </div>
@@ -93,7 +93,7 @@ export default function Home() {
             <DepartmentShowcase />
           </div>
           
-          <ParallaxSection speed={0.5}>
+          <ParallaxSection speed={0.7}>
             <div className="bg-background/95">
               <ServicesSection />
             </div>
@@ -117,13 +117,13 @@ export default function Home() {
             direction="left"
           />
           
-          <ParallaxSection speed={0.4}>
+          <ParallaxSection speed={0.56}>
             <div className="bg-background/95">
               <HowWeWorkSection />
             </div>
           </ParallaxSection>
 
-          <ParallaxSection speed={0.3}>
+          <ParallaxSection speed={0.42}>
             <div className="bg-background/90">
               <ClientLogosSection />
             </div>
@@ -134,11 +134,11 @@ export default function Home() {
             direction="right"
           />
           
-          <ParallaxSection speed={0.2}>
+          <ParallaxSection speed={0.28}>
             <MassiveText>TESTIMONIALS</MassiveText>
           </ParallaxSection>
           
-          <ParallaxSection speed={0.5}>
+          <ParallaxSection speed={0.7}>
             <div className="bg-background/95">
               <TestimonialsSection />
             </div>
@@ -149,17 +149,17 @@ export default function Home() {
             direction="left"
           />
           
-          <ParallaxSection speed={0.2}>
+          <ParallaxSection speed={0.28}>
             <MassiveText>CONTACT</MassiveText>
           </ParallaxSection>
           
-          <ParallaxSection speed={0.4}>
+          <ParallaxSection speed={0.56}>
             <div className="bg-background/90">
               <EnhancedContactForm />
             </div>
           </ParallaxSection>
 
-          <ParallaxSection speed={0.3}>
+          <ParallaxSection speed={0.42}>
             <div className="bg-background/95">
               <ContactSection />
             </div>
