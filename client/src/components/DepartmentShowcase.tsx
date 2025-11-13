@@ -50,7 +50,7 @@ export default function DepartmentShowcase() {
     <section className="py-24 px-4" data-testid="section-departments">
       <div className="max-w-6xl mx-auto">
         <div ref={headerAnimation.ref} className={`text-center mb-16 ${headerAnimation.className}`}>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground uppercase spaced-text-lg mb-6">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold uppercase spaced-text-lg mb-6 gradient-wave-text">
             How We're Organized
           </h2>
           <p className="text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto">

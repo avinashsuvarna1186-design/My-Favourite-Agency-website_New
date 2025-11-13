@@ -705,4 +705,33 @@
   .card-flip:hover {
     transform: rotateY(10deg) rotateX(5deg);
   }
+
+  /* Gradient Wave Animation */
+  @keyframes gradient-wave {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  .gradient-wave-text {
+    background: linear-gradient(
+      90deg,
+      #00ffff 0%,
+      #ff00ff 25%, 
+      #00ff9d 50%,
+      #8a2be2 75%,
+      #00ffff 100%
+    );
+    background-size: 300% 100%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradient-wave 4s ease-in-out infinite;
+  }
 }
