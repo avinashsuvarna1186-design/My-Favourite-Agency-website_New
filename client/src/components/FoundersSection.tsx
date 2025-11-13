@@ -27,7 +27,7 @@ export default function FoundersSection() {
     <section className="py-24 px-4 relative" data-testid="section-founders">
       <div className="max-w-6xl mx-auto">
         <div ref={animation.ref} className={animation.className}>
-          <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-foreground">
+          <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 gradient-wave-text">
             We Are
           </h2>
 

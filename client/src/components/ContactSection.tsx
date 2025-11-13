@@ -35,7 +35,7 @@ export default function ContactSection() {
     <section id="contact" className="py-24 px-4" data-testid="section-contact">
       <div className="max-w-6xl mx-auto">
         <div ref={headerAnimation.ref} className={`text-center mb-16 ${headerAnimation.className}`}>
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground uppercase">Let's Talk</h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 uppercase gradient-wave-text">Let's Talk</h2>
           <p className="text-lg text-muted-foreground">Let's make your brand sabse favourite.</p>
         </div>
 

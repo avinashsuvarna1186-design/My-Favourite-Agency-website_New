@@ -73,7 +73,7 @@ export default function EnhancedWorkSection() {
     <section id="work" className="py-32 px-4 relative" data-testid="section-enhanced-work">
       <div className="max-w-7xl mx-auto relative z-10">
         <div ref={headerAnimation.ref} className={`text-center mb-20 ${headerAnimation.className}`}>
-          <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 text-foreground uppercase spaced-text-lg">
+          <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 uppercase spaced-text-lg gradient-wave-text">
             Real Brands. Real Impact.
           </h2>
           <p className="text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">

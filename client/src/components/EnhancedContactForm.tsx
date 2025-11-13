@@ -72,7 +72,7 @@ export default function EnhancedContactForm() {
     <section className="py-24 px-4 relative" data-testid="section-contact-form">
       <div className="max-w-3xl mx-auto">
         <div ref={animation.ref} className={animation.className}>
-          <h2 className="text-4xl md:text-5xl font-bold text-center mb-4 text-foreground">
+          <h2 className="text-4xl md:text-5xl font-bold text-center mb-4 gradient-wave-text">
             Ready to Build Something Legendary?
           </h2>
           <p className="text-center text-muted-foreground mb-12 text-lg">

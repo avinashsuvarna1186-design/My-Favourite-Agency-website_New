@@ -98,7 +98,7 @@ export default function VisionMissionTeamSection() {
         </div>
 
         <div ref={storyAnimation.ref} className={`mb-16 ${storyAnimation.className}`}>
-          <h3 className="text-3xl md:text-4xl font-bold mb-6 text-foreground">We Decided to Flip the Script</h3>
+          <h3 className="text-3xl md:text-4xl font-bold mb-6 gradient-wave-text">We Decided to Flip the Script</h3>
           <div className="max-w-4xl space-y-4" data-testid="text-brand-story">
             <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
               We were working jobs, drinking bad chai and questioning everything; especially the mediocrity around us.
@@ -116,7 +116,7 @@ export default function VisionMissionTeamSection() {
         </div>
 
         <div ref={teamAnimation.ref} className={teamAnimation.className}>
-          <h3 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">The MFA Crew</h3>
+          <h3 className="text-3xl md:text-4xl font-bold mb-4 gradient-wave-text">The MFA Crew</h3>
           <div className="grid md:grid-cols-2 gap-6">
             {team.map((member, index) => (
               <Card key={index} className="hover-elevate active-elevate-2" data-testid={`card-team-${index}`}>

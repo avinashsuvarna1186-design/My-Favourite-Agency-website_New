@@ -24,7 +24,7 @@ export default function HowWeWorkSection() {
     <section className="py-24 px-4" data-testid="section-how-we-work">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">How we work our magic.</h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 gradient-wave-text">How we work our magic.</h2>
         </div>
 
         <div className="grid md:grid-cols-3 gap-8">

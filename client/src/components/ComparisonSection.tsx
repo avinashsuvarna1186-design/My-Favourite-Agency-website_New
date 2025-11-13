@@ -12,7 +12,7 @@ export default function ComparisonSection() {
   return (
     <section className="py-24 px-4 relative overflow-hidden" data-testid="section-comparison">
       <div className="max-w-5xl mx-auto relative z-10">
-        <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center text-foreground">
+        <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center gradient-wave-text">
           Why we're different
         </h2>
 
