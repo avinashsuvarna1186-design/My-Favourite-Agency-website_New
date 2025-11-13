@@ -30,31 +30,15 @@ export default function Home() {
       <div className="fixed inset-0 z-0 bg-black overflow-hidden">
         <ParallaxSection speed={0.35}>
           <div 
-            className="absolute inset-0 opacity-80"
+            className="absolute inset-0"
             style={{
               backgroundImage: `url(${neonAbstractBg1})`,
               backgroundSize: 'cover',
               backgroundPosition: 'center',
               backgroundRepeat: 'no-repeat',
+              opacity: 0.9,
             }}
           />
-        </ParallaxSection>
-        <ParallaxSection speed={0.5}>
-          <div 
-            className="absolute inset-0 opacity-50"
-            style={{
-              backgroundImage: `url(${neonAbstractBg2})`,
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-              backgroundRepeat: 'no-repeat',
-              mixBlendMode: 'screen',
-            }}
-          />
-        </ParallaxSection>
-        <ParallaxSection speed={0.28}>
-          <div className="absolute inset-0 opacity-30" style={{
-            background: `linear-gradient(135deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.5) 100%)`
-          }} />
         </ParallaxSection>
       </div>
       
