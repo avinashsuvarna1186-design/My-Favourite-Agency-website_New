@@ -62,29 +62,29 @@ export default function TestimonialsSection() {
         </div>
 
         <div className="relative">
-          {/* Navigation Arrows */}
+          {/* Minimal Navigation Arrows */}
           <button
             onClick={handlePrevious}
-            className="absolute top-1/2 -translate-y-1/2 z-20 bg-white/10 hover:bg-white/20 backdrop-blur-sm p-3 rounded-full transition-all"
+            className="absolute top-1/2 -translate-y-1/2 z-20 text-white/40 hover:text-white/80 transition-colors"
             style={{ left: '-50px' }}
             data-testid="button-carousel-prev"
           >
-            <ChevronLeft className="w-6 h-6 text-white" />
+            <ChevronLeft className="w-8 h-8" />
           </button>
           
           <button
             onClick={handleNext}
-            className="absolute top-1/2 -translate-y-1/2 z-20 bg-white/10 hover:bg-white/20 backdrop-blur-sm p-3 rounded-full transition-all"
+            className="absolute top-1/2 -translate-y-1/2 z-20 text-white/40 hover:text-white/80 transition-colors"
             style={{ right: '-50px' }}
             data-testid="button-carousel-next"
           >
-            <ChevronRight className="w-6 h-6 text-white" />
+            <ChevronRight className="w-8 h-8" />
           </button>
 
           {/* Carousel Container */}
           <div 
             ref={scrollContainerRef}
-            className="flex overflow-x-auto gap-6 pb-4 snap-x snap-mandatory scrollbar-hide px-12"
+            className="flex overflow-x-auto gap-6 snap-x snap-mandatory scrollbar-hide"
           >
             {testimonials.map((testimonial, index) => {
               const animationType = index % 2 === 0 ? "slide-left" : "slide-right";
@@ -117,14 +117,14 @@ export default function TestimonialsSection() {
             })}
           </div>
 
-          {/* Dots Indicator */}
-          <div className="flex justify-center gap-2 mt-6">
+          {/* Minimal Dots Indicator */}
+          <div className="flex justify-center gap-1.5 mt-8">
             {testimonials.map((_, index) => (
               <button
                 key={index}
                 onClick={() => scrollToCard(index)}
-                className={`w-2 h-2 rounded-full transition-all ${
-                  index === currentIndex ? 'bg-primary w-8' : 'bg-white/30'
+                className={`h-1.5 rounded-full transition-all ${
+                  index === currentIndex ? 'bg-white w-6' : 'bg-white/20 w-1.5'
                 }`}
                 data-testid={`button-carousel-dot-${index}`}
               />
