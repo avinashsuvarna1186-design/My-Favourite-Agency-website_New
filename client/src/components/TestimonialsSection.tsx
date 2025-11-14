@@ -65,7 +65,7 @@ export default function TestimonialsSection() {
           {/* Minimal Navigation Arrows */}
           <button
             onClick={handlePrevious}
-            className="absolute top-1/2 -translate-y-1/2 z-20 text-white/40 hover:text-white/80 transition-colors"
+            className="absolute top-1/2 -translate-y-1/2 z-20 text-white/10 hover:text-white/30 transition-colors"
             style={{ left: '-50px' }}
             data-testid="button-carousel-prev"
           >
@@ -74,7 +74,7 @@ export default function TestimonialsSection() {
           
           <button
             onClick={handleNext}
-            className="absolute top-1/2 -translate-y-1/2 z-20 text-white/40 hover:text-white/80 transition-colors"
+            className="absolute top-1/2 -translate-y-1/2 z-20 text-white/10 hover:text-white/30 transition-colors"
             style={{ right: '-50px' }}
             data-testid="button-carousel-next"
           >
