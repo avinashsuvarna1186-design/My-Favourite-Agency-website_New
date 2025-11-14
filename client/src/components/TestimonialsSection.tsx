@@ -37,13 +37,13 @@ export default function TestimonialsSection() {
           <h2 className="text-4xl md:text-5xl font-bold mb-4 uppercase gradient-wave-text">Client Love</h2>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="flex overflow-x-auto gap-6 pb-4 snap-x snap-mandatory scrollbar-hide">
           {testimonials.map((testimonial, index) => {
             const animationType = index % 2 === 0 ? "slide-left" : "slide-right";
             return (
               <ScrollAnimatedWrapper key={index} animationType={animationType} delay={(index + 1) * 100}>
                 <Card 
-                  className="hover-elevate active-elevate-2 h-full border-none" 
+                  className="hover-elevate active-elevate-2 border-none flex-shrink-0 w-80 snap-center" 
                   data-testid={`card-testimonial-${index}`}
                   style={{
                     background: 'linear-gradient(180deg, #000000 0%, #ff6d00 100%)',
@@ -66,6 +66,16 @@ export default function TestimonialsSection() {
             );
           })}
         </div>
+        
+        <style>{`
+          .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+          }
+          .scrollbar-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+          }
+        `}</style>
       </div>
     </section>
   );
