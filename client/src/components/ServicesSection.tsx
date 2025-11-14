@@ -94,8 +94,8 @@ export default function ServicesSection() {
                 );
               })}
             </CarouselContent>
-            <CarouselPrevious className="hidden md:flex -left-16" data-testid="button-carousel-prev" />
-            <CarouselNext className="hidden md:flex -right-16" data-testid="button-carousel-next" />
+            <CarouselPrevious className="hidden md:flex left-4" data-testid="button-carousel-prev" />
+            <CarouselNext className="hidden md:flex right-4" data-testid="button-carousel-next" />
           </Carousel>
         </div>
       </section>
