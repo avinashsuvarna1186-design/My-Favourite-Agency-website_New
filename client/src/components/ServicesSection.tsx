@@ -68,7 +68,7 @@ export default function ServicesSection() {
               align: "start",
               loop: true,
             }}
-            className="w-full max-w-5xl mx-auto"
+            className="w-full max-w-5xl mx-auto pb-16"
           >
             <CarouselContent className="-ml-4">
               {services.map((service, index) => {
@@ -94,8 +94,12 @@ export default function ServicesSection() {
                 );
               })}
             </CarouselContent>
-            <CarouselPrevious className="hidden md:flex left-4" data-testid="button-carousel-prev" />
-            <CarouselNext className="hidden md:flex right-4" data-testid="button-carousel-next" />
+            
+            {/* Navigation arrows at bottom */}
+            <div className="absolute bottom-0 right-0 flex gap-2">
+              <CarouselPrevious className="static translate-y-0" data-testid="button-carousel-prev" />
+              <CarouselNext className="static translate-y-0" data-testid="button-carousel-next" />
+            </div>
           </Carousel>
         </div>
       </section>
