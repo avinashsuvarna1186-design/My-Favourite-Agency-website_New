@@ -124,7 +124,7 @@ export default function TestimonialsSection() {
                 key={index}
                 onClick={() => scrollToCard(index)}
                 className={`h-1.5 rounded-full transition-all ${
-                  index === currentIndex ? 'bg-white w-6' : 'bg-white/20 w-1.5'
+                  index === currentIndex ? 'bg-white/30 w-6' : 'bg-white/10 w-1.5'
                 }`}
                 data-testid={`button-carousel-dot-${index}`}
               />
