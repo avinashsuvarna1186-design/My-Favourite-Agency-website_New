@@ -65,7 +65,8 @@ export default function TestimonialsSection() {
           {/* Navigation Arrows */}
           <button
             onClick={handlePrevious}
-            className="absolute left-0 top-1/2 -translate-y-1/2 z-20 bg-white/10 hover:bg-white/20 backdrop-blur-sm p-3 rounded-full transition-all"
+            className="absolute top-1/2 -translate-y-1/2 z-20 bg-white/10 hover:bg-white/20 backdrop-blur-sm p-3 rounded-full transition-all"
+            style={{ left: '-50px' }}
             data-testid="button-carousel-prev"
           >
             <ChevronLeft className="w-6 h-6 text-white" />
@@ -73,7 +74,8 @@ export default function TestimonialsSection() {
           
           <button
             onClick={handleNext}
-            className="absolute right-0 top-1/2 -translate-y-1/2 z-20 bg-white/10 hover:bg-white/20 backdrop-blur-sm p-3 rounded-full transition-all"
+            className="absolute top-1/2 -translate-y-1/2 z-20 bg-white/10 hover:bg-white/20 backdrop-blur-sm p-3 rounded-full transition-all"
+            style={{ right: '-50px' }}
             data-testid="button-carousel-next"
           >
             <ChevronRight className="w-6 h-6 text-white" />
