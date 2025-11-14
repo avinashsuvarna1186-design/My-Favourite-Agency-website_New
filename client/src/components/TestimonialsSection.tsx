@@ -46,7 +46,7 @@ export default function TestimonialsSection() {
                   className="hover-elevate active-elevate-2 h-full border-none" 
                   data-testid={`card-testimonial-${index}`}
                   style={{
-                    background: 'linear-gradient(90deg, #000000 0%, #ff6d00 100%)',
+                    background: 'linear-gradient(180deg, #000000 0%, #ff6d00 100%)',
                   }}
                 >
                   <CardContent className="p-6">
