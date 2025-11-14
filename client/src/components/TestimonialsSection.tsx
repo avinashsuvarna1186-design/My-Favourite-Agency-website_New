@@ -1,10 +1,13 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { Star } from "lucide-react";
+import { Star, ChevronLeft, ChevronRight } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import ScrollAnimatedWrapper from "./ScrollAnimatedWrapper";
+import { useState, useRef } from "react";
 
 export default function TestimonialsSection() {
   const headerAnimation = useScrollAnimation("fade-in");
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   const testimonials = [
     {
@@ -29,6 +32,27 @@ export default function TestimonialsSection() {
     },
   ];
 
+  const scrollToCard = (index: number) => {
+    if (scrollContainerRef.current) {
+      const cardWidth = 400; // w-96 + gap
+      scrollContainerRef.current.scrollTo({
+        left: index * cardWidth,
+        behavior: 'smooth'
+      });
+      setCurrentIndex(index);
+    }
+  };
+
+  const handlePrevious = () => {
+    const newIndex = currentIndex > 0 ? currentIndex - 1 : testimonials.length - 1;
+    scrollToCard(newIndex);
+  };
+
+  const handleNext = () => {
+    const newIndex = currentIndex < testimonials.length - 1 ? currentIndex + 1 : 0;
+    scrollToCard(newIndex);
+  };
+
   return (
     <section className="py-24 px-4 relative" data-testid="section-testimonials">
       <div className="absolute inset-0 bg-black backdrop-blur-sm" />
@@ -37,34 +61,73 @@ export default function TestimonialsSection() {
           <h2 className="text-4xl md:text-5xl font-bold mb-4 uppercase gradient-wave-text">Client Love</h2>
         </div>
 
-        <div className="flex overflow-x-auto gap-6 pb-4 snap-x snap-mandatory scrollbar-hide">
-          {testimonials.map((testimonial, index) => {
-            const animationType = index % 2 === 0 ? "slide-left" : "slide-right";
-            return (
-              <ScrollAnimatedWrapper key={index} animationType={animationType} delay={(index + 1) * 100}>
-                <Card 
-                  className="hover-elevate active-elevate-2 border-none flex-shrink-0 w-80 snap-center" 
-                  data-testid={`card-testimonial-${index}`}
-                  style={{
-                    background: 'linear-gradient(180deg, #000000 0%, #ff6d00 100%)',
-                  }}
-                >
-                  <CardContent className="p-6">
-                    <h3 className="text-xl font-bold text-white mb-1">{testimonial.name}</h3>
-                    <p className="text-sm text-white/90 mb-4">{testimonial.title}</p>
-                    
-                    <div className="flex gap-1 mb-4">
-                      {[...Array(5)].map((_, i) => (
-                        <Star key={i} className="w-5 h-5 fill-white text-white" />
-                      ))}
-                    </div>
-                    
-                    <p className="text-white/95 text-sm leading-relaxed">{testimonial.quote}</p>
-                  </CardContent>
-                </Card>
-              </ScrollAnimatedWrapper>
-            );
-          })}
+        <div className="relative">
+          {/* Navigation Arrows */}
+          <button
+            onClick={handlePrevious}
+            className="absolute left-0 top-1/2 -translate-y-1/2 z-20 bg-white/10 hover:bg-white/20 backdrop-blur-sm p-3 rounded-full transition-all"
+            data-testid="button-carousel-prev"
+          >
+            <ChevronLeft className="w-6 h-6 text-white" />
+          </button>
+          
+          <button
+            onClick={handleNext}
+            className="absolute right-0 top-1/2 -translate-y-1/2 z-20 bg-white/10 hover:bg-white/20 backdrop-blur-sm p-3 rounded-full transition-all"
+            data-testid="button-carousel-next"
+          >
+            <ChevronRight className="w-6 h-6 text-white" />
+          </button>
+
+          {/* Carousel Container */}
+          <div 
+            ref={scrollContainerRef}
+            className="flex overflow-x-auto gap-6 pb-4 snap-x snap-mandatory scrollbar-hide px-12"
+          >
+            {testimonials.map((testimonial, index) => {
+              const animationType = index % 2 === 0 ? "slide-left" : "slide-right";
+              return (
+                <ScrollAnimatedWrapper key={index} animationType={animationType} delay={(index + 1) * 100}>
+                  <Card 
+                    className="hover-elevate active-elevate-2 border-none flex-shrink-0 w-96 h-[500px] snap-center" 
+                    data-testid={`card-testimonial-${index}`}
+                    style={{
+                      background: 'linear-gradient(180deg, #000000 0%, #ff6d00 100%)',
+                    }}
+                  >
+                    <CardContent className="p-6 flex flex-col h-full">
+                      <h3 className="text-xl font-bold text-white mb-1">{testimonial.name}</h3>
+                      <p className="text-sm text-white/90 mb-4">{testimonial.title}</p>
+                      
+                      <div className="flex gap-1 mb-4">
+                        {[...Array(5)].map((_, i) => (
+                          <Star key={i} className="w-5 h-5 fill-white text-white" />
+                        ))}
+                      </div>
+                      
+                      <div className="flex-1 overflow-auto">
+                        <p className="text-white/95 text-sm leading-relaxed">{testimonial.quote}</p>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </ScrollAnimatedWrapper>
+              );
+            })}
+          </div>
+
+          {/* Dots Indicator */}
+          <div className="flex justify-center gap-2 mt-6">
+            {testimonials.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => scrollToCard(index)}
+                className={`w-2 h-2 rounded-full transition-all ${
+                  index === currentIndex ? 'bg-primary w-8' : 'bg-white/30'
+                }`}
+                data-testid={`button-carousel-dot-${index}`}
+              />
+            ))}
+          </div>
         </div>
         
         <style>{`
