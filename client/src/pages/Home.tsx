@@ -106,10 +106,6 @@ export default function Home() {
             direction="right"
           />
           
-          <ParallaxSection speed={0.28}>
-            <MassiveText>TESTIMONIALS</MassiveText>
-          </ParallaxSection>
-          
           <ParallaxSection speed={0.7}>
             <TestimonialsSection />
           </ParallaxSection>
