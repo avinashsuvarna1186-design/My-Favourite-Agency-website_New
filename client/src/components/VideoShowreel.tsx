@@ -52,8 +52,6 @@ export default function VideoShowreel() {
                   data-testid="video-showreel-background"
                 />
                 
-                <div className="absolute inset-0 bg-gradient-to-br from-black/70 via-black/50 to-black/70" />
-                
                 <div 
                   className="absolute inset-0 z-10 cursor-pointer"
                   onClick={handlePlayClick}
