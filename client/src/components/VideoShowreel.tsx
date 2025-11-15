@@ -104,33 +104,6 @@ export default function VideoShowreel() {
             </div>
           </DialogContent>
         </Dialog>
-
-        <div className="grid md:grid-cols-3 gap-6 mt-12">
-          <Card className="hover-elevate" data-testid="card-video-stat-0">
-            <CardContent className="p-6 text-center">
-              <div className="text-4xl font-bold text-primary mb-2">150+</div>
-              <div className="text-sm text-muted-foreground uppercase tracking-wide">
-                Videos Produced
-              </div>
-            </CardContent>
-          </Card>
-          <Card className="hover-elevate" data-testid="card-video-stat-1">
-            <CardContent className="p-6 text-center">
-              <div className="text-4xl font-bold text-primary mb-2">10M+</div>
-              <div className="text-sm text-muted-foreground uppercase tracking-wide">
-                Total Views
-              </div>
-            </CardContent>
-          </Card>
-          <Card className="hover-elevate" data-testid="card-video-stat-2">
-            <CardContent className="p-6 text-center">
-              <div className="text-4xl font-bold text-primary mb-2">95%</div>
-              <div className="text-sm text-muted-foreground uppercase tracking-wide">
-                Client Satisfaction
-              </div>
-            </CardContent>
-          </Card>
-        </div>
       </div>
     </section>
   );
