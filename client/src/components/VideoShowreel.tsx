@@ -41,9 +41,21 @@ export default function VideoShowreel() {
         <div ref={videoAnimation.ref} className={videoAnimation.className}>
           <Card className="overflow-hidden hover-elevate active-elevate-2 bg-card/50 backdrop-blur-sm" data-testid="card-showreel">
             <CardContent className="p-0">
-              <div className="aspect-video bg-gradient-to-br from-primary/20 via-muted to-primary/10 relative group">
-                <div className="absolute inset-0 flex flex-col items-center justify-center p-8 text-center">
-                  <div className="bg-primary/10 p-6 rounded-full mb-6 group-hover:scale-110 transition-transform">
+              <div className="aspect-video relative group">
+                <video
+                  src={SHOWREEL_URL}
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  className="absolute inset-0 w-full h-full object-cover"
+                  data-testid="video-showreel-background"
+                />
+                
+                <div className="absolute inset-0 bg-gradient-to-br from-black/70 via-black/50 to-black/70" />
+                
+                <div className="absolute inset-0 flex flex-col items-center justify-center p-8 text-center z-10">
+                  <div className="bg-primary/10 p-6 rounded-full mb-6 group-hover:scale-110 transition-transform backdrop-blur-sm">
                     <Video className="w-16 h-16 text-primary" />
                   </div>
                   <h3 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
@@ -63,16 +75,6 @@ export default function VideoShowreel() {
                     <span>Play Showreel</span>
                   </Button>
                 </div>
-                
-                <div className="absolute inset-0 opacity-10" style={{
-                  backgroundImage: `repeating-linear-gradient(
-                    0deg,
-                    transparent,
-                    transparent 2px,
-                    rgba(255, 184, 77, 0.1) 2px,
-                    rgba(255, 184, 77, 0.1) 4px
-                  )`
-                }} />
               </div>
             </CardContent>
           </Card>
