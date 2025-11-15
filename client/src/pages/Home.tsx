@@ -90,7 +90,7 @@ export default function Home() {
           
           <EnhancedWorkSection />
 
-          {/* <VideoShowreel /> */}
+          <VideoShowreel />
 
           <NameMarquee 
             names={["discover", "define", "design", "deliver", "delight"]} 
