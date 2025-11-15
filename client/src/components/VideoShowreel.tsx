@@ -5,8 +5,9 @@ import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } f
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { Play, Video, ArrowDown } from "lucide-react";
+import showreelVideo from "@assets/Logofolio presentation_1763220411848.mp4";
 
-const SHOWREEL_URL = "";
+const SHOWREEL_URL = showreelVideo;
 
 export default function VideoShowreel() {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
@@ -88,14 +89,15 @@ export default function VideoShowreel() {
             <div className="p-6">
               {SHOWREEL_URL ? (
                 <AspectRatio ratio={16 / 9}>
-                  <iframe
+                  <video
                     src={SHOWREEL_URL}
-                    title="MFA Video Showreel"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
+                    controls
+                    autoPlay
                     className="w-full h-full rounded-md"
-                    data-testid="iframe-showreel-video"
-                  />
+                    data-testid="video-showreel"
+                  >
+                    Your browser does not support the video tag.
+                  </video>
                 </AspectRatio>
               ) : (
                 <div className="bg-muted rounded-md p-12 text-center" data-testid="div-showreel-placeholder">
