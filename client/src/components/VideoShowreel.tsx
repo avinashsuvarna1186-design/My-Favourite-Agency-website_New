@@ -55,9 +55,6 @@ export default function VideoShowreel() {
                 <div className="absolute inset-0 bg-gradient-to-br from-black/70 via-black/50 to-black/70" />
                 
                 <div className="absolute inset-0 flex flex-col items-center justify-center p-8 text-center z-10">
-                  <div className="bg-primary/10 p-6 rounded-full mb-6 group-hover:scale-110 transition-transform backdrop-blur-sm">
-                    <Video className="w-16 h-16 text-primary" />
-                  </div>
                   <h3 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
                     Watch Our Showreel
                   </h3>
