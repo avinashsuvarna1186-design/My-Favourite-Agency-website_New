@@ -54,20 +54,14 @@ export default function VideoShowreel() {
                 
                 <div className="absolute inset-0 bg-gradient-to-br from-black/70 via-black/50 to-black/70" />
                 
-                <div className="absolute inset-0 flex flex-col items-center justify-center p-8 text-center z-10">
-                  <h3 className="text-3xl md:text-4xl font-bold text-foreground mb-8">
+                <div 
+                  className="absolute inset-0 flex flex-col items-center justify-center p-8 text-center z-10 cursor-pointer"
+                  onClick={handlePlayClick}
+                  data-testid="button-play-showreel"
+                >
+                  <h3 className="text-3xl md:text-4xl font-bold text-foreground">
                     Watch Our Showreel
                   </h3>
-                  <Button 
-                    onClick={handlePlayClick}
-                    className="gap-3"
-                    size="lg"
-                    data-testid="button-play-showreel"
-                    aria-label="Play video showreel"
-                  >
-                    <Play className="w-5 h-5" />
-                    <span>Play Showreel</span>
-                  </Button>
                 </div>
               </div>
             </CardContent>
