@@ -55,12 +55,9 @@ export default function VideoShowreel() {
                 <div className="absolute inset-0 bg-gradient-to-br from-black/70 via-black/50 to-black/70" />
                 
                 <div className="absolute inset-0 flex flex-col items-center justify-center p-8 text-center z-10">
-                  <h3 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+                  <h3 className="text-3xl md:text-4xl font-bold text-foreground mb-8">
                     Watch Our Showreel
                   </h3>
-                  <p className="text-lg text-muted-foreground mb-8 max-w-2xl">
-                    See how we transform ideas into compelling visual stories that engage, inspire, and convert.
-                  </p>
                   <Button 
                     onClick={handlePlayClick}
                     className="gap-3"
