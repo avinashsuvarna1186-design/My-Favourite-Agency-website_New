@@ -30,9 +30,6 @@ export default function VideoShowreel() {
     <section className="py-32 px-4 relative" data-testid="section-video-showreel">
       <div className="max-w-6xl mx-auto relative z-10">
         <div ref={headerAnimation.ref} className={`text-center mb-16 ${headerAnimation.className}`}>
-          <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 uppercase spaced-text-lg gradient-wave-text">
-            Motion That Moves
-          </h2>
           <p className="text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
             From reels to commercials, we create video content that stops the scroll and starts conversations.
           </p>
