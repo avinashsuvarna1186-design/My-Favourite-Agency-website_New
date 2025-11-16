@@ -85,14 +85,7 @@ export default function AboutSection() {
   return (
     <section id="about" className="py-24 px-4 relative" data-testid="section-about">
       <div 
-        className="absolute inset-0 z-0"
-        style={{
-          backgroundImage: `url(${aboutBg})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat',
-          opacity: 0.3,
-        }}
+        className="absolute inset-0 z-0 bg-[#1a1a1a]"
       />
       <div className="max-w-6xl mx-auto relative z-10">
         <div ref={headerAnimation.ref} className={`text-center mb-12 ${headerAnimation.className}`}>
