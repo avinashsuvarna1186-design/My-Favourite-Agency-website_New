@@ -85,7 +85,7 @@ export default function TestimonialsSection() {
             Testimonials
           </p>
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-white leading-[1.2] tracking-tight">
-            Clients who already call us their favourit
+            Clients who already call us their favourite
           </h2>
         </div>
 
