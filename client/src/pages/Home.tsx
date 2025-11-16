@@ -46,10 +46,6 @@ export default function Home() {
         <Header />
         <main>
           <HeroSection />
-          
-          <ParallaxSection speed={0.42}>
-            <StatsSection />
-          </ParallaxSection>
 
           <NameMarquee 
             names={["prattyush", "avinash", "sajjad", "juie", "strategy", "design", "content", "branding"]} 
@@ -91,6 +87,10 @@ export default function Home() {
           <EnhancedWorkSection />
 
           <VideoShowreel />
+
+          <ParallaxSection speed={0.42}>
+            <StatsSection />
+          </ParallaxSection>
 
           <NameMarquee 
             names={["discover", "define", "design", "deliver", "delight"]} 
