@@ -76,7 +76,7 @@ export default function VideoShowreel() {
                 </AspectRatio>
               ) : (
                 <div className="bg-muted rounded-md p-12 text-center" data-testid="div-showreel-placeholder">
-                  <div className="bg-primary/10 p-6 rounded-full mb-6 inline-block">
+                  <div className="bg-icon-surface p-6 rounded-full mb-6 inline-block">
                     <Video className="w-12 h-12 text-primary" />
                   </div>
                   <h3 className="text-2xl font-bold mb-4">Showreel Coming Soon</h3>

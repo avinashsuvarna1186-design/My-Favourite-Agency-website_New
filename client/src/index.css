@@ -75,6 +75,8 @@
   --chart-3: 280 70% 55%;
   --chart-4: 180 80% 50%;
   --chart-5: 30 85% 60%;
+  
+  --icon-surface: 0 0% 10%;
 
   --font-sans: Helvetica, Arial, sans-serif;
   --font-serif: Georgia, serif;
@@ -193,6 +195,8 @@
   --chart-3: 280 70% 55%;
   --chart-4: 180 80% 50%;
   --chart-5: 30 85% 60%;
+  
+  --icon-surface: 0 0% 92%;
 
   --shadow-2xs: 0px 2px 0px 0px hsl(0 0% 0% / 0.00);
   --shadow-xs: 0px 2px 0px 0px hsl(0 0% 0% / 0.00);

@@ -54,7 +54,7 @@ export default function FoundersSection() {
                     className="scale-110 object-cover"
                     style={{ objectPosition: founder.imagePosition }}
                   />
-                  <AvatarFallback className="bg-primary/10 text-4xl font-bold text-primary">
+                  <AvatarFallback className="bg-icon-surface text-4xl font-bold text-primary">
                     {founder.name.charAt(0)}
                   </AvatarFallback>
                 </Avatar>

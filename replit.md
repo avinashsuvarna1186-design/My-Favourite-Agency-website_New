@@ -44,12 +44,13 @@ Preferred communication style: Simple, everyday language.
 - Responsive grid layouts with CSS Grid for team cards and work showcase
 
 **Swiss Design Integration (November 2025)**
-- **Grid System**: All major sections feature subtle Swiss-style grid overlay with 12-column vertical and 8-row horizontal lines at 10% white opacity, providing visual structure without interfering with interactions (pointer-events-none, z-0)
+- **Grid System**: All major sections feature subtle Swiss-style grid overlay with 12-column vertical and 8-row horizontal lines at 5% white opacity, providing visual structure without interfering with interactions (pointer-events-none, z-0)
 - **Typography Hierarchy**: Consistent Swiss typographic system across all sections:
   - Eyebrow text: text-xs, uppercase, 0.3em letter-spacing, 60% opacity
   - Primary headlines: text-4xl md:text-5xl lg:text-6xl, bold, tight tracking
   - Secondary body: text-lg md:text-xl lg:text-2xl, 80% opacity, relaxed line-height (1.6)
   - Tertiary text: text-2xl md:text-3xl, medium weight
+- **Icon Surface Design System**: Centralized icon background color using dedicated CSS variable (--icon-surface: 0 0% 10% / #1A1A1A light black) for consistent icon container styling across all components
 - Applied to: HeroSection, AboutSection, ComparisonSection, HowWeWorkSection, FoundersSection, DepartmentShowcase, ServicesSection, EnhancedWorkSection, StatsSection, ClientLogosSection, TestimonialsSection, EnhancedContactForm, ContactSection
 
 **Page Structure**

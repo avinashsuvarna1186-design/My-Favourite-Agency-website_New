@@ -141,21 +141,21 @@ export default function ContactSection() {
                   <div className="flex gap-4">
                     <a
                       href="#"
-                      className="w-10 h-10 rounded-md bg-primary/10 flex items-center justify-center hover-elevate active-elevate-2 transition-colors"
+                      className="w-10 h-10 rounded-md bg-icon-surface flex items-center justify-center hover-elevate active-elevate-2 transition-colors"
                       data-testid="link-instagram"
                     >
                       <Instagram className="w-5 h-5 text-primary" />
                     </a>
                     <a
                       href="#"
-                      className="w-10 h-10 rounded-md bg-primary/10 flex items-center justify-center hover-elevate active-elevate-2 transition-colors"
+                      className="w-10 h-10 rounded-md bg-icon-surface flex items-center justify-center hover-elevate active-elevate-2 transition-colors"
                       data-testid="link-dribbble"
                     >
                       <SiDribbble className="w-5 h-5 text-primary" />
                     </a>
                     <a
                       href="#"
-                      className="w-10 h-10 rounded-md bg-primary/10 flex items-center justify-center hover-elevate active-elevate-2 transition-colors"
+                      className="w-10 h-10 rounded-md bg-icon-surface flex items-center justify-center hover-elevate active-elevate-2 transition-colors"
                       data-testid="link-linkedin"
                     >
                       <Linkedin className="w-5 h-5 text-primary" />

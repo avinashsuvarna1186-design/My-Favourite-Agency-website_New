@@ -64,7 +64,7 @@ export default function VisionMissionTeamSection() {
             <Card className="hover-elevate active-elevate-2 h-full" data-testid="card-vision">
               <CardContent className="p-8">
                 <div className="flex items-start gap-4">
-                  <div className="bg-primary/10 p-3 rounded-md">
+                  <div className="bg-icon-surface p-3 rounded-md">
                     <Target className="w-6 h-6 text-primary" />
                   </div>
                   <div>
@@ -82,7 +82,7 @@ export default function VisionMissionTeamSection() {
             <Card className="hover-elevate active-elevate-2 h-full" data-testid="card-mission">
               <CardContent className="p-8">
                 <div className="flex items-start gap-4">
-                  <div className="bg-primary/10 p-3 rounded-md">
+                  <div className="bg-icon-surface p-3 rounded-md">
                     <Compass className="w-6 h-6 text-primary" />
                   </div>
                   <div>
@@ -131,7 +131,7 @@ export default function VisionMissionTeamSection() {
                           style={{ objectPosition: member.imagePosition }}
                         />
                       )}
-                      <AvatarFallback className="bg-primary/10 text-xl font-bold text-primary">
+                      <AvatarFallback className="bg-icon-surface text-xl font-bold text-primary">
                         {member.name.charAt(0)}
                       </AvatarFallback>
                     </Avatar>

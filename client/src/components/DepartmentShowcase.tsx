@@ -75,7 +75,7 @@ export default function DepartmentShowcase() {
                     <div className="absolute left-0 top-0 bottom-0 w-1 bg-primary rounded-l-md" />
                     <CardContent className="p-8 md:p-10">
                       <div className="flex items-start gap-6 mb-6">
-                        <div className="bg-primary/10 p-4 rounded-md flex-shrink-0">
+                        <div className="bg-icon-surface p-4 rounded-md flex-shrink-0">
                           <Icon className="w-8 h-8 text-primary" />
                         </div>
                         <div className="flex-1">

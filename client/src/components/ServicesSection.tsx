@@ -89,7 +89,7 @@ export default function ServicesSection() {
                         data-testid={`card-service-${index}`}
                       >
                         <CardContent className="p-6">
-                          <div className="service-icon-wrapper bg-primary/10 w-12 h-12 rounded-md flex items-center justify-center mb-4">
+                          <div className="service-icon-wrapper bg-icon-surface w-12 h-12 rounded-md flex items-center justify-center mb-4">
                             <Icon className="w-6 h-6 text-primary" />
                           </div>
                           <h3 className="text-xl font-bold mb-2 text-foreground">{service.title}</h3>
@@ -117,7 +117,7 @@ export default function ServicesSection() {
             <>
               <DialogHeader>
                 <DialogTitle className="text-2xl font-bold flex items-center gap-3">
-                  <div className="bg-primary/10 w-10 h-10 rounded-md flex items-center justify-center">
+                  <div className="bg-icon-surface w-10 h-10 rounded-md flex items-center justify-center">
                     <selectedService.icon className="w-5 h-5 text-primary" />
                   </div>
                   {selectedService.title}

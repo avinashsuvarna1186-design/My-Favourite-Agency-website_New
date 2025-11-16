@@ -42,7 +42,7 @@ export default function HowWeWorkSection() {
             return (
               <Card key={index} className="hover-elevate active-elevate-2 card-flip opacity-50" data-testid={`card-work-point-${index}`}>
                 <CardContent className="p-8 text-center">
-                  <div className="w-16 h-16 rounded-md flex items-center justify-center mx-auto mb-4" style={{ backgroundColor: '#1B1627' }}>
+                  <div className="bg-icon-surface w-16 h-16 rounded-md flex items-center justify-center mx-auto mb-4">
                     <Icon className="w-8 h-8 text-primary" />
                   </div>
                   <h3 className="text-xl font-bold mb-3 text-foreground">{point.title}</h3>
