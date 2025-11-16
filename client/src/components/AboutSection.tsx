@@ -98,7 +98,7 @@ export default function AboutSection() {
           </p>
           
           {/* Primary headline - Large, bold */}
-          <h2 className="text-4xl md:text-5xl lg:text-6xl text-white font-bold max-w-4xl mx-auto leading-[1.2] mb-10 tracking-tight">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl gradient-flow-text font-bold max-w-4xl mx-auto leading-[1.2] mb-10 tracking-tight">
             Most agencies wait for the brief. We BUILD the brief with you.
           </h2>
           

@@ -62,7 +62,7 @@ export default function ServicesSection() {
             <p className="text-xs uppercase tracking-[0.3em] text-white/60 font-medium mb-6">
               What We Offer
             </p>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 uppercase tracking-tight text-white leading-[1.2]">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 uppercase tracking-tight gradient-flow-text leading-[1.2]">
               Your Brand's Glow-up Kit
             </h2>
             <p className="text-lg md:text-xl lg:text-2xl text-white/80 max-w-5xl leading-[1.6] font-normal">

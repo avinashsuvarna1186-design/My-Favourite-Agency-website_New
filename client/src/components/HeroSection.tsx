@@ -166,7 +166,7 @@ export default function HeroSection() {
         
         {/* Primary headline - Large, bold, tight tracking */}
         <h1 
-          className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 text-white drop-shadow-2xl leading-[1.1] tracking-tight"
+          className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 gradient-flow-text drop-shadow-2xl leading-[1.1] tracking-tight"
           data-testid="text-hero-headline"
         >
           Scroll Down.

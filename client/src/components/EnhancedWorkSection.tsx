@@ -80,7 +80,7 @@ export default function EnhancedWorkSection() {
           <p className="text-xs uppercase tracking-[0.3em] text-white/60 font-medium mb-6">
             Our Portfolio
           </p>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 uppercase tracking-tight text-white leading-[1.2]">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 uppercase tracking-tight gradient-flow-text leading-[1.2]">
             Real Brands. Real Impact.
           </h2>
           <p className="text-lg md:text-xl lg:text-2xl text-white/80 max-w-4xl mx-auto leading-[1.6] font-normal">

@@ -42,7 +42,7 @@ export default function ContactSection() {
           <p className="text-xs uppercase tracking-[0.3em] text-white/60 font-medium mb-6">
             Contact
           </p>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 uppercase text-white leading-[1.2] tracking-tight">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 uppercase gradient-flow-text leading-[1.2] tracking-tight">
             Let's Talk
           </h2>
           <p className="text-base md:text-lg lg:text-xl text-white/80 leading-[1.6] font-normal">

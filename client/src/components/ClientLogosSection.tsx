@@ -22,7 +22,7 @@ export default function ClientLogosSection() {
             <p className="text-xs uppercase tracking-[0.3em] text-white/60 font-medium mb-6">
               Our Clients
             </p>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.2] tracking-tight mb-4">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold gradient-flow-text leading-[1.2] tracking-tight mb-4">
               Trusted By Brands That Matter
             </h2>
             <p className="text-base md:text-lg lg:text-xl text-white/80 max-w-2xl mx-auto leading-[1.6] font-normal">

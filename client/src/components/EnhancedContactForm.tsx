@@ -80,7 +80,7 @@ export default function EnhancedContactForm() {
             <p className="text-xs uppercase tracking-[0.3em] text-white/60 font-medium mb-6">
               Get In Touch
             </p>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.2] tracking-tight mb-4">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold gradient-flow-text leading-[1.2] tracking-tight mb-4">
               Ready to Build Something Legendary?
             </h2>
             <p className="text-base md:text-lg lg:text-xl text-white/80 leading-[1.6] font-normal">

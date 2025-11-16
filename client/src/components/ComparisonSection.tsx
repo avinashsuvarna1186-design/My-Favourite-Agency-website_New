@@ -20,7 +20,7 @@ export default function ComparisonSection() {
           <p className="text-xs uppercase tracking-[0.3em] text-white/60 font-medium mb-6">
             Our Philosophy
           </p>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-white leading-[1.2] tracking-tight">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 gradient-flow-text leading-[1.2] tracking-tight">
             Why we're different
           </h2>
         </div>
