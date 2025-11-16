@@ -94,7 +94,7 @@ export default function EnhancedWorkSection() {
             return (
               <ScrollAnimatedWrapper key={index} animationType={animationType} delay={index * 100}>
                 <Card
-                  className="overflow-hidden hover-elevate active-elevate-2 transition-all h-full"
+                  className="overflow-hidden hover-elevate active-elevate-2 transition-all h-full backdrop-blur-md bg-card/60 border-white/10 opacity-60"
                   data-testid={`card-enhanced-work-${index}`}
                 >
                   <div className="aspect-video overflow-hidden bg-muted">

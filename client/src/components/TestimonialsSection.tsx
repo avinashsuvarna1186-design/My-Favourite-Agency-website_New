@@ -101,10 +101,10 @@ export default function TestimonialsSection() {
               return (
                 <ScrollAnimatedWrapper key={index} animationType={animationType} delay={(index + 1) * 100}>
                   <Card 
-                    className="hover-elevate active-elevate-2 border-none flex-shrink-0 w-96 h-[500px] snap-center" 
+                    className="hover-elevate active-elevate-2 border-white/10 flex-shrink-0 w-96 h-[500px] snap-center backdrop-blur-md opacity-60" 
                     data-testid={`card-testimonial-${index}`}
                     style={{
-                      background: 'linear-gradient(180deg, #000000 0%, #E97451 100%)',
+                      background: 'linear-gradient(180deg, rgba(0, 0, 0, 0.6) 0%, rgba(233, 116, 81, 0.6) 100%)',
                     }}
                   >
                     <CardContent className="p-6 flex flex-col h-full">

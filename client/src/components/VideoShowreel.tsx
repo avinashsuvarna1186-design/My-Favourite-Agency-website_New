@@ -30,7 +30,7 @@ export default function VideoShowreel() {
     <section className="py-32 px-4 relative" data-testid="section-video-showreel">
       <div className="max-w-6xl mx-auto relative z-10">
         <div ref={videoAnimation.ref} className={videoAnimation.className}>
-          <Card className="overflow-hidden hover-elevate active-elevate-2 bg-card/50 backdrop-blur-sm" data-testid="card-showreel">
+          <Card className="overflow-hidden hover-elevate active-elevate-2 backdrop-blur-md bg-card/60 border-white/10 opacity-60" data-testid="card-showreel">
             <CardContent className="p-0">
               <div className="aspect-video relative group">
                 <video

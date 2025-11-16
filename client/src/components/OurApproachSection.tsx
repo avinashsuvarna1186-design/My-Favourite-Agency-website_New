@@ -8,7 +8,7 @@ export default function OurApproachSection() {
     <section className="py-16 px-4 relative" data-testid="section-our-approach">
       <div className="max-w-5xl mx-auto relative z-10">
         <div ref={animation.ref} className={animation.className}>
-          <Card className="bg-primary/5 border-primary/20 hover-elevate overflow-visible" data-testid="card-our-approach">
+          <Card className="backdrop-blur-md bg-card/60 border-white/10 opacity-60 hover-elevate overflow-visible" data-testid="card-our-approach">
             <CardContent className="p-10 md:p-16">
               <p className="text-2xl md:text-3xl text-foreground text-center font-medium leading-relaxed">
                 Most agencies wait for the brief. We <span className="text-primary font-bold">BUILD the brief</span> with you. 

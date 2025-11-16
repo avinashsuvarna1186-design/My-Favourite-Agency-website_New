@@ -61,7 +61,7 @@ export default function VisionMissionTeamSection() {
       <div className="max-w-6xl mx-auto relative z-10">
         <div className="grid md:grid-cols-2 gap-6 mb-16">
           <div ref={visionAnimation.ref} className={visionAnimation.className}>
-            <Card className="hover-elevate active-elevate-2 h-full" data-testid="card-vision">
+            <Card className="hover-elevate active-elevate-2 h-full backdrop-blur-md bg-card/60 border-white/10 opacity-60" data-testid="card-vision">
               <CardContent className="p-8">
                 <div className="flex items-start gap-4">
                   <div className="bg-icon-surface p-3 rounded-md">
@@ -79,7 +79,7 @@ export default function VisionMissionTeamSection() {
           </div>
 
           <div ref={missionAnimation.ref} className={missionAnimation.className}>
-            <Card className="hover-elevate active-elevate-2 h-full" data-testid="card-mission">
+            <Card className="hover-elevate active-elevate-2 h-full backdrop-blur-md bg-card/60 border-white/10 opacity-60" data-testid="card-mission">
               <CardContent className="p-8">
                 <div className="flex items-start gap-4">
                   <div className="bg-icon-surface p-3 rounded-md">
@@ -119,7 +119,7 @@ export default function VisionMissionTeamSection() {
           <h3 className="text-3xl md:text-4xl font-bold mb-4 gradient-wave-text">The MFA Crew</h3>
           <div className="grid md:grid-cols-2 gap-6">
             {team.map((member, index) => (
-              <Card key={index} className="hover-elevate active-elevate-2" data-testid={`card-team-${index}`}>
+              <Card key={index} className="hover-elevate active-elevate-2 backdrop-blur-md bg-card/60 border-white/10 opacity-60" data-testid={`card-team-${index}`}>
                 <CardContent className="p-6">
                   <div className="flex items-start gap-4 mb-4">
                     <Avatar className="w-16 h-16 flex-shrink-0">
