@@ -115,10 +115,6 @@ export default function Home() {
             direction="left"
           />
           
-          <ParallaxSection speed={0.28}>
-            <MassiveText>CONTACT</MassiveText>
-          </ParallaxSection>
-          
           <ParallaxSection speed={0.56}>
             <EnhancedContactForm />
           </ParallaxSection>
