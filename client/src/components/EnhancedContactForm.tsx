@@ -70,14 +70,41 @@ export default function EnhancedContactForm() {
 
   return (
     <section className="py-24 px-4 relative" data-testid="section-contact-form">
-      <div className="max-w-3xl mx-auto">
+      {/* Swiss Grid Lines */}
+      <div className="absolute inset-0 z-0 opacity-10 pointer-events-none">
+        {/* Vertical grid lines - 12 column grid */}
+        {[...Array(13)].map((_, i) => (
+          <div
+            key={`v-${i}`}
+            className="absolute top-0 bottom-0 w-px bg-white"
+            style={{ left: `${(i / 12) * 100}%` }}
+          />
+        ))}
+        
+        {/* Horizontal grid lines - 8 row grid */}
+        {[...Array(9)].map((_, i) => (
+          <div
+            key={`h-${i}`}
+            className="absolute left-0 right-0 h-px bg-white"
+            style={{ top: `${(i / 8) * 100}%` }}
+          />
+        ))}
+      </div>
+
+      <div className="max-w-3xl mx-auto relative z-10">
         <div ref={animation.ref} className={animation.className}>
-          <h2 className="text-4xl md:text-5xl font-bold text-center mb-4 gradient-wave-text">
-            Ready to Build Something Legendary?
-          </h2>
-          <p className="text-center text-muted-foreground mb-12 text-lg">
-            Drop us a line. We promise not to ghost you.
-          </p>
+          {/* Swiss Typography */}
+          <div className="text-center mb-12">
+            <p className="text-xs uppercase tracking-[0.3em] text-white/60 font-medium mb-6">
+              Get In Touch
+            </p>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.2] tracking-tight mb-4">
+              Ready to Build Something Legendary?
+            </h2>
+            <p className="text-base md:text-lg lg:text-xl text-white/80 leading-[1.6] font-normal">
+              Drop us a line. We promise not to ghost you.
+            </p>
+          </div>
 
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">

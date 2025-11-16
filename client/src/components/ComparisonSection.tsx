@@ -11,10 +11,37 @@ export default function ComparisonSection() {
 
   return (
     <section className="py-24 px-4 relative overflow-hidden" data-testid="section-comparison">
+      {/* Swiss Grid Lines */}
+      <div className="absolute inset-0 z-0 opacity-10 pointer-events-none">
+        {/* Vertical grid lines - 12 column grid */}
+        {[...Array(13)].map((_, i) => (
+          <div
+            key={`v-${i}`}
+            className="absolute top-0 bottom-0 w-px bg-white"
+            style={{ left: `${(i / 12) * 100}%` }}
+          />
+        ))}
+        
+        {/* Horizontal grid lines - 8 row grid */}
+        {[...Array(9)].map((_, i) => (
+          <div
+            key={`h-${i}`}
+            className="absolute left-0 right-0 h-px bg-white"
+            style={{ top: `${(i / 8) * 100}%` }}
+          />
+        ))}
+      </div>
+
       <div className="max-w-5xl mx-auto relative z-10">
-        <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center gradient-wave-text">
-          Why we're different
-        </h2>
+        {/* Swiss Typography */}
+        <div className="mb-16 text-center">
+          <p className="text-xs uppercase tracking-[0.3em] text-white/60 font-medium mb-6">
+            Our Philosophy
+          </p>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-white leading-[1.2] tracking-tight">
+            Why we're different
+          </h2>
+        </div>
 
         <div className="grid md:grid-cols-2 gap-8">
           <div>

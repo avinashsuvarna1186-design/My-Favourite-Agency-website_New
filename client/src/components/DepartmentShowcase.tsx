@@ -47,13 +47,38 @@ export default function DepartmentShowcase() {
   ];
 
   return (
-    <section className="py-24 px-4" data-testid="section-departments">
-      <div className="max-w-6xl mx-auto">
+    <section className="py-24 px-4 relative" data-testid="section-departments">
+      {/* Swiss Grid Lines */}
+      <div className="absolute inset-0 z-0 opacity-10 pointer-events-none">
+        {/* Vertical grid lines - 12 column grid */}
+        {[...Array(13)].map((_, i) => (
+          <div
+            key={`v-${i}`}
+            className="absolute top-0 bottom-0 w-px bg-white"
+            style={{ left: `${(i / 12) * 100}%` }}
+          />
+        ))}
+        
+        {/* Horizontal grid lines - 8 row grid */}
+        {[...Array(9)].map((_, i) => (
+          <div
+            key={`h-${i}`}
+            className="absolute left-0 right-0 h-px bg-white"
+            style={{ top: `${(i / 8) * 100}%` }}
+          />
+        ))}
+      </div>
+
+      <div className="max-w-6xl mx-auto relative z-10">
+        {/* Swiss Typography */}
         <div ref={headerAnimation.ref} className={`text-center mb-16 ${headerAnimation.className}`}>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold uppercase spaced-text-lg mb-6 gradient-wave-text">
+          <p className="text-xs uppercase tracking-[0.3em] text-white/60 font-medium mb-6">
+            Our Structure
+          </p>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold uppercase tracking-tight mb-6 text-white leading-[1.2]">
             How We're Organized
           </h2>
-          <p className="text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto">
+          <p className="text-lg md:text-xl lg:text-2xl text-white/80 max-w-4xl mx-auto leading-[1.6] font-normal">
             Four departments, one mission: to make your brand unforgettable.
           </p>
         </div>

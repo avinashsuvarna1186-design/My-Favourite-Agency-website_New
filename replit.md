@@ -39,6 +39,15 @@ Preferred communication style: Simple, everyday language.
 - Generous spacing system using Tailwind's py-16 to py-24 for sections
 - Responsive grid layouts with CSS Grid for team cards and work showcase
 
+**Swiss Design Integration (November 2025)**
+- **Grid System**: All major sections feature subtle Swiss-style grid overlay with 12-column vertical and 8-row horizontal lines at 10% white opacity, providing visual structure without interfering with interactions (pointer-events-none, z-0)
+- **Typography Hierarchy**: Consistent Swiss typographic system across all sections:
+  - Eyebrow text: text-xs, uppercase, 0.3em letter-spacing, 60% opacity
+  - Primary headlines: text-4xl md:text-5xl lg:text-6xl, bold, tight tracking
+  - Secondary body: text-lg md:text-xl lg:text-2xl, 80% opacity, relaxed line-height (1.6)
+  - Tertiary text: text-2xl md:text-3xl, medium weight
+- Applied to: HeroSection, AboutSection, ComparisonSection, HowWeWorkSection, FoundersSection, DepartmentShowcase, ServicesSection, EnhancedWorkSection, StatsSection, ClientLogosSection, TestimonialsSection, EnhancedContactForm, ContactSection
+
 **Page Structure**
 - Multi-page application with client-side routing via Wouter
 - **Home Page** (`/`): Hero section with parallax effects, About section (Who We Are, tagline), Our Approach statement, Comparison section, Founders section, Department Showcase (team organized by specialization), Services, Enhanced Work section (detailed portfolio), Video Showreel, How We Work process, Testimonials, Contact form with FloatingCTA

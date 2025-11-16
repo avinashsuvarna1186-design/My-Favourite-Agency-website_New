@@ -71,12 +71,37 @@ export default function EnhancedWorkSection() {
 
   return (
     <section id="work" className="py-32 px-4 relative" data-testid="section-enhanced-work">
+      {/* Swiss Grid Lines */}
+      <div className="absolute inset-0 z-0 opacity-10 pointer-events-none">
+        {/* Vertical grid lines - 12 column grid */}
+        {[...Array(13)].map((_, i) => (
+          <div
+            key={`v-${i}`}
+            className="absolute top-0 bottom-0 w-px bg-white"
+            style={{ left: `${(i / 12) * 100}%` }}
+          />
+        ))}
+        
+        {/* Horizontal grid lines - 8 row grid */}
+        {[...Array(9)].map((_, i) => (
+          <div
+            key={`h-${i}`}
+            className="absolute left-0 right-0 h-px bg-white"
+            style={{ top: `${(i / 8) * 100}%` }}
+          />
+        ))}
+      </div>
+
       <div className="max-w-7xl mx-auto relative z-10">
+        {/* Swiss Typography */}
         <div ref={headerAnimation.ref} className={`text-center mb-20 ${headerAnimation.className}`}>
-          <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 uppercase spaced-text-lg gradient-wave-text">
+          <p className="text-xs uppercase tracking-[0.3em] text-white/60 font-medium mb-6">
+            Our Portfolio
+          </p>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 uppercase tracking-tight text-white leading-[1.2]">
             Real Brands. Real Impact.
           </h2>
-          <p className="text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
+          <p className="text-lg md:text-xl lg:text-2xl text-white/80 max-w-4xl mx-auto leading-[1.6] font-normal">
             We don't just create pretty visuals. We build brands that move markets, change perceptions, and drive results.
           </p>
         </div>

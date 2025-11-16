@@ -62,6 +62,27 @@ export default function HeroSection() {
       className="relative h-screen flex items-center justify-center overflow-hidden"
       data-testid="section-hero"
     >
+      {/* Swiss Grid Lines */}
+      <div className="absolute inset-0 z-0 opacity-10 pointer-events-none">
+        {/* Vertical grid lines - 12 column grid */}
+        {[...Array(13)].map((_, i) => (
+          <div
+            key={`v-${i}`}
+            className="absolute top-0 bottom-0 w-px bg-white"
+            style={{ left: `${(i / 12) * 100}%` }}
+          />
+        ))}
+        
+        {/* Horizontal grid lines - 8 row grid */}
+        {[...Array(9)].map((_, i) => (
+          <div
+            key={`h-${i}`}
+            className="absolute left-0 right-0 h-px bg-white"
+            style={{ top: `${(i / 8) * 100}%` }}
+          />
+        ))}
+      </div>
+
       {/* Galactic Video Background with Depth */}
       <div className="absolute inset-0 z-0">
         {/* Background Video Layer - Slower movement for depth */}
@@ -152,24 +173,30 @@ export default function HeroSection() {
           transition: "transform 0.2s ease-out",
         }}
       >
-        <div className="mb-8">
-          <span className="text-primary text-2xl md:text-4xl font-bold tracking-widest uppercase">
+        {/* Swiss Typography Hierarchy */}
+        {/* Eyebrow text - Small, uppercase, tracked */}
+        <div className="mb-6">
+          <span className="text-xs md:text-sm uppercase tracking-[0.3em] text-white/70 font-medium">
             {typedText}
             <span className="typing-cursor">|</span>
           </span>
         </div>
         
+        {/* Primary headline - Large, bold, tight tracking */}
         <h1 
-          className="text-5xl md:text-8xl font-bold mb-12 text-foreground drop-shadow-2xl leading-tight"
+          className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 text-white drop-shadow-2xl leading-[1.1] tracking-tight"
           data-testid="text-hero-headline"
         >
           Scroll Down.
-          <br />
+        </h1>
+
+        {/* Secondary headline - Medium size, emphasized */}
+        <p className="text-3xl md:text-4xl lg:text-5xl font-bold mb-12 text-white/90 leading-[1.3] tracking-tight">
           Things are About to{" "}
           <span className="text-primary inline-block animate-text-shimmer bg-gradient-to-r from-primary via-white to-primary bg-clip-text text-transparent bg-[length:200%_auto]">
             Get Good.
           </span>
-        </h1>
+        </p>
 
         <div className="flex flex-wrap gap-4 justify-center">
           <button

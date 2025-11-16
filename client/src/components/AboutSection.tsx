@@ -87,7 +87,7 @@ export default function AboutSection() {
       <div className="absolute inset-0 z-0 bg-[#1a1a1a]" />
       
       {/* Swiss Grid Lines */}
-      <div className="absolute inset-0 z-0 opacity-10">
+      <div className="absolute inset-0 z-0 opacity-10 pointer-events-none">
         {/* Vertical grid lines - 12 column grid */}
         {[...Array(13)].map((_, i) => (
           <div
@@ -116,19 +116,19 @@ export default function AboutSection() {
           </p>
           
           {/* Primary headline - Large, bold */}
-          <h2 className="text-[48px] md:text-[56px] text-white font-bold max-w-4xl mx-auto leading-[1.2] mb-10 tracking-tight">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl text-white font-bold max-w-4xl mx-auto leading-[1.2] mb-10 tracking-tight">
             Most agencies wait for the brief. We BUILD the brief with you.
           </h2>
           
           {/* Secondary text - Medium size, lighter weight */}
-          <p className="text-[20px] md:text-[24px] text-white/80 font-normal max-w-3xl mx-auto leading-[1.6] tracking-wide">
+          <p className="text-lg md:text-xl lg:text-2xl text-white/80 font-normal max-w-3xl mx-auto leading-[1.6] tracking-wide">
             Because we know — a successful strategy is only half the magic. The other half? Killer design that actually speaks.
           </p>
         </div>
 
         {/* Tertiary text - Animated tagline */}
         <div ref={typingRef}>
-          <p className="text-[28px] md:text-[32px] text-white text-center font-medium leading-[1.5] tracking-tight" data-testid="text-tagline">
+          <p className="text-2xl md:text-3xl text-white text-center font-medium leading-[1.5] tracking-tight" data-testid="text-tagline">
             {renderTextWithHighlights(displayedText)}
           </p>
         </div>

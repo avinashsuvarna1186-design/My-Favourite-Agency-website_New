@@ -52,13 +52,38 @@ export default function ServicesSection() {
 
   return (
     <>
-      <section id="services" className="py-32 px-4" data-testid="section-services">
-        <div className="max-w-6xl mx-auto">
+      <section id="services" className="py-32 px-4 relative" data-testid="section-services">
+        {/* Swiss Grid Lines */}
+        <div className="absolute inset-0 z-0 opacity-10 pointer-events-none">
+          {/* Vertical grid lines - 12 column grid */}
+          {[...Array(13)].map((_, i) => (
+            <div
+              key={`v-${i}`}
+              className="absolute top-0 bottom-0 w-px bg-white"
+              style={{ left: `${(i / 12) * 100}%` }}
+            />
+          ))}
+          
+          {/* Horizontal grid lines - 8 row grid */}
+          {[...Array(9)].map((_, i) => (
+            <div
+              key={`h-${i}`}
+              className="absolute left-0 right-0 h-px bg-white"
+              style={{ top: `${(i / 8) * 100}%` }}
+            />
+          ))}
+        </div>
+
+        <div className="max-w-6xl mx-auto relative z-10">
+          {/* Swiss Typography */}
           <div ref={headerAnimation.ref} className={`mb-20 ${headerAnimation.className}`}>
-            <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-8 uppercase spaced-text-lg gradient-wave-text">
+            <p className="text-xs uppercase tracking-[0.3em] text-white/60 font-medium mb-6">
+              What We Offer
+            </p>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 uppercase tracking-tight text-white leading-[1.2]">
               Your Brand's Glow-up Kit
             </h2>
-            <p className="text-xl md:text-2xl lg:text-3xl text-muted-foreground max-w-5xl leading-relaxed">
+            <p className="text-lg md:text-xl lg:text-2xl text-white/80 max-w-5xl leading-[1.6] font-normal">
               Whether it's a 360 degree makeover or the hunt for a killer outfit, we've got the tools, the taste and the team. From brand identity to copy, pixels to packaging, we are your brand's personal glow-up squad. You get to pick what you need or choose to go full glow-up — you walk out looking and sounding (brand tone) your best self.
             </p>
           </div>
