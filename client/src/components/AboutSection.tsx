@@ -88,17 +88,24 @@ export default function AboutSection() {
       
       {/* Animated gradient overlays */}
       <div 
-        className="absolute inset-0 z-0 opacity-20"
+        className="absolute inset-0 z-0 opacity-60"
         style={{
-          background: 'radial-gradient(circle at 20% 50%, rgba(255, 109, 0, 0.3) 0%, transparent 50%)',
+          background: 'radial-gradient(circle at 20% 50%, rgba(255, 109, 0, 0.6) 0%, transparent 70%)',
           animation: 'float 8s ease-in-out infinite',
         }}
       />
       <div 
-        className="absolute inset-0 z-0 opacity-15"
+        className="absolute inset-0 z-0 opacity-50"
         style={{
-          background: 'radial-gradient(circle at 80% 50%, rgba(138, 43, 226, 0.3) 0%, transparent 50%)',
+          background: 'radial-gradient(circle at 80% 50%, rgba(138, 43, 226, 0.5) 0%, transparent 70%)',
           animation: 'float-delayed 10s ease-in-out infinite',
+        }}
+      />
+      <div 
+        className="absolute inset-0 z-0 opacity-40"
+        style={{
+          background: 'radial-gradient(circle at 50% 80%, rgba(0, 191, 255, 0.4) 0%, transparent 60%)',
+          animation: 'pulse-slow 12s ease-in-out infinite',
         }}
       />
       <div className="max-w-6xl mx-auto relative z-10">
