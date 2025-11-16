@@ -88,8 +88,8 @@ export default function AboutSection() {
         className="absolute inset-0 z-0 bg-[#1a1a1a]"
       />
       <div className="max-w-6xl mx-auto relative z-10">
-        <div ref={headerAnimation.ref} className={`text-center mb-12 ${headerAnimation.className}`}>
-          <p className="text-[30px] text-[#ff6d00] font-bold max-w-4xl mx-auto leading-relaxed mb-4">
+        <div ref={headerAnimation.ref} className={`text-center mb-16 ${headerAnimation.className}`}>
+          <p className="text-[30px] text-white font-bold max-w-4xl mx-auto leading-relaxed mb-8">
             Most agencies wait for the brief. We BUILD the brief with you.
           </p>
           <p className="text-[30px] text-white font-bold max-w-4xl mx-auto leading-relaxed">
