@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link, useLocation } from "wouter";
+import { Link, useLocation, useRoute } from "wouter";
 import { Button } from "@/components/ui/button";
 import { MessageCircle, Menu, X } from "lucide-react";
 import logoImage from "@assets/My Favourite Agency Final logo-01_1762515488908.png";
@@ -7,7 +7,8 @@ import logoImage from "@assets/My Favourite Agency Final logo-01_1762515488908.p
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [location] = useLocation();
+  const [location, navigate] = useLocation();
+  const [pendingScroll, setPendingScroll] = useState<string | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,42 +18,47 @@ export default function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const scrollToSection = (sectionId: string) => {
-    // If we're on the home page, just scroll
-    if (location === "/") {
-      const element = document.getElementById(sectionId);
-      if (element) {
-        element.scrollIntoView({ behavior: "smooth" });
-        setIsMobileMenuOpen(false);
-      }
-    } else {
-      // Navigate to home page with hash, then scroll
-      window.location.href = `/#${sectionId}`;
-      setIsMobileMenuOpen(false);
+  // Handle pending scroll after navigation
+  useEffect(() => {
+    if (pendingScroll && location === "/") {
+      setTimeout(() => {
+        const element = document.getElementById(pendingScroll);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
+        setPendingScroll(null);
+      }, 100);
     }
-  };
+  }, [location, pendingScroll]);
 
   // Handle hash navigation on mount
   useEffect(() => {
-    const handleHashNavigation = () => {
-      const hash = window.location.hash.substring(1);
-      if (hash) {
-        setTimeout(() => {
-          const element = document.getElementById(hash);
-          if (element) {
-            element.scrollIntoView({ behavior: "smooth" });
-          }
-        }, 100);
+    const hash = window.location.hash.substring(1);
+    if (hash && location === "/") {
+      setTimeout(() => {
+        const element = document.getElementById(hash);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 100);
+    }
+  }, [location]);
+
+  const scrollToSection = (sectionId: string) => {
+    setIsMobileMenuOpen(false);
+    
+    if (location === "/") {
+      // Already on home page, just scroll
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
       }
-    };
-    
-    handleHashNavigation();
-    window.addEventListener('hashchange', handleHashNavigation);
-    
-    return () => {
-      window.removeEventListener('hashchange', handleHashNavigation);
-    };
-  }, []);
+    } else {
+      // Navigate to home page, then scroll
+      setPendingScroll(sectionId);
+      navigate("/");
+    }
+  };
 
   const navItems = [
     { label: "Home", path: "/", isLink: true },
