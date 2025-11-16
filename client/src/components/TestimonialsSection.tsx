@@ -58,7 +58,7 @@ export default function TestimonialsSection() {
       <div className="absolute inset-0 bg-black backdrop-blur-sm" />
       <div className="max-w-6xl mx-auto relative z-10">
         <div ref={headerAnimation.ref} className={`text-center mb-16 ${headerAnimation.className}`}>
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 gradient-wave-text">clients who already call us their favourite</h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 gradient-wave-text">Clients who already call us their favourit</h2>
         </div>
 
         <div className="relative">
