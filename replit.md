@@ -33,8 +33,12 @@ Preferred communication style: Simple, everyday language.
 - Component library follows "New York" style variant from shadcn/ui
 
 **Design System**
-- Dark theme with custom color palette defined in CSS variables
-- Near-black background (#0f0f10), off-white text (#e6eef7), warm gold accent (#ffb84d)
+- Dark theme with creative agency color palette defined in CSS variables
+- **Color Psychology Applied (November 2025)**:
+  - Pure black background (#000000) - Sophistication, elegance, power
+  - White text (#FFFFFF) - Purity, clarity, simplicity
+  - Coral/Orange primary (#E97451 / HSL: 16° 80% 62%) - Energy, creativity, enthusiasm, warmth
+  - Purple accent (#A855F7 / HSL: 270° 90% 65%) - Luxury, innovation, imagination, creativity
 - Inter font family (Google Fonts) with weights 400-800
 - Generous spacing system using Tailwind's py-16 to py-24 for sections
 - Responsive grid layouts with CSS Grid for team cards and work showcase

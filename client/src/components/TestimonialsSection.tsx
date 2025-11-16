@@ -122,7 +122,7 @@ export default function TestimonialsSection() {
                     className="hover-elevate active-elevate-2 border-none flex-shrink-0 w-96 h-[500px] snap-center" 
                     data-testid={`card-testimonial-${index}`}
                     style={{
-                      background: 'linear-gradient(180deg, #000000 0%, #ff6d00 100%)',
+                      background: 'linear-gradient(180deg, #000000 0%, #E97451 100%)',
                     }}
                   >
                     <CardContent className="p-6 flex flex-col h-full">
@@ -131,7 +131,7 @@ export default function TestimonialsSection() {
                       
                       <div className="flex gap-1 mb-4">
                         {[...Array(5)].map((_, i) => (
-                          <Star key={i} className="w-5 h-5" style={{ fill: '#ff6d00', color: '#ff6d00' }} />
+                          <Star key={i} className="w-5 h-5" style={{ fill: '#E97451', color: '#E97451' }} />
                         ))}
                       </div>
                       

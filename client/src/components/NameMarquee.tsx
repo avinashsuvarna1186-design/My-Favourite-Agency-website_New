@@ -19,7 +19,7 @@ export default function NameMarquee({ names, direction = "left", speed = 14.04 }
           <span
             key={index}
             className="inline-block px-6 text-xl md:text-2xl font-bold lowercase"
-            style={{ color: '#ff6d00' }}
+            style={{ color: '#E97451' }}
           >
             {name}
           </span>

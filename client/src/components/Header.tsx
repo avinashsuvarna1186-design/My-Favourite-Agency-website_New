@@ -74,7 +74,7 @@ export default function Header() {
               rel="noopener noreferrer"
               data-testid="button-whatsapp-header"
             >
-              <Button variant="default" size="sm" className="ml-2 gap-2" style={{ backgroundColor: '#ff6d00', borderColor: '#ff6d00' }}>
+              <Button variant="default" size="sm" className="ml-2 gap-2" style={{ backgroundColor: '#E97451', borderColor: '#E97451' }}>
                 <MessageCircle className="w-4 h-4" />
                 <span>WhatsApp</span>
               </Button>
@@ -122,7 +122,7 @@ export default function Header() {
                 className="mt-2"
                 data-testid="button-whatsapp-mobile"
               >
-                <Button variant="default" size="sm" className="w-full gap-2" style={{ backgroundColor: '#ff6d00', borderColor: '#ff6d00' }}>
+                <Button variant="default" size="sm" className="w-full gap-2" style={{ backgroundColor: '#E97451', borderColor: '#E97451' }}>
                   <MessageCircle className="w-4 h-4" />
                   <span>WhatsApp</span>
                 </Button>
