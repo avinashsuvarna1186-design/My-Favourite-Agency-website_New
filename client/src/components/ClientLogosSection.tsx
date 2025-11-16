@@ -25,7 +25,7 @@ export default function ClientLogosSection() {
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold gradient-flow-text leading-[1.2] tracking-tight mb-4">
               Trusted By Brands That Matter
             </h2>
-            <p className="text-base md:text-lg lg:text-xl text-white/80 max-w-2xl mx-auto leading-[1.6] font-normal">
+            <p className="text-base md:text-lg lg:text-xl text-white/80 max-w-2xl mx-auto leading-[1.6] font-normal whitespace-nowrap">
               We've partnered with industry leaders to create exceptional brand experiences.
             </p>
           </div>
