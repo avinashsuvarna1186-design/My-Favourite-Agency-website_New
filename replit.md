@@ -56,9 +56,12 @@ Preferred communication style: Simple, everyday language.
 **Page Structure**
 - Multi-page application with client-side routing via Wouter
 - **Home Page** (`/`): Hero section with parallax effects, About section (Who We Are, tagline), Our Approach statement, Comparison section, Founders section, Department Showcase (team organized by specialization), Services, Enhanced Work section (detailed portfolio), Video Showreel, How We Work process, Testimonials, Contact form with FloatingCTA
-- **About Page** (`/about`): Dedicated page featuring Who We Are, agency tagline, followed by Vision/Mission cards, Brand Story, and team member profiles
-- Massive animated text sections between major content areas (ABOUT, SERVICES, WORK, OUR STORY, TESTIMONIALS, CONTACT on Home; ABOUT on About page)
-- Sticky header with smart navigation (page links for Home/About, smooth scroll for sections within same page)
+- **About Page** (`/about`): Dedicated page with galactic video background, gradient flow hero title "ABOUT US", About section, Vision/Mission cards, Brand Story, and team member profiles
+- **404 Not Found Page** (`/not-found`): Custom error page with dark theme, Swiss grid, glassmorphism card, gradient flow "404" heading, and "Back to Home" button
+- **Animation Demo Page** (`/animations`): Showcase page displaying all available text animations with interactive preview cards (gradient-flow, gradient-wave, shimmer, fade-in, slide-left, slide-right, scale-in, bounce, pulse, spin, ping, typing-cursor)
+- **Swiss Home Page** (`/swiss`): Alternative minimalist design showcasing Swiss typography principles with clean grid layouts (kept as design alternative)
+- Massive animated text sections between major content areas on Home page
+- Sticky header with smart cross-page navigation (page links for Home/About, smooth scroll for sections - navigates to Home page if section clicked from other pages)
 - Modal interactions for service details and video showreel using Radix Dialog
 - All sections feature scroll-triggered animations (fade-in, slide-left, slide-right, scale-in)
 
@@ -156,7 +159,8 @@ Preferred communication style: Simple, everyday language.
   * Applied to: VisionMissionTeamSection (Vision/Mission/Team cards), OurApproachSection, ContactSection (form and info cards), DepartmentShowcase, VideoShowreel, ServicesSection, WorkSection, EnhancedWorkSection, HowWeWorkSection
   * TestimonialsSection features glassmorphism with custom gradient overlay: `linear-gradient(180deg, rgba(0, 0, 0, 0.6) 0%, rgba(233, 116, 81, 0.6) 100%)`
   * Creates consistent depth and visual hierarchy while maintaining readability and brand aesthetics
-- **Smart Navigation**: Header adapts to multi-page structure with Link components for page navigation and smooth scroll for within-page sections
+- **Gradient Flow Text Animation**: Universal animated gradient effect applied to all major section headers (12+ headers across all pages) using `.gradient-flow-text` class with 3-second ease-in-out infinite animation transitioning between coral orange (#E97451) and purple (#A855F7) brand colors
+- **Smart Cross-Page Navigation**: Header intelligently handles navigation - when on home page, smooth scrolls to sections; when on other pages, navigates to home page with hash then scrolls to target section
 - **Accessibility**: aria-hidden for decorative elements, reduced-motion support, proper semantic HTML
 
 **Professional Enhancements** (November 2025)
