@@ -49,8 +49,8 @@ export default function HeroSection() {
     return () => clearInterval(typeWriter);
   }, [isLoaded]);
 
-  const scrollToAbout = () => {
-    const element = document.getElementById("about");
+  const scrollToWork = () => {
+    const element = document.getElementById("work");
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
     }
@@ -173,7 +173,7 @@ export default function HeroSection() {
 
         <div className="flex flex-wrap gap-4 justify-center">
           <button
-            onClick={scrollToAbout}
+            onClick={scrollToWork}
             className="glass px-8 py-4 rounded-full text-foreground font-semibold hover-elevate active-elevate-2 transition-all hover:scale-105"
           >
             Explore Our Work
