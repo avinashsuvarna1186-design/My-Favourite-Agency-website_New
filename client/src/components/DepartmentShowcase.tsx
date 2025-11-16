@@ -61,7 +61,7 @@ export default function DepartmentShowcase() {
             How We're Organized
           </h2>
           <p className="text-lg md:text-xl lg:text-2xl text-white/80 max-w-4xl mx-auto leading-[1.6] font-normal">
-            Four departments, one mission: to make your brand unforgettable.
+            The people you call when the deadline's weird and the brief's weirder
           </p>
         </div>
 
