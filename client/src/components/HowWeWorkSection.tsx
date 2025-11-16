@@ -45,7 +45,7 @@ export default function HowWeWorkSection() {
                   <div className="bg-icon-surface w-16 h-16 rounded-md flex items-center justify-center mx-auto mb-4">
                     <Icon className="w-8 h-8 text-primary" />
                   </div>
-                  <h3 className="text-xl font-bold mb-3 text-foreground">{point.title}</h3>
+                  <h3 className="text-xl font-bold mb-3 text-white">{point.title}</h3>
                   <p className="text-muted-foreground">{point.description}</p>
                 </CardContent>
               </Card>
