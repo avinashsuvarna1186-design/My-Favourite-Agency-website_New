@@ -1,6 +1,7 @@
 import { ChevronDown } from "lucide-react";
 import { useEffect, useState } from "react";
 import heroVideo from "@assets/openart-video_e0f71e17_1763050993279_1763056173455.mp4";
+import SwissGrid from "./SwissGrid";
 
 const STAR_POSITIONS = Array.from({ length: 50 }, (_, i) => ({
   id: i,
@@ -62,26 +63,7 @@ export default function HeroSection() {
       className="relative h-screen flex items-center justify-center overflow-hidden"
       data-testid="section-hero"
     >
-      {/* Swiss Grid Lines */}
-      <div className="absolute inset-0 z-0 opacity-10 pointer-events-none">
-        {/* Vertical grid lines - 12 column grid */}
-        {[...Array(13)].map((_, i) => (
-          <div
-            key={`v-${i}`}
-            className="absolute top-0 bottom-0 w-px bg-white"
-            style={{ left: `${(i / 12) * 100}%` }}
-          />
-        ))}
-        
-        {/* Horizontal grid lines - 8 row grid */}
-        {[...Array(9)].map((_, i) => (
-          <div
-            key={`h-${i}`}
-            className="absolute left-0 right-0 h-px bg-white"
-            style={{ top: `${(i / 8) * 100}%` }}
-          />
-        ))}
-      </div>
+      <SwissGrid />
 
       {/* Galactic Video Background with Depth */}
       <div className="absolute inset-0 z-0">

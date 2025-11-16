@@ -6,6 +6,7 @@ import work2 from "@assets/generated_images/Website_and_Launch_work_5d61a7ac.png
 import work3 from "@assets/generated_images/Campaign_and_Motion_work_06e62a4b.png";
 import work4 from "@assets/generated_images/Identity_and_Copy_work_1002e25b.png";
 import { Badge } from "@/components/ui/badge";
+import SwissGrid from "./SwissGrid";
 
 interface Project {
   title: string;
@@ -71,26 +72,7 @@ export default function EnhancedWorkSection() {
 
   return (
     <section id="work" className="py-32 px-4 relative" data-testid="section-enhanced-work">
-      {/* Swiss Grid Lines */}
-      <div className="absolute inset-0 z-0 opacity-10 pointer-events-none">
-        {/* Vertical grid lines - 12 column grid */}
-        {[...Array(13)].map((_, i) => (
-          <div
-            key={`v-${i}`}
-            className="absolute top-0 bottom-0 w-px bg-white"
-            style={{ left: `${(i / 12) * 100}%` }}
-          />
-        ))}
-        
-        {/* Horizontal grid lines - 8 row grid */}
-        {[...Array(9)].map((_, i) => (
-          <div
-            key={`h-${i}`}
-            className="absolute left-0 right-0 h-px bg-white"
-            style={{ top: `${(i / 8) * 100}%` }}
-          />
-        ))}
-      </div>
+      <SwissGrid />
 
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Swiss Typography */}
