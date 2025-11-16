@@ -108,17 +108,27 @@ export default function AboutSection() {
       </div>
       
       <div className="max-w-6xl mx-auto relative z-10">
-        <div ref={headerAnimation.ref} className={`text-center mb-16 ${headerAnimation.className}`}>
-          <p className="text-[30px] text-white font-bold max-w-4xl mx-auto leading-relaxed mb-8">
-            Most agencies wait for the brief. We BUILD the brief with you.
+        {/* Swiss Typography - Clear Hierarchy */}
+        <div ref={headerAnimation.ref} className={`text-center mb-20 ${headerAnimation.className}`}>
+          {/* Eyebrow text - Small, uppercase, tracked */}
+          <p className="text-xs uppercase tracking-[0.3em] text-white/60 font-medium mb-6">
+            Our Approach
           </p>
-          <p className="text-[30px] text-white font-bold max-w-4xl mx-auto leading-relaxed">
+          
+          {/* Primary headline - Large, bold */}
+          <h2 className="text-[48px] md:text-[56px] text-white font-bold max-w-4xl mx-auto leading-[1.2] mb-10 tracking-tight">
+            Most agencies wait for the brief. We BUILD the brief with you.
+          </h2>
+          
+          {/* Secondary text - Medium size, lighter weight */}
+          <p className="text-[20px] md:text-[24px] text-white/80 font-normal max-w-3xl mx-auto leading-[1.6] tracking-wide">
             Because we know — a successful strategy is only half the magic. The other half? Killer design that actually speaks.
           </p>
         </div>
 
+        {/* Tertiary text - Animated tagline */}
         <div ref={typingRef}>
-          <p className="text-2xl md:text-3xl text-foreground text-center font-semibold leading-relaxed" data-testid="text-tagline">
+          <p className="text-[28px] md:text-[32px] text-white text-center font-medium leading-[1.5] tracking-tight" data-testid="text-tagline">
             {renderTextWithHighlights(displayedText)}
           </p>
         </div>
