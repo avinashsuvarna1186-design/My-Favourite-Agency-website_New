@@ -83,9 +83,23 @@ export default function AboutSection() {
   };
 
   return (
-    <section id="about" className="py-24 px-4 relative" data-testid="section-about">
+    <section id="about" className="py-24 px-4 relative overflow-hidden" data-testid="section-about">
+      <div className="absolute inset-0 z-0 bg-[#1a1a1a]" />
+      
+      {/* Animated gradient overlays */}
       <div 
-        className="absolute inset-0 z-0 bg-[#1a1a1a]"
+        className="absolute inset-0 z-0 opacity-20"
+        style={{
+          background: 'radial-gradient(circle at 20% 50%, rgba(255, 109, 0, 0.3) 0%, transparent 50%)',
+          animation: 'float 8s ease-in-out infinite',
+        }}
+      />
+      <div 
+        className="absolute inset-0 z-0 opacity-15"
+        style={{
+          background: 'radial-gradient(circle at 80% 50%, rgba(138, 43, 226, 0.3) 0%, transparent 50%)',
+          animation: 'float-delayed 10s ease-in-out infinite',
+        }}
       />
       <div className="max-w-6xl mx-auto relative z-10">
         <div ref={headerAnimation.ref} className={`text-center mb-16 ${headerAnimation.className}`}>
