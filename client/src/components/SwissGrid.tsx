@@ -1,6 +1,6 @@
 export default function SwissGrid() {
   return (
-    <div className="absolute inset-0 z-0 opacity-20 pointer-events-none overflow-hidden">
+    <div className="absolute inset-0 z-0 opacity-5 pointer-events-none overflow-hidden">
       {/* Vertical grid lines - Fixed spacing using viewport width */}
       {[...Array(13)].map((_, i) => (
         <div
