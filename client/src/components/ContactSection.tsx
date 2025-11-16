@@ -52,7 +52,7 @@ export default function ContactSection() {
 
         <div className="grid md:grid-cols-2 gap-8">
           <ScrollAnimatedWrapper animationType="slide-left" delay={100}>
-            <Card className="h-full backdrop-blur-md bg-card/60 border-white/10 opacity-60">
+            <Card className="h-full">
               <CardContent className="p-8">
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
@@ -106,7 +106,7 @@ export default function ContactSection() {
           </ScrollAnimatedWrapper>
 
           <ScrollAnimatedWrapper animationType="slide-right" delay={200}>
-            <Card className="h-full backdrop-blur-md bg-card/60 border-white/10 opacity-60">
+            <Card className="h-full">
               <CardContent className="p-8">
               <h3 className="text-2xl font-bold mb-6 text-foreground">Contact Info</h3>
               <div className="space-y-6">

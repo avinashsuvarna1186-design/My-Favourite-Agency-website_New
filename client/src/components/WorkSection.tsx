@@ -32,7 +32,7 @@ export default function WorkSection() {
             return (
               <ScrollAnimatedWrapper key={index} animationType={animationType} delay={index * 100}>
                 <Card
-                  className="overflow-hidden hover-elevate active-elevate-2 transition-all backdrop-blur-md bg-card/60 border-white/10 opacity-60"
+                  className="overflow-hidden hover-elevate active-elevate-2 transition-all"
                   data-testid={`card-work-${index}`}
                 >
                   <div className="aspect-video overflow-hidden">

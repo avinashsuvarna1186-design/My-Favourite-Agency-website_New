@@ -71,7 +71,7 @@ export default function DepartmentShowcase() {
             return (
               <div key={index}>
                 <ScrollAnimatedWrapper animationType="fade-in" delay={index * 100}>
-                  <Card className="hover-elevate relative backdrop-blur-md bg-card/60 border-white/10 opacity-60" data-testid={`card-department-${index}`}>
+                  <Card className="hover-elevate relative" data-testid={`card-department-${index}`}>
                     <div className="absolute left-0 top-0 bottom-0 w-1 bg-primary rounded-l-md" />
                     <CardContent className="p-8 md:p-10">
                       <div className="flex items-start gap-6 mb-6">

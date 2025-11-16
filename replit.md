@@ -151,9 +151,10 @@ Preferred communication style: Simple, everyday language.
 - **3D Card Animations**: "How We Work" cards feature 3D flip effect (10° Y-axis, 5° X-axis rotation) on hover
 - **Typing Animation**: Agency tagline on About page features character-by-character reveal with blinking cursor
 - **Glassmorphism Design System**: Comprehensive frosted glass effect applied universally across all Card components throughout the application:
-  * Standard glassmorphism styling: `backdrop-blur-md`, `bg-card/60`, `border-white/10`, `opacity-60`
+  * Implemented via `.glass` class in index.css with properties: `background: rgba(255, 255, 255, 0.08)`, `backdrop-filter: blur(20px) saturate(180%)`, `border: 1px solid rgba(255, 255, 255, 0.25)`
+  * All Card components inherit this glassmorphism effect automatically via the base Card component (client/src/components/ui/card.tsx)
   * Applied to: VisionMissionTeamSection (Vision/Mission/Team cards), OurApproachSection, ContactSection (form and info cards), DepartmentShowcase, VideoShowreel, ServicesSection, WorkSection, EnhancedWorkSection, HowWeWorkSection
-  * TestimonialsSection features glassmorphism with custom gradient overlay: `rgba(0, 0, 0, 0.6)` to `rgba(233, 116, 81, 0.6)`
+  * TestimonialsSection features glassmorphism with custom gradient overlay: `linear-gradient(180deg, rgba(0, 0, 0, 0.6) 0%, rgba(233, 116, 81, 0.6) 100%)`
   * Creates consistent depth and visual hierarchy while maintaining readability and brand aesthetics
 - **Smart Navigation**: Header adapts to multi-page structure with Link components for page navigation and smooth scroll for within-page sections
 - **Accessibility**: aria-hidden for decorative elements, reduced-motion support, proper semantic HTML

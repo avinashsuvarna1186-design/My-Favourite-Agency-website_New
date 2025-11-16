@@ -40,7 +40,7 @@ export default function HowWeWorkSection() {
           {workPoints.map((point, index) => {
             const Icon = point.icon;
             return (
-              <Card key={index} className="hover-elevate active-elevate-2 card-flip backdrop-blur-md bg-card/60 border-white/10 opacity-60" data-testid={`card-work-point-${index}`}>
+              <Card key={index} className="hover-elevate active-elevate-2 card-flip" data-testid={`card-work-point-${index}`}>
                 <CardContent className="p-8 text-center">
                   <div className="bg-icon-surface w-16 h-16 rounded-md flex items-center justify-center mx-auto mb-4">
                     <Icon className="w-8 h-8 text-primary" />
