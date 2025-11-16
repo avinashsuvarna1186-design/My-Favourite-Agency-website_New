@@ -1,5 +1,6 @@
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { useState, useEffect, useRef } from "react";
+import aboutBg from "@assets/60c94c0f49222bf21cb50e38b10bd013 (1)_1763281322852.jpg";
 
 export default function AboutSection() {
   const headerAnimation = useScrollAnimation("fade-in");
@@ -83,6 +84,16 @@ export default function AboutSection() {
 
   return (
     <section id="about" className="py-24 px-4 relative" data-testid="section-about">
+      <div 
+        className="absolute inset-0 z-0"
+        style={{
+          backgroundImage: `url(${aboutBg})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+          opacity: 0.3,
+        }}
+      />
       <div className="max-w-6xl mx-auto relative z-10">
         <div ref={headerAnimation.ref} className={`text-center mb-12 ${headerAnimation.className}`}>
           <p className="text-[30px] text-[#ff6d00] font-bold max-w-4xl mx-auto leading-relaxed mb-4">
