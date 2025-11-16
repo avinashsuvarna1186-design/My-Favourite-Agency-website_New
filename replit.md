@@ -150,7 +150,11 @@ Preferred communication style: Simple, everyday language.
 - **Interactive Service Carousel**: Embla-powered carousel showing 1-3 service cards with navigation arrows and swipe support
 - **3D Card Animations**: "How We Work" cards feature 3D flip effect (10° Y-axis, 5° X-axis rotation) on hover
 - **Typing Animation**: Agency tagline on About page features character-by-character reveal with blinking cursor
-- **Glassmorphism UI**: Frosted glass effect on hero badges and buttons using backdrop-filter
+- **Glassmorphism Design System**: Comprehensive frosted glass effect applied universally across all Card components throughout the application:
+  * Standard glassmorphism styling: `backdrop-blur-md`, `bg-card/60`, `border-white/10`, `opacity-60`
+  * Applied to: VisionMissionTeamSection (Vision/Mission/Team cards), OurApproachSection, ContactSection (form and info cards), DepartmentShowcase, VideoShowreel, ServicesSection, WorkSection, EnhancedWorkSection, HowWeWorkSection
+  * TestimonialsSection features glassmorphism with custom gradient overlay: `rgba(0, 0, 0, 0.6)` to `rgba(233, 116, 81, 0.6)`
+  * Creates consistent depth and visual hierarchy while maintaining readability and brand aesthetics
 - **Smart Navigation**: Header adapts to multi-page structure with Link components for page navigation and smooth scroll for within-page sections
 - **Accessibility**: aria-hidden for decorative elements, reduced-motion support, proper semantic HTML
 
