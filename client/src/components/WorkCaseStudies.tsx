@@ -382,10 +382,11 @@ function CaseStudyContent({ caseStudy }: { caseStudy: CaseStudyData }) {
                           ? "text-[#A855F7]"
                           : "text-white"
                   }`}
+                  data-testid={`metric-value-${index}`}
                 >
                   {metric.value}
                 </div>
-                <p className="text-white/80 text-lg">{metric.label}</p>
+                <p className="text-white/80 text-lg" data-testid={`metric-label-${index}`}>{metric.label}</p>
               </div>
             ))}
           </div>
