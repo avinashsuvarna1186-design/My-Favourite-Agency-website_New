@@ -63,7 +63,7 @@ export default function Header() {
   const navItems = [
     { label: "Home", path: "/", isLink: true },
     { label: "About", path: "/about", isLink: true },
-    { label: "Work", id: "work", isLink: false },
+    { label: "Work", path: "/work", isLink: true },
     { label: "Services", id: "services", isLink: false },
     { label: "Contact", id: "contact", isLink: false },
   ];
