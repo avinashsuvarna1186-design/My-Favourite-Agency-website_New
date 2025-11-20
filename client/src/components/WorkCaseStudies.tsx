@@ -2,8 +2,9 @@ import { useState } from "react";
 import { Card } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Badge } from "@/components/ui/badge";
-import { Dialog, DialogContent } from "@/components/ui/dialog";
-import { CheckCircle2, X } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Dialog, DialogContent, DialogTitle, DialogDescription } from "@/components/ui/dialog";
+import { CheckCircle2, X, ChevronLeft, ChevronRight } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import SwissGrid from "./SwissGrid";
 import logoStructure from "@assets/Artboard 11@3x_1763649557544.png";
@@ -214,34 +215,100 @@ const caseStudies: CaseStudyData[] = [
 ];
 
 function CaseStudyContent({ caseStudy }: { caseStudy: CaseStudyData }) {
-  const [lightboxImage, setLightboxImage] = useState<{ src: string; alt: string } | null>(null);
+  const [currentImageIndex, setCurrentImageIndex] = useState<number | null>(null);
   const [isLightboxLocked, setIsLightboxLocked] = useState(false);
   const contentAnimation = useScrollAnimation("fade-in");
   const imageAnimation = useScrollAnimation("fade-in");
   const resultsAnimation = useScrollAnimation("scale-in");
 
+  // Build array of all images
+  const allImages = [
+    ...(caseStudy.visualDeliverables?.foundation || []),
+    ...(caseStudy.visualDeliverables?.environmental || []),
+    ...(caseStudy.visualDeliverables?.print || []),
+  ];
+
   const handleImageHover = (image: { src: string; alt: string }) => {
     if (!isLightboxLocked) {
-      setLightboxImage(image);
+      const index = allImages.findIndex(img => img.src === image.src);
+      setCurrentImageIndex(index);
       setIsLightboxLocked(true);
     }
   };
 
   const closeLightbox = () => {
-    setLightboxImage(null);
+    setCurrentImageIndex(null);
     setIsLightboxLocked(false);
   };
 
+  const goToNext = () => {
+    if (currentImageIndex !== null && currentImageIndex < allImages.length - 1) {
+      setCurrentImageIndex(currentImageIndex + 1);
+    }
+  };
+
+  const goToPrevious = () => {
+    if (currentImageIndex !== null && currentImageIndex > 0) {
+      setCurrentImageIndex(currentImageIndex - 1);
+    }
+  };
+
+  const currentImage = currentImageIndex !== null ? allImages[currentImageIndex] : null;
+
   return (
     <>
-    <Dialog open={!!lightboxImage} onOpenChange={closeLightbox}>
+    <Dialog open={currentImageIndex !== null} onOpenChange={closeLightbox}>
       <DialogContent className="max-w-7xl w-[95vw] h-[95vh] p-0 bg-black/95 border-white/10">
+        <DialogTitle className="sr-only">Image Gallery</DialogTitle>
+        <DialogDescription className="sr-only">
+          Viewing image {currentImageIndex !== null ? currentImageIndex + 1 : 0} of {allImages.length}
+        </DialogDescription>
         <div className="relative w-full h-full flex items-center justify-center p-4">
-          <img
-            src={lightboxImage?.src}
-            alt={lightboxImage?.alt}
-            className="max-w-full max-h-full object-contain"
-          />
+          {currentImage && (
+            <>
+              <img
+                src={currentImage.src}
+                alt={currentImage.alt}
+                className="max-w-full max-h-full object-contain"
+              />
+              
+              {/* Navigation Buttons */}
+              <div className="absolute inset-0 flex items-center justify-between px-4 pointer-events-none">
+                {/* Previous Button */}
+                {currentImageIndex !== null && currentImageIndex > 0 && (
+                  <Button
+                    size="icon"
+                    variant="ghost"
+                    onClick={goToPrevious}
+                    className="pointer-events-auto bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20"
+                    data-testid="button-lightbox-previous"
+                  >
+                    <ChevronLeft className="w-6 h-6 text-white" />
+                  </Button>
+                )}
+                <div className="flex-1" />
+                {/* Next Button */}
+                {currentImageIndex !== null && currentImageIndex < allImages.length - 1 && (
+                  <Button
+                    size="icon"
+                    variant="ghost"
+                    onClick={goToNext}
+                    className="pointer-events-auto bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20"
+                    data-testid="button-lightbox-next"
+                  >
+                    <ChevronRight className="w-6 h-6 text-white" />
+                  </Button>
+                )}
+              </div>
+              
+              {/* Image Counter */}
+              <div className="absolute bottom-8 left-1/2 -translate-x-1/2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full border border-white/20">
+                <p className="text-white text-sm font-medium">
+                  {currentImageIndex !== null ? currentImageIndex + 1 : 0} / {allImages.length}
+                </p>
+              </div>
+            </>
+          )}
         </div>
       </DialogContent>
     </Dialog>

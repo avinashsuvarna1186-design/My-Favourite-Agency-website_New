@@ -39,6 +39,9 @@ The frontend is built with **React 18** and **TypeScript**, using **Vite** for f
     - Featured Hero Images: 2 large brand foundation images (logo structure, color palette)
     - Compact Grid: 10 deliverable images in 4-column layout (6 environmental + 4 print)
     - Hover-to-open lightbox: Hover over any image to instantly see it full-size in modal
+    - Next/Previous navigation: Browse through all 12 images without closing the lightbox
+    - Image counter: Shows current position (e.g., "3 / 12") at bottom of lightbox
+    - Glassmorphism navigation buttons: Floating left/right controls with frosted glass effect
     - Lightbox lock mechanism: Prevents flickering when mouse moves over other images
     - 60% reduction in vertical space while maintaining visual impact
   - Glassmorphism styling with coral orange active tab state
