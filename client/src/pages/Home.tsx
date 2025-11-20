@@ -19,7 +19,6 @@ import DepartmentShowcase from "@/components/DepartmentShowcase";
 import EnhancedWorkSection from "@/components/EnhancedWorkSection";
 import VideoShowreel from "@/components/VideoShowreel";
 import FloatingCTA from "@/components/FloatingCTA";
-import CaseStudySection from "@/components/CaseStudySection";
 import neonAbstractBg1 from "@assets/60c94c0f49222bf21cb50e38b10bd013 (1)_1763044119195.jpg";
 import neonAbstractBg2 from "@assets/7113f7aa21fdc70241aa2fa6591744c9 (1)_1763044119197.jpg";
 import neonAbstractBg3 from "@assets/e69d34eafa5254648e4642661bbed974 (1)_1763044119197.jpg";
@@ -88,15 +87,6 @@ export default function Home() {
           <EnhancedWorkSection />
 
           <VideoShowreel />
-
-          <ParallaxSection speed={0.5}>
-            <CaseStudySection />
-          </ParallaxSection>
-
-          <NameMarquee 
-            names={["case study", "real results", "client success", "proven impact"]} 
-            direction="left"
-          />
 
           <ParallaxSection speed={0.42}>
             <StatsSection />

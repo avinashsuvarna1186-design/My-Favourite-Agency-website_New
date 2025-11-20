@@ -31,7 +31,6 @@ The frontend is built with **React 18** and **TypeScript**, using **Vite** for f
 - **Department Showcase**: Organizes team members by specialization with individual philosophies and scrolling marquees.
 - **Enhanced Work Section**: Detailed portfolio showcase with larger project cards, client names, service tags, descriptions, and quantified impact statistics.
 - **Video Showreel**: Modal-based video showcase with configurable URL, accessibility features, and video statistics display.
-- **Case Study Section (Home)**: Comprehensive case study for Dr. Lalit Rajpal's brand identity project with complete visual deliverables showcase. Includes challenge, approach, visual gallery (logo structure, color palette, environmental branding: signage/walls/reception, print materials: stationery/brochures/folders), results (70% conversion increase), and client testimonial - all presented in glassmorphism cards with organized sections.
 - **Work Page with Tabbed Case Studies**: Dedicated portfolio page (`/work`) featuring:
   - Tabbed interface using shadcn Tabs for multiple client case studies
   - Data-driven structure for easy scalability (add new case studies to the `caseStudies` array)
