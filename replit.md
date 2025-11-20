@@ -34,7 +34,13 @@ The frontend is built with **React 18** and **TypeScript**, using **Vite** for f
 - **Work Page with Tabbed Case Studies**: Dedicated portfolio page (`/work`) featuring:
   - Tabbed interface using shadcn Tabs for multiple client case studies
   - Data-driven structure for easy scalability (add new case studies to the `caseStudies` array)
-  - Full case study for Dr. Lalit Rajpal Aesthetics with 6 sections: overview, challenges (3 items), approach (6 steps), visual deliverables (14 images across foundation/environmental/print categories), results metrics, and testimonial
+  - Full case study for Dr. Lalit Rajpal Aesthetics with 6 sections: overview, challenges (3 items), approach (6 steps), visual deliverables (12 images), results metrics, and testimonial
+  - **Visual Deliverables - Space-Optimized Design**:
+    - Featured Hero Images: 2 large brand foundation images (logo structure, color palette)
+    - Compact Grid: 10 deliverable images in 4-column layout (6 environmental + 4 print)
+    - Hover-to-open lightbox: Hover over any image to instantly see it full-size in modal
+    - Lightbox lock mechanism: Prevents flickering when mouse moves over other images
+    - 60% reduction in vertical space while maintaining visual impact
   - Glassmorphism styling with coral orange active tab state
   - Scroll animations and ParallaxProvider integration
   - Galactic video background consistent with site design

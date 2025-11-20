@@ -215,13 +215,26 @@ const caseStudies: CaseStudyData[] = [
 
 function CaseStudyContent({ caseStudy }: { caseStudy: CaseStudyData }) {
   const [lightboxImage, setLightboxImage] = useState<{ src: string; alt: string } | null>(null);
+  const [isLightboxLocked, setIsLightboxLocked] = useState(false);
   const contentAnimation = useScrollAnimation("fade-in");
   const imageAnimation = useScrollAnimation("fade-in");
   const resultsAnimation = useScrollAnimation("scale-in");
 
+  const handleImageHover = (image: { src: string; alt: string }) => {
+    if (!isLightboxLocked) {
+      setLightboxImage(image);
+      setIsLightboxLocked(true);
+    }
+  };
+
+  const closeLightbox = () => {
+    setLightboxImage(null);
+    setIsLightboxLocked(false);
+  };
+
   return (
     <>
-    <Dialog open={!!lightboxImage} onOpenChange={() => setLightboxImage(null)}>
+    <Dialog open={!!lightboxImage} onOpenChange={closeLightbox}>
       <DialogContent className="max-w-7xl w-[95vw] h-[95vh] p-0 bg-black/95 border-white/10">
         <div className="relative w-full h-full flex items-center justify-center p-4">
           <img
@@ -327,7 +340,7 @@ function CaseStudyContent({ caseStudy }: { caseStudy: CaseStudyData }) {
                   key={index}
                   className="glass p-0 overflow-hidden cursor-pointer hover-elevate transition-all duration-300"
                   data-testid={image.testId}
-                  onClick={() => setLightboxImage({ src: image.src, alt: image.alt })}
+                  onMouseEnter={() => handleImageHover({ src: image.src, alt: image.alt })}
                 >
                   <img 
                     src={image.src} 
@@ -348,7 +361,7 @@ function CaseStudyContent({ caseStudy }: { caseStudy: CaseStudyData }) {
                   key={`env-${index}`}
                   className="glass p-0 overflow-hidden cursor-pointer hover-elevate transition-all duration-300"
                   data-testid={image.testId}
-                  onClick={() => setLightboxImage({ src: image.src, alt: image.alt })}
+                  onMouseEnter={() => handleImageHover({ src: image.src, alt: image.alt })}
                 >
                   <img 
                     src={image.src} 
@@ -364,7 +377,7 @@ function CaseStudyContent({ caseStudy }: { caseStudy: CaseStudyData }) {
                   key={`print-${index}`}
                   className="glass p-0 overflow-hidden cursor-pointer hover-elevate transition-all duration-300"
                   data-testid={image.testId}
-                  onClick={() => setLightboxImage({ src: image.src, alt: image.alt })}
+                  onMouseEnter={() => handleImageHover({ src: image.src, alt: image.alt })}
                 >
                   <img 
                     src={image.src} 
