@@ -8,7 +8,6 @@ import { CheckCircle2, X, ChevronLeft, ChevronRight } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import SwissGrid from "./SwissGrid";
 import logoStructure from "@assets/Artboard 11@3x_1763649557544.png";
-import colorPalette from "@assets/Artboard 13@3x_1763649557545.png";
 import lollipopSignage from "@assets/Artboard 15@3x_1763649557545.png";
 import buildingWall from "@assets/Artboard 16@3x_1763649557546.png";
 import receptionArea from "@assets/Artboard 17@3x_1763649557546.png";
@@ -134,11 +133,6 @@ const caseStudies: CaseStudyData[] = [
           src: logoStructure,
           alt: "Logo Structure and Design Grid",
           testId: "card-logo-structure",
-        },
-        {
-          src: colorPalette,
-          alt: "Brand Color Palette - Charcoal Grey, Muted Rose Gold, White",
-          testId: "card-color-palette",
         },
       ],
       environmental: [
