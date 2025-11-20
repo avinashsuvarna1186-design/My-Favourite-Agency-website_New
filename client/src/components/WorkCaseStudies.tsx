@@ -1,7 +1,9 @@
+import { useState } from "react";
 import { Card } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Badge } from "@/components/ui/badge";
-import { CheckCircle2 } from "lucide-react";
+import { Dialog, DialogContent } from "@/components/ui/dialog";
+import { CheckCircle2, X } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import SwissGrid from "./SwissGrid";
 import logoStructure from "@assets/Artboard 11@3x_1763649557544.png";
@@ -212,11 +214,25 @@ const caseStudies: CaseStudyData[] = [
 ];
 
 function CaseStudyContent({ caseStudy }: { caseStudy: CaseStudyData }) {
+  const [lightboxImage, setLightboxImage] = useState<{ src: string; alt: string } | null>(null);
   const contentAnimation = useScrollAnimation("fade-in");
   const imageAnimation = useScrollAnimation("fade-in");
   const resultsAnimation = useScrollAnimation("scale-in");
 
   return (
+    <>
+    <Dialog open={!!lightboxImage} onOpenChange={() => setLightboxImage(null)}>
+      <DialogContent className="max-w-7xl w-[95vw] h-[95vh] p-0 bg-black/95 border-white/10">
+        <div className="relative w-full h-full flex items-center justify-center p-4">
+          <img
+            src={lightboxImage?.src}
+            alt={lightboxImage?.alt}
+            className="max-w-full max-h-full object-contain"
+          />
+        </div>
+      </DialogContent>
+    </Dialog>
+    
     <div className="space-y-16">
       {/* Overview */}
       <div
@@ -303,58 +319,60 @@ function CaseStudyContent({ caseStudy }: { caseStudy: CaseStudyData }) {
             </p>
           </div>
 
-          {/* Logo & Brand Foundation */}
+          {/* Featured Hero Images - Brand Foundation */}
           {caseStudy.visualDeliverables.foundation && (
-            <div className="grid md:grid-cols-2 gap-6 mb-6">
+            <div className="grid md:grid-cols-2 gap-6 mb-8">
               {caseStudy.visualDeliverables.foundation.map((image, index) => (
                 <Card
                   key={index}
-                  className="glass p-0 overflow-hidden"
+                  className="glass p-0 overflow-hidden cursor-pointer hover-elevate transition-all duration-300"
                   data-testid={image.testId}
+                  onClick={() => setLightboxImage({ src: image.src, alt: image.alt })}
                 >
-                  <img src={image.src} alt={image.alt} className="w-full h-full object-cover" />
+                  <img 
+                    src={image.src} 
+                    alt={image.alt} 
+                    className="w-full h-full object-cover aspect-video" 
+                  />
                 </Card>
               ))}
             </div>
           )}
 
-          {/* Environmental Branding */}
-          {caseStudy.visualDeliverables.environmental && (
-            <div className="mb-6">
-              <h4 className="text-xl font-bold text-[#E97451] mb-4 uppercase tracking-wide">
-                Environmental Branding
-              </h4>
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {caseStudy.visualDeliverables.environmental.map((image, index) => (
-                  <Card
-                    key={index}
-                    className="glass p-0 overflow-hidden"
-                    data-testid={image.testId}
-                  >
-                    <img src={image.src} alt={image.alt} className="w-full h-full object-cover" />
-                  </Card>
-                ))}
-              </div>
-            </div>
-          )}
+          {/* Compact Grid - Remaining Deliverables */}
+          {(caseStudy.visualDeliverables.environmental || caseStudy.visualDeliverables.print) && (
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+              {/* Environmental Branding */}
+              {caseStudy.visualDeliverables.environmental?.map((image, index) => (
+                <Card
+                  key={`env-${index}`}
+                  className="glass p-0 overflow-hidden cursor-pointer hover-elevate transition-all duration-300"
+                  data-testid={image.testId}
+                  onClick={() => setLightboxImage({ src: image.src, alt: image.alt })}
+                >
+                  <img 
+                    src={image.src} 
+                    alt={image.alt} 
+                    className="w-full h-full object-cover aspect-square" 
+                  />
+                </Card>
+              ))}
 
-          {/* Print & Stationery */}
-          {caseStudy.visualDeliverables.print && (
-            <div>
-              <h4 className="text-xl font-bold text-[#E97451] mb-4 uppercase tracking-wide">
-                Print & Stationery
-              </h4>
-              <div className="grid md:grid-cols-2 gap-6">
-                {caseStudy.visualDeliverables.print.map((image, index) => (
-                  <Card
-                    key={index}
-                    className="glass p-0 overflow-hidden"
-                    data-testid={image.testId}
-                  >
-                    <img src={image.src} alt={image.alt} className="w-full h-full object-cover" />
-                  </Card>
-                ))}
-              </div>
+              {/* Print & Stationery */}
+              {caseStudy.visualDeliverables.print?.map((image, index) => (
+                <Card
+                  key={`print-${index}`}
+                  className="glass p-0 overflow-hidden cursor-pointer hover-elevate transition-all duration-300"
+                  data-testid={image.testId}
+                  onClick={() => setLightboxImage({ src: image.src, alt: image.alt })}
+                >
+                  <img 
+                    src={image.src} 
+                    alt={image.alt} 
+                    className="w-full h-full object-cover aspect-square" 
+                  />
+                </Card>
+              ))}
             </div>
           )}
         </div>
@@ -412,6 +430,7 @@ function CaseStudyContent({ caseStudy }: { caseStudy: CaseStudyData }) {
         </Card>
       </div>
     </div>
+    </>
   );
 }
 
