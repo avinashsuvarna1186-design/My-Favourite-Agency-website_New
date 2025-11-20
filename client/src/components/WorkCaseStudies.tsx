@@ -11,6 +11,8 @@ import logoStructure from "@assets/Artboard 11@3x_1763649557544.png";
 import lollipopSignage from "@assets/Artboard 15@3x_1763649557545.png";
 import buildingWall from "@assets/Artboard 16@3x_1763649557546.png";
 import receptionArea from "@assets/Artboard 17@3x_1763649557546.png";
+import receptionArea1 from "@assets/Reception_Area_1763661363746.png";
+import receptionArea2 from "@assets/Reception_Area_2_1763661363745.png";
 import passageWall from "@assets/Artboard 18@3x_1763649557546.png";
 import roadBanner from "@assets/Artboard 19@3x_1763649557547.png";
 import stationary from "@assets/Artboard 20@3x_1763649557547.png";
@@ -150,6 +152,16 @@ const caseStudies: CaseStudyData[] = [
           src: receptionArea,
           alt: "Reception Area Branding",
           testId: "card-reception-area",
+        },
+        {
+          src: receptionArea1,
+          alt: "Reception Area with Certificate Wall Display",
+          testId: "card-reception-area-1",
+        },
+        {
+          src: receptionArea2,
+          alt: "Reception Desk with Waiting Area",
+          testId: "card-reception-area-2",
         },
         {
           src: passageWall,
