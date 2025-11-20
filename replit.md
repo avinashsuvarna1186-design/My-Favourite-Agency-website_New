@@ -26,12 +26,19 @@ The frontend is built with **React 18** and **TypeScript**, using **Vite** for f
 - **Scroll-Based Parallax**: Full-page parallax scrolling with sections moving at different speeds (0.2x-0.5x) for depth, managed by a `ParallaxProvider` context for performance.
 - **Massive Animated Text**: Large, decorative section titles (`MassiveText` component) animate into view using Intersection Observer.
 - **Scroll Animations**: Utilizes a `useScrollAnimation` hook with IntersectionObserver for various fade, slide, and scale animations, including reduced-motion support.
-- **Multi-page Structure**: Includes Home (`/`), About (`/about`), 404 Not Found (`/not-found`), Animation Demo (`/animations`), and a minimalist Swiss Home (`/swiss`) page.
-- **Smart Cross-Page Navigation**: Sticky header intelligently navigates to sections on the Home page or directs to the Home page with a hash for external links.
+- **Multi-page Structure**: Includes Home (`/`), About (`/about`), Work (`/work`), 404 Not Found (`/not-found`), Animation Demo (`/animations`), and a minimalist Swiss Home (`/swiss`) page.
+- **Smart Cross-Page Navigation**: Sticky header intelligently navigates to sections on the Home page or directs to the Home page with a hash for external links. Header now includes direct link to Work page.
 - **Department Showcase**: Organizes team members by specialization with individual philosophies and scrolling marquees.
 - **Enhanced Work Section**: Detailed portfolio showcase with larger project cards, client names, service tags, descriptions, and quantified impact statistics.
 - **Video Showreel**: Modal-based video showcase with configurable URL, accessibility features, and video statistics display.
-- **Case Study Section**: Comprehensive case study for Dr. Lalit Rajpal's brand identity project with complete visual deliverables showcase. Includes challenge, approach, visual gallery (logo structure, color palette, environmental branding: signage/walls/reception, print materials: stationery/brochures/folders), results (70% conversion increase), and client testimonial - all presented in glassmorphism cards with organized sections.
+- **Case Study Section (Home)**: Comprehensive case study for Dr. Lalit Rajpal's brand identity project with complete visual deliverables showcase. Includes challenge, approach, visual gallery (logo structure, color palette, environmental branding: signage/walls/reception, print materials: stationery/brochures/folders), results (70% conversion increase), and client testimonial - all presented in glassmorphism cards with organized sections.
+- **Work Page with Tabbed Case Studies**: Dedicated portfolio page (`/work`) featuring:
+  - Tabbed interface using shadcn Tabs for multiple client case studies
+  - Data-driven structure for easy scalability (add new case studies to the `caseStudies` array)
+  - Full case study for Dr. Lalit Rajpal Aesthetics with 6 sections: overview, challenges (3 items), approach (6 steps), visual deliverables (14 images across foundation/environmental/print categories), results metrics, and testimonial
+  - Glassmorphism styling with coral orange active tab state
+  - Scroll animations and ParallaxProvider integration
+  - Galactic video background consistent with site design
 - **Floating CTA**: A conversion-optimized fixed action button appearing after the hero section, scrolling to the contact form.
 - **Accessibility**: Implemented with `aria-hidden` for decorative elements, reduced-motion support, and semantic HTML.
 
