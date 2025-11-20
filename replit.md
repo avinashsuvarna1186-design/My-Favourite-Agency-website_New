@@ -31,7 +31,7 @@ The frontend is built with **React 18** and **TypeScript**, using **Vite** for f
 - **Department Showcase**: Organizes team members by specialization with individual philosophies and scrolling marquees.
 - **Enhanced Work Section**: Detailed portfolio showcase with larger project cards, client names, service tags, descriptions, and quantified impact statistics.
 - **Video Showreel**: Modal-based video showcase with configurable URL, accessibility features, and video statistics display.
-- **Case Study Section**: Full-featured case study for Dr. Lalit Rajpal's brand identity project, showcasing challenge, approach, results (70% conversion increase), and client testimonial in glassmorphism cards.
+- **Case Study Section**: Comprehensive case study for Dr. Lalit Rajpal's brand identity project with complete visual deliverables showcase. Includes challenge, approach, visual gallery (logo structure, color palette, environmental branding: signage/walls/reception, print materials: stationery/brochures/folders), results (70% conversion increase), and client testimonial - all presented in glassmorphism cards with organized sections.
 - **Floating CTA**: A conversion-optimized fixed action button appearing after the hero section, scrolling to the contact form.
 - **Accessibility**: Implemented with `aria-hidden` for decorative elements, reduced-motion support, and semantic HTML.
 

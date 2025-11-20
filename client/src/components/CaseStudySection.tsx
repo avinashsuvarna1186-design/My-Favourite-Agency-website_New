@@ -2,6 +2,20 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import SwissGrid from "./SwissGrid";
 import { Card } from "@/components/ui/card";
 import { CheckCircle2 } from "lucide-react";
+import logoStructure from "@assets/Artboard 11@3x_1763649557544.png";
+import colorPaletteTitle from "@assets/Artboard 12@3x_1763649557544.png";
+import colorPalette from "@assets/Artboard 13@3x_1763649557545.png";
+import visualRepTitle from "@assets/Artboard 14@3x_1763649557545.png";
+import lollipopSignage from "@assets/Artboard 15@3x_1763649557545.png";
+import buildingWall from "@assets/Artboard 16@3x_1763649557546.png";
+import receptionArea from "@assets/Artboard 17@3x_1763649557546.png";
+import passageWall from "@assets/Artboard 18@3x_1763649557546.png";
+import roadBanner from "@assets/Artboard 19@3x_1763649557547.png";
+import stationary from "@assets/Artboard 20@3x_1763649557547.png";
+import businessCard from "@assets/Artboard 21@3x_1763649557547.png";
+import brochure from "@assets/Artboard 22@3x_1763649557547.png";
+import folder from "@assets/Artboard 23@3x_1763649557548.png";
+import testimonialWall from "@assets/Artboard 24@3x_1763649557548.png";
 
 export default function CaseStudySection() {
   const headerAnimation = useScrollAnimation("fade-in");
@@ -154,6 +168,121 @@ export default function CaseStudySection() {
               </div>
             </div>
           </Card>
+        </div>
+
+        {/* Visual Deliverables */}
+        <div
+          className={`mb-16 transition-all duration-1000 delay-450 ${imageAnimation.className}`}
+          ref={imageAnimation.ref}
+        >
+          <div className="text-center mb-12">
+            <h3 className="text-2xl md:text-3xl font-bold text-white mb-4 uppercase tracking-tight">
+              Visual Deliverables
+            </h3>
+            <p className="text-white/70 text-lg">A comprehensive brand identity system brought to life</p>
+          </div>
+
+          {/* Logo & Brand Foundation */}
+          <div className="grid md:grid-cols-2 gap-6 mb-6">
+            <Card className="glass p-0 overflow-hidden" data-testid="card-logo-structure">
+              <img 
+                src={logoStructure} 
+                alt="Logo Structure and Design Grid" 
+                className="w-full h-full object-cover"
+              />
+            </Card>
+            <Card className="glass p-0 overflow-hidden" data-testid="card-color-palette">
+              <img 
+                src={colorPalette} 
+                alt="Brand Color Palette - Charcoal Grey, Muted Rose Gold, White" 
+                className="w-full h-full object-cover"
+              />
+            </Card>
+          </div>
+
+          {/* Environmental Branding */}
+          <div className="mb-6">
+            <h4 className="text-xl font-bold text-[#E97451] mb-4 uppercase tracking-wide">Environmental Branding</h4>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <Card className="glass p-0 overflow-hidden" data-testid="card-lollipop-signage">
+                <img 
+                  src={lollipopSignage} 
+                  alt="Lollipop Signage Design" 
+                  className="w-full h-full object-cover"
+                />
+              </Card>
+              <Card className="glass p-0 overflow-hidden" data-testid="card-building-wall">
+                <img 
+                  src={buildingWall} 
+                  alt="Building Wall Signage" 
+                  className="w-full h-full object-cover"
+                />
+              </Card>
+              <Card className="glass p-0 overflow-hidden" data-testid="card-reception-area">
+                <img 
+                  src={receptionArea} 
+                  alt="Reception Area Branding" 
+                  className="w-full h-full object-cover"
+                />
+              </Card>
+              <Card className="glass p-0 overflow-hidden" data-testid="card-passage-wall">
+                <img 
+                  src={passageWall} 
+                  alt="Passage Wall with Neon Signage" 
+                  className="w-full h-full object-cover"
+                />
+              </Card>
+              <Card className="glass p-0 overflow-hidden" data-testid="card-road-banner">
+                <img 
+                  src={roadBanner} 
+                  alt="Road Banner Design" 
+                  className="w-full h-full object-cover"
+                />
+              </Card>
+              <Card className="glass p-0 overflow-hidden" data-testid="card-testimonial-wall">
+                <img 
+                  src={testimonialWall} 
+                  alt="Testimonial Wall Design" 
+                  className="w-full h-full object-cover"
+                />
+              </Card>
+            </div>
+          </div>
+
+          {/* Print & Stationery */}
+          <div>
+            <h4 className="text-xl font-bold text-[#E97451] mb-4 uppercase tracking-wide">Print & Stationery</h4>
+            <div className="grid md:grid-cols-2 gap-6">
+              <Card className="glass p-0 overflow-hidden" data-testid="card-stationary">
+                <img 
+                  src={stationary} 
+                  alt="Complete Stationery Set - Letterhead, Website, Business Cards" 
+                  className="w-full h-full object-cover"
+                />
+              </Card>
+              <Card className="glass p-0 overflow-hidden" data-testid="card-business-card">
+                <img 
+                  src={businessCard} 
+                  alt="Business Card Design" 
+                  className="w-full h-full object-cover"
+                />
+              </Card>
+              <Card className="glass p-0 overflow-hidden" data-testid="card-brochure">
+                <img 
+                  src={brochure} 
+                  alt="Brochure Design" 
+                  className="w-full h-full object-cover"
+                />
+              </Card>
+              <Card className="glass p-0 overflow-hidden" data-testid="card-folder">
+                <img 
+                  src={folder} 
+                  alt="Folder Design" 
+                  className="w-full h-full object-cover"
+                />
+              </Card>
+            </div>
+          </div>
         </div>
 
         {/* Results */}
