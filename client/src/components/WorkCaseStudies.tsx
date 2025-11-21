@@ -351,7 +351,7 @@ const caseStudies: CaseStudyData[] = [
     results: {
       metrics: [
         { value: "60%", label: "Brand Awareness", color: "gradient" },
-        { value: "2x", label: "Engagement Rate", color: "coral" },
+        { value: "4x", label: "Engagement Rate", color: "coral" },
         { value: "100%", label: "Premium Brand Recognition", color: "purple" },
       ],
       description:
