@@ -236,7 +236,7 @@ const caseStudies: CaseStudyData[] = [
     client: "Dreamlike",
     tagline: "Building a premium mountain resort brand from the ground up",
     overview: {
-      clientName: "Prateek Man",
+      clientName: "Prateek Maan",
       clientRole: "Founder & Partner, Dreamlike",
       service: "Complete Brand Identity",
       impact: "80% Brand Awareness Achievement",
@@ -360,7 +360,7 @@ const caseStudies: CaseStudyData[] = [
     testimonial: {
       quote:
         "My favourite agency (MFA) transformed our vision into a stunning brand identity. Their strategic approach and attention to detail helped us launch Dreamlike with a strong, premium presence in the market. The team truly understood our vision for a luxury mountain resort experience.",
-      author: "Prateek Man",
+      author: "Prateek Maan",
       role: "Founder & Partner, Dreamlike",
     },
   },
