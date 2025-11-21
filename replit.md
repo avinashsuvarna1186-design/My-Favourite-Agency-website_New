@@ -34,7 +34,8 @@ The frontend is built with **React 18** and **TypeScript**, using **Vite** for f
 - **Work Page with Tabbed Case Studies**: Dedicated portfolio page (`/work`) featuring:
   - Tabbed interface using shadcn Tabs for multiple client case studies
   - Data-driven structure for easy scalability (add new case studies to the `caseStudies` array)
-  - Full case study for Dr. Lalit Rajpal Aesthetics with 6 sections: overview, challenges (3 items), approach (6 steps), visual deliverables (13 images), results metrics, and testimonial
+  - **Case Study 1: Dr. Lalit Rajpal Aesthetics** - Complete brand identity for aesthetic medical practice with 6 sections: overview, challenges (3 items), approach (6 steps), visual deliverables (13 images), results metrics, and testimonial
+  - **Case Study 2: Dreamlike** - Premium mountain resort/holiday home brand identity with 6 sections: overview, challenges (3 items), approach (5 steps), visual deliverables (11 images: 4 foundation + 2 environmental + 5 print), results metrics, and testimonial
   - **Visual Deliverables - Space-Optimized Design**:
     - Featured Hero Image: 1 large brand foundation image (logo structure)
     - Compact Grid: 12 deliverable images in 4-column layout (8 environmental + 4 print)
