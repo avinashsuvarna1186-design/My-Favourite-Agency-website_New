@@ -6,9 +6,11 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import Home from "@/pages/Home";
 import About from "@/pages/About";
 import Work from "@/pages/Work";
+import Pricing from "@/pages/Pricing";
 import SwissHome from "@/pages/SwissHome";
 import AnimationDemo from "@/pages/AnimationDemo";
 import NotFound from "@/pages/not-found";
+import CommandPalette from "@/components/CommandPalette";
 
 function Router() {
   return (
@@ -16,6 +18,7 @@ function Router() {
       <Route path="/" component={Home} />
       <Route path="/about" component={About} />
       <Route path="/work" component={Work} />
+      <Route path="/pricing" component={Pricing} />
       <Route path="/swiss" component={SwissHome} />
       <Route path="/animations" component={AnimationDemo} />
       <Route component={NotFound} />
@@ -27,6 +30,7 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
+        <CommandPalette />
         <Toaster />
         <Router />
       </TooltipProvider>
