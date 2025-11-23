@@ -137,7 +137,9 @@ export default function ContactSection() {
                   <p className="font-medium text-foreground mb-3">Social</p>
                   <div className="flex gap-4">
                     <a
-                      href="#"
+                      href="https://www.instagram.com/myfavourite.agency"
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="w-10 h-10 rounded-md bg-icon-surface flex items-center justify-center hover-elevate active-elevate-2 transition-colors"
                       data-testid="link-instagram"
                     >
