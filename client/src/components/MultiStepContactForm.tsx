@@ -59,11 +59,12 @@ export default function MultiStepContactForm() {
     setIsSubmitting(true);
     try {
       const response = await apiRequest("POST", "/api/inquiries", data);
+      const jsonResponse = await response.json() as { success: boolean; message: string };
 
-      if (response.success) {
+      if (jsonResponse.success) {
         toast({
           title: "Thank you!",
-          description: response.message,
+          description: jsonResponse.message,
         });
         form.reset();
         setStep(1);
