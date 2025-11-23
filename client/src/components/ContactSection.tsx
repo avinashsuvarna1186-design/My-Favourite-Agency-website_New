@@ -15,13 +15,14 @@ export default function ContactSection() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    phone: "",
     message: "",
   });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const subject = `Message from ${formData.name}`;
-    const body = `Name: ${formData.name}%0D%0AEmail: ${formData.email}%0D%0A%0D%0AMessage:%0D%0A${formData.message}`;
+    const body = `Name: ${formData.name}%0D%0AEmail: ${formData.email}%0D%0APhone: ${formData.phone}%0D%0A%0D%0AMessage:%0D%0A${formData.message}`;
     window.location.href = `mailto:hello@myfavourite.agency?subject=${subject}&body=${body}`;
   };
 
@@ -72,6 +73,15 @@ export default function ContactSection() {
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     required
                     data-testid="input-email"
+                  />
+                </div>
+                <div>
+                  <Input
+                    type="tel"
+                    placeholder="Your Phone Number"
+                    value={formData.phone}
+                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                    data-testid="input-phone"
                   />
                 </div>
                 <div>
