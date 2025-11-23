@@ -27,7 +27,7 @@ export default function ContactSection() {
 
   const handleWhatsApp = () => {
     window.open(
-      "https://wa.me/911234567890?text=Hi%20MFA%20—%20I'd%20like%20to%20talk%20about%20a%20project",
+      "https://wa.me/919919919301?text=Hi%20MFA%20—%20I'd%20like%20to%20talk%20about%20a%20project",
       "_blank"
     );
   };
@@ -127,13 +127,22 @@ export default function ContactSection() {
                   <Phone className="w-5 h-5 text-primary mt-1" />
                   <div>
                     <p className="font-medium text-foreground">Phone</p>
-                    <a
-                      href="tel:+911234567890"
-                      className="text-muted-foreground hover:text-primary transition-colors"
-                      data-testid="link-phone"
-                    >
-                      +91 12345 67890
-                    </a>
+                    <div className="space-y-1">
+                      <a
+                        href="tel:+919919919301"
+                        className="block text-muted-foreground hover:text-primary transition-colors"
+                        data-testid="link-phone-1"
+                      >
+                        +91 99199 19301
+                      </a>
+                      <a
+                        href="tel:+919730652333"
+                        className="block text-muted-foreground hover:text-primary transition-colors"
+                        data-testid="link-phone-2"
+                      >
+                        +91 97306 52333
+                      </a>
+                    </div>
                   </div>
                 </div>
                 <div>
