@@ -153,7 +153,9 @@ export default function ContactSection() {
                       <SiDribbble className="w-5 h-5 text-primary" />
                     </a>
                     <a
-                      href="#"
+                      href="https://www.linkedin.com/company/my-favourite-agency"
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="w-10 h-10 rounded-md bg-icon-surface flex items-center justify-center hover-elevate active-elevate-2 transition-colors"
                       data-testid="link-linkedin"
                     >
