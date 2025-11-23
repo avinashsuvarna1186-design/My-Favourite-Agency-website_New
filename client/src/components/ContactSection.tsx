@@ -125,23 +125,29 @@ export default function ContactSection() {
                 </div>
                 <div className="flex items-start gap-3">
                   <Phone className="w-5 h-5 text-primary mt-1" />
-                  <div>
-                    <p className="font-medium text-foreground">Phone</p>
-                    <div className="space-y-1">
-                      <a
-                        href="tel:+919919919301"
-                        className="block text-muted-foreground hover:text-primary transition-colors"
-                        data-testid="link-phone-1"
-                      >
-                        +91 99199 19301
-                      </a>
-                      <a
-                        href="tel:+919730652333"
-                        className="block text-muted-foreground hover:text-primary transition-colors"
-                        data-testid="link-phone-2"
-                      >
-                        +91 97306 52333
-                      </a>
+                  <div className="w-full">
+                    <p className="font-medium text-foreground mb-3">Phone</p>
+                    <div className="space-y-3">
+                      <div className="flex items-center justify-between gap-4">
+                        <span className="text-muted-foreground text-sm">Pratyush</span>
+                        <a
+                          href="tel:+919919919301"
+                          className="text-muted-foreground hover:text-primary transition-colors font-medium"
+                          data-testid="link-phone-1"
+                        >
+                          +91 99199 19301
+                        </a>
+                      </div>
+                      <div className="flex items-center justify-between gap-4">
+                        <span className="text-muted-foreground text-sm">Avinash</span>
+                        <a
+                          href="tel:+919730652333"
+                          className="text-muted-foreground hover:text-primary transition-colors font-medium"
+                          data-testid="link-phone-2"
+                        >
+                          +91 97306 52333
+                        </a>
+                      </div>
                     </div>
                   </div>
                 </div>
