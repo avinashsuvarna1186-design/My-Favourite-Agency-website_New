@@ -2,7 +2,7 @@
 
 ## Overview
 
-This project is a multi-page marketing website for My Favourite Agency (MFA), a creative branding and design agency. Its primary purpose is to showcase the agency's portfolio and services through a modern, visually engaging, and highly animated web experience. Key capabilities include a dynamic galactic video background with parallax effects, a dark UI with glassmorphism elements, custom typography, massive scroll-triggered animations, and a responsive design optimized for presenting creative work. The project aims to establish MFA as a cutting-edge agency, attracting clients through a sophisticated and interactive online presence.
+This project is a multi-page marketing website for My Favourite Agency (MFA), a creative branding and design agency. Its primary purpose is to showcase the agency's portfolio and services through a modern, visually engaging, and highly animated web experience. Key capabilities include a dynamic galactic video background with parallax effects, a dark UI with glassmorphism elements, custom typography, massive scroll-triggered animations, and a responsive design optimized for presenting creative work. The project now includes a secure admin panel for managing lead inquiries. The project aims to establish MFA as a cutting-edge agency, attracting clients through a sophisticated and interactive online presence.
 
 ## User Preferences
 
@@ -31,6 +31,13 @@ The frontend is built with **React 18** and **TypeScript**, using **Vite** for f
 - **Department Showcase**: Organizes team members by specialization with individual philosophies and scrolling marquees.
 - **Enhanced Work Section**: Detailed portfolio showcase with larger project cards, client names, service tags, descriptions, and quantified impact statistics.
 - **Video Showreel**: Modal-based video showcase with configurable URL, accessibility features, and video statistics display.
+- **Admin Panel**: Secure admin dashboard at `/admin` with:
+  - Password-protected login using server-side session authentication
+  - Dashboard with lead statistics (total leads, this week, service types)
+  - Searchable leads table with color-coded budget and timeline badges
+  - Lead detail modal with full inquiry information and reply-via-email action
+  - Protected API endpoints requiring authentication
+  - Session-based security with httpOnly cookies
 - **Work Page with Tabbed Case Studies**: Dedicated portfolio page (`/work`) featuring:
   - Tabbed interface using shadcn Tabs for multiple client case studies
   - Data-driven structure for easy scalability (add new case studies to the `caseStudies` array)
