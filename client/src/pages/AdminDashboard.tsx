@@ -69,14 +69,23 @@ function getTimelineColor(timeline: string) {
 }
 
 export default function AdminDashboard() {
-  const { logout, isAuthenticated } = useAdmin();
+  const { logout, isAuthenticated, isLoading: authLoading } = useAdmin();
   const [, setLocation] = useLocation();
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedLead, setSelectedLead] = useState<Lead | null>(null);
 
   const { data: leads = [], isLoading, refetch } = useQuery<Lead[]>({
     queryKey: ["/api/inquiries"],
+    enabled: isAuthenticated,
   });
+
+  if (authLoading) {
+    return (
+      <div className="min-h-screen bg-background flex items-center justify-center">
+        <RefreshCw className="w-8 h-8 animate-spin text-muted-foreground" />
+      </div>
+    );
+  }
 
   if (!isAuthenticated) {
     setLocation("/admin");
@@ -104,8 +113,8 @@ export default function AdminDashboard() {
     services: Array.from(new Set(leads.map(l => l.serviceType))).length,
   };
 
-  const handleLogout = () => {
-    logout();
+  const handleLogout = async () => {
+    await logout();
     setLocation("/admin");
   };
 

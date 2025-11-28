@@ -2,33 +2,46 @@ import { createContext, useContext, useState, useEffect, type ReactNode } from "
 
 interface AdminContextType {
   isAuthenticated: boolean;
+  isLoading: boolean;
   login: (password: string) => Promise<boolean>;
-  logout: () => void;
+  logout: () => Promise<void>;
 }
 
 const AdminContext = createContext<AdminContextType | undefined>(undefined);
 
 export function AdminProvider({ children }: { children: ReactNode }) {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const stored = sessionStorage.getItem("admin_authenticated");
-    if (stored === "true") {
-      setIsAuthenticated(true);
-    }
+    checkAuthStatus();
   }, []);
+
+  const checkAuthStatus = async () => {
+    try {
+      const response = await fetch("/api/admin/status", {
+        credentials: 'include',
+      });
+      const data = await response.json();
+      setIsAuthenticated(data.isAuthenticated);
+    } catch {
+      setIsAuthenticated(false);
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   const login = async (password: string): Promise<boolean> => {
     try {
-      const response = await fetch("/api/admin/verify", {
+      const response = await fetch("/api/admin/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
+        credentials: 'include',
         body: JSON.stringify({ password }),
       });
       
       if (response.ok) {
         setIsAuthenticated(true);
-        sessionStorage.setItem("admin_authenticated", "true");
         return true;
       }
       return false;
@@ -37,13 +50,19 @@ export function AdminProvider({ children }: { children: ReactNode }) {
     }
   };
 
-  const logout = () => {
-    setIsAuthenticated(false);
-    sessionStorage.removeItem("admin_authenticated");
+  const logout = async () => {
+    try {
+      await fetch("/api/admin/logout", {
+        method: "POST",
+        credentials: 'include',
+      });
+    } finally {
+      setIsAuthenticated(false);
+    }
   };
 
   return (
-    <AdminContext.Provider value={{ isAuthenticated, login, logout }}>
+    <AdminContext.Provider value={{ isAuthenticated, isLoading, login, logout }}>
       {children}
     </AdminContext.Provider>
   );
