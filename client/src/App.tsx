@@ -9,8 +9,11 @@ import Work from "@/pages/Work";
 import Pricing from "@/pages/Pricing";
 import SwissHome from "@/pages/SwissHome";
 import AnimationDemo from "@/pages/AnimationDemo";
+import AdminLogin from "@/pages/AdminLogin";
+import AdminDashboard from "@/pages/AdminDashboard";
 import NotFound from "@/pages/not-found";
 import CommandPalette from "@/components/CommandPalette";
+import { AdminProvider } from "@/contexts/AdminContext";
 
 function Router() {
   return (
@@ -21,6 +24,8 @@ function Router() {
       <Route path="/pricing" component={Pricing} />
       <Route path="/swiss" component={SwissHome} />
       <Route path="/animations" component={AnimationDemo} />
+      <Route path="/admin" component={AdminLogin} />
+      <Route path="/admin/dashboard" component={AdminDashboard} />
       <Route component={NotFound} />
     </Switch>
   );
@@ -30,9 +35,11 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
-        <CommandPalette />
-        <Toaster />
-        <Router />
+        <AdminProvider>
+          <CommandPalette />
+          <Toaster />
+          <Router />
+        </AdminProvider>
       </TooltipProvider>
     </QueryClientProvider>
   );

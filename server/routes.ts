@@ -3,7 +3,23 @@ import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import { insertLeadSchema } from "@shared/schema";
 
+const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || "mfa2024admin";
+
 export async function registerRoutes(app: Express): Promise<Server> {
+  app.post("/api/admin/verify", async (req, res) => {
+    try {
+      const { password } = req.body;
+      
+      if (password === ADMIN_PASSWORD) {
+        res.json({ success: true });
+      } else {
+        res.status(401).json({ success: false, error: "Invalid password" });
+      }
+    } catch (error) {
+      res.status(500).json({ success: false, error: "Verification failed" });
+    }
+  });
+
   app.post("/api/inquiries", async (req, res) => {
     try {
       const validatedData = insertLeadSchema.parse(req.body);
