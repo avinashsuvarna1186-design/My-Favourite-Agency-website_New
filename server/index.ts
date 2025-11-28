@@ -24,14 +24,21 @@ app.use(express.json({
 }));
 app.use(express.urlencoded({ extended: false }));
 
+const sessionSecret = process.env.SESSION_SECRET;
+if (!sessionSecret) {
+  console.error('SESSION_SECRET environment variable is required');
+  process.exit(1);
+}
+
 app.use(session({
-  secret: process.env.SESSION_SECRET || 'mfa-session-secret-change-me',
+  secret: sessionSecret,
   resave: false,
   saveUninitialized: false,
   cookie: {
-    secure: process.env.NODE_ENV === 'production',
+    secure: false, // Set to true only in production with HTTPS
     httpOnly: true,
     maxAge: 24 * 60 * 60 * 1000, // 24 hours
+    sameSite: 'lax',
   }
 }));
 
