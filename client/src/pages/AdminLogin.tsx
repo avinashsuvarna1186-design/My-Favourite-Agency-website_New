@@ -4,7 +4,15 @@ import { useAdmin } from "@/contexts/AdminContext";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Lock, Eye, EyeOff, ArrowLeft } from "lucide-react";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import { Lock, Eye, EyeOff, ArrowLeft, HelpCircle, Settings, Key } from "lucide-react";
 import { Link } from "wouter";
 
 export default function AdminLogin() {
@@ -96,7 +104,89 @@ export default function AdminLogin() {
               </Button>
             </form>
             
-            <p className="text-xs text-muted-foreground text-center mt-6">
+            <div className="flex justify-center mt-6">
+              <Dialog>
+                <DialogTrigger asChild>
+                  <button 
+                    type="button"
+                    className="text-sm text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1"
+                    data-testid="button-forgot-password"
+                  >
+                    <HelpCircle className="w-3.5 h-3.5" />
+                    Forgot password?
+                  </button>
+                </DialogTrigger>
+                <DialogContent className="sm:max-w-md bg-card/95 backdrop-blur-xl border-white/10">
+                  <DialogHeader>
+                    <DialogTitle className="flex items-center gap-2">
+                      <Key className="w-5 h-5 text-[#E97451]" />
+                      Reset Admin Password
+                    </DialogTitle>
+                    <DialogDescription>
+                      Follow these steps to reset your admin password
+                    </DialogDescription>
+                  </DialogHeader>
+                  
+                  <div className="space-y-4 pt-4">
+                    <div className="flex gap-3">
+                      <div className="w-8 h-8 rounded-full bg-[#E97451]/20 flex items-center justify-center flex-shrink-0">
+                        <span className="text-sm font-bold text-[#E97451]">1</span>
+                      </div>
+                      <div>
+                        <p className="font-medium">Open Replit Tools</p>
+                        <p className="text-sm text-muted-foreground">
+                          Click on the "Tools" tab in the left sidebar of your Replit workspace
+                        </p>
+                      </div>
+                    </div>
+                    
+                    <div className="flex gap-3">
+                      <div className="w-8 h-8 rounded-full bg-[#E97451]/20 flex items-center justify-center flex-shrink-0">
+                        <span className="text-sm font-bold text-[#E97451]">2</span>
+                      </div>
+                      <div>
+                        <p className="font-medium">Go to Secrets</p>
+                        <p className="text-sm text-muted-foreground">
+                          Find and click on "Secrets" to open the secrets manager
+                        </p>
+                      </div>
+                    </div>
+                    
+                    <div className="flex gap-3">
+                      <div className="w-8 h-8 rounded-full bg-[#E97451]/20 flex items-center justify-center flex-shrink-0">
+                        <span className="text-sm font-bold text-[#E97451]">3</span>
+                      </div>
+                      <div>
+                        <p className="font-medium">Update ADMIN_PASSWORD</p>
+                        <p className="text-sm text-muted-foreground">
+                          Find the <code className="px-1.5 py-0.5 bg-background rounded text-[#E97451]">ADMIN_PASSWORD</code> secret and update its value to your new password
+                        </p>
+                      </div>
+                    </div>
+                    
+                    <div className="flex gap-3">
+                      <div className="w-8 h-8 rounded-full bg-[#A855F7]/20 flex items-center justify-center flex-shrink-0">
+                        <Settings className="w-4 h-4 text-[#A855F7]" />
+                      </div>
+                      <div>
+                        <p className="font-medium">Restart the App</p>
+                        <p className="text-sm text-muted-foreground">
+                          The app may need to restart for changes to take effect. You can then use your new password to log in.
+                        </p>
+                      </div>
+                    </div>
+                    
+                    <div className="p-3 rounded-lg bg-[#E97451]/10 border border-[#E97451]/20 mt-4">
+                      <p className="text-sm text-[#E97451]">
+                        <strong>Tip:</strong> Only workspace owners and collaborators can access Replit Secrets.
+                      </p>
+                    </div>
+                  </div>
+                </DialogContent>
+              </Dialog>
+            </div>
+            
+            <p className="text-xs text-muted-foreground text-center mt-4">
               This is a protected area. Unauthorized access is prohibited.
             </p>
           </CardContent>
