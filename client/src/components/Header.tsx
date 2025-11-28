@@ -64,6 +64,7 @@ export default function Header() {
     { label: "Home", path: "/", isLink: true },
     { label: "About", path: "/about", isLink: true },
     { label: "Work", path: "/work", isLink: true },
+    { label: "Pricing", path: "/pricing", isLink: true },
     { label: "Services", id: "services", isLink: false },
     { label: "Contact", id: "contact", isLink: false },
   ];
@@ -104,7 +105,7 @@ export default function Header() {
               )
             ))}
             <a
-              href="https://wa.me/911234567890"
+              href="https://wa.me/919919919301"
               target="_blank"
               rel="noopener noreferrer"
               data-testid="button-whatsapp-header"
