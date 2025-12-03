@@ -36,18 +36,6 @@ function AboutContent() {
       <div className="relative z-10">
           <Header />
           <main className="pt-20">
-            {/* Hero section with centered title */}
-            <section className="py-32 px-4 relative">
-              <div className="max-w-6xl mx-auto text-center">
-                <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold gradient-flow-text mb-8 tracking-tight leading-[1.1]">
-                  ABOUT US
-                </h1>
-                <p className="text-xl md:text-2xl text-white/70 max-w-3xl mx-auto leading-relaxed">
-                  We're not your typical agency. We're the ones you call when mediocrity isn't an option.
-                </p>
-              </div>
-            </section>
-
             <ParallaxSection speed={0.42}>
               <AboutSection />
             </ParallaxSection>
