@@ -14,7 +14,7 @@ export function LoadingScreen({ onLoadComplete }: LoadingScreenProps) {
   useEffect(() => {
     const timer = setTimeout(() => {
       setPhase('pause');
-    }, 2500);
+    }, 3000);
     return () => clearTimeout(timer);
   }, []);
 
@@ -64,138 +64,190 @@ export function LoadingScreen({ onLoadComplete }: LoadingScreenProps) {
         transition={{ duration: 0.8, ease: "easeInOut" }}
         data-testid="loading-screen"
       >
-        {/* Outer rotating ring with gradient */}
+        {/* Outer glowing ring */}
         <motion.div
-          className="absolute w-72 h-72 md:w-96 md:h-96 rounded-full"
+          className="absolute w-80 h-80 md:w-[420px] md:h-[420px] rounded-full"
           style={{
-            border: "1px solid rgba(255,255,255,0.15)",
-            background: "conic-gradient(from 0deg, transparent, rgba(255,255,255,0.1), transparent)"
+            border: "1px solid rgba(255,255,255,0.1)",
+            boxShadow: "0 0 40px rgba(255,255,255,0.05), inset 0 0 40px rgba(255,255,255,0.02)"
           }}
           initial={{ rotate: 0, scale: 1, opacity: 1 }}
           animate={{ 
             rotate: showOrbit ? 360 : 0,
-            scale: phase === 'pause' ? 0 : 1,
-            opacity: phase === 'pause' || showLogo ? 0 : 1
+            scale: phase === 'pause' ? 0.5 : 1,
+            opacity: phase === 'pause' || showLogo ? 0 : 0.6
           }}
           transition={{ 
-            rotate: { duration: 4, repeat: Infinity, ease: "linear" },
+            rotate: { duration: 20, repeat: Infinity, ease: "linear" },
             scale: { duration: 0.6, ease: "easeInOut" },
             opacity: { duration: 0.5 }
           }}
         />
 
-        {/* Middle ring - counter rotation */}
-        <motion.div
-          className="absolute w-56 h-56 md:w-72 md:h-72 rounded-full border border-white/25"
-          initial={{ rotate: 0, scale: 1, opacity: 1 }}
-          animate={{ 
-            rotate: showOrbit ? -360 : 0,
-            scale: phase === 'pause' ? 0 : 1,
-            opacity: phase === 'pause' || showLogo ? 0 : 1
-          }}
-          transition={{ 
-            rotate: { duration: 6, repeat: Infinity, ease: "linear" },
-            scale: { duration: 0.5, ease: "easeInOut" },
-            opacity: { duration: 0.4 }
-          }}
-        />
-
-        {/* Inner pulsing ring */}
-        <motion.div
-          className="absolute w-40 h-40 md:w-52 md:h-52 rounded-full border-2 border-white/40"
-          initial={{ scale: 1, opacity: 0.4 }}
-          animate={{ 
-            scale: phase === 'pause' ? 0 : showOrbit ? [1, 1.08, 1] : 1,
-            opacity: phase === 'pause' || showLogo ? 0 : showOrbit ? [0.4, 0.7, 0.4] : 0.4
-          }}
-          transition={{ 
-            scale: showOrbit 
-              ? { duration: 1.5, repeat: Infinity, ease: "easeInOut" }
-              : { duration: 0.4, ease: "easeInOut" },
-            opacity: { duration: 0.4 }
-          }}
-        />
-
-        {/* Orbiting planets - 3 different sizes at different distances */}
-        {showOrbit && [
-          { size: 4, distance: 140, duration: 3, delay: 0, color: "bg-white" },
-          { size: 3, distance: 110, duration: 2.5, delay: 0.5, color: "bg-white/80" },
-          { size: 2, distance: 85, duration: 2, delay: 1, color: "bg-white/60" },
-          { size: 5, distance: 160, duration: 4, delay: 0.3, color: "bg-white" },
-          { size: 2, distance: 130, duration: 3.5, delay: 0.8, color: "bg-white/70" },
-        ].map((planet, i) => (
+        {/* DNA Helix style double orbit */}
+        {showOrbit && [...Array(2)].map((_, helixIndex) => (
           <motion.div
-            key={i}
+            key={`helix-${helixIndex}`}
+            className="absolute w-64 h-64 md:w-80 md:h-80"
+            animate={{ rotate: helixIndex === 0 ? 360 : -360 }}
+            transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+          >
+            {[...Array(8)].map((_, i) => {
+              const angle = (i / 8) * 360;
+              const yOffset = Math.sin((i / 8) * Math.PI * 2) * 20;
+              return (
+                <motion.div
+                  key={i}
+                  className="absolute w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-white"
+                  style={{
+                    left: '50%',
+                    top: '50%',
+                    marginLeft: '-5px',
+                    marginTop: '-5px',
+                    transform: `rotate(${angle}deg) translateX(${helixIndex === 0 ? 120 : 140}px) translateY(${yOffset}px)`,
+                    boxShadow: `0 0 ${10 + i * 2}px rgba(255,255,255,${0.3 + i * 0.05})`
+                  }}
+                  animate={{
+                    scale: [1, 1.5, 1],
+                    opacity: [0.6, 1, 0.6],
+                  }}
+                  transition={{
+                    duration: 1.2,
+                    repeat: Infinity,
+                    delay: i * 0.15,
+                    ease: "easeInOut"
+                  }}
+                />
+              );
+            })}
+          </motion.div>
+        ))}
+
+        {/* Comet trails */}
+        {showOrbit && [...Array(3)].map((_, i) => (
+          <motion.div
+            key={`comet-${i}`}
             className="absolute"
-            style={{ width: planet.distance * 2, height: planet.distance * 2 }}
-            initial={{ rotate: planet.delay * 360 }}
-            animate={{ 
-              rotate: 360 + planet.delay * 360,
-              scale: 1,
-              opacity: 1
-            }}
-            transition={{
-              rotate: { duration: planet.duration, repeat: Infinity, ease: "linear" },
-              scale: { duration: 0.3, ease: "easeOut" },
-              opacity: { duration: 0.3 }
+            style={{ width: 200 + i * 40, height: 200 + i * 40 }}
+            animate={{ rotate: 360 }}
+            transition={{ 
+              duration: 3 + i * 0.5, 
+              repeat: Infinity, 
+              ease: "linear",
+              delay: i * 0.3
             }}
           >
-            {/* The orbiting dot */}
+            {/* Comet head */}
             <motion.div
-              className={`absolute rounded-full ${planet.color}`}
+              className="absolute rounded-full bg-white"
               style={{
-                width: planet.size * 2,
-                height: planet.size * 2,
+                width: 8 - i,
+                height: 8 - i,
                 top: 0,
                 left: '50%',
-                marginLeft: -planet.size,
-                boxShadow: "0 0 10px rgba(255,255,255,0.5)"
+                marginLeft: -(4 - i/2),
+                boxShadow: `0 0 20px rgba(255,255,255,0.8), 0 0 40px rgba(255,255,255,0.4)`
               }}
               animate={{
-                scale: [1, 1.3, 1],
-                opacity: [0.8, 1, 0.8]
+                opacity: [0.7, 1, 0.7]
               }}
               transition={{
-                duration: 1.5,
-                repeat: Infinity,
-                delay: i * 0.2
+                duration: 0.8,
+                repeat: Infinity
               }}
             />
-            {/* Trail effect */}
+            {/* Comet tail */}
             <motion.div
-              className="absolute rounded-full bg-white/20"
+              className="absolute"
               style={{
-                width: planet.size,
-                height: planet.size,
-                top: 4,
+                width: 30 + i * 10,
+                height: 2,
+                top: 3 - i/2,
                 left: '50%',
-                marginLeft: -planet.size / 2 + 8,
+                marginLeft: 4,
+                background: `linear-gradient(90deg, rgba(255,255,255,0.6), transparent)`,
+                borderRadius: '0 10px 10px 0',
+                transformOrigin: 'left center',
               }}
             />
           </motion.div>
         ))}
 
-        {/* Stardust particles */}
-        {showOrbit && [...Array(8)].map((_, i) => {
-          const angle = (i / 8) * Math.PI * 2;
-          const radius = 80 + Math.random() * 60;
+        {/* Pulsing core ring */}
+        <motion.div
+          className="absolute w-48 h-48 md:w-56 md:h-56 rounded-full"
+          style={{
+            border: "2px solid rgba(255,255,255,0.3)",
+          }}
+          initial={{ scale: 1, opacity: 0.5 }}
+          animate={{ 
+            scale: phase === 'pause' ? 0 : showOrbit ? [1, 1.1, 1] : 1,
+            opacity: phase === 'pause' || showLogo ? 0 : [0.3, 0.6, 0.3]
+          }}
+          transition={{ 
+            scale: { duration: 1.5, repeat: Infinity, ease: "easeInOut" },
+            opacity: { duration: 1.5, repeat: Infinity, ease: "easeInOut" }
+          }}
+        />
+
+        {/* Inner spinning particles */}
+        {showOrbit && (
+          <motion.div
+            className="absolute w-36 h-36 md:w-44 md:h-44"
+            animate={{ rotate: -360 }}
+            transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
+          >
+            {[...Array(6)].map((_, i) => {
+              const angle = (i / 6) * 360;
+              return (
+                <motion.div
+                  key={`inner-${i}`}
+                  className="absolute w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-white/60"
+                  style={{
+                    left: '50%',
+                    top: '50%',
+                    marginLeft: '-3px',
+                    marginTop: '-3px',
+                    transform: `rotate(${angle}deg) translateX(70px)`,
+                  }}
+                  animate={{
+                    opacity: [0.3, 0.8, 0.3],
+                    scale: [0.8, 1.2, 0.8]
+                  }}
+                  transition={{
+                    duration: 1,
+                    repeat: Infinity,
+                    delay: i * 0.15
+                  }}
+                />
+              );
+            })}
+          </motion.div>
+        )}
+
+        {/* Stardust explosion particles */}
+        {showOrbit && [...Array(12)].map((_, i) => {
+          const angle = (i / 12) * Math.PI * 2;
+          const baseRadius = 60;
           return (
             <motion.div
               key={`star-${i}`}
-              className="absolute w-1 h-1 rounded-full bg-white/50"
+              className="absolute w-1 h-1 rounded-full bg-white"
               style={{
-                left: `calc(50% + ${Math.cos(angle) * radius}px)`,
-                top: `calc(50% + ${Math.sin(angle) * radius}px)`,
+                left: '50%',
+                top: '50%',
               }}
               animate={{
-                opacity: [0, 0.8, 0],
-                scale: [0, 1.5, 0],
+                x: [0, Math.cos(angle) * baseRadius, Math.cos(angle) * (baseRadius + 40), 0],
+                y: [0, Math.sin(angle) * baseRadius, Math.sin(angle) * (baseRadius + 40), 0],
+                opacity: [0, 1, 0.5, 0],
+                scale: [0, 1.5, 0.5, 0],
               }}
               transition={{
-                duration: 2,
+                duration: 2.5,
                 repeat: Infinity,
-                delay: i * 0.25,
-                ease: "easeInOut"
+                delay: i * 0.2,
+                ease: "easeOut"
               }}
             />
           );
@@ -203,22 +255,22 @@ export function LoadingScreen({ onLoadComplete }: LoadingScreenProps) {
 
         {/* Center glow */}
         <motion.div
-          className="absolute w-20 h-20 md:w-28 md:h-28 rounded-full"
+          className="absolute w-24 h-24 md:w-32 md:h-32 rounded-full"
           style={{
-            background: "radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%)",
-            boxShadow: "0 0 60px rgba(255,255,255,0.1)"
+            background: "radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 70%)",
+            boxShadow: "0 0 80px rgba(255,255,255,0.15), 0 0 120px rgba(255,255,255,0.05)"
           }}
           animate={{ 
-            scale: phase === 'pause' ? 0 : showOrbit ? [1, 1.2, 1] : 1,
+            scale: phase === 'pause' ? 0 : showOrbit ? [1, 1.3, 1] : 1,
             opacity: phase === 'pause' || showLogo ? 0 : 1
           }}
           transition={{ 
-            scale: { duration: 1.5, repeat: Infinity, ease: "easeInOut" },
-            opacity: { duration: 0.4 }
+            scale: { duration: 2, repeat: Infinity, ease: "easeInOut" },
+            opacity: { duration: 0.5 }
           }}
         />
 
-        {/* MFA Logo - appears after pause */}
+        {/* MFA Logo - appears after pause (30px bigger) */}
         <motion.div
           className="relative z-10"
           initial={{ opacity: 0, scale: 0.3 }}
@@ -234,10 +286,10 @@ export function LoadingScreen({ onLoadComplete }: LoadingScreenProps) {
           <motion.img 
             src={logoImage} 
             alt="MFA" 
-            className="w-56 h-auto md:w-72"
+            className="w-[270px] h-auto md:w-[320px]"
             data-testid="loading-logo"
             animate={showLogo ? {
-              filter: ["brightness(1)", "brightness(1.2)", "brightness(1)"]
+              filter: ["brightness(1)", "brightness(1.15)", "brightness(1)"]
             } : {}}
             transition={{
               duration: 2,
