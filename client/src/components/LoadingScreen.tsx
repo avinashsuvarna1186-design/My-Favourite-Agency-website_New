@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import logoImage from "@assets/image_1764755371215.png";
 
 interface LoadingScreenProps {
@@ -7,44 +7,53 @@ interface LoadingScreenProps {
 
 export function LoadingScreen({ onLoadComplete }: LoadingScreenProps) {
   const [count, setCount] = useState(3);
-  const [showLogo, setShowLogo] = useState(false);
-  const [isFading, setIsFading] = useState(false);
-  const [isVisible, setIsVisible] = useState(true);
+  const [phase, setPhase] = useState<'countdown' | 'logo' | 'fading' | 'done'>('countdown');
+  const hasCompleted = useRef(false);
 
+  // Countdown timer
   useEffect(() => {
-    if (count > 0) {
+    if (phase === 'countdown' && count > 0) {
       const timer = setTimeout(() => setCount(count - 1), 700);
       return () => clearTimeout(timer);
-    } else if (count === 0 && !showLogo) {
-      setShowLogo(true);
-      
-      const fadeTimer = setTimeout(() => {
-        setIsFading(true);
-        setTimeout(() => {
-          setIsVisible(false);
-          onLoadComplete?.();
-        }, 500);
-      }, 1000);
-      
-      return () => clearTimeout(fadeTimer);
+    } else if (phase === 'countdown' && count === 0) {
+      setPhase('logo');
     }
-  }, [count, showLogo, onLoadComplete]);
+  }, [count, phase]);
 
-  if (!isVisible) return null;
+  // Logo display then fade
+  useEffect(() => {
+    if (phase === 'logo') {
+      const timer = setTimeout(() => setPhase('fading'), 1000);
+      return () => clearTimeout(timer);
+    }
+  }, [phase]);
+
+  // Fade out then complete
+  useEffect(() => {
+    if (phase === 'fading' && !hasCompleted.current) {
+      const timer = setTimeout(() => {
+        hasCompleted.current = true;
+        setPhase('done');
+        onLoadComplete?.();
+      }, 500);
+      return () => clearTimeout(timer);
+    }
+  }, [phase, onLoadComplete]);
+
+  if (phase === 'done') return null;
 
   return (
     <div 
       className={`fixed inset-0 z-[9999] flex items-center justify-center bg-black transition-opacity duration-500 ${
-        isFading ? 'opacity-0' : 'opacity-100'
+        phase === 'fading' ? 'opacity-0' : 'opacity-100'
       }`}
       data-testid="loading-screen"
     >
       {/* Countdown numbers */}
-      {count > 0 && (
+      {phase === 'countdown' && count > 0 && (
         <span 
           key={count}
           className="countdown-number text-[10rem] md:text-[14rem] font-bold text-white"
-          style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}
           data-testid="countdown-number"
         >
           {count}
@@ -52,7 +61,7 @@ export function LoadingScreen({ onLoadComplete }: LoadingScreenProps) {
       )}
 
       {/* Logo reveal */}
-      {showLogo && (
+      {(phase === 'logo' || phase === 'fading') && (
         <div className="logo-reveal">
           <img 
             src={logoImage} 
