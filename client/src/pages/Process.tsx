@@ -102,6 +102,64 @@ const whyOurProcess = [
   }
 ];
 
+function FloatingParticles({ count = 12, color = "coral" }: { count?: number; color?: "coral" | "purple" | "mixed" }) {
+  return (
+    <div className="absolute inset-0 pointer-events-none overflow-hidden">
+      {[...Array(count)].map((_, i) => {
+        const particleColor = color === "mixed" 
+          ? (i % 2 === 0 ? "bg-coral-400/40" : "bg-purple-400/40")
+          : color === "coral" ? "bg-coral-400/40" : "bg-purple-400/40";
+        return (
+          <div
+            key={i}
+            className={`absolute w-1.5 h-1.5 ${particleColor} rounded-full`}
+            style={{
+              left: `${5 + (i * (90 / count))}%`,
+              top: `${20 + Math.sin(i) * 30}%`,
+              animation: `float-particle ${3 + (i % 3)}s ease-in-out infinite ${i * 0.3}s`,
+            }}
+          />
+        );
+      })}
+    </div>
+  );
+}
+
+function GlowOrbs({ scrollY }: { scrollY: number }) {
+  return (
+    <>
+      <div 
+        className="absolute top-20 left-10 w-64 h-64 bg-coral-500/20 rounded-full blur-3xl pointer-events-none"
+        style={{ 
+          transform: `translateY(${scrollY * 0.1}px)`,
+          animation: 'pulse-glow 4s ease-in-out infinite'
+        }}
+      />
+      <div 
+        className="absolute top-1/3 right-10 w-96 h-96 bg-purple-500/15 rounded-full blur-3xl pointer-events-none"
+        style={{ 
+          transform: `translateY(${scrollY * -0.1}px)`,
+          animation: 'pulse-glow 4s ease-in-out infinite 1s'
+        }}
+      />
+      <div 
+        className="absolute bottom-1/4 left-1/4 w-72 h-72 bg-coral-500/10 rounded-full blur-3xl pointer-events-none"
+        style={{ 
+          transform: `translateY(${scrollY * 0.15}px)`,
+          animation: 'pulse-glow 5s ease-in-out infinite 2s'
+        }}
+      />
+      <div 
+        className="absolute bottom-10 right-1/3 w-80 h-80 bg-purple-500/10 rounded-full blur-3xl pointer-events-none"
+        style={{ 
+          transform: `translateY(${scrollY * -0.12}px)`,
+          animation: 'pulse-glow 4.5s ease-in-out infinite 0.5s'
+        }}
+      />
+    </>
+  );
+}
+
 function ProcessStep({ step, index }: { step: typeof processSteps[0]; index: number }) {
   const { ref, isVisible } = useScrollAnimation("fade-in", { threshold: 0.2 });
   const isEven = index % 2 === 0;
@@ -115,46 +173,92 @@ function ProcessStep({ step, index }: { step: typeof processSteps[0]; index: num
       }`}
       style={{ transitionDelay: `${index * 100}ms` }}
     >
-      {/* Timeline connector */}
+      {/* Timeline connector with animation */}
       {index < processSteps.length - 1 && (
-        <div className="absolute left-1/2 top-full w-px h-16 md:h-24 bg-gradient-to-b from-white/20 to-transparent -translate-x-1/2 hidden md:block" />
+        <div className="absolute left-1/2 top-full w-px h-16 md:h-24 -translate-x-1/2 hidden md:block overflow-hidden">
+          <div 
+            className="w-full h-full bg-gradient-to-b from-white/30 via-coral-400/50 to-transparent"
+            style={{ animation: isVisible ? 'shimmer-line 2s ease-in-out infinite' : 'none' }}
+          />
+        </div>
       )}
       
       <div className={`flex flex-col ${isEven ? 'md:flex-row' : 'md:flex-row-reverse'} gap-8 md:gap-16 items-center`}>
-        {/* Step Number & Icon */}
-        <div className="flex-shrink-0 relative">
-          <div className={`w-32 h-32 md:w-40 md:h-40 rounded-full bg-gradient-to-br ${step.color} p-1`}>
-            <div className="w-full h-full rounded-full bg-black/80 backdrop-blur-xl flex flex-col items-center justify-center">
-              <span className="text-3xl md:text-4xl font-bold text-white/90">{step.number}</span>
-              <Icon className="w-6 h-6 md:w-8 md:h-8 text-white/70 mt-1" />
+        {/* Step Number & Icon with enhanced animation */}
+        <div className="flex-shrink-0 relative group">
+          <div 
+            className={`w-32 h-32 md:w-40 md:h-40 rounded-full bg-gradient-to-br ${step.color} p-1 transition-transform duration-500 group-hover:scale-105`}
+            style={{ animation: isVisible ? 'pulse-border 3s ease-in-out infinite' : 'none' }}
+          >
+            <div className="w-full h-full rounded-full bg-black/80 backdrop-blur-xl flex flex-col items-center justify-center relative overflow-hidden">
+              <span className="text-3xl md:text-4xl font-bold text-white/90 relative z-10">{step.number}</span>
+              <Icon className="w-6 h-6 md:w-8 md:h-8 text-white/70 mt-1 relative z-10" />
+              {/* Inner shimmer */}
+              <div 
+                className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent"
+                style={{ animation: isVisible ? 'shimmer-sweep 3s ease-in-out infinite' : 'none' }}
+              />
             </div>
           </div>
-          {/* Glow effect */}
-          <div className={`absolute inset-0 rounded-full bg-gradient-to-br ${step.color} opacity-20 blur-2xl -z-10`} />
+          {/* Animated glow effect */}
+          <div 
+            className={`absolute inset-0 rounded-full bg-gradient-to-br ${step.color} opacity-30 blur-2xl -z-10`}
+            style={{ animation: isVisible ? 'pulse-glow 3s ease-in-out infinite' : 'none' }}
+          />
+          {/* Orbiting particles */}
+          {isVisible && (
+            <>
+              <div 
+                className="absolute w-2 h-2 bg-white/60 rounded-full"
+                style={{ 
+                  animation: 'orbit 4s linear infinite',
+                  top: '50%',
+                  left: '50%',
+                }}
+              />
+              <div 
+                className="absolute w-1.5 h-1.5 bg-coral-400/80 rounded-full"
+                style={{ 
+                  animation: 'orbit 6s linear infinite reverse',
+                  top: '50%',
+                  left: '50%',
+                }}
+              />
+            </>
+          )}
         </div>
 
-        {/* Content Card */}
-        <div className="flex-1 max-w-2xl">
-          <div className="bg-white/5 backdrop-blur-xl rounded-2xl p-6 md:p-8 border border-white/10 hover:border-white/20 transition-all duration-500">
-            <div className="flex items-center gap-3 mb-4">
+        {/* Content Card with shimmer border */}
+        <div className="flex-1 max-w-2xl relative">
+          <div 
+            className="bg-white/5 backdrop-blur-xl rounded-2xl p-6 md:p-8 border border-white/10 hover:border-white/30 transition-all duration-500 relative overflow-hidden group"
+          >
+            {/* Card shimmer effect on hover */}
+            <div 
+              className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+              style={{ animation: 'shimmer-sweep 2s ease-in-out infinite' }}
+            />
+            
+            <div className="flex items-center gap-3 mb-4 relative z-10">
               <h3 className="text-2xl md:text-3xl font-bold text-white">
                 {step.title}
               </h3>
-              <span className="text-sm text-white/40 bg-white/5 px-3 py-1 rounded-full">
+              <span className="text-sm text-white/40 bg-white/5 px-3 py-1 rounded-full border border-white/10">
                 {step.duration}
               </span>
             </div>
-            <p className="text-lg text-white/60 mb-2">{step.subtitle}</p>
-            <p className="text-white/70 leading-relaxed mb-6">{step.description}</p>
+            <p className="text-lg text-white/60 mb-2 relative z-10">{step.subtitle}</p>
+            <p className="text-white/70 leading-relaxed mb-6 relative z-10">{step.description}</p>
             
             {/* Deliverables */}
-            <div className="border-t border-white/10 pt-4">
+            <div className="border-t border-white/10 pt-4 relative z-10">
               <p className="text-sm text-white/40 mb-3">Key Deliverables:</p>
               <div className="flex flex-wrap gap-2">
                 {step.deliverables.map((item, i) => (
                   <span
                     key={i}
-                    className="text-sm bg-white/5 text-white/70 px-3 py-1.5 rounded-full border border-white/10"
+                    className="text-sm bg-white/5 text-white/70 px-3 py-1.5 rounded-full border border-white/10 hover:border-coral-400/30 hover:bg-white/10 transition-all duration-300"
+                    style={{ animationDelay: `${i * 100}ms` }}
                   >
                     {item}
                   </span>
@@ -175,16 +279,30 @@ function WhyCard({ item, index }: { item: typeof whyOurProcess[0]; index: number
   return (
     <div
       ref={ref}
-      className={`bg-white/5 backdrop-blur-xl rounded-2xl p-6 border border-white/10 hover:border-coral-500/30 transition-all duration-500 group ${
+      className={`relative bg-white/5 backdrop-blur-xl rounded-2xl p-6 border border-white/10 hover:border-coral-500/30 transition-all duration-500 group overflow-hidden ${
         isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
       }`}
       style={{ transitionDelay: `${index * 100}ms` }}
     >
-      <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-coral-500/20 to-purple-500/20 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+      {/* Background shimmer */}
+      <div 
+        className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent opacity-0 group-hover:opacity-100"
+        style={{ animation: 'shimmer-sweep 2s ease-in-out infinite' }}
+      />
+      
+      {/* Floating particle on card */}
+      {isVisible && (
+        <div 
+          className="absolute top-4 right-4 w-1 h-1 bg-coral-400/60 rounded-full"
+          style={{ animation: 'float-particle 3s ease-in-out infinite' }}
+        />
+      )}
+      
+      <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-coral-500/20 to-purple-500/20 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 relative z-10">
         <Icon className="w-6 h-6 text-coral-400" />
       </div>
-      <h4 className="text-xl font-semibold text-white mb-2">{item.title}</h4>
-      <p className="text-white/60">{item.description}</p>
+      <h4 className="text-xl font-semibold text-white mb-2 relative z-10">{item.title}</h4>
+      <p className="text-white/60 relative z-10">{item.description}</p>
     </div>
   );
 }
@@ -212,6 +330,16 @@ function ProcessContent() {
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/80 to-black" />
       </div>
 
+      {/* Global animated glow orbs */}
+      <div className="fixed inset-0 -z-5 pointer-events-none">
+        <GlowOrbs scrollY={scrollY} />
+      </div>
+
+      {/* Global floating particles */}
+      <div className="fixed inset-0 -z-5 pointer-events-none">
+        <FloatingParticles count={20} color="mixed" />
+      </div>
+
       <Header />
 
       {/* Hero Section */}
@@ -223,19 +351,31 @@ function ProcessContent() {
               heroVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
             }`}
           >
-            <p className="text-coral-400 text-sm md:text-base uppercase tracking-widest mb-4">
+            <p 
+              className="text-coral-400 text-sm md:text-base uppercase tracking-widest mb-4"
+              style={{ animation: heroVisible ? 'fade-in-up 0.6s ease-out forwards' : 'none' }}
+            >
               Our Methodology
             </p>
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6">
-              <span className="bg-gradient-to-r from-white via-white to-white/60 bg-clip-text text-transparent">
+              <span 
+                className="inline-block bg-gradient-to-r from-white via-white to-white/60 bg-clip-text text-transparent"
+                style={{ animation: heroVisible ? 'fade-in-up 0.8s ease-out 0.2s forwards' : 'none', opacity: heroVisible ? 1 : 0 }}
+              >
                 A Process Built For
               </span>
               <br />
-              <span className="bg-gradient-to-r from-coral-400 to-purple-400 bg-clip-text text-transparent">
+              <span 
+                className="inline-block shimmer-text-hero"
+                style={{ animation: heroVisible ? 'fade-in-up 0.8s ease-out 0.4s forwards' : 'none', opacity: heroVisible ? 1 : 0 }}
+              >
                 Exceptional Results
               </span>
             </h1>
-            <p className="text-lg md:text-xl text-white/60 max-w-2xl mx-auto">
+            <p 
+              className="text-lg md:text-xl text-white/60 max-w-2xl mx-auto"
+              style={{ animation: heroVisible ? 'fade-in-up 0.8s ease-out 0.6s forwards' : 'none', opacity: heroVisible ? 1 : 0 }}
+            >
               Every great brand is born from a thoughtful process. Ours is designed to 
               uncover your unique story and transform it into a visual identity that 
               connects, inspires, and converts.
@@ -243,15 +383,8 @@ function ProcessContent() {
           </div>
         </div>
 
-        {/* Decorative Elements */}
-        <div 
-          className="absolute top-20 left-10 w-64 h-64 bg-coral-500/10 rounded-full blur-3xl"
-          style={{ transform: `translateY(${scrollY * 0.1}px)` }}
-        />
-        <div 
-          className="absolute bottom-0 right-10 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl"
-          style={{ transform: `translateY(${scrollY * -0.1}px)` }}
-        />
+        {/* Hero floating particles */}
+        <FloatingParticles count={8} color="coral" />
       </section>
 
       {/* Massive Text */}
@@ -266,16 +399,19 @@ function ProcessContent() {
             ))}
           </div>
         </div>
+        
+        {/* Section particles */}
+        <FloatingParticles count={10} color="purple" />
       </section>
 
       {/* Why Our Process Section */}
       <section className="relative py-20 md:py-32 bg-gradient-to-b from-transparent via-white/[0.02] to-transparent">
         <div className="container mx-auto px-6">
-          <div className="text-center mb-16">
+          <div className="text-center mb-16 relative">
             <p className="text-coral-400 text-sm uppercase tracking-widest mb-4">
               The MFA Difference
             </p>
-            <h2 className="text-3xl md:text-5xl font-bold bg-gradient-to-r from-coral-400 to-purple-400 bg-clip-text text-transparent mb-6">
+            <h2 className="text-3xl md:text-5xl font-bold shimmer-text-hero mb-6">
               Why Our Process Works
             </h2>
             <p className="text-white/60 max-w-2xl mx-auto">
@@ -290,28 +426,52 @@ function ProcessContent() {
             ))}
           </div>
         </div>
+        
+        {/* Section particles */}
+        <FloatingParticles count={8} color="mixed" />
       </section>
 
       {/* CTA Section */}
       <section className="relative py-20 md:py-32">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto text-center">
-            <div className="bg-gradient-to-br from-coral-500/10 to-purple-500/10 backdrop-blur-xl rounded-3xl p-8 md:p-16 border border-white/10">
-              <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
+            <div className="relative bg-gradient-to-br from-coral-500/10 to-purple-500/10 backdrop-blur-xl rounded-3xl p-8 md:p-16 border border-white/10 overflow-hidden group">
+              {/* Animated border glow */}
+              <div 
+                className="absolute inset-0 rounded-3xl opacity-50"
+                style={{ 
+                  background: 'linear-gradient(90deg, transparent, rgba(233, 116, 81, 0.3), transparent)',
+                  animation: 'shimmer-sweep 3s ease-in-out infinite'
+                }}
+              />
+              
+              {/* Corner accents */}
+              <div className="absolute top-0 left-0 w-20 h-20 border-t-2 border-l-2 border-coral-400/30 rounded-tl-3xl" />
+              <div className="absolute bottom-0 right-0 w-20 h-20 border-b-2 border-r-2 border-purple-400/30 rounded-br-3xl" />
+              
+              <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 relative z-10">
                 Ready to Start Your Journey?
               </h2>
-              <p className="text-lg text-white/60 mb-8 max-w-xl mx-auto">
+              <p className="text-lg text-white/60 mb-8 max-w-xl mx-auto relative z-10">
                 Let's discuss how our process can transform your brand into 
                 something extraordinary.
               </p>
               <a
                 href="/#contact"
-                className="inline-flex items-center gap-2 bg-gradient-to-r from-coral-500 to-orange-500 text-white px-8 py-4 rounded-full font-semibold hover:opacity-90 transition-opacity"
+                className="relative inline-flex items-center gap-2 bg-gradient-to-r from-coral-500 to-orange-500 text-white px-8 py-4 rounded-full font-semibold hover:opacity-90 transition-all duration-300 hover:scale-105 overflow-hidden group/btn"
                 data-testid="link-start-project"
               >
-                Start a Project
-                <ArrowRight className="w-5 h-5" />
+                <span className="relative z-10">Start a Project</span>
+                <ArrowRight className="w-5 h-5 relative z-10 group-hover/btn:translate-x-1 transition-transform" />
+                {/* Button shimmer */}
+                <div 
+                  className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
+                  style={{ animation: 'shimmer-sweep 2s ease-in-out infinite' }}
+                />
               </a>
+              
+              {/* CTA floating particles */}
+              <FloatingParticles count={6} color="coral" />
             </div>
           </div>
         </div>

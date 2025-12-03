@@ -751,6 +751,60 @@
     }
   }
 
+  @keyframes orbit {
+    0% {
+      transform: translate(-50%, -50%) rotate(0deg) translateX(80px) rotate(0deg);
+    }
+    100% {
+      transform: translate(-50%, -50%) rotate(360deg) translateX(80px) rotate(-360deg);
+    }
+  }
+
+  @keyframes pulse-border {
+    0%, 100% {
+      box-shadow: 0 0 20px rgba(233, 116, 81, 0.3);
+    }
+    50% {
+      box-shadow: 0 0 40px rgba(233, 116, 81, 0.5), 0 0 60px rgba(168, 85, 247, 0.3);
+    }
+  }
+
+  @keyframes shimmer-line {
+    0% {
+      transform: translateY(-100%);
+    }
+    100% {
+      transform: translateY(100%);
+    }
+  }
+
+  @keyframes fade-in-up {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .shimmer-text-hero {
+    background: linear-gradient(
+      90deg,
+      #E97451 0%,
+      #A855F7 25%,
+      #fff 50%,
+      #A855F7 75%,
+      #E97451 100%
+    );
+    background-size: 300% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shimmer-sweep 3s ease-in-out infinite;
+  }
+
   /* Typing Cursor Animation */
   .typing-cursor {
     display: inline-block;
