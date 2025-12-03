@@ -47,6 +47,13 @@ export default function BookingModal({ open, onOpenChange }: BookingModalProps) 
 
   const { data: slotsData, isLoading: slotsLoading } = useQuery({
     queryKey: ["/api/booking/slots", dateStr],
+    queryFn: async () => {
+      const res = await fetch(`/api/booking/slots?date=${dateStr}`, {
+        credentials: "include",
+      });
+      if (!res.ok) throw new Error("Failed to fetch slots");
+      return res.json();
+    },
     enabled: !!dateStr,
   });
 

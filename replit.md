@@ -55,7 +55,15 @@ The frontend is built with **React 18** and **TypeScript**, using **Vite** for f
   - Glassmorphism styling with coral orange active tab state
   - Scroll animations and ParallaxProvider integration
   - Galactic video background consistent with site design
-- **Floating CTA**: A conversion-optimized fixed action button appearing after the hero section, scrolling to the contact form.
+- **Floating CTA**: A conversion-optimized fixed action button appearing after the hero section, with two options:
+  - "Book a Call" button - opens booking modal for scheduling consultations
+  - "Start a Project" button - scrolls to the contact form
+- **Consultation Booking System**: Multi-step booking modal (`BookingModal.tsx`) featuring:
+  - Step 1: Calendar date picker (excludes weekends, next 30 days)
+  - Step 2: Available time slots fetched from Google Calendar API
+  - Step 3: Contact details form (name, email, company, service type, notes)
+  - Creates Google Calendar events with email invitations
+  - Integrated with Google Calendar via Replit connector
 - **Accessibility**: Implemented with `aria-hidden` for decorative elements, reduced-motion support, and semantic HTML.
 
 ### Backend Architecture
@@ -66,8 +74,11 @@ The backend uses **Express.js** with **Node.js** and **TypeScript**.
 
 ### Data Storage
 
-- **Database**: **Drizzle ORM** configured for PostgreSQL compatibility, with schema defined in `shared/schema.ts` and validated using **Zod**. Migration files are output to `./migrations`.
-- **Schema**: Currently includes a basic `users` table with UUID primary keys, username, and password fields, with type-safe schema inference.
+- **Database**: **Drizzle ORM** configured for PostgreSQL using DatabaseStorage class, with schema defined in `shared/schema.ts` and validated using **Zod**. Migration files are output to `./migrations`.
+- **Schema**: Includes:
+  - `users` table: UUID primary keys, username, password fields
+  - `leads` table: Lead inquiries with name, email, company, serviceType, budget, timeline, message, createdAt
+  - `case_studies` table: Portfolio entries with JSONB fields for challenges, approach, images, resultsMetrics, and testimonial data
 
 ## External Dependencies
 

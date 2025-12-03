@@ -61,7 +61,8 @@ export interface BookingDetails {
 export async function createConsultationBooking(booking: BookingDetails) {
   const calendar = await getCalendarClient();
   
-  const startDateTime = new Date(`${booking.date}T${booking.time}:00`);
+  // Use explicit IST timezone offset (+05:30) to ensure correct time interpretation
+  const startDateTime = new Date(`${booking.date}T${booking.time}:00+05:30`);
   const endDateTime = new Date(startDateTime.getTime() + 30 * 60 * 1000);
 
   const event = {
@@ -109,8 +110,9 @@ This is an automated booking from myfavourite.agency
 export async function getAvailableSlots(date: string) {
   const calendar = await getCalendarClient();
   
-  const startOfDay = new Date(`${date}T09:00:00`);
-  const endOfDay = new Date(`${date}T18:00:00`);
+  // Use explicit IST timezone offset (+05:30) to ensure correct time interpretation
+  const startOfDay = new Date(`${date}T09:00:00+05:30`);
+  const endOfDay = new Date(`${date}T18:00:00+05:30`);
 
   const response = await calendar.freebusy.query({
     requestBody: {
@@ -130,7 +132,7 @@ export async function getAvailableSlots(date: string) {
   ];
 
   const availableSlots = allSlots.filter(slot => {
-    const slotStart = new Date(`${date}T${slot}:00`);
+    const slotStart = new Date(`${date}T${slot}:00+05:30`);
     const slotEnd = new Date(slotStart.getTime() + 30 * 60 * 1000);
     
     return !busySlots.some(busy => {
