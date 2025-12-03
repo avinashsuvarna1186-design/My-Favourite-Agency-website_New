@@ -3,31 +3,37 @@ import AboutSection from "@/components/AboutSection";
 import VisionMissionTeamSection from "@/components/VisionMissionTeamSection";
 import Footer from "@/components/Footer";
 import { ParallaxSection } from "@/components/ParallaxSection";
-import { ParallaxProvider } from "@/contexts/ParallaxContext";
+import { ParallaxProvider, useParallaxContext } from "@/contexts/ParallaxContext";
+import { FloatingParticles, GlowOrbs } from "@/components/PageAnimations";
 
-export default function About() {
+function AboutContent() {
+  const { scrollY } = useParallaxContext();
+  
   return (
-    <ParallaxProvider>
-      <div className="min-h-screen relative bg-black">
-        {/* Galactic video background with dark overlay */}
-        <div className="fixed inset-0 z-0 bg-black overflow-hidden">
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="absolute inset-0 w-full h-full object-cover opacity-30"
-            style={{ filter: "brightness(0.4)" }}
-          >
-            <source
-              src="https://cdn.pixabay.com/video/2022/11/07/137651-769748627_large.mp4"
-              type="video/mp4"
-            />
-          </video>
-          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/70" />
-        </div>
-        
-        <div className="relative z-10">
+    <div className="min-h-screen relative bg-black">
+      {/* Galactic video background with dark overlay */}
+      <div className="fixed inset-0 z-0 bg-black overflow-hidden">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover opacity-30"
+          style={{ filter: "brightness(0.4)" }}
+        >
+          <source
+            src="https://cdn.pixabay.com/video/2022/11/07/137651-769748627_large.mp4"
+            type="video/mp4"
+          />
+        </video>
+        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/70" />
+      </div>
+      
+      {/* Global animated effects */}
+      <GlowOrbs scrollY={scrollY} />
+      <FloatingParticles count={16} color="mixed" />
+      
+      <div className="relative z-10">
           <Header />
           <main className="pt-20">
             {/* Hero section with centered title */}
@@ -53,6 +59,13 @@ export default function About() {
           <Footer />
         </div>
       </div>
+  );
+}
+
+export default function About() {
+  return (
+    <ParallaxProvider>
+      <AboutContent />
     </ParallaxProvider>
   );
 }

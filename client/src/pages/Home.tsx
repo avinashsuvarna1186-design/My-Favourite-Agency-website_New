@@ -9,7 +9,7 @@ import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 import MassiveText from "@/components/MassiveText";
 import { ParallaxSection } from "@/components/ParallaxSection";
-import { ParallaxProvider } from "@/contexts/ParallaxContext";
+import { ParallaxProvider, useParallaxContext } from "@/contexts/ParallaxContext";
 import StatsSection from "@/components/StatsSection";
 import ClientLogosSection from "@/components/ClientLogosSection";
 import NameMarquee from "@/components/NameMarquee";
@@ -19,14 +19,16 @@ import DepartmentShowcase from "@/components/DepartmentShowcase";
 import EnhancedWorkSection from "@/components/EnhancedWorkSection";
 import VideoShowreel from "@/components/VideoShowreel";
 import FloatingCTA from "@/components/FloatingCTA";
+import { FloatingParticles, GlowOrbs } from "@/components/PageAnimations";
 import neonAbstractBg1 from "@assets/60c94c0f49222bf21cb50e38b10bd013 (1)_1763044119195.jpg";
 import neonAbstractBg2 from "@assets/7113f7aa21fdc70241aa2fa6591744c9 (1)_1763044119197.jpg";
 import neonAbstractBg3 from "@assets/e69d34eafa5254648e4642661bbed974 (1)_1763044119197.jpg";
 
-export default function Home() {
+function HomeContent() {
+  const { scrollY } = useParallaxContext();
+  
   return (
-    <ParallaxProvider>
-      <div className="min-h-screen relative">
+    <div className="min-h-screen relative">
       <div className="fixed inset-0 z-0 bg-black overflow-hidden">
         <ParallaxSection speed={0.35}>
           <div 
@@ -41,6 +43,10 @@ export default function Home() {
           />
         </ParallaxSection>
       </div>
+      
+      {/* Global animated effects */}
+      <GlowOrbs scrollY={scrollY} />
+      <FloatingParticles count={16} color="mixed" />
       
       <div className="relative z-10">
         <Header />
@@ -163,6 +169,13 @@ export default function Home() {
         }
       `}</style>
       </div>
+  );
+}
+
+export default function Home() {
+  return (
+    <ParallaxProvider>
+      <HomeContent />
     </ParallaxProvider>
   );
 }

@@ -3,6 +3,7 @@ import { ParallaxProvider, useParallaxContext } from "@/contexts/ParallaxContext
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import MassiveText from "@/components/MassiveText";
+import { FloatingParticles, GlowOrbs, SectionParticles } from "@/components/PageAnimations";
 import { 
   Search, 
   Lightbulb, 
@@ -101,64 +102,6 @@ const whyOurProcess = [
     description: "We measure success by the impact on your business, not just beautiful designs."
   }
 ];
-
-function FloatingParticles({ count = 12, color = "coral" }: { count?: number; color?: "coral" | "purple" | "mixed" }) {
-  return (
-    <div className="absolute inset-0 pointer-events-none overflow-hidden">
-      {[...Array(count)].map((_, i) => {
-        const particleColor = color === "mixed" 
-          ? (i % 2 === 0 ? "bg-coral-400/40" : "bg-purple-400/40")
-          : color === "coral" ? "bg-coral-400/40" : "bg-purple-400/40";
-        return (
-          <div
-            key={i}
-            className={`absolute w-1.5 h-1.5 ${particleColor} rounded-full`}
-            style={{
-              left: `${5 + (i * (90 / count))}%`,
-              top: `${20 + Math.sin(i) * 30}%`,
-              animation: `float-particle ${3 + (i % 3)}s ease-in-out infinite ${i * 0.3}s`,
-            }}
-          />
-        );
-      })}
-    </div>
-  );
-}
-
-function GlowOrbs({ scrollY }: { scrollY: number }) {
-  return (
-    <>
-      <div 
-        className="absolute top-20 left-10 w-64 h-64 bg-coral-500/20 rounded-full blur-3xl pointer-events-none"
-        style={{ 
-          transform: `translateY(${scrollY * 0.1}px)`,
-          animation: 'pulse-glow 4s ease-in-out infinite'
-        }}
-      />
-      <div 
-        className="absolute top-1/3 right-10 w-96 h-96 bg-purple-500/15 rounded-full blur-3xl pointer-events-none"
-        style={{ 
-          transform: `translateY(${scrollY * -0.1}px)`,
-          animation: 'pulse-glow 4s ease-in-out infinite 1s'
-        }}
-      />
-      <div 
-        className="absolute bottom-1/4 left-1/4 w-72 h-72 bg-coral-500/10 rounded-full blur-3xl pointer-events-none"
-        style={{ 
-          transform: `translateY(${scrollY * 0.15}px)`,
-          animation: 'pulse-glow 5s ease-in-out infinite 2s'
-        }}
-      />
-      <div 
-        className="absolute bottom-10 right-1/3 w-80 h-80 bg-purple-500/10 rounded-full blur-3xl pointer-events-none"
-        style={{ 
-          transform: `translateY(${scrollY * -0.12}px)`,
-          animation: 'pulse-glow 4.5s ease-in-out infinite 0.5s'
-        }}
-      />
-    </>
-  );
-}
 
 function ProcessStep({ step, index }: { step: typeof processSteps[0]; index: number }) {
   const { ref, isVisible } = useScrollAnimation("fade-in", { threshold: 0.2 });

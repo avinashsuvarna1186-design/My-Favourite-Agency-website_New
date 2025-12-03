@@ -6,10 +6,19 @@ import Footer from "@/components/Footer";
 import SwissGrid from "@/components/SwissGrid";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { useLocation } from "wouter";
+import { FloatingParticles, GlowOrbs } from "@/components/PageAnimations";
+import { useState, useEffect } from "react";
 
 export default function Pricing() {
   const [, setLocation] = useLocation();
   const headerAnimation = useScrollAnimation("fade-in");
+  const [scrollY, setScrollY] = useState(0);
+  
+  useEffect(() => {
+    const handleScroll = () => setScrollY(window.scrollY);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const plans = [
     {
@@ -79,6 +88,10 @@ export default function Pricing() {
       <Header />
       <main className="min-h-screen bg-black relative">
         <SwissGrid />
+        
+        {/* Global animated effects */}
+        <GlowOrbs scrollY={scrollY} />
+        <FloatingParticles count={16} color="mixed" />
 
         {/* Hero */}
         <section className="py-24 px-4 relative z-10">

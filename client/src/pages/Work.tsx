@@ -4,28 +4,34 @@ import WorkCaseStudies from "@/components/WorkCaseStudies";
 import EnhancedWorkSection from "@/components/EnhancedWorkSection";
 import NameMarquee from "@/components/NameMarquee";
 import { ParallaxSection } from "@/components/ParallaxSection";
-import { ParallaxProvider } from "@/contexts/ParallaxContext";
+import { ParallaxProvider, useParallaxContext } from "@/contexts/ParallaxContext";
+import { FloatingParticles, GlowOrbs } from "@/components/PageAnimations";
 
-export default function Work() {
+function WorkContent() {
+  const { scrollY } = useParallaxContext();
+  
   return (
-    <ParallaxProvider>
-      <div className="min-h-screen relative">
-        <div className="fixed inset-0 z-0 bg-black overflow-hidden">
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="absolute inset-0 w-full h-full object-cover opacity-50"
-            style={{
-              filter: 'brightness(0.6) saturate(1.2)',
-            }}
-          >
-            <source src="https://cdn.pixabay.com/video/2022/11/07/137651-769748627_large.mp4" type="video/mp4" />
-          </video>
-        </div>
+    <div className="min-h-screen relative">
+      <div className="fixed inset-0 z-0 bg-black overflow-hidden">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover opacity-50"
+          style={{
+            filter: 'brightness(0.6) saturate(1.2)',
+          }}
+        >
+          <source src="https://cdn.pixabay.com/video/2022/11/07/137651-769748627_large.mp4" type="video/mp4" />
+        </video>
+      </div>
+      
+      {/* Global animated effects */}
+      <GlowOrbs scrollY={scrollY} />
+      <FloatingParticles count={16} color="mixed" />
 
-        <div className="relative z-10">
+      <div className="relative z-10">
           <Header />
           <main>
             <section className="py-32 px-4 relative">
@@ -65,6 +71,13 @@ export default function Work() {
           <Footer />
         </div>
       </div>
+  );
+}
+
+export default function Work() {
+  return (
+    <ParallaxProvider>
+      <WorkContent />
     </ParallaxProvider>
   );
 }
