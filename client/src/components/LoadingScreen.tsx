@@ -7,28 +7,38 @@ interface LoadingScreenProps {
 }
 
 export function LoadingScreen({ onLoadComplete }: LoadingScreenProps) {
-  const [phase, setPhase] = useState<'loading' | 'reveal' | 'fading' | 'done'>('loading');
+  const [phase, setPhase] = useState<'loading' | 'pause' | 'logo' | 'fading' | 'done'>('loading');
   const hasCompleted = useRef(false);
 
-  // Loading animation then reveal logo
+  // Phase 1: Loading animation
   useEffect(() => {
     const timer = setTimeout(() => {
-      setPhase('reveal');
+      setPhase('pause');
     }, 2500);
     return () => clearTimeout(timer);
   }, []);
 
-  // After logo reveal, start fading
+  // Phase 2: Pause - rings collapse/fade
   useEffect(() => {
-    if (phase === 'reveal') {
+    if (phase === 'pause') {
       const timer = setTimeout(() => {
-        setPhase('fading');
-      }, 1500);
+        setPhase('logo');
+      }, 800);
       return () => clearTimeout(timer);
     }
   }, [phase]);
 
-  // Fade out then complete
+  // Phase 3: Logo reveal
+  useEffect(() => {
+    if (phase === 'logo') {
+      const timer = setTimeout(() => {
+        setPhase('fading');
+      }, 1800);
+      return () => clearTimeout(timer);
+    }
+  }, [phase]);
+
+  // Phase 4: Fade out
   useEffect(() => {
     if (phase === 'fading' && !hasCompleted.current) {
       const timer = setTimeout(() => {
@@ -42,175 +52,218 @@ export function LoadingScreen({ onLoadComplete }: LoadingScreenProps) {
 
   if (phase === 'done') return null;
 
+  const showOrbit = phase === 'loading';
+  const showLogo = phase === 'logo' || phase === 'fading';
+
   return (
     <AnimatePresence>
-      {true && (
-        <motion.div 
-          className="fixed inset-0 z-[9999] flex items-center justify-center bg-black overflow-hidden"
-          initial={{ opacity: 1 }}
-          animate={{ opacity: phase === 'fading' ? 0 : 1 }}
-          transition={{ duration: 0.8, ease: "easeInOut" }}
-          data-testid="loading-screen"
-        >
-          {/* Outer rotating ring */}
-          <motion.div
-            className="absolute w-64 h-64 md:w-80 md:h-80 rounded-full border border-white/20"
-            animate={{ 
-              rotate: 360,
-              scale: phase === 'reveal' ? 1.2 : 1,
-              opacity: phase === 'reveal' ? 0 : 1
-            }}
-            transition={{ 
-              rotate: { duration: 8, repeat: Infinity, ease: "linear" },
-              scale: { duration: 0.8, ease: "easeOut" },
-              opacity: { duration: 0.8, ease: "easeOut" }
-            }}
-          />
+      <motion.div 
+        className="fixed inset-0 z-[9999] flex items-center justify-center bg-black overflow-hidden"
+        initial={{ opacity: 1 }}
+        animate={{ opacity: phase === 'fading' ? 0 : 1 }}
+        transition={{ duration: 0.8, ease: "easeInOut" }}
+        data-testid="loading-screen"
+      >
+        {/* Outer rotating ring with gradient */}
+        <motion.div
+          className="absolute w-72 h-72 md:w-96 md:h-96 rounded-full"
+          style={{
+            border: "1px solid rgba(255,255,255,0.15)",
+            background: "conic-gradient(from 0deg, transparent, rgba(255,255,255,0.1), transparent)"
+          }}
+          initial={{ rotate: 0, scale: 1, opacity: 1 }}
+          animate={{ 
+            rotate: showOrbit ? 360 : 0,
+            scale: phase === 'pause' ? 0 : 1,
+            opacity: phase === 'pause' || showLogo ? 0 : 1
+          }}
+          transition={{ 
+            rotate: { duration: 4, repeat: Infinity, ease: "linear" },
+            scale: { duration: 0.6, ease: "easeInOut" },
+            opacity: { duration: 0.5 }
+          }}
+        />
 
-          {/* Second rotating ring - opposite direction */}
-          <motion.div
-            className="absolute w-52 h-52 md:w-64 md:h-64 rounded-full border border-white/30"
-            animate={{ 
-              rotate: -360,
-              scale: phase === 'reveal' ? 1.3 : 1,
-              opacity: phase === 'reveal' ? 0 : 1
-            }}
-            transition={{ 
-              rotate: { duration: 6, repeat: Infinity, ease: "linear" },
-              scale: { duration: 0.8, ease: "easeOut" },
-              opacity: { duration: 0.8, ease: "easeOut" }
-            }}
-          />
+        {/* Middle ring - counter rotation */}
+        <motion.div
+          className="absolute w-56 h-56 md:w-72 md:h-72 rounded-full border border-white/25"
+          initial={{ rotate: 0, scale: 1, opacity: 1 }}
+          animate={{ 
+            rotate: showOrbit ? -360 : 0,
+            scale: phase === 'pause' ? 0 : 1,
+            opacity: phase === 'pause' || showLogo ? 0 : 1
+          }}
+          transition={{ 
+            rotate: { duration: 6, repeat: Infinity, ease: "linear" },
+            scale: { duration: 0.5, ease: "easeInOut" },
+            opacity: { duration: 0.4 }
+          }}
+        />
 
-          {/* Inner pulsing ring */}
-          <motion.div
-            className="absolute w-40 h-40 md:w-48 md:h-48 rounded-full border-2 border-white/40"
-            animate={{ 
-              scale: phase === 'reveal' ? 1.5 : [1, 1.1, 1],
-              opacity: phase === 'reveal' ? 0 : [0.4, 0.8, 0.4]
-            }}
-            transition={{ 
-              scale: phase === 'reveal' 
-                ? { duration: 0.8, ease: "easeOut" }
-                : { duration: 2, repeat: Infinity, ease: "easeInOut" },
-              opacity: phase === 'reveal'
-                ? { duration: 0.8, ease: "easeOut" }
-                : { duration: 2, repeat: Infinity, ease: "easeInOut" }
-            }}
-          />
+        {/* Inner pulsing ring */}
+        <motion.div
+          className="absolute w-40 h-40 md:w-52 md:h-52 rounded-full border-2 border-white/40"
+          initial={{ scale: 1, opacity: 0.4 }}
+          animate={{ 
+            scale: phase === 'pause' ? 0 : showOrbit ? [1, 1.08, 1] : 1,
+            opacity: phase === 'pause' || showLogo ? 0 : showOrbit ? [0.4, 0.7, 0.4] : 0.4
+          }}
+          transition={{ 
+            scale: showOrbit 
+              ? { duration: 1.5, repeat: Infinity, ease: "easeInOut" }
+              : { duration: 0.4, ease: "easeInOut" },
+            opacity: { duration: 0.4 }
+          }}
+        />
 
-          {/* Orbiting dots */}
-          {[0, 1, 2, 3].map((i) => (
+        {/* Orbiting planets - 3 different sizes at different distances */}
+        {showOrbit && [
+          { size: 4, distance: 140, duration: 3, delay: 0, color: "bg-white" },
+          { size: 3, distance: 110, duration: 2.5, delay: 0.5, color: "bg-white/80" },
+          { size: 2, distance: 85, duration: 2, delay: 1, color: "bg-white/60" },
+          { size: 5, distance: 160, duration: 4, delay: 0.3, color: "bg-white" },
+          { size: 2, distance: 130, duration: 3.5, delay: 0.8, color: "bg-white/70" },
+        ].map((planet, i) => (
+          <motion.div
+            key={i}
+            className="absolute"
+            style={{ width: planet.distance * 2, height: planet.distance * 2 }}
+            initial={{ rotate: planet.delay * 360 }}
+            animate={{ 
+              rotate: 360 + planet.delay * 360,
+              scale: 1,
+              opacity: 1
+            }}
+            transition={{
+              rotate: { duration: planet.duration, repeat: Infinity, ease: "linear" },
+              scale: { duration: 0.3, ease: "easeOut" },
+              opacity: { duration: 0.3 }
+            }}
+          >
+            {/* The orbiting dot */}
             <motion.div
-              key={i}
-              className="absolute w-2 h-2 md:w-3 md:h-3 rounded-full bg-white"
+              className={`absolute rounded-full ${planet.color}`}
               style={{
-                transformOrigin: "center",
+                width: planet.size * 2,
+                height: planet.size * 2,
+                top: 0,
+                left: '50%',
+                marginLeft: -planet.size,
+                boxShadow: "0 0 10px rgba(255,255,255,0.5)"
               }}
               animate={{
-                rotate: 360,
-                opacity: phase === 'reveal' ? 0 : 1,
+                scale: [1, 1.3, 1],
+                opacity: [0.8, 1, 0.8]
               }}
               transition={{
-                rotate: {
-                  duration: 3,
-                  repeat: Infinity,
-                  ease: "linear",
-                  delay: i * 0.75,
-                },
-                opacity: { duration: 0.5 }
+                duration: 1.5,
+                repeat: Infinity,
+                delay: i * 0.2
               }}
-            >
-              <motion.div
-                className="w-2 h-2 md:w-3 md:h-3 rounded-full bg-white"
-                style={{
-                  transform: `translateX(${100 + i * 10}px)`,
-                }}
-              />
-            </motion.div>
-          ))}
+            />
+            {/* Trail effect */}
+            <motion.div
+              className="absolute rounded-full bg-white/20"
+              style={{
+                width: planet.size,
+                height: planet.size,
+                top: 4,
+                left: '50%',
+                marginLeft: -planet.size / 2 + 8,
+              }}
+            />
+          </motion.div>
+        ))}
 
-          {/* Glowing center circle */}
-          <motion.div
-            className="absolute w-24 h-24 md:w-32 md:h-32 rounded-full bg-white/5"
-            animate={{ 
-              scale: phase === 'reveal' ? 2 : [1, 1.15, 1],
-              opacity: phase === 'reveal' ? 0 : 1
-            }}
-            transition={{ 
-              scale: phase === 'reveal' 
-                ? { duration: 0.6, ease: "easeOut" }
-                : { duration: 1.5, repeat: Infinity, ease: "easeInOut" },
-              opacity: { duration: 0.6 }
-            }}
-            style={{
-              boxShadow: "0 0 60px rgba(255,255,255,0.1), 0 0 100px rgba(255,255,255,0.05)"
+        {/* Stardust particles */}
+        {showOrbit && [...Array(8)].map((_, i) => {
+          const angle = (i / 8) * Math.PI * 2;
+          const radius = 80 + Math.random() * 60;
+          return (
+            <motion.div
+              key={`star-${i}`}
+              className="absolute w-1 h-1 rounded-full bg-white/50"
+              style={{
+                left: `calc(50% + ${Math.cos(angle) * radius}px)`,
+                top: `calc(50% + ${Math.sin(angle) * radius}px)`,
+              }}
+              animate={{
+                opacity: [0, 0.8, 0],
+                scale: [0, 1.5, 0],
+              }}
+              transition={{
+                duration: 2,
+                repeat: Infinity,
+                delay: i * 0.25,
+                ease: "easeInOut"
+              }}
+            />
+          );
+        })}
+
+        {/* Center glow */}
+        <motion.div
+          className="absolute w-20 h-20 md:w-28 md:h-28 rounded-full"
+          style={{
+            background: "radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%)",
+            boxShadow: "0 0 60px rgba(255,255,255,0.1)"
+          }}
+          animate={{ 
+            scale: phase === 'pause' ? 0 : showOrbit ? [1, 1.2, 1] : 1,
+            opacity: phase === 'pause' || showLogo ? 0 : 1
+          }}
+          transition={{ 
+            scale: { duration: 1.5, repeat: Infinity, ease: "easeInOut" },
+            opacity: { duration: 0.4 }
+          }}
+        />
+
+        {/* MFA Logo - appears after pause */}
+        <motion.div
+          className="relative z-10"
+          initial={{ opacity: 0, scale: 0.3 }}
+          animate={{ 
+            opacity: showLogo ? 1 : 0,
+            scale: showLogo ? 1 : 0.3
+          }}
+          transition={{ 
+            duration: 1, 
+            ease: [0.16, 1, 0.3, 1]
+          }}
+        >
+          <motion.img 
+            src={logoImage} 
+            alt="MFA" 
+            className="w-56 h-auto md:w-72"
+            data-testid="loading-logo"
+            animate={showLogo ? {
+              filter: ["brightness(1)", "brightness(1.2)", "brightness(1)"]
+            } : {}}
+            transition={{
+              duration: 2,
+              repeat: Infinity,
+              ease: "easeInOut"
             }}
           />
-
-          {/* Progress arc */}
-          <svg className="absolute w-56 h-56 md:w-72 md:h-72" viewBox="0 0 100 100">
-            <motion.circle
-              cx="50"
-              cy="50"
-              r="45"
-              fill="none"
-              stroke="white"
-              strokeWidth="0.5"
-              strokeLinecap="round"
-              strokeDasharray="283"
-              initial={{ strokeDashoffset: 283 }}
-              animate={{ 
-                strokeDashoffset: phase === 'reveal' ? 0 : 283 * 0.25,
-                opacity: phase === 'reveal' ? 0 : 1
-              }}
-              transition={{ 
-                strokeDashoffset: { duration: 2.5, ease: "easeInOut" },
-                opacity: { duration: 0.5 }
-              }}
-              style={{ transform: "rotate(-90deg)", transformOrigin: "center" }}
-            />
-          </svg>
-
-          {/* MFA Logo - appears on reveal */}
-          <motion.div
-            className="relative z-10"
-            initial={{ opacity: 0, scale: 0.5 }}
-            animate={{ 
-              opacity: phase === 'reveal' || phase === 'fading' ? 1 : 0,
-              scale: phase === 'reveal' || phase === 'fading' ? 1 : 0.5
-            }}
-            transition={{ 
-              duration: 0.8, 
-              ease: [0.16, 1, 0.3, 1]
-            }}
-          >
-            <img 
-              src={logoImage} 
-              alt="MFA" 
-              className="w-48 h-auto md:w-64"
-              data-testid="loading-logo"
-            />
-          </motion.div>
-
-          {/* Small loading text */}
-          <motion.div
-            className="absolute bottom-20 md:bottom-24"
-            animate={{ 
-              opacity: phase === 'loading' ? [0.3, 0.7, 0.3] : 0
-            }}
-            transition={{ 
-              opacity: phase === 'loading' 
-                ? { duration: 1.5, repeat: Infinity, ease: "easeInOut" }
-                : { duration: 0.3 }
-            }}
-          >
-            <span className="text-white/60 text-xs md:text-sm tracking-[0.3em] uppercase font-light">
-              Loading
-            </span>
-          </motion.div>
         </motion.div>
-      )}
+
+        {/* Loading text */}
+        <motion.div
+          className="absolute bottom-16 md:bottom-20"
+          animate={{ 
+            opacity: showOrbit ? [0.3, 0.7, 0.3] : 0
+          }}
+          transition={{ 
+            opacity: showOrbit 
+              ? { duration: 1.5, repeat: Infinity, ease: "easeInOut" }
+              : { duration: 0.3 }
+          }}
+        >
+          <span className="text-white/50 text-xs tracking-[0.4em] uppercase font-light">
+            Loading
+          </span>
+        </motion.div>
+      </motion.div>
     </AnimatePresence>
   );
 }
