@@ -7,6 +7,7 @@ import Home from "@/pages/Home";
 import About from "@/pages/About";
 import Work from "@/pages/Work";
 import Pricing from "@/pages/Pricing";
+import Process from "@/pages/Process";
 import SwissHome from "@/pages/SwissHome";
 import AnimationDemo from "@/pages/AnimationDemo";
 import AdminLogin from "@/pages/AdminLogin";
@@ -22,6 +23,7 @@ function Router() {
       <Route path="/about" component={About} />
       <Route path="/work" component={Work} />
       <Route path="/pricing" component={Pricing} />
+      <Route path="/process" component={Process} />
       <Route path="/swiss" component={SwissHome} />
       <Route path="/animations" component={AnimationDemo} />
       <Route path="/admin" component={AdminLogin} />
