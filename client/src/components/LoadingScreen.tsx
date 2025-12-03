@@ -10,7 +10,6 @@ export function LoadingScreen({ onLoadComplete }: LoadingScreenProps) {
   const [phase, setPhase] = useState<'loading' | 'pause' | 'logo' | 'fading' | 'done'>('loading');
   const hasCompleted = useRef(false);
 
-  // Phase 1: Loading animation
   useEffect(() => {
     const timer = setTimeout(() => {
       setPhase('pause');
@@ -18,7 +17,6 @@ export function LoadingScreen({ onLoadComplete }: LoadingScreenProps) {
     return () => clearTimeout(timer);
   }, []);
 
-  // Phase 2: Pause - rings collapse/fade
   useEffect(() => {
     if (phase === 'pause') {
       const timer = setTimeout(() => {
@@ -28,7 +26,6 @@ export function LoadingScreen({ onLoadComplete }: LoadingScreenProps) {
     }
   }, [phase]);
 
-  // Phase 3: Logo reveal
   useEffect(() => {
     if (phase === 'logo') {
       const timer = setTimeout(() => {
@@ -38,7 +35,6 @@ export function LoadingScreen({ onLoadComplete }: LoadingScreenProps) {
     }
   }, [phase]);
 
-  // Phase 4: Fade out
   useEffect(() => {
     if (phase === 'fading' && !hasCompleted.current) {
       const timer = setTimeout(() => {
@@ -64,18 +60,14 @@ export function LoadingScreen({ onLoadComplete }: LoadingScreenProps) {
         transition={{ duration: 0.8, ease: "easeInOut" }}
         data-testid="loading-screen"
       >
-        {/* Outer glowing ring */}
+        {/* Outer ring */}
         <motion.div
-          className="absolute w-80 h-80 md:w-[420px] md:h-[420px] rounded-full"
-          style={{
-            border: "1px solid rgba(255,255,255,0.1)",
-            boxShadow: "0 0 40px rgba(255,255,255,0.05), inset 0 0 40px rgba(255,255,255,0.02)"
-          }}
+          className="absolute w-80 h-80 md:w-[420px] md:h-[420px] rounded-full border border-white/10"
           initial={{ rotate: 0, scale: 1, opacity: 1 }}
           animate={{ 
             rotate: showOrbit ? 360 : 0,
             scale: phase === 'pause' ? 0.5 : 1,
-            opacity: phase === 'pause' || showLogo ? 0 : 0.6
+            opacity: phase === 'pause' || showLogo ? 0 : 0.5
           }}
           transition={{ 
             rotate: { duration: 20, repeat: Infinity, ease: "linear" },
@@ -84,7 +76,7 @@ export function LoadingScreen({ onLoadComplete }: LoadingScreenProps) {
           }}
         />
 
-        {/* DNA Helix style double orbit */}
+        {/* Double helix orbits - clean solid dots */}
         {showOrbit && [...Array(2)].map((_, helixIndex) => (
           <motion.div
             key={`helix-${helixIndex}`}
@@ -98,18 +90,16 @@ export function LoadingScreen({ onLoadComplete }: LoadingScreenProps) {
               return (
                 <motion.div
                   key={i}
-                  className="absolute w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-white"
+                  className="absolute w-2 h-2 md:w-2.5 md:h-2.5 rounded-full bg-white"
                   style={{
                     left: '50%',
                     top: '50%',
-                    marginLeft: '-5px',
-                    marginTop: '-5px',
+                    marginLeft: '-4px',
+                    marginTop: '-4px',
                     transform: `rotate(${angle}deg) translateX(${helixIndex === 0 ? 120 : 140}px) translateY(${yOffset}px)`,
-                    boxShadow: `0 0 ${10 + i * 2}px rgba(255,255,255,${0.3 + i * 0.05})`
                   }}
                   animate={{
-                    scale: [1, 1.5, 1],
-                    opacity: [0.6, 1, 0.6],
+                    opacity: [0.5, 1, 0.5],
                   }}
                   transition={{
                     duration: 1.2,
@@ -123,7 +113,7 @@ export function LoadingScreen({ onLoadComplete }: LoadingScreenProps) {
           </motion.div>
         ))}
 
-        {/* Comet trails */}
+        {/* Comet trails - clean dots */}
         {showOrbit && [...Array(3)].map((_, i) => (
           <motion.div
             key={`comet-${i}`}
@@ -137,52 +127,47 @@ export function LoadingScreen({ onLoadComplete }: LoadingScreenProps) {
               delay: i * 0.3
             }}
           >
-            {/* Comet head */}
             <motion.div
               className="absolute rounded-full bg-white"
               style={{
-                width: 8 - i,
-                height: 8 - i,
+                width: 6 - i,
+                height: 6 - i,
                 top: 0,
                 left: '50%',
-                marginLeft: -(4 - i/2),
-                boxShadow: `0 0 20px rgba(255,255,255,0.8), 0 0 40px rgba(255,255,255,0.4)`
+                marginLeft: -(3 - i/2),
               }}
               animate={{
-                opacity: [0.7, 1, 0.7]
+                opacity: [0.6, 1, 0.6]
               }}
               transition={{
                 duration: 0.8,
                 repeat: Infinity
               }}
             />
-            {/* Comet tail */}
-            <motion.div
-              className="absolute"
-              style={{
-                width: 30 + i * 10,
-                height: 2,
-                top: 3 - i/2,
-                left: '50%',
-                marginLeft: 4,
-                background: `linear-gradient(90deg, rgba(255,255,255,0.6), transparent)`,
-                borderRadius: '0 10px 10px 0',
-                transformOrigin: 'left center',
-              }}
-            />
+            {/* Tail dots */}
+            {[...Array(4)].map((_, j) => (
+              <motion.div
+                key={j}
+                className="absolute rounded-full bg-white"
+                style={{
+                  width: Math.max(1, 4 - i - j),
+                  height: Math.max(1, 4 - i - j),
+                  top: 2,
+                  left: `calc(50% + ${8 + j * 6}px)`,
+                  opacity: 0.4 - j * 0.1
+                }}
+              />
+            ))}
           </motion.div>
         ))}
 
         {/* Pulsing core ring */}
         <motion.div
-          className="absolute w-48 h-48 md:w-56 md:h-56 rounded-full"
-          style={{
-            border: "2px solid rgba(255,255,255,0.3)",
-          }}
+          className="absolute w-48 h-48 md:w-56 md:h-56 rounded-full border border-white/20"
           initial={{ scale: 1, opacity: 0.5 }}
           animate={{ 
             scale: phase === 'pause' ? 0 : showOrbit ? [1, 1.1, 1] : 1,
-            opacity: phase === 'pause' || showLogo ? 0 : [0.3, 0.6, 0.3]
+            opacity: phase === 'pause' || showLogo ? 0 : [0.2, 0.4, 0.2]
           }}
           transition={{ 
             scale: { duration: 1.5, repeat: Infinity, ease: "easeInOut" },
@@ -190,7 +175,7 @@ export function LoadingScreen({ onLoadComplete }: LoadingScreenProps) {
           }}
         />
 
-        {/* Inner spinning particles */}
+        {/* Inner spinning particles - clean */}
         {showOrbit && (
           <motion.div
             className="absolute w-36 h-36 md:w-44 md:h-44"
@@ -202,7 +187,7 @@ export function LoadingScreen({ onLoadComplete }: LoadingScreenProps) {
               return (
                 <motion.div
                   key={`inner-${i}`}
-                  className="absolute w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-white/60"
+                  className="absolute w-1.5 h-1.5 rounded-full bg-white"
                   style={{
                     left: '50%',
                     top: '50%',
@@ -211,8 +196,7 @@ export function LoadingScreen({ onLoadComplete }: LoadingScreenProps) {
                     transform: `rotate(${angle}deg) translateX(70px)`,
                   }}
                   animate={{
-                    opacity: [0.3, 0.8, 0.3],
-                    scale: [0.8, 1.2, 0.8]
+                    opacity: [0.3, 0.7, 0.3],
                   }}
                   transition={{
                     duration: 1,
@@ -225,7 +209,7 @@ export function LoadingScreen({ onLoadComplete }: LoadingScreenProps) {
           </motion.div>
         )}
 
-        {/* Stardust explosion particles */}
+        {/* Stardust particles - clean */}
         {showOrbit && [...Array(12)].map((_, i) => {
           const angle = (i / 12) * Math.PI * 2;
           const baseRadius = 60;
@@ -240,8 +224,7 @@ export function LoadingScreen({ onLoadComplete }: LoadingScreenProps) {
               animate={{
                 x: [0, Math.cos(angle) * baseRadius, Math.cos(angle) * (baseRadius + 40), 0],
                 y: [0, Math.sin(angle) * baseRadius, Math.sin(angle) * (baseRadius + 40), 0],
-                opacity: [0, 1, 0.5, 0],
-                scale: [0, 1.5, 0.5, 0],
+                opacity: [0, 0.8, 0.3, 0],
               }}
               transition={{
                 duration: 2.5,
@@ -253,12 +236,11 @@ export function LoadingScreen({ onLoadComplete }: LoadingScreenProps) {
           );
         })}
 
-        {/* Center glow */}
+        {/* Center glow - subtle */}
         <motion.div
           className="absolute w-24 h-24 md:w-32 md:h-32 rounded-full"
           style={{
-            background: "radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 70%)",
-            boxShadow: "0 0 80px rgba(255,255,255,0.15), 0 0 120px rgba(255,255,255,0.05)"
+            background: "radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%)",
           }}
           animate={{ 
             scale: phase === 'pause' ? 0 : showOrbit ? [1, 1.3, 1] : 1,
@@ -270,7 +252,7 @@ export function LoadingScreen({ onLoadComplete }: LoadingScreenProps) {
           }}
         />
 
-        {/* MFA Logo - appears after pause (30px bigger) */}
+        {/* MFA Logo */}
         <motion.div
           className="relative z-10"
           initial={{ opacity: 0, scale: 0.3 }}
@@ -289,7 +271,7 @@ export function LoadingScreen({ onLoadComplete }: LoadingScreenProps) {
             className="w-[270px] h-auto md:w-[320px]"
             data-testid="loading-logo"
             animate={showLogo ? {
-              filter: ["brightness(1)", "brightness(1.15)", "brightness(1)"]
+              opacity: [0.9, 1, 0.9]
             } : {}}
             transition={{
               duration: 2,
@@ -303,7 +285,7 @@ export function LoadingScreen({ onLoadComplete }: LoadingScreenProps) {
         <motion.div
           className="absolute bottom-16 md:bottom-20"
           animate={{ 
-            opacity: showOrbit ? [0.3, 0.7, 0.3] : 0
+            opacity: showOrbit ? [0.3, 0.6, 0.3] : 0
           }}
           transition={{ 
             opacity: showOrbit 
