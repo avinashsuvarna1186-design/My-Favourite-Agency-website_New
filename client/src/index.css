@@ -992,25 +992,76 @@
   }
 
   /* Loading Screen Animations */
-  @keyframes logo-pulse {
-    0%, 100% {
-      transform: scale(1);
-      filter: brightness(1);
+  
+  /* Logo draw-on reveal effect */
+  @keyframes logo-draw-reveal {
+    0% {
+      clip-path: inset(0 100% 0 0);
+      filter: brightness(2) blur(2px);
     }
-    50% {
-      transform: scale(1.05);
-      filter: brightness(1.3);
+    60% {
+      clip-path: inset(0 0 0 0);
+      filter: brightness(1.5) blur(1px);
+    }
+    100% {
+      clip-path: inset(0 0 0 0);
+      filter: brightness(1) blur(0);
     }
   }
 
-  @keyframes logo-glow-pulse {
-    0%, 100% {
-      opacity: 0.4;
-      transform: scale(1);
+  @keyframes logo-glow-expand {
+    0% {
+      opacity: 0;
+      transform: scale(0.8);
     }
     50% {
       opacity: 0.8;
-      transform: scale(1.2);
+      transform: scale(1.3);
+    }
+    100% {
+      opacity: 0.6;
+      transform: scale(1.5);
+    }
+  }
+
+  @keyframes scanning-line {
+    0% {
+      top: 0;
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.8;
+    }
+    100% {
+      top: 100%;
+      opacity: 0;
+    }
+  }
+
+  @keyframes particle-drift {
+    0% {
+      transform: translateY(0) translateX(0) scale(0);
+      opacity: 0;
+    }
+    20% {
+      transform: translateY(-20px) translateX(10px) scale(1);
+      opacity: 1;
+    }
+    80% {
+      opacity: 0.6;
+    }
+    100% {
+      transform: translateY(-100px) translateX(-20px) scale(0.5);
+      opacity: 0;
+    }
+  }
+
+  @keyframes corner-pulse {
+    0%, 100% {
+      opacity: 0.2;
+    }
+    50% {
+      opacity: 0.5;
     }
   }
 
@@ -1025,28 +1076,53 @@
     }
   }
 
-  .logo-pulse {
-    animation: logo-pulse 2s ease-in-out infinite;
+  .logo-draw.animate {
+    animation: logo-draw-reveal 1.8s ease-out forwards;
   }
 
-  .logo-glow {
-    background: radial-gradient(circle, #E97451 0%, #A855F7 50%, transparent 70%);
-    animation: logo-glow-pulse 2s ease-in-out infinite;
+  .scanning-line.animate {
+    animation: scanning-line 1.5s ease-in-out forwards;
+  }
+
+  .loading-particle {
+    animation: particle-drift 3s ease-in-out infinite;
+  }
+
+  .corner-accent {
+    animation: corner-pulse 2s ease-in-out infinite;
   }
 
   .loading-dot {
     animation: loading-dot-bounce 1.4s ease-in-out infinite both;
   }
 
-  .duration-600 {
-    transition-duration: 600ms;
+  .duration-800 {
+    transition-duration: 800ms;
+  }
+
+  .duration-1500 {
+    transition-duration: 1500ms;
+  }
+
+  .bg-gradient-radial {
+    background: radial-gradient(ellipse at center, var(--tw-gradient-from), var(--tw-gradient-via), var(--tw-gradient-to));
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .logo-pulse {
+    .logo-draw.animate {
       animation: none;
+      clip-path: none;
+      filter: none;
     }
-    .logo-glow {
+    .scanning-line.animate {
+      animation: none;
+      display: none;
+    }
+    .loading-particle {
+      animation: none;
+      display: none;
+    }
+    .corner-accent {
       animation: none;
     }
     .loading-dot {
