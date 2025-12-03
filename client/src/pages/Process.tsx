@@ -137,7 +137,7 @@ function ProcessStep({ step, index }: { step: typeof processSteps[0]; index: num
         <div className="flex-1 max-w-2xl">
           <div className="bg-white/5 backdrop-blur-xl rounded-2xl p-6 md:p-8 border border-white/10 hover:border-white/20 transition-all duration-500">
             <div className="flex items-center gap-3 mb-4">
-              <h3 className={`text-2xl md:text-3xl font-bold bg-gradient-to-r ${step.color} bg-clip-text text-transparent`}>
+              <h3 className="text-2xl md:text-3xl font-bold text-white">
                 {step.title}
               </h3>
               <span className="text-sm text-white/40 bg-white/5 px-3 py-1 rounded-full">
