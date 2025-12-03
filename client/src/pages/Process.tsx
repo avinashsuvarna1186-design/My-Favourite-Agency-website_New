@@ -275,7 +275,7 @@ function ProcessContent() {
             <p className="text-coral-400 text-sm uppercase tracking-widest mb-4">
               The MFA Difference
             </p>
-            <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
+            <h2 className="text-3xl md:text-5xl font-bold bg-gradient-to-r from-coral-400 to-purple-400 bg-clip-text text-transparent mb-6">
               Why Our Process Works
             </h2>
             <p className="text-white/60 max-w-2xl mx-auto">
