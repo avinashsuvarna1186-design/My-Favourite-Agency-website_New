@@ -2,6 +2,7 @@ import type { Express, Request, Response, NextFunction } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import { insertLeadSchema, insertCaseStudySchema } from "@shared/schema";
+import { createConsultationBooking, getAvailableSlots } from "./googleCalendar";
 
 const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD;
 
@@ -142,6 +143,55 @@ export async function registerRoutes(app: Express): Promise<Server> {
       res.status(500).json({
         success: false,
         error: error instanceof Error ? error.message : "Failed to delete case study",
+      });
+    }
+  });
+
+  // Calendar Booking API
+  app.get("/api/booking/slots", async (req, res) => {
+    try {
+      const { date } = req.query;
+      if (!date || typeof date !== 'string') {
+        return res.status(400).json({ error: "Date parameter required" });
+      }
+      const slots = await getAvailableSlots(date);
+      res.json({ slots });
+    } catch (error) {
+      console.error("Failed to get available slots:", error);
+      res.status(500).json({
+        error: error instanceof Error ? error.message : "Failed to get available slots",
+      });
+    }
+  });
+
+  app.post("/api/booking", async (req, res) => {
+    try {
+      const { name, email, company, serviceType, date, time, notes } = req.body;
+      
+      if (!name || !email || !serviceType || !date || !time) {
+        return res.status(400).json({ error: "Missing required fields" });
+      }
+
+      const event = await createConsultationBooking({
+        name,
+        email,
+        company,
+        serviceType,
+        date,
+        time,
+        notes,
+      });
+
+      res.json({
+        success: true,
+        eventId: event.id,
+        message: "Your consultation has been booked! Check your email for confirmation.",
+      });
+    } catch (error) {
+      console.error("Failed to create booking:", error);
+      res.status(500).json({
+        success: false,
+        error: error instanceof Error ? error.message : "Failed to create booking",
       });
     }
   });

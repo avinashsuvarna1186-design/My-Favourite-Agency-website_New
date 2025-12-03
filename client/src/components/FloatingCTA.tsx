@@ -1,9 +1,11 @@
 import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, CalendarDays } from "lucide-react";
+import BookingModal from "./BookingModal";
 
 export default function FloatingCTA() {
   const [isVisible, setIsVisible] = useState(false);
+  const [bookingOpen, setBookingOpen] = useState(false);
   const heroRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -43,20 +45,33 @@ export default function FloatingCTA() {
   if (!isVisible) return null;
 
   return (
-    <div 
-      className="fixed bottom-8 right-8 z-50 animate-in fade-in slide-in-from-bottom-4"
-      data-testid="floating-cta"
-    >
-      <Button 
-        size="lg"
-        variant="outline"
-        onClick={scrollToContact}
-        className="backdrop-blur-md bg-background/80 shadow-lg shadow-primary/10 gap-2 group border-2"
-        data-testid="button-floating-cta"
+    <>
+      <div 
+        className="fixed bottom-8 right-8 z-50 animate-in fade-in slide-in-from-bottom-4 flex flex-col gap-3"
+        data-testid="floating-cta"
       >
-        <span>Start a Project</span>
-        <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-      </Button>
-    </div>
+        <Button 
+          size="lg"
+          variant="outline"
+          onClick={() => setBookingOpen(true)}
+          className="backdrop-blur-md bg-background/80 shadow-lg shadow-primary/10 gap-2 group border-2"
+          data-testid="button-book-call"
+        >
+          <CalendarDays className="w-4 h-4" />
+          <span>Book a Call</span>
+        </Button>
+        <Button 
+          size="lg"
+          variant="outline"
+          onClick={scrollToContact}
+          className="backdrop-blur-md bg-background/80 shadow-lg shadow-primary/10 gap-2 group border-2"
+          data-testid="button-floating-cta"
+        >
+          <span>Start a Project</span>
+          <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+        </Button>
+      </div>
+      <BookingModal open={bookingOpen} onOpenChange={setBookingOpen} />
+    </>
   );
 }
