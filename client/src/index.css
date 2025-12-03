@@ -993,139 +993,90 @@
 
   /* Loading Screen Animations */
   
-  /* Logo draw-on reveal effect */
-  @keyframes logo-draw-reveal {
+  /* Countdown number animation */
+  @keyframes countdown-pop {
     0% {
-      clip-path: inset(0 100% 0 0);
-      filter: brightness(2) blur(2px);
-    }
-    60% {
-      clip-path: inset(0 0 0 0);
-      filter: brightness(1.5) blur(1px);
-    }
-    100% {
-      clip-path: inset(0 0 0 0);
-      filter: brightness(1) blur(0);
-    }
-  }
-
-  @keyframes logo-glow-expand {
-    0% {
+      transform: scale(0.3);
       opacity: 0;
-      transform: scale(0.8);
     }
     50% {
-      opacity: 0.8;
-      transform: scale(1.3);
-    }
-    100% {
-      opacity: 0.6;
-      transform: scale(1.5);
-    }
-  }
-
-  @keyframes scanning-line {
-    0% {
-      top: 0;
+      transform: scale(1.1);
       opacity: 1;
     }
-    50% {
-      opacity: 0.8;
-    }
     100% {
-      top: 100%;
-      opacity: 0;
-    }
-  }
-
-  @keyframes particle-drift {
-    0% {
-      transform: translateY(0) translateX(0) scale(0);
-      opacity: 0;
-    }
-    20% {
-      transform: translateY(-20px) translateX(10px) scale(1);
-      opacity: 1;
-    }
-    80% {
-      opacity: 0.6;
-    }
-    100% {
-      transform: translateY(-100px) translateX(-20px) scale(0.5);
-      opacity: 0;
-    }
-  }
-
-  @keyframes corner-pulse {
-    0%, 100% {
-      opacity: 0.2;
-    }
-    50% {
-      opacity: 0.5;
-    }
-  }
-
-  @keyframes loading-dot-bounce {
-    0%, 80%, 100% {
-      transform: scale(0.6);
-      opacity: 0.4;
-    }
-    40% {
       transform: scale(1);
       opacity: 1;
     }
   }
 
-  .logo-draw.animate {
-    animation: logo-draw-reveal 1.8s ease-out forwards;
+  @keyframes countdown-exit {
+    0% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(1.5);
+      opacity: 0;
+    }
   }
 
-  .scanning-line.animate {
-    animation: scanning-line 1.5s ease-in-out forwards;
+  @keyframes ring-expand {
+    0% {
+      transform: scale(0.5);
+      opacity: 0;
+    }
+    50% {
+      opacity: 0.5;
+    }
+    100% {
+      transform: scale(1.5);
+      opacity: 0;
+    }
   }
 
-  .loading-particle {
-    animation: particle-drift 3s ease-in-out infinite;
+  @keyframes logo-reveal-in {
+    0% {
+      transform: scale(0.5);
+      opacity: 0;
+      filter: blur(10px);
+    }
+    60% {
+      transform: scale(1.05);
+      opacity: 1;
+      filter: blur(0);
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+      filter: blur(0);
+    }
   }
 
-  .corner-accent {
-    animation: corner-pulse 2s ease-in-out infinite;
+  .countdown-number {
+    animation: countdown-pop 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
   }
 
-  .loading-dot {
-    animation: loading-dot-bounce 1.4s ease-in-out infinite both;
+  .countdown-ring {
+    animation: ring-expand 0.8s ease-out forwards;
   }
 
-  .duration-800 {
-    transition-duration: 800ms;
+  .logo-reveal {
+    animation: logo-reveal-in 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
   }
 
-  .duration-1500 {
-    transition-duration: 1500ms;
-  }
-
-  .bg-gradient-radial {
-    background: radial-gradient(ellipse at center, var(--tw-gradient-from), var(--tw-gradient-via), var(--tw-gradient-to));
+  .duration-600 {
+    transition-duration: 600ms;
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .logo-draw.animate {
+    .countdown-number {
       animation: none;
-      clip-path: none;
-      filter: none;
     }
-    .scanning-line.animate {
+    .countdown-ring {
       animation: none;
       display: none;
     }
-    .loading-particle {
-      animation: none;
-      display: none;
-    }
-    .corner-accent {
-      animation: none;
-    }
-    .loading-dot {
+    .logo-reveal {
       animation: none;
     }
   }

@@ -180,10 +180,7 @@ export default function Home() {
   return (
     <>
       {isLoading && (
-        <LoadingScreen 
-          minDisplayTime={2500} 
-          onLoadComplete={() => setIsLoading(false)} 
-        />
+        <LoadingScreen onLoadComplete={() => setIsLoading(false)} />
       )}
       <ParallaxProvider>
         <HomeContent />
