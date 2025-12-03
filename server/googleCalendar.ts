@@ -88,6 +88,7 @@ This is an automated booking from myfavourite.agency
     },
     attendees: [
       { email: booking.email },
+      { email: 'Prattyush@myfavourite.agency' },
     ],
     reminders: {
       useDefault: false,
