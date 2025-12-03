@@ -1,7 +1,7 @@
 import type { Express, Request, Response, NextFunction } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
-import { insertLeadSchema } from "@shared/schema";
+import { insertLeadSchema, insertCaseStudySchema } from "@shared/schema";
 
 const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD;
 
@@ -73,6 +73,75 @@ export async function registerRoutes(app: Express): Promise<Server> {
     } catch (error) {
       res.status(500).json({
         error: error instanceof Error ? error.message : "Failed to fetch inquiries",
+      });
+    }
+  });
+
+  // Case Studies API (public read, admin write)
+  app.get("/api/case-studies", async (req, res) => {
+    try {
+      const caseStudies = await storage.getAllCaseStudies();
+      res.json(caseStudies);
+    } catch (error) {
+      res.status(500).json({
+        error: error instanceof Error ? error.message : "Failed to fetch case studies",
+      });
+    }
+  });
+
+  app.get("/api/case-studies/:id", async (req, res) => {
+    try {
+      const caseStudy = await storage.getCaseStudyById(req.params.id);
+      if (!caseStudy) {
+        return res.status(404).json({ error: "Case study not found" });
+      }
+      res.json(caseStudy);
+    } catch (error) {
+      res.status(500).json({
+        error: error instanceof Error ? error.message : "Failed to fetch case study",
+      });
+    }
+  });
+
+  app.post("/api/case-studies", requireAdmin, async (req, res) => {
+    try {
+      const validatedData = insertCaseStudySchema.parse(req.body);
+      const caseStudy = await storage.createCaseStudy(validatedData);
+      res.json({ success: true, caseStudy });
+    } catch (error) {
+      res.status(400).json({
+        success: false,
+        error: error instanceof Error ? error.message : "Failed to create case study",
+      });
+    }
+  });
+
+  app.put("/api/case-studies/:id", requireAdmin, async (req, res) => {
+    try {
+      const caseStudy = await storage.updateCaseStudy(req.params.id, req.body);
+      if (!caseStudy) {
+        return res.status(404).json({ error: "Case study not found" });
+      }
+      res.json({ success: true, caseStudy });
+    } catch (error) {
+      res.status(400).json({
+        success: false,
+        error: error instanceof Error ? error.message : "Failed to update case study",
+      });
+    }
+  });
+
+  app.delete("/api/case-studies/:id", requireAdmin, async (req, res) => {
+    try {
+      const deleted = await storage.deleteCaseStudy(req.params.id);
+      if (!deleted) {
+        return res.status(404).json({ error: "Case study not found" });
+      }
+      res.json({ success: true });
+    } catch (error) {
+      res.status(500).json({
+        success: false,
+        error: error instanceof Error ? error.message : "Failed to delete case study",
       });
     }
   });

@@ -1,6 +1,6 @@
-import { users, leads, type User, type InsertUser, type Lead, type InsertLead } from "@shared/schema";
+import { users, leads, caseStudies, type User, type InsertUser, type Lead, type InsertLead, type CaseStudy, type InsertCaseStudy } from "@shared/schema";
 import { db } from "./db";
-import { eq, desc } from "drizzle-orm";
+import { eq, desc, asc } from "drizzle-orm";
 
 export interface IStorage {
   getUser(id: string): Promise<User | undefined>;
@@ -9,6 +9,12 @@ export interface IStorage {
   createLead(lead: InsertLead): Promise<Lead>;
   getAllLeads(): Promise<Lead[]>;
   getLeadById(id: string): Promise<Lead | undefined>;
+  createCaseStudy(caseStudy: InsertCaseStudy): Promise<CaseStudy>;
+  getAllCaseStudies(): Promise<CaseStudy[]>;
+  getCaseStudyById(id: string): Promise<CaseStudy | undefined>;
+  getCaseStudyBySlug(slug: string): Promise<CaseStudy | undefined>;
+  updateCaseStudy(id: string, caseStudy: Partial<InsertCaseStudy>): Promise<CaseStudy | undefined>;
+  deleteCaseStudy(id: string): Promise<boolean>;
 }
 
 export class DatabaseStorage implements IStorage {
@@ -45,6 +51,42 @@ export class DatabaseStorage implements IStorage {
   async getLeadById(id: string): Promise<Lead | undefined> {
     const [lead] = await db.select().from(leads).where(eq(leads.id, id));
     return lead || undefined;
+  }
+
+  async createCaseStudy(insertCaseStudy: InsertCaseStudy): Promise<CaseStudy> {
+    const [caseStudy] = await db
+      .insert(caseStudies)
+      .values(insertCaseStudy as any)
+      .returning();
+    return caseStudy;
+  }
+
+  async getAllCaseStudies(): Promise<CaseStudy[]> {
+    return await db.select().from(caseStudies).orderBy(asc(caseStudies.displayOrder));
+  }
+
+  async getCaseStudyById(id: string): Promise<CaseStudy | undefined> {
+    const [caseStudy] = await db.select().from(caseStudies).where(eq(caseStudies.id, id));
+    return caseStudy || undefined;
+  }
+
+  async getCaseStudyBySlug(slug: string): Promise<CaseStudy | undefined> {
+    const [caseStudy] = await db.select().from(caseStudies).where(eq(caseStudies.slug, slug));
+    return caseStudy || undefined;
+  }
+
+  async updateCaseStudy(id: string, updateData: Partial<InsertCaseStudy>): Promise<CaseStudy | undefined> {
+    const [caseStudy] = await db
+      .update(caseStudies)
+      .set({ ...updateData, updatedAt: new Date() } as any)
+      .where(eq(caseStudies.id, id))
+      .returning();
+    return caseStudy || undefined;
+  }
+
+  async deleteCaseStudy(id: string): Promise<boolean> {
+    const result = await db.delete(caseStudies).where(eq(caseStudies.id, id)).returning();
+    return result.length > 0;
   }
 }
 
