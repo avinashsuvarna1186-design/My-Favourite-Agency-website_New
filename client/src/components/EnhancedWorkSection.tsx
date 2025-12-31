@@ -24,6 +24,7 @@ import vglLogo from "@assets/VGL_final_logo-01_1767192141176.png";
 import vglBuildingMockup from "@assets/VGL_MOck-up_1767192141183.jpg";
 import teeMockup from "@assets/generated_images/tee_steel_brand_mockup.png";
 import mindspaMockup from "@assets/generated_images/mindspa_wellness_brand_mockup.png";
+import kalabharathiMockup from "@assets/generated_images/kalabharathi_ppt_presentation_mockup.png";
 import { Badge } from "@/components/ui/badge";
 import SwissGrid from "./SwissGrid";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
@@ -113,6 +114,17 @@ export default function EnhancedWorkSection() {
       stats: [
         { label: "Business Growth", value: "+100%" },
         { label: "Client Trust", value: "Exceptional" },
+      ],
+    },
+    {
+      title: "Presentation Design",
+      client: "Kalabharathi",
+      services: ["PPT Design", "Visual Storytelling"],
+      description: "Crafted a compelling corporate presentation with impactful visual storytelling, clean layouts, and professional design that elevates brand communication.",
+      image: kalabharathiMockup,
+      stats: [
+        { label: "Slides Designed", value: "50+" },
+        { label: "Impact", value: "Premium" },
       ],
     },
   ];
