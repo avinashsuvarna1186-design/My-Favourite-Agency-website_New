@@ -24,9 +24,21 @@ import vglLogo from "@assets/VGL_final_logo-01_1767192141176.png";
 import vglBuildingMockup from "@assets/VGL_MOck-up_1767192141183.jpg";
 import teeMockup from "@assets/generated_images/tee_steel_brand_mockup.png";
 import mindspaMockup from "@assets/generated_images/mindspa_wellness_brand_mockup.png";
-import kalabharathiMockup from "@assets/generated_images/kalabharathi_ppt_presentation_mockup.png";
-import kalabharathiSlide from "@assets/generated_images/kalabharathi_arts_presentation_slide.png";
-import kalabharathiSlides from "@assets/generated_images/kalabharathi_multiple_slides_mockup.png";
+import kalabharathiSlide1 from "@assets/Artboard_1@3x_1767193495502.png";
+import kalabharathiSlide2 from "@assets/Artboard_2@3x_1767193495504.png";
+import kalabharathiSlide3 from "@assets/Artboard_3@3x_1767193495505.png";
+import kalabharathiSlide10 from "@assets/Artboard_10@3x_1767193495505.png";
+import kalabharathiSlide14 from "@assets/Artboard_14@3x_1767193495505.png";
+import kalabharathiSlide23 from "@assets/Artboard_23@3x_1767193495506.png";
+import kalabharathiSlide24 from "@assets/Artboard_24@3x_1767193495506.png";
+import kalabharathiSlide25 from "@assets/Artboard_25@3x_1767193495506.png";
+import kalabharathiSlide26 from "@assets/Artboard_26@3x_1767193495507.png";
+import kalabharathiSlide33 from "@assets/Artboard_33@3x_1767193495508.png";
+import kalabharathiSlide43 from "@assets/Artboard_43@3x_1767193495508.png";
+import kalabharathiSlide44 from "@assets/Artboard_44@3x_1767193495509.png";
+import kalabharathiSlide56 from "@assets/Artboard_56@3x_1767193495509.png";
+import kalabharathiSlide57 from "@assets/Artboard_57@3x_1767193495509.png";
+import kalabharathiSlide60 from "@assets/Artboard_60@3x_1767193495509.png";
 import { Badge } from "@/components/ui/badge";
 import SwissGrid from "./SwissGrid";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
@@ -123,10 +135,26 @@ export default function EnhancedWorkSection() {
       client: "Kalabharathi Arts Foundation",
       services: ["PPT Design", "Visual Storytelling", "Government Proposal"],
       description: "Designed a comprehensive project report presentation for a Section 8 non-profit promoting Indian classical arts including Kathakali, Mohiniyattam, and Koodiyattam, supporting their mission to become a global center for cultural heritage.",
-      image: kalabharathiSlide,
-      gallery: [kalabharathiSlide, kalabharathiSlides, kalabharathiMockup],
+      image: kalabharathiSlide1,
+      gallery: [
+        kalabharathiSlide1,
+        kalabharathiSlide2,
+        kalabharathiSlide3,
+        kalabharathiSlide10,
+        kalabharathiSlide14,
+        kalabharathiSlide23,
+        kalabharathiSlide24,
+        kalabharathiSlide25,
+        kalabharathiSlide26,
+        kalabharathiSlide33,
+        kalabharathiSlide43,
+        kalabharathiSlide44,
+        kalabharathiSlide56,
+        kalabharathiSlide57,
+        kalabharathiSlide60,
+      ],
       stats: [
-        { label: "Slides Designed", value: "50+" },
+        { label: "Slides Designed", value: "60+" },
         { label: "Impact", value: "Premium" },
       ],
     },
