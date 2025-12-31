@@ -158,7 +158,7 @@ export default function HeroSection() {
         {/* Swiss Typography Hierarchy */}
         {/* Eyebrow text - Small, uppercase, tracked */}
         <div className="mb-6">
-          <span className="text-5xl md:text-6xl uppercase tracking-[0.1em] text-white/70 font-medium">
+          <span className="text-lg md:text-3xl uppercase tracking-[0.15em] text-white/70 font-medium">
             {typedText}
             <span className="typing-cursor">|</span>
           </span>
