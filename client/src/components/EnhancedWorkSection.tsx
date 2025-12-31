@@ -22,7 +22,7 @@ import ticketMockup from "@assets/Ticket_1767175630230.jpg";
 import visitingCardMockup from "@assets/Vistng-card_1767175630231.jpg";
 import vglLogo from "@assets/VGL_final_logo-01_1767192141176.png";
 import vglBuildingMockup from "@assets/VGL_MOck-up_1767192141183.jpg";
-import teeMockup from "@assets/generated_images/tee_steel_brand_mockup.png";
+import teeLogo from "@assets/TEE_logo-01_1767195629987.jpg";
 import mindspaLogo from "@assets/MInd_Spa_by_Manisha_final_logo_1767193736225.jpg";
 import kalabharathiSlide1 from "@assets/Artboard_1@3x_1767193495502.png";
 import kalabharathiSlide2 from "@assets/Artboard_2@3x_1767193495504.png";
@@ -101,7 +101,7 @@ export default function EnhancedWorkSection() {
       client: "Tee",
       services: ["Logo Design"],
       description: "Developed a bold, industrial brand identity for a steel sheet manufacturing business, reflecting strength, precision, and reliability.",
-      image: teeMockup,
+      image: teeLogo,
       stats: [
         { label: "Business Growth", value: "+100%" },
         { label: "Market Position", value: "Industry Leader" },
