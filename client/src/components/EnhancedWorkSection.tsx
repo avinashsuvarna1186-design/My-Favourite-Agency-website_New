@@ -120,8 +120,8 @@ export default function EnhancedWorkSection() {
       ],
     },
     {
-      title: "Mind Wellness",
-      client: "Mind Spa by Manisha",
+      title: "Mind Spa by Manisha",
+      client: "Wellness Center",
       services: ["Logo Design"],
       description: "Designed a serene and calming brand identity for a Reiki and therapy wellness center, evoking peace, healing, and mindfulness.",
       image: mindspaLogo,
