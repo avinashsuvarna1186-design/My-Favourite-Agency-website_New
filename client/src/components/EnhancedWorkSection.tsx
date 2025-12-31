@@ -1,10 +1,10 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import ScrollAnimatedWrapper from "./ScrollAnimatedWrapper";
-import work1 from "@assets/generated_images/Packaging_and_Identity_work_c57574ad.png";
-import work2 from "@assets/generated_images/Website_and_Launch_work_5d61a7ac.png";
-import work3 from "@assets/generated_images/Campaign_and_Motion_work_06e62a4b.png";
-import work4 from "@assets/generated_images/Identity_and_Copy_work_1002e25b.png";
+import enlightenedMockup from "@assets/generated_images/enlightened_connections_brand_mockup.png";
+import teeMockup from "@assets/generated_images/tee_steel_brand_mockup.png";
+import vglMockup from "@assets/generated_images/vgl_event_branding_mockup.png";
+import mindspaMockup from "@assets/generated_images/mindspa_wellness_brand_mockup.png";
 import { Badge } from "@/components/ui/badge";
 import SwissGrid from "./SwissGrid";
 
@@ -25,53 +25,53 @@ export default function EnhancedWorkSection() {
 
   const projects: Project[] = [
     {
-      title: "Complete Brand Transformation",
-      client: "Premium Lifestyle Brand",
-      services: ["Brand Strategy", "Visual Identity", "Packaging Design"],
-      description: "A complete brand overhaul from positioning to packaging, creating a cohesive identity that resonates with modern consumers.",
-      image: work1,
+      title: "Complete Brand Identity",
+      client: "Enlightened Connections",
+      services: ["Logo Design", "Stationery", "Guidebook"],
+      description: "Crafted a complete brand identity for a purposeful travel company offering immersive Morocco experiences, blending adventure with cultural connection and community impact.",
+      image: enlightenedMockup,
       stats: [
-        { label: "Brand Recognition", value: "+185%" },
-        { label: "Market Position", value: "Top 3" },
+        { label: "Business Growth", value: "+100%" },
+        { label: "Brand Recognition", value: "Top Tier" },
       ],
     },
     {
-      title: "Digital Experience Reimagined",
-      client: "Tech Startup",
-      services: ["Website Design", "UX/UI", "Motion Design"],
-      description: "A dark, sophisticated website that showcases innovation while maintaining exceptional usability and conversion optimization.",
-      image: work2,
+      title: "Brand Identity",
+      client: "Tee",
+      services: ["Logo Design"],
+      description: "Developed a bold, industrial brand identity for a steel sheet manufacturing business, reflecting strength, precision, and reliability.",
+      image: teeMockup,
       stats: [
-        { label: "Conversion Rate", value: "+240%" },
-        { label: "User Engagement", value: "+320%" },
+        { label: "Business Growth", value: "+100%" },
+        { label: "Market Position", value: "Industry Leader" },
       ],
     },
     {
-      title: "Launch Campaign",
-      client: "Consumer Electronics",
-      services: ["Campaign Strategy", "Motion Graphics", "Social Media"],
-      description: "Bold, attention-grabbing campaign that cut through the noise and established market presence from day one.",
-      image: work3,
+      title: "Complete Event Project",
+      client: "VGL",
+      services: ["Logo Design"],
+      description: "Created comprehensive event branding for a steel business, delivering impactful visual identity across all event touchpoints.",
+      image: vglMockup,
       stats: [
-        { label: "Social Reach", value: "2M+" },
-        { label: "Engagement Rate", value: "8.5%" },
+        { label: "Growth Achieved", value: "+100%" },
+        { label: "Event Impact", value: "High" },
       ],
     },
     {
-      title: "Identity & Positioning",
-      client: "Boutique Hotel Group",
-      services: ["Brand Identity", "Copywriting", "Print Collateral"],
-      description: "Elegant brand system that communicates luxury and authenticity across all touchpoints, from signage to stationery.",
-      image: work4,
+      title: "Mind Wellness",
+      client: "Mindspa with Manisha",
+      services: ["Logo Design"],
+      description: "Designed a serene and calming brand identity for a Reiki and therapy wellness center, evoking peace, healing, and mindfulness.",
+      image: mindspaMockup,
       stats: [
-        { label: "Brand Perception", value: "+210%" },
-        { label: "Booking Inquiries", value: "+175%" },
+        { label: "Business Growth", value: "+100%" },
+        { label: "Client Trust", value: "Exceptional" },
       ],
     },
   ];
 
   return (
-    <section id="work" className="py-32 px-4 relative hidden" data-testid="section-enhanced-work">
+    <section id="work" className="py-32 px-4 relative" data-testid="section-enhanced-work">
       <SwissGrid />
 
       <div className="max-w-7xl mx-auto relative z-10">
