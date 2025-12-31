@@ -25,6 +25,8 @@ import vglBuildingMockup from "@assets/VGL_MOck-up_1767192141183.jpg";
 import teeMockup from "@assets/generated_images/tee_steel_brand_mockup.png";
 import mindspaMockup from "@assets/generated_images/mindspa_wellness_brand_mockup.png";
 import kalabharathiMockup from "@assets/generated_images/kalabharathi_ppt_presentation_mockup.png";
+import kalabharathiSlide from "@assets/generated_images/kalabharathi_arts_presentation_slide.png";
+import kalabharathiSlides from "@assets/generated_images/kalabharathi_multiple_slides_mockup.png";
 import { Badge } from "@/components/ui/badge";
 import SwissGrid from "./SwissGrid";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
@@ -118,10 +120,11 @@ export default function EnhancedWorkSection() {
     },
     {
       title: "Presentation Design",
-      client: "Kalabharathi",
-      services: ["PPT Design", "Visual Storytelling"],
-      description: "Crafted a compelling corporate presentation with impactful visual storytelling, clean layouts, and professional design that elevates brand communication.",
-      image: kalabharathiMockup,
+      client: "Kalabharathi Arts Foundation",
+      services: ["PPT Design", "Visual Storytelling", "Government Proposal"],
+      description: "Designed a comprehensive project report presentation for a Section 8 non-profit promoting Indian classical arts including Kathakali, Mohiniyattam, and Koodiyattam, supporting their mission to become a global center for cultural heritage.",
+      image: kalabharathiSlide,
+      gallery: [kalabharathiSlide, kalabharathiSlides, kalabharathiMockup],
       stats: [
         { label: "Slides Designed", value: "50+" },
         { label: "Impact", value: "Premium" },
