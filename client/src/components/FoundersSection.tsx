@@ -32,7 +32,7 @@ export default function FoundersSection() {
         <div ref={animation.ref} className={animation.className}>
           {/* Swiss Typography */}
           <div className="text-center mb-16">
-            <p className="text-xs uppercase tracking-[0.3em] text-white/60 font-medium mb-6">
+            <p className="text-3xl md:text-4xl uppercase tracking-[0.15em] text-white/60 font-medium mb-6">
               Leadership
             </p>
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold gradient-flow-text leading-[1.2] tracking-tight mb-4">
