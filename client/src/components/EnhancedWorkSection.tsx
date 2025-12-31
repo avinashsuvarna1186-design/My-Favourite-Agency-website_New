@@ -20,8 +20,9 @@ import tshirtMockup from "@assets/Front-Back-T-shirt-Mockup_1767175630229.jpg";
 import magazineMockup from "@assets/Magazine_Mockup_1767175630230.jpg";
 import ticketMockup from "@assets/Ticket_1767175630230.jpg";
 import visitingCardMockup from "@assets/Vistng-card_1767175630231.jpg";
+import vglLogo from "@assets/VGL_final_logo-01_1767192141176.png";
+import vglBuildingMockup from "@assets/VGL_MOck-up_1767192141183.jpg";
 import teeMockup from "@assets/generated_images/tee_steel_brand_mockup.png";
-import vglMockup from "@assets/generated_images/vgl_event_branding_mockup.png";
 import mindspaMockup from "@assets/generated_images/mindspa_wellness_brand_mockup.png";
 import { Badge } from "@/components/ui/badge";
 import SwissGrid from "./SwissGrid";
@@ -96,7 +97,8 @@ export default function EnhancedWorkSection() {
       client: "VGL",
       services: ["Logo Design"],
       description: "Created comprehensive event branding for a steel business, delivering impactful visual identity across all event touchpoints.",
-      image: vglMockup,
+      image: vglBuildingMockup,
+      gallery: [vglLogo, vglBuildingMockup],
       stats: [
         { label: "Growth Achieved", value: "+100%" },
         { label: "Event Impact", value: "High" },
