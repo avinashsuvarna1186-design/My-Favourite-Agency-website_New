@@ -23,7 +23,7 @@ import visitingCardMockup from "@assets/Vistng-card_1767175630231.jpg";
 import vglLogo from "@assets/VGL_final_logo-01_1767192141176.png";
 import vglBuildingMockup from "@assets/VGL_MOck-up_1767192141183.jpg";
 import teeMockup from "@assets/generated_images/tee_steel_brand_mockup.png";
-import mindspaMockup from "@assets/generated_images/mindspa_wellness_brand_mockup.png";
+import mindspaLogo from "@assets/MInd_Spa_by_Manisha_final_logo_1767193736225.jpg";
 import kalabharathiSlide1 from "@assets/Artboard_1@3x_1767193495502.png";
 import kalabharathiSlide2 from "@assets/Artboard_2@3x_1767193495504.png";
 import kalabharathiSlide3 from "@assets/Artboard_3@3x_1767193495505.png";
@@ -121,10 +121,10 @@ export default function EnhancedWorkSection() {
     },
     {
       title: "Mind Wellness",
-      client: "Mindspa with Manisha",
+      client: "Mind Spa by Manisha",
       services: ["Logo Design"],
       description: "Designed a serene and calming brand identity for a Reiki and therapy wellness center, evoking peace, healing, and mindfulness.",
-      image: mindspaMockup,
+      image: mindspaLogo,
       stats: [
         { label: "Business Growth", value: "+100%" },
         { label: "Client Trust", value: "Exceptional" },
