@@ -131,7 +131,7 @@ export default function EnhancedWorkSection() {
       ],
     },
     {
-      title: "Presentation Design",
+      title: "Kalabharathi Presentation",
       client: "Kalabharathi Arts Foundation",
       services: ["PPT Design", "Visual Storytelling", "Government Proposal"],
       description: "Designed a comprehensive project report presentation for a Section 8 non-profit promoting Indian classical arts including Kathakali, Mohiniyattam, and Koodiyattam, supporting their mission to become a global center for cultural heritage.",
