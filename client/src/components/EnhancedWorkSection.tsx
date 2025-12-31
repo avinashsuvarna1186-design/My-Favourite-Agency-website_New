@@ -14,6 +14,12 @@ import guidePage10 from "@assets/EC_Guide_Book_Page_10_1767173414602.jpg";
 import guidePage15 from "@assets/EC_Guide_Book_Page_15_1767173414602.jpg";
 import guidePage20 from "@assets/EC_Guide_Book_Page_20_1767173414602.jpg";
 import guidePage21 from "@assets/EC_Guide_Book_Page_21_1767173414602.jpg";
+import cardMockup from "@assets/Card-Mockup_1767175630227.jpg";
+import capMockup from "@assets/Free_Cap_Mockup_1767175630228.jpg";
+import tshirtMockup from "@assets/Front-Back-T-shirt-Mockup_1767175630229.jpg";
+import magazineMockup from "@assets/Magazine_Mockup_1767175630230.jpg";
+import ticketMockup from "@assets/Ticket_1767175630230.jpg";
+import visitingCardMockup from "@assets/Vistng-card_1767175630231.jpg";
 import teeMockup from "@assets/generated_images/tee_steel_brand_mockup.png";
 import vglMockup from "@assets/generated_images/vgl_event_branding_mockup.png";
 import mindspaMockup from "@assets/generated_images/mindspa_wellness_brand_mockup.png";
@@ -42,6 +48,12 @@ export default function EnhancedWorkSection() {
 
   const enlightenedGallery = [
     enlightenedLogo,
+    visitingCardMockup,
+    tshirtMockup,
+    capMockup,
+    ticketMockup,
+    cardMockup,
+    magazineMockup,
     guidePage1,
     guidePage2,
     guidePage3,
