@@ -1,7 +1,7 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import ScrollAnimatedWrapper from "./ScrollAnimatedWrapper";
-import enlightenedMockup from "@assets/generated_images/enlightened_connections_brand_mockup.png";
+import enlightenedMockup from "@assets/Enlightened_connections_Final_logo_1767169840894.png";
 import teeMockup from "@assets/generated_images/tee_steel_brand_mockup.png";
 import vglMockup from "@assets/generated_images/vgl_event_branding_mockup.png";
 import mindspaMockup from "@assets/generated_images/mindspa_wellness_brand_mockup.png";
