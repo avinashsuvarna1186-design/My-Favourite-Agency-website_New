@@ -80,7 +80,7 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           <Link href="/" className="flex items-center hover-elevate active-elevate-2 rounded-md px-2 py-1 -ml-2" data-testid="link-logo">
-            <img src={logoImage} alt="My Favourite Agency Logo" className="h-[98px] object-contain" />
+            <img src={logoImage} alt="My Favourite Agency Logo" className="h-[98px] object-contain mt-[10px]" />
           </Link>
 
           <nav className="hidden md:flex items-center gap-1">
