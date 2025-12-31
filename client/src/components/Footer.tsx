@@ -1,5 +1,3 @@
-import logoImage from "@assets/My Favourite Agency Final logo-01_1762515488908.png";
-
 export default function Footer() {
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -13,9 +11,6 @@ export default function Footer() {
       <div className="max-w-6xl mx-auto">
         <div className="flex flex-col md:flex-row justify-between items-center gap-8">
           <div className="text-center md:text-left">
-            <div className="flex items-center justify-center md:justify-start mb-3">
-              <img src={logoImage} alt="My Favourite Agency Logo" className="h-12 object-contain" />
-            </div>
             <p className="text-sm text-muted-foreground max-w-md">
               The people you call when the deadline's weird and the brief's weirder.
             </p>
