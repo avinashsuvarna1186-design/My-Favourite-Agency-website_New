@@ -71,7 +71,7 @@ export default function EnhancedWorkSection() {
   ];
 
   return (
-    <section id="work" className="py-32 px-4 relative" data-testid="section-enhanced-work">
+    <section id="work" className="py-32 px-4 relative hidden" data-testid="section-enhanced-work">
       <SwissGrid />
 
       <div className="max-w-7xl mx-auto relative z-10">
