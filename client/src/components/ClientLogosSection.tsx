@@ -12,7 +12,7 @@ export default function ClientLogosSection() {
   ];
 
   return (
-    <section className="py-24 px-4 relative" data-testid="section-clients">
+    <section className="py-24 px-4 relative hidden" data-testid="section-clients">
       <SwissGrid />
 
       <div className="max-w-6xl mx-auto relative z-10">
