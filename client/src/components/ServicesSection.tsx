@@ -59,7 +59,7 @@ export default function ServicesSection() {
         <div className="max-w-6xl mx-auto relative z-10">
           {/* Swiss Typography */}
           <div ref={headerAnimation.ref} className={`mb-20 ${headerAnimation.className}`}>
-            <p className="text-xs uppercase tracking-[0.3em] text-white/60 font-medium mb-6">
+            <p className="text-3xl md:text-4xl uppercase tracking-[0.15em] text-white/60 font-medium mb-6">
               What We Offer
             </p>
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 uppercase tracking-tight gradient-flow-text leading-[1.2]">

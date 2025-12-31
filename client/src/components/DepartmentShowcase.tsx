@@ -54,7 +54,7 @@ export default function DepartmentShowcase() {
       <div className="max-w-6xl mx-auto relative z-10">
         {/* Swiss Typography */}
         <div ref={headerAnimation.ref} className={`text-center mb-16 ${headerAnimation.className}`}>
-          <p className="text-xs uppercase tracking-[0.3em] text-white/60 font-medium mb-6">
+          <p className="text-3xl md:text-4xl uppercase tracking-[0.15em] text-white/60 font-medium mb-6">
             Our Structure
           </p>
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold uppercase tracking-tight mb-6 gradient-flow-text leading-[1.2]">
