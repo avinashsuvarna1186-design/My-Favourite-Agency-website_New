@@ -9,13 +9,7 @@ export default function Footer() {
   return (
     <footer className="py-12 px-4 border-t border-border" data-testid="footer-main">
       <div className="max-w-6xl mx-auto">
-        <div className="flex flex-col md:flex-row justify-between items-center gap-8">
-          <div className="text-center md:text-left">
-            <p className="text-sm text-muted-foreground max-w-md">
-              The people you call when the deadline's weird and the brief's weirder.
-            </p>
-          </div>
-
+        <div className="flex flex-col md:flex-row justify-center items-center gap-8">
           <div className="flex flex-wrap gap-6 justify-center">
             <button
               onClick={() => scrollToSection("work")}
