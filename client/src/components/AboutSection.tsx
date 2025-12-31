@@ -93,7 +93,7 @@ export default function AboutSection() {
         {/* Swiss Typography - Clear Hierarchy */}
         <div ref={headerAnimation.ref} className={`text-center mb-20 ${headerAnimation.className}`}>
           {/* Eyebrow text - Small, uppercase, tracked */}
-          <p className="text-xs uppercase tracking-[0.3em] text-white/60 font-medium mb-6">
+          <p className="text-3xl md:text-4xl uppercase tracking-[0.15em] text-white/60 font-medium mb-6">
             Our Approach
           </p>
           
