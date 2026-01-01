@@ -44,7 +44,6 @@ export default function ComparisonSection() {
       data-testid="section-comparison"
     >
       <SwissGrid />
-
       <div className="max-w-5xl mx-auto relative z-10">
         {/* Swiss Typography */}
         <div className="mb-16 text-center">
@@ -56,7 +55,7 @@ export default function ComparisonSection() {
           </h2>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-2 gap-8 text-center">
           {/* Old Way Column - Fade and Scale */}
           <div>
             <h3 className="text-2xl font-bold mb-6 text-muted-foreground text-center flex items-center justify-center gap-2">
@@ -108,7 +107,6 @@ export default function ComparisonSection() {
           </div>
         </div>
       </div>
-
       <style>{`
         @keyframes competitiveFade {
           0% {
