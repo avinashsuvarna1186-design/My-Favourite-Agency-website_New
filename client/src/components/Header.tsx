@@ -127,7 +127,7 @@ export default function Header() {
         </div>
 
         {isMobileMenuOpen && (
-          <div className="md:hidden pb-4 border-t border-border mt-2 pt-4">
+          <div className="md:hidden pb-4 border-t border-border mt-2 pt-4 bg-white/10 backdrop-blur-md rounded-lg mx-2">
             <nav className="flex flex-col gap-2">
               {navItems.map((item) => (
                 item.isLink ? (
