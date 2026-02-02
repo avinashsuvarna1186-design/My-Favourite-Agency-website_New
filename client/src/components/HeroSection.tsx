@@ -157,8 +157,8 @@ export default function HeroSection() {
       >
         {/* Swiss Typography Hierarchy */}
         {/* Eyebrow text - Small, uppercase, tracked */}
-        <div className="mb-6">
-          <span className="text-4xl md:text-5xl uppercase tracking-[0.15em] text-white/70 font-medium">
+        <div className="mb-4 md:mb-6">
+          <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl uppercase tracking-[0.15em] text-white/70 font-medium leading-tight">
             {typedText}
             <span className="typing-cursor">|</span>
           </span>
@@ -166,14 +166,14 @@ export default function HeroSection() {
         
         {/* Primary headline - Large, bold, tight tracking */}
         <h1 
-          className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 gradient-flow-text drop-shadow-2xl leading-[1.1] tracking-tight"
+          className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold mb-4 md:mb-6 gradient-flow-text drop-shadow-2xl leading-[1.1] tracking-tight"
           data-testid="text-hero-headline"
         >
           Scroll Down.
         </h1>
 
         {/* Secondary headline - Medium size, emphasized */}
-        <p className="text-3xl md:text-4xl lg:text-5xl font-bold mb-12 text-white/90 leading-[1.3] tracking-tight">
+        <p className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-8 md:mb-12 text-white/90 leading-[1.3] tracking-tight">
           Things are About to{" "}
           <span className="text-primary inline-block animate-text-shimmer bg-gradient-to-r from-primary via-white to-primary bg-clip-text text-transparent bg-[length:200%_auto]">
             Get Good.

@@ -197,7 +197,7 @@ export default function EnhancedWorkSection() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
             {projects.map((project, index) => {
               const animationType = index % 2 === 0 ? "slide-left" : "slide-right";
               return (

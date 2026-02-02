@@ -73,16 +73,16 @@ export default function DepartmentShowcase() {
                 <ScrollAnimatedWrapper animationType="fade-in" delay={index * 100}>
                   <Card className="hover-elevate relative" data-testid={`card-department-${index}`}>
                     <div className="absolute left-0 top-0 bottom-0 w-1 bg-primary rounded-l-md" />
-                    <CardContent className="p-8 md:p-10">
-                      <div className="flex items-start gap-6 mb-6">
-                        <div className="bg-icon-surface p-4 rounded-md flex-shrink-0">
-                          <Icon className="w-8 h-8 text-primary" />
+                    <CardContent className="p-6 md:p-8 lg:p-10">
+                      <div className="flex flex-col sm:flex-row items-start gap-4 md:gap-6 mb-6">
+                        <div className="bg-icon-surface p-3 md:p-4 rounded-md flex-shrink-0">
+                          <Icon className="w-6 h-6 md:w-8 md:h-8 text-primary" />
                         </div>
                         <div className="flex-1">
-                          <h3 className="text-3xl md:text-4xl font-bold text-foreground mb-4 uppercase spaced-text">
+                          <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-3 md:mb-4 uppercase spaced-text">
                             {dept.name}
                           </h3>
-                          <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
+                          <p className="text-base md:text-lg lg:text-xl text-muted-foreground leading-relaxed">
                             {dept.philosophy}
                           </p>
                         </div>
