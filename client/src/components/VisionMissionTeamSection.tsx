@@ -4,7 +4,7 @@ import { Target, Compass } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import avinashPhoto from "@assets/Gemini_Generated_Image_hmkgtuhmkgtuhmkg_1762517890408.png";
 import prattyushPhoto from "@assets/Gemini_Generated_Image_txklxktxklxktxkl_1762517928496.png";
-import sajjadPhoto from "@assets/Gemini_Generated_Image_veag3aveag3aveag_1762518004845.png";
+import kinjalPhoto from "@assets/kinjal-photo_1772033489160.jpg";
 import juiePhoto from "@assets/Gemini_Generated_Image_Juiee_1762518049953.png";
 
 export default function VisionMissionTeamSection() {
@@ -35,14 +35,14 @@ export default function VisionMissionTeamSection() {
       imagePosition: "center 20%",
     },
     {
-      name: "Sajjad Jafri",
-      role: "Website Designer Visualizer",
-      aka: "The guy who builds sexy websites while you are still writing the brief",
-      bio: "Sajjad turns websites around faster than you can say 'I want a website for my brand.' He's the one who brings ideas and visualization to life, turning them into slick, scrollable and responsive beauties; always aligned with the visual identity and brand vibe. He works hand-in-mouse with Avinash to ensure synchronicity and alignment with all of the brand's marketing communication.",
-      masterOf: "Websites that wow and woo, UI that glues you and visuals that vibe.",
-      vibe: "Moves fast, designs faster and always on brand.",
-      image: sajjadPhoto,
-      imagePosition: "center 10%",
+      name: "Kinjal Goswami",
+      role: "Go-To-Market Architect",
+      aka: "The One Who Turns Products into Clear Market Stories",
+      bio: "Kinjal works at the intersection of product, marketing and revenue, where clarity matters most. With a background in IT engineering and an MBA in marketing, she brings together technical depth and market intuition to help products move from 'we've built it' to 'the market understands it.' Having worked across both agency and client-side environments, she brings a full-funnel perspective to how products are positioned, launched, and scaled. At MFA, she focuses on simplifying complexity — asking the hard questions early, structuring go-to-market decisions thoughtfully, and designing strategies built for real-world execution, not just presentations.",
+      masterOf: "Go-to-market strategy, product positioning, full-funnel marketing, and launch execution.",
+      vibe: "Because strong products don't win by existing. They win by being understood.",
+      image: kinjalPhoto,
+      imagePosition: "center 15%",
     },
     {
       name: "Juie Merchant",
