@@ -43,6 +43,7 @@ export default function VisionMissionTeamSection() {
       vibe: "Because strong products don't win by existing. They win by being understood.",
       image: kinjalPhoto,
       imagePosition: "center 15%",
+      imageScale: "scale-[125%]",
     },
     {
       name: "Juie Merchant",
@@ -127,7 +128,7 @@ export default function VisionMissionTeamSection() {
                         <AvatarImage 
                           src={member.image} 
                           alt={member.name} 
-                          className="scale-110 object-cover"
+                          className={`${'imageScale' in member ? (member as any).imageScale : 'scale-110'} object-cover`}
                           style={{ objectPosition: member.imagePosition }}
                         />
                       )}
