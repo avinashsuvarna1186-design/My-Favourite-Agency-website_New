@@ -147,7 +147,7 @@ export default function EnhancedWorkSection() {
       image: etGbs1,
       gallery: [etGbs1, etGbs2, etGbs3, etGbs4, etGbs5, etGbs6, etGbs7, etGbs8, etGbs9],
       stats: [
-        { label: "Stage Backdrops", value: "9+" },
+        { label: "Stage Backdrops", value: "40+" },
         { label: "Event Scale", value: "National" },
       ],
     },
