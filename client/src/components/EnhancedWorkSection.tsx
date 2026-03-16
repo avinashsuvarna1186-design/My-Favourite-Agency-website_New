@@ -39,6 +39,15 @@ import kalabharathiSlide44 from "@assets/Artboard_44@3x_1767193495509.png";
 import kalabharathiSlide56 from "@assets/Artboard_56@3x_1767193495509.png";
 import kalabharathiSlide57 from "@assets/Artboard_57@3x_1767193495509.png";
 import kalabharathiSlide60 from "@assets/Artboard_60@3x_1767193495509.png";
+import etGbs1 from "@assets/WhatsApp_Image_2026-02-27_at_17.45.31_1773658130186.jpeg";
+import etGbs2 from "@assets/WhatsApp_Image_2026-02-27_at_17.45.33_1773658130187.jpeg";
+import etGbs3 from "@assets/WhatsApp_Image_2026-02-27_at_17.45.35_1773658130187.jpeg";
+import etGbs4 from "@assets/WhatsApp_Image_2026-02-27_at_17.45.36_1773658130187.jpeg";
+import etGbs5 from "@assets/WhatsApp_Image_2026-02-27_at_17.45.37_1773658130188.jpeg";
+import etGbs6 from "@assets/WhatsApp_Image_2026-02-27_at_17.45.40_(1)_1773658130188.jpeg";
+import etGbs7 from "@assets/WhatsApp_Image_2026-02-27_at_17.45.48_(1)_1773658130188.jpeg";
+import etGbs8 from "@assets/WhatsApp_Image_2026-02-27_at_17.45.54_1773658130189.jpeg";
+import etGbs9 from "@assets/WhatsApp_Image_2026-02-27_at_17.45.56_1773658130189.jpeg";
 import { Badge } from "@/components/ui/badge";
 import SwissGrid from "./SwissGrid";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
@@ -128,6 +137,18 @@ export default function EnhancedWorkSection() {
       stats: [
         { label: "Business Growth", value: "+100%" },
         { label: "Client Trust", value: "Exceptional" },
+      ],
+    },
+    {
+      title: "Event Backdrop Design",
+      client: "ET Global Business Summit 2026",
+      services: ["Event Branding", "Stage Backdrop", "Visual Identity"],
+      description: "Designed large-scale stage backdrops for the ET Now Global Business Summit 2026 — one of India's most prestigious business events. Our work set the visual tone for high-profile sessions covering India's economic ambitions, private equity, global trade, and market leadership.",
+      image: etGbs1,
+      gallery: [etGbs1, etGbs2, etGbs3, etGbs4, etGbs5, etGbs6, etGbs7, etGbs8, etGbs9],
+      stats: [
+        { label: "Stage Backdrops", value: "9+" },
+        { label: "Event Scale", value: "National" },
       ],
     },
     {
