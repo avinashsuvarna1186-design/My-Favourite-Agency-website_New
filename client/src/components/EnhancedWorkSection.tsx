@@ -39,6 +39,11 @@ import kalabharathiSlide44 from "@assets/Artboard_44@3x_1767193495509.png";
 import kalabharathiSlide56 from "@assets/Artboard_56@3x_1767193495509.png";
 import kalabharathiSlide57 from "@assets/Artboard_57@3x_1767193495509.png";
 import kalabharathiSlide60 from "@assets/Artboard_60@3x_1767193495509.png";
+import shemarooCenter from "@assets/Filmart_Centerwall_final_1773658866483.jpg";
+import shemarooLeft from "@assets/Filmart_Leftwall_final_1773658866489.jpg";
+import shemarooRight from "@assets/Filmart_Rightwall_final_1773658866490.jpg";
+import shemarooMockup1 from "@assets/Stall-Mock-up_1_1773658889864.jpg";
+import shemarooMockup2 from "@assets/Stall-Mock-up_2_1773658889869.jpg";
 import etGbs1 from "@assets/WhatsApp_Image_2026-02-27_at_17.45.31_1773658130186.jpeg";
 import etGbs2 from "@assets/WhatsApp_Image_2026-02-27_at_17.45.33_1773658130187.jpeg";
 import etGbs3 from "@assets/WhatsApp_Image_2026-02-27_at_17.45.35_1773658130187.jpeg";
@@ -137,6 +142,18 @@ export default function EnhancedWorkSection() {
       stats: [
         { label: "Business Growth", value: "+100%" },
         { label: "Client Trust", value: "Exceptional" },
+      ],
+    },
+    {
+      title: "Exhibition Stall Design",
+      client: "Shemaroo Entertainment",
+      services: ["Stall Design", "Event Branding", "Visual Design"],
+      description: "Designed a high-impact exhibition stall for Shemaroo at HK Filmart 2026, featuring three immersive wall panels showcasing their upcoming OTT titles — Kattalan, Lokah, and Cha Tha Pacha. Each panel was crafted to maximize visual drama and draw global buyers into the world of Indian storytelling.",
+      image: shemarooMockup1,
+      gallery: [shemarooMockup1, shemarooMockup2, shemarooCenter, shemarooLeft, shemarooRight],
+      stats: [
+        { label: "Wall Panels", value: "3" },
+        { label: "Event", value: "HK Filmart" },
       ],
     },
     {
